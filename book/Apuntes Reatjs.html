@@ -1,0 +1,2452 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Apuntes Reactjs - Mis notas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="custom2.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Apuntes ALM.html"><strong aria-hidden="true">1.</strong> Apuntes ALM</a></li><li class="chapter-item "><a href="Apuntes AspNet Handfire.html"><strong aria-hidden="true">2.</strong> Apuntes AspNet Handfire</a></li><li class="chapter-item "><a href="Apuntes Azure Lista.html"><strong aria-hidden="true">3.</strong> Azure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes Azure AD.html"><strong aria-hidden="true">3.1.</strong> Apuntes Azure AD</a></li><li class="chapter-item "><a href="Apuntes Azure App Service.html"><strong aria-hidden="true">3.2.</strong> Apuntes Azure App Service.md</a></li><li class="chapter-item "><a href="Apuntes Azure Devops.html"><strong aria-hidden="true">3.3.</strong> Apuntes Azure Devops</a></li><li class="chapter-item "><a href="Apuntes Azure Functions.html"><strong aria-hidden="true">3.4.</strong> Apuntes Azure Functions</a></li><li class="chapter-item "><a href="Apuntes Azure Service Fabric.html"><strong aria-hidden="true">3.5.</strong> Apuntes Azure Service Fabric</a></li><li class="chapter-item "><a href="Apuntes Azure Sql Server.html"><strong aria-hidden="true">3.6.</strong> Apuntes Azure Sql Server</a></li><li class="chapter-item "><a href="Apuntes Azure.html"><strong aria-hidden="true">3.7.</strong> Apuntes Azure</a></li></ol></li><li class="chapter-item "><a href="Apuntes Consul.html"><strong aria-hidden="true">4.</strong> Apuntes Consul</a></li><li class="chapter-item "><a href="Apuntes CSS.html"><strong aria-hidden="true">5.</strong> Apuntes CSS</a></li><li class="chapter-item "><a href="Apuntes Expresiones Regulares.html"><strong aria-hidden="true">6.</strong> Apuntes Expresiones Regulares</a></li><li class="chapter-item "><a href="apuntes influxdb.html"><strong aria-hidden="true">7.</strong> Apuntes influxdb</a></li><li class="chapter-item "><a href="Apuntes jenkins basico.html"><strong aria-hidden="true">8.</strong> Apuntes jenkins basico</a></li><li class="chapter-item "><a href="Apuntes Nomad.html"><strong aria-hidden="true">9.</strong> Apuntes Nomad</a></li><li class="chapter-item "><a href="Apuntes Packer.html"><strong aria-hidden="true">10.</strong> Apuntes Packer</a></li><li class="chapter-item "><a href="Apuntes Proyectos.html"><strong aria-hidden="true">11.</strong> Apuntes Proyectos</a></li><li class="chapter-item expanded "><a href="Apuntes React Lista.html"><strong aria-hidden="true">12.</strong> React</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes React Context.html"><strong aria-hidden="true">12.1.</strong> Apuntes React Context</a></li><li class="chapter-item "><a href="Apuntes React Formik.html"><strong aria-hidden="true">12.2.</strong> Apuntes React Formik</a></li><li class="chapter-item "><a href="Apuntes React Hooks.html"><strong aria-hidden="true">12.3.</strong> Apuntes React Hooks</a></li><li class="chapter-item "><a href="Apuntes React useCallback.html"><strong aria-hidden="true">12.4.</strong> Apuntes React useCallback</a></li><li class="chapter-item "><a href="Apuntes React useContext.html"><strong aria-hidden="true">12.5.</strong> Apuntes React useContext</a></li><li class="chapter-item "><a href="Apuntes React useReducer context.html"><strong aria-hidden="true">12.6.</strong> Apuntes React useReducer</a></li><li class="chapter-item "><a href="Apuntes React useRef.html"><strong aria-hidden="true">12.7.</strong> Apuntes React useRef</a></li><li class="chapter-item expanded "><a href="Apuntes Reatjs.html" class="active"><strong aria-hidden="true">12.8.</strong> Apuntes Reactjs</a></li><li class="chapter-item "><a href="Apuntes Redux.html"><strong aria-hidden="true">12.9.</strong> Apuntes Redux</a></li><li class="chapter-item "><a href="Apuntes_gatsby.html"><strong aria-hidden="true">12.10.</strong> Apuntes Gatsby</a></li></ol></li><li class="chapter-item "><a href="Apuntes Rust.html"><strong aria-hidden="true">13.</strong> Apuntes Rust</a></li><li class="chapter-item "><a href="Apuntes Tailwind.html"><strong aria-hidden="true">14.</strong> Apuntes Tailwind</a></li><li class="chapter-item "><a href="Apuntes TemplateT4.html"><strong aria-hidden="true">15.</strong> Apuntes TemplateT4</a></li><li class="chapter-item "><a href="Apuntes Terraform Azure.html"><strong aria-hidden="true">16.</strong> Apuntes Terraform Azure</a></li><li class="chapter-item "><a href="Apuntes UrlRewrite.html"><strong aria-hidden="true">17.</strong> Apuntes UrlRewrite</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Windows Server</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes windows 2019.html"><strong aria-hidden="true">18.1.</strong> Apuntes windows 2019</a></li><li class="chapter-item "><a href="Apuntes windows ADDS.html"><strong aria-hidden="true">18.2.</strong> Apuntes windows ADDS</a></li><li class="chapter-item "><a href="Apuntes windows ADFS.html"><strong aria-hidden="true">18.3.</strong> Apuntes windows ADFS</a></li><li class="chapter-item "><a href="Apuntes Windows Core.html"><strong aria-hidden="true">18.4.</strong> Apuntes Windows Core</a></li><li class="chapter-item "><a href="Apuntes windows DNS.html"><strong aria-hidden="true">18.5.</strong> Apuntes Windows DNS</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">19.</strong> Asp.Net</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes_ApiGateway_Ocelot.html"><strong aria-hidden="true">19.1.</strong> Apuntes ApiGateway ocelot</a></li><li class="chapter-item "><a href="Apuntes_AspNET_Clasico_Inyeccion_Dependencies_01.html"><strong aria-hidden="true">19.2.</strong> Apuntes AspNet Clasico Inyeccion de dependencias</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_01.html"><strong aria-hidden="true">19.3.</strong> Apuntes AspNet Core GraphQL 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_02.html"><strong aria-hidden="true">19.4.</strong> Apuntes AspNet Core GraphQL 02</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_03.html"><strong aria-hidden="true">19.5.</strong> Apuntes AspNet Core GraphQL 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_04.html"><strong aria-hidden="true">19.6.</strong> Apuntes AspNet Core GraphQL 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_05.html"><strong aria-hidden="true">19.7.</strong> Apuntes AspNet Core GraphQL 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_01.html"><strong aria-hidden="true">19.8.</strong> Apuntes AspNet Core Inyeccion Dependencias 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_02.html"><strong aria-hidden="true">19.9.</strong> Apuntes AspNet Core Inyeccion Dependencias 02</a></li><li class="chapter-item "><a href="Apuntes_Aspnet_Core_Inyeccion_Dependencias_03.html"><strong aria-hidden="true">19.10.</strong> Apuntes AspNet Core Inyeccion Dependencias 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_04.html"><strong aria-hidden="true">19.11.</strong> Apuntes AspNet Core Inyeccion Dependencias 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_05.html"><strong aria-hidden="true">19.12.</strong> Apuntes AspNet Core Inyeccion Dependencias 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_06.html"><strong aria-hidden="true">19.13.</strong> Apuntes AspNet Core Inyeccion Dependencias 06</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_07.html"><strong aria-hidden="true">19.14.</strong> Apuntes AspNet Core Inyeccion Dependencias 07</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Serilog_SqlServer.html"><strong aria-hidden="true">19.15.</strong> Apuntes AspNet Core Serilog Sql Server</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core.html"><strong aria-hidden="true">19.16.</strong> Apuntes AspNet Core</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Identidy.html"><strong aria-hidden="true">19.17.</strong> Apuntes AspNet Idendity</a></li><li class="chapter-item "><a href="Apuntes_AspNet_IdentityServer4.html"><strong aria-hidden="true">19.18.</strong> Apuntes AspNet IdentityServer4</a></li><li class="chapter-item "><a href="Apuntes_AspNET_SignalR_01.html"><strong aria-hidden="true">19.19.</strong> Apuntes AspNet SignalR 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_SignalR.html"><strong aria-hidden="true">19.20.</strong> Apuntes AspNet SignalR</a></li><li class="chapter-item "><a href="Apuntes_Blazor.html"><strong aria-hidden="true">19.21.</strong> Apuntes AspNet Blazor</a></li><li class="chapter-item "><a href="Apuntes_ErrorExceptionWeb.html"><strong aria-hidden="true">19.22.</strong> Apuntes Error Excepcion Web</a></li><li class="chapter-item "><a href="Apuntes_Net5_Y_Docker.html"><strong aria-hidden="true">19.23.</strong> Apuntes Net5 y Docker</a></li><li class="chapter-item "><a href="ApuntesEF.html"><strong aria-hidden="true">19.24.</strong> Apuntes EF</a></li><li class="chapter-item "><a href="ApuntesMVC I.html"><strong aria-hidden="true">19.25.</strong> Apuntes MVC I</a></li><li class="chapter-item "><a href="ApuntesMVC II.html"><strong aria-hidden="true">19.26.</strong> Apuntes MVC II</a></li><li class="chapter-item "><a href="ApuntesNancy.html"><strong aria-hidden="true">19.27.</strong> Apuntes Nancy</a></li><li class="chapter-item "><a href="ApuntesNet.html"><strong aria-hidden="true">19.28.</strong> Apuntes Net</a></li><li class="chapter-item "><a href="ApuntesNinject.html"><strong aria-hidden="true">19.29.</strong> Apuntes Ninject</a></li><li class="chapter-item "><a href="ApuntesOptimizacion.html"><strong aria-hidden="true">19.30.</strong> Apuntes Optimizacion Framework</a></li><li class="chapter-item "><a href="apuntesOwin.html"><strong aria-hidden="true">19.31.</strong> Apuntes OWIN</a></li><li class="chapter-item "><a href="ApuntesWebApi.html"><strong aria-hidden="true">19.32.</strong> Apuntes Web Api</a></li><li class="chapter-item "><a href="ApuntesWebApiCore.html"><strong aria-hidden="true">19.33.</strong> Apuntes Web Api Core</a></li><li class="chapter-item "><a href="asp.net core webapi-ef template.html"><strong aria-hidden="true">19.34.</strong> Apuntes Asp.net core Web Api-EF Template</a></li><li class="chapter-item "><a href="asp.net core-EF.html"><strong aria-hidden="true">19.35.</strong> Apuntes Asp.net Core-EF</a></li><li class="chapter-item "><a href="asp.net core-MVC.html"><strong aria-hidden="true">19.36.</strong> Apuntes Asp.net Core-MVC</a></li><li class="chapter-item "><a href="Blazor_Apuntes.html"><strong aria-hidden="true">19.37.</strong> Apuntes Blazor</a></li><li class="chapter-item "><a href="ApuntesAutofac.html"><strong aria-hidden="true">19.38.</strong> Apuntes AutoFac</a></li></ol></li><li class="chapter-item "><a href="ApuntesDocker.html"><strong aria-hidden="true">20.</strong> Apuntes Docker I</a></li><li class="chapter-item "><a href="ApuntesDocker II.html"><strong aria-hidden="true">21.</strong> Apuntes Docker II</a></li><li class="chapter-item "><a href="ApuntesNGINX.html"><strong aria-hidden="true">22.</strong> Apuntes NGINX</a></li><li class="chapter-item "><a href="ApuntesJavascript.html"><strong aria-hidden="true">23.</strong> Apuntes Javascript I</a></li><li class="chapter-item "><a href="ApuntesJavascriptII.html"><strong aria-hidden="true">24.</strong> Apuntes Javascript II</a></li><li class="chapter-item "><a href="ApuntesKubernetes.html"><strong aria-hidden="true">25.</strong> Apuntes Kubernetes</a></li><li class="chapter-item "><a href="ApuntesGit.html"><strong aria-hidden="true">26.</strong> Apuntes Git</a></li><li class="chapter-item "><a href="webpack.html"><strong aria-hidden="true">27.</strong> Apuntes WebPack</a></li><li class="chapter-item "><a href="Apuntes-Angular.html"><strong aria-hidden="true">28.</strong> Apuntes Angular</a></li><li class="chapter-item "><a href="Apuntes_wasm.html"><strong aria-hidden="true">29.</strong> Apuntes WebAssembly</a></li><li class="chapter-item "><a href="apuntesCache.html"><strong aria-hidden="true">30.</strong> Apuntes Asp Cache</a></li><li class="chapter-item "><a href="apuntesCacheRedis.html"><strong aria-hidden="true">31.</strong> Apuntes Asp Cache Redix</a></li><li class="chapter-item "><a href="ApuntesActivarSSL.html"><strong aria-hidden="true">32.</strong> Apuntes Activar SSL</a></li><li class="chapter-item "><a href="Apuntes_certificados.html"><strong aria-hidden="true">33.</strong> Apuntes Certificados</a></li><li class="chapter-item "><a href="Apuntes_OAUTH20.html"><strong aria-hidden="true">34.</strong> Apuntes OAUTH 2.0</a></li><li class="chapter-item "><a href="ApuntesSeguridad.html"><strong aria-hidden="true">35.</strong> Apuntes Seguridad</a></li><li class="chapter-item "><a href="Apuntes_PowerShell.html"><strong aria-hidden="true">36.</strong> Apuntes PowerShell</a></li><li class="chapter-item "><a href="ApuntesTypescript.html"><strong aria-hidden="true">37.</strong> Apuntes TypeScript</a></li><li class="chapter-item "><a href="ApuntesRequirejs.html"><strong aria-hidden="true">38.</strong> Apuntes RequireJS</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Mis notas</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="titulo-apuntes-react-js"><a class="header" href="#titulo-apuntes-react-js">Titulo: &quot;Apuntes React js&quot;</a></h2>
+<h1 id="apuntes-react-js"><a class="header" href="#apuntes-react-js">Apuntes React js</a></h1>
+<ul>
+<li><a href="#apuntes-react-js">Apuntes React js</a>
+<ul>
+<li><a href="#introducing-jsx">Introducing JSX</a></li>
+<li><a href="#reactjs---environment-setup">ReactJS - Environment Setup</a></li>
+<li><a href="#creating-a-react-app-from-scratch">Creating a React App… From Scratch.</a></li>
+</ul>
+</li>
+<li><a href="#react-hooks">React Hooks</a>
+<ul>
+<li><a href="#usestate">useState</a></li>
+<li><a href="#useeffect">useEffect</a></li>
+</ul>
+</li>
+<li><a href="#pass-multiple-children-to-a-react-component-with-slots">Pass Multiple Children to a React Component with Slots</a></li>
+<li><a href="#use-props-as-named-slots">Use Props as Named Slots</a></li>
+<li><a href="#use-children-to-pass-props-directly">Use Children to Pass Props Directly</a></li>
+<li><a href="#react-formularios--formik-parte-1">React Formularios – Formik Parte 1</a></li>
+<li><a href="#react-typescript-tutorial">React Typescript Tutorial</a></li>
+<li><a href="#using-typescript-with-modern-react-ie-hooks-context-suspense">Using Typescript with modern React (i.e. hooks, context, suspense)</a></li>
+<li><a href="#how-to-create-custom-hooks-in-react">How to create custom Hooks in React</a></li>
+<li><a href="#reactjs-tutorial---12---destructuring-props-and-state">ReactJS Tutorial - 12 - Destructuring props and state</a></li>
+<li><a href="#manejo-de-estado-con-context-y-hooks-en-react">Manejo de estado con Context y Hooks en React</a></li>
+<li><a href="#react-context-en-20-minutos">React Context en 20 minutos</a></li>
+<li><a href="#react-has-built-in-dependency-injection">React Has Built-In Dependency Injection</a>
+<ul>
+<li><a href="#verificaci%C3%B3n-de-tipos-con-proptypes">Verificación de tipos con PropTypes</a></li>
+<li><a href="#react-default-props-a-complete-guide">React Default Props: a complete guide</a></li>
+</ul>
+</li>
+<li><a href="#midudevcrea-una-app-con-react-usando-create-react-app">MiduDev:Crea una app con React usando create-react-app</a>
+<ul>
+<li><a href="#midudevcss-grid-infinite-scroll-y-tests-en-nuestra-app-de-react">MiduDev:CSS Grid, Infinite Scroll y Tests en nuestra app de React</a></li>
+</ul>
+</li>
+<li><a href="#midudevcreando-custom-hooks-y-usando-context-para-conseguir-un-estado-global-en-reactjs">MiduDev:Creando Custom Hooks y usando Context para conseguir un estado global en ReactJS</a>
+<ul>
+<li><a href="#react--typescript-ejemplo-pr%C3%A1ctico-sencillo">React &amp; Typescript, Ejemplo Práctico sencillo</a></li>
+<li><a href="#webpack---typescript---react-boilerplate-from-scratch">Webpack - TypeScript - React boilerplate from Scratch!</a></li>
+<li><a href="#lazy-load-suspense-y-paginaci%C3%B3n-con-react">Lazy Load, Suspense y paginación con React</a></li>
+<li><a href="#crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-espa%C3%B1ol--parte-1">CRUD FullStack React JS, ASP.NET Core y SQL Server || Tutorial en Español || Parte 1</a></li>
+<li><a href="#react-lazy-loading--code-splitting">React Lazy Loading &amp; Code splitting</a></li>
+<li><a href="#react-formularios--formik-parte-1-1">React Formularios – Formik Parte 1</a></li>
+<li><a href="#build-a-website-with-react-react-bootstrap-react-router-and-styled-components">Build a website with React, React-Bootstrap, React-Router and Styled-Components</a></li>
+<li><a href="#5-top-react-hooks-libraries-compared">5 top React Hooks libraries compared</a>
+<ul>
+<li><a href="#react-hooks-lib">React Hooks Lib</a></li>
+<li><a href="#react-hanger">react-hanger</a></li>
+<li><a href="#react-hookedup">React hookedUp</a></li>
+<li><a href="#react-use">react-use</a></li>
+</ul>
+</li>
+<li><a href="#react-spinners">React Spinners</a></li>
+<li><a href="#react-loader-spinner">react-loader-spinner</a></li>
+<li><a href="#midudevc%C3%B3mo-usar-reactmemo-mejorar-el-rendimiento-y-hacer-deploy-con-vercel-de-nuestra-app-de-react">midudev:Cómo usar React.memo, mejorar el rendimiento y hacer deploy con Vercel de nuestra app de React</a></li>
+<li><a href="#midudevusereducer-y-tests-de-hooks-con-react-hooks-testing-library">midudev:useReducer y tests de hooks con react-hooks-testing-library</a></li>
+</ul>
+</li>
+</ul>
+<p>Para instalar el entorno de desarrollo para react</p>
+<pre><code>npm i create-react-app giffy
+</code></pre>
+<p>Tenemos dos librerias de administradores de estado, redux y mobX,  aunque tambien tenemos reack hooks context para manejar estados, habrá mas por supuesto.</p>
+<p>Para hacer imports amigables y limpios usando baseUrl con un fichero jsconfig.json con :</p>
+<pre><code>{
+  &quot;compilerOptions&quot;:{
+    &quot;baseUrl&quot;: &quot;src&quot;
+  }
+}
+</code></pre>
+<h3 id="introducing-jsx"><a class="header" href="#introducing-jsx">Introducing JSX</a></h3>
+<p>https://reactjs.org/docs/introducing-jsx.html</p>
+<h3 id="reactjs---environment-setup"><a class="header" href="#reactjs---environment-setup">ReactJS - Environment Setup</a></h3>
+<p>https://www.tutorialspoint.com/reactjs/reactjs_environment_setup.htm</p>
+<pre><code>
+npm install -g babel
+npm install -g babel-cli
+
+npm install react --save
+npm install react-dom --save
+
+npm install babel-core
+npm install babel-loader
+npm install babel-preset-react
+npm install babel-preset-react
+npm install babel-preset-es2015
+
+</code></pre>
+<h3 id="creating-a-react-app-from-scratch"><a class="header" href="#creating-a-react-app-from-scratch">Creating a React App… From Scratch.</a></h3>
+<p>https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658</p>
+<p>In the project root, create a file called .babelrc. Here, we’re telling babel that we’re going to use the env and react presets.</p>
+<pre><code>{
+  &quot;presets&quot;: [&quot;env&quot;, &quot;react&quot;]
+}
+</code></pre>
+<h1 id="react-hooks"><a class="header" href="#react-hooks">React Hooks</a></h1>
+<h3 id="usestate"><a class="header" href="#usestate">useState</a></h3>
+<pre><code>import React,{useState} from &quot;React&quot;;
+
+const [state,setState]=useState({
+  selectedCharacter=1,
+  side: 'light',
+  destroyed:true
+})
+
+const sideHandler = side =&gt;{
+  setState({
+    ...state,destroyed:true
+  })
+}
+</code></pre>
+<pre><code>import React,{useState} from &quot;React&quot;;
+
+const App= () =&gt; {
+    const [count,setCount] = useState(10);
+
+    return (
+      &lt;div&gt;
+          &lt;button onClick = {() =&gt; setCount(currentCount =&gt; currentCount + 1 )}&gt;
+             
+          &lt;/button&gt;
+      &lt;/div&gt;
+    )
+}
+</code></pre>
+<pre><code>import React,{useState} from &quot;React&quot;;
+
+const App =() =&gt; {
+  const = [email,setEmail] = useState('');
+  const = [password,setPassword] = useState('');
+
+  return (
+    &lt;div&gt;
+       &lt;input 
+        name=&quot;email&quot;
+        value={email}
+        onChange={e =&gt; setEmail(e.target.value)}
+        /&gt;
+       &lt;input 
+        name=&quot;password&quot;
+        value={password}
+        onChange = {e =&gt; setPassord(e.target.value)}
+        type=&quot;password&quot; /&gt;
+    &lt;/div&gt;  
+  );
+}
+
+</code></pre>
+<p>Podemos extraer los hooks en un archivo aparte, por ejemplo useForm.js y podemos refactorizar app.js de la siguiente forma:</p>
+<p>App.js</p>
+<pre><code>import React,{useState} from &quot;React&quot;
+import {useForm} from &quot;React&quot;
+
+const App = () =&gt; {
+   const [values,handleChange] = useForm({email:'',password:''});
+
+   return (
+     &lt;div&gt;
+       &lt;input name=&quot;email&quot; 
+         value={value.email}
+         onChange= {handleChange}
+       /&gt;
+       &lt;input 
+         name=&quot;password&quot; 
+         type=&quot;password&quot;
+         onChange={handleChange}
+       /&gt;
+     &lt;/div&gt;
+   );
+}
+</code></pre>
+<p>useForm.js</p>
+<pre><code>import {useState} from &quot;React&quot;;
+
+export const useForm= initialValues =&gt; {
+   const [values,setValues] = useState(initialValues);
+
+   return [
+     values,
+     e =&gt; {
+       ...values,
+       [e.target.name]: e.target.value
+     }
+    );
+   ]
+   
+</code></pre>
+<h3 id="useeffect"><a class="header" href="#useeffect">useEffect</a></h3>
+<pre><code>import React,{useEffect} from &quot;react&quot;;
+import {useForm} from &quot;./useForm&quot;;
+
+const App = () =&gt; {
+   const [values,handleChange] = useForm({email: &quot;&quot;,password:&quot;&quot;});
+
+   useEffect(() =&gt; {
+      console.log('render');
+
+   },[]);
+   
+   return (
+     &lt;div&gt;
+          &lt;input name=&quot;email&quot; 
+         value={value.email}
+         onChange= {handleChange}
+       /&gt;
+       &lt;input 
+         name=&quot;password&quot; 
+         type=&quot;password&quot;
+         onChange={handleChange}
+       /&gt;
+     &lt;/div&gt;
+
+   )
+   
+};
+</code></pre>
+<hr />
+<h1 id="pass-multiple-children-to-a-react-component-with-slots"><a class="header" href="#pass-multiple-children-to-a-react-component-with-slots">Pass Multiple Children to a React Component with Slots</a></h1>
+<p>https://daveceddia.com/pluggable-slots-in-react-components/</p>
+<pre><code>
+function Button(props) {
+  return (
+    &lt;button&gt;
+      {props.children}
+    &lt;/button&gt;
+  );
+}
+
+&lt;Button&gt;
+  &lt;Icon name=&quot;dollars&quot;/&gt;
+  &lt;span&gt;BUY NOW&lt;/span&gt;
+&lt;/Button&gt;
+
+</code></pre>
+<h1 id="use-props-as-named-slots"><a class="header" href="#use-props-as-named-slots">Use Props as Named Slots</a></h1>
+<pre><code>&lt;Layout
+  left={&lt;Sidebar/&gt;}
+  top={&lt;NavBar/&gt;}
+  center={&lt;Content/&gt;}
+/&gt;
+</code></pre>
+<pre><code>function Layout(props) {
+  return (
+    &lt;div className=&quot;layout&quot;&gt;
+      &lt;div className=&quot;top&quot;&gt;{props.top}&lt;/div&gt;
+      &lt;div className=&quot;left&quot;&gt;{props.left}&lt;/div&gt;
+      &lt;div className=&quot;center&quot;&gt;{props.center}&lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h1 id="use-children-to-pass-props-directly"><a class="header" href="#use-children-to-pass-props-directly">Use Children to Pass Props Directly</a></h1>
+<pre><code>function App({ user })/* esta utilizando {user} = props la desestructuracion de un objeto*/ {
+	return (
+		&lt;div className=&quot;app&quot;&gt;
+			&lt;Nav&gt;
+				&lt;UserAvatar user={user} size=&quot;small&quot; /&gt;
+			&lt;/Nav&gt;
+			&lt;Body
+				sidebar={&lt;UserStats user={user} /&gt;}
+				content={&lt;Content /&gt;}
+			/&gt;
+		&lt;/div&gt;
+	);
+}
+</code></pre>
+<pre><code>// Accept children and render it/them
+const Nav = ({ children }) =&gt; (
+  &lt;div className=&quot;nav&quot;&gt;
+    {children}
+  &lt;/div&gt;
+);
+
+// Body needs a sidebar and content, but written this way,
+// they can be ANYTHING
+const Body = ({ sidebar, content }) =&gt; (
+  &lt;div className=&quot;body&quot;&gt;
+    &lt;Sidebar&gt;{sidebar}&lt;/Sidebar&gt;
+    {content}
+  &lt;/div&gt;
+);
+
+const Sidebar = ({ children }) =&gt; (
+  &lt;div className=&quot;sidebar&quot;&gt;
+    {children}
+  &lt;/div&gt;
+);
+
+const Content = () =&gt; (
+  &lt;div className=&quot;content&quot;&gt;main content here&lt;/div&gt;
+);
+
+</code></pre>
+<pre><code>function App({ user }) {
+	return (
+		&lt;div className=&quot;app&quot;&gt;
+			&lt;Nav user={user} /&gt;
+			&lt;Body user={user} /&gt;
+		&lt;/div&gt;
+	);
+}
+
+const Content = () =&gt; &lt;div className=&quot;content&quot;&gt;main content here&lt;/div&gt;;
+
+const Sidebar = ({ user }) =&gt; (
+  &lt;div className=&quot;sidebar&quot;&gt;
+    &lt;UserStats user={user} /&gt;
+  &lt;/div&gt;
+);
+
+const Body = ({ user }) =&gt; (
+  &lt;div className=&quot;body&quot;&gt;
+    &lt;Sidebar user={user} /&gt;
+    &lt;Content user={user} /&gt;
+  &lt;/div&gt;
+);
+
+const Nav = ({ user }) =&gt; (
+  &lt;div className=&quot;nav&quot;&gt;
+    &lt;UserAvatar user={user} size=&quot;small&quot; /&gt;
+  &lt;/div&gt;
+);
+</code></pre>
+<hr />
+<h1 id="react-formularios--formik-parte-1"><a class="header" href="#react-formularios--formik-parte-1">React Formularios – Formik Parte 1</a></h1>
+<p>https://www.youtube.com/watch?v=Dj-Kjj8ZIBU&amp;list=PL33bS175Qm6fkEvRk7M8sTSZZyU7iLkAF&amp;index=2</p>
+<hr />
+<h1 id="react-typescript-tutorial"><a class="header" href="#react-typescript-tutorial">React Typescript Tutorial</a></h1>
+<p>https://www.youtube.com/watch?v=Z5iWr6Srsj8</p>
+<hr />
+<h1 id="using-typescript-with-modern-react-ie-hooks-context-suspense"><a class="header" href="#using-typescript-with-modern-react-ie-hooks-context-suspense">Using Typescript with modern React (i.e. hooks, context, suspense)</a></h1>
+<p>https://www.youtube.com/watch?v=BnIhk4igd8I&amp;t=2371s</p>
+<p>Comando npm para instalar lo necesario para react Typescript</p>
+<pre><code>npm i @babel/core 
+      @babel/preset-env 
+      @babel/preset-react 
+      @babel/preset-typescript 
+      webpack
+      webpack-cli 
+      webpack-dev-server 
+      babel-loader 
+      react 
+      react-dom 
+      @types/react 
+      @types/react-dom
+      --save
+</code></pre>
+<hr />
+<h1 id="how-to-create-custom-hooks-in-react"><a class="header" href="#how-to-create-custom-hooks-in-react">How to create custom Hooks in React</a></h1>
+<p>https://dev.to/damcosset/how-to-create-custom-hooks-in-react-44nd</p>
+<p><strong>Sin Custom Hooks</strong></p>
+<pre><code>const LayoutComponent = () =&gt; {
+  const [onSmallScreen, setOnSmallScreen] = useState(false);
+
+  useEffect(() =&gt; {
+    checkScreenSize();
+    window.addEventListener(&quot;resize&quot;, checkScreenSize);
+  }, []);
+
+  let checkScreenSize = () =&gt; {
+    setOnSmallScreen(window.innerWidth &lt; 768);
+  };
+
+  return (
+    &lt;div className={`${onSmallScreen ? &quot;small&quot; : &quot;large&quot;}`}&gt;
+      &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+};
+
+</code></pre>
+<p><strong>Creacion de un custom Hook</strong>
+useWindowWidth.js</p>
+<pre><code>
+import { useState, useEffect } from &quot;react&quot;;
+
+const useWindowsWidth = () =&gt; {
+  const [isScreenSmall, setIsScreenSmall] = useState(false);
+
+  let checkScreenSize = () =&gt; {
+    setIsScreenSmall(window.innerWidth &lt; 600);
+  };
+  useEffect(() =&gt; {
+    checkScreenSize();
+    window.addEventListener(&quot;resize&quot;, checkScreenSize);
+
+    return () =&gt; window.removeEventListener(&quot;resize&quot;, checkScreenSize);
+  }, []);
+
+  return isScreenSmall;
+};
+
+export default useWindowsWidth;
+
+</code></pre>
+<p>Luego lo podemos utilizar de la siguiente manera en el componente original:</p>
+<pre><code>import React from 'react'
+import useWindowWidth from './useWindowWidth.js'
+
+const MyComponent = () =&gt; {
+  const onSmallScreen = useWindowWidth();
+
+  return (
+    // Return some elements
+  )
+}
+</code></pre>
+<p>Otro ejemplo es que podemos tener el componente original de esta manera:</p>
+<pre><code>const ArticleWithComments = (articleId) =&gt; {
+  const [comments, setComments] = useState([])
+  const [error, setError] = useState(null)
+
+  let handleCommentsSuccessFetch = (articleComments) =&gt; setComments(articleComments)
+
+  let handleError = error =&gt; setError(error)
+
+  useEffect(() =&gt; {
+    fetchComments(articleId, handleCommentsSuccessFetch, handleError)
+  }, [])
+
+  return (
+    // Do something in the DOM
+  )
+}
+
+const BlogPostWithComments = (blogPostId) =&gt; {
+  const [comments, setComments] = useState([])
+  const [error, setError] = useState(null)
+
+  let handleCommentsSuccessFetch = (blogPostComments) =&gt; setComments(blogPostComments)
+
+  let handleError = error =&gt; setError(error)
+
+  useEffect(() =&gt; {
+    fetchComments(blogPostId, handleCommentsSuccessFetch, handleError)
+  }, [])
+
+  return (
+    // Do something in the DOM
+  )
+}
+</code></pre>
+<pre><code>const useCommentsRetriever = (entityId) =&gt; {
+  const [comments, setComments] = useState([]);
+  const [error, setError] = useState(null);
+
+  let handleCommentsSuccessFetch = (comments) =&gt; setComments(comments);
+
+  let handleError = (error) =&gt; setError(error);
+
+  useEffect(() =&gt; {
+    fetchComments(entityId, handleCommentsSuccessFetch, handleError);
+  }, []);
+
+  return [comments, error];
+};
+</code></pre>
+<pre><code>import useCommentsRetriever from './useCommentsRetriever.js'
+
+const ArticleWithComments = (articleId) =&gt; {
+
+  const [comments, error] = useCommentsRetriever(articleId)
+
+  return (
+    // Do something in the DOM
+  )
+}
+
+const BlogPostWithComments = (blogPostId) =&gt; {
+
+  const [comments, error] = useCommentsRetriever(blogPostId)
+
+  return (
+    // Do something in the DOM
+  )
+}
+</code></pre>
+<h1 id="reactjs-tutorial---12---destructuring-props-and-state"><a class="header" href="#reactjs-tutorial---12---destructuring-props-and-state">ReactJS Tutorial - 12 - Destructuring props and state</a></h1>
+<p>https://www.youtube.com/watch?v=5_PdMS9CLLI</p>
+<p>Desectructuracion de los parametros de un componente react</p>
+<p>Tenemos la siguiente componente:</p>
+<pre><code>const Greet = props =&gt; {
+
+  return (
+     &lt;div&gt;
+       &lt;h1&gt;
+          Hello {props.name}   {props.heroName}
+       &lt;/h1&gt;
+     &lt;/div&gt;
+    
+  )
+}
+</code></pre>
+<p>Si aplicamos el destructuring de las propiedades quedaria lo siguiente:</p>
+<pre><code>    const Greet = props =&gt; {
+      const {name,heroname} = props
+      return (
+        &lt;div&gt;
+           &lt;h1&gt;
+               Hello {name}   {heroName}
+           &lt;/h1&gt;
+        &lt;/div&gt;
+      )
+    }
+</code></pre>
+<hr />
+<h1 id="manejo-de-estado-con-context-y-hooks-en-react"><a class="header" href="#manejo-de-estado-con-context-y-hooks-en-react">Manejo de estado con Context y Hooks en React</a></h1>
+<p>https://medium.com/noders/manejo-de-estado-con-context-y-hooks-en-react-7adfc7a740a3</p>
+<pre><code>import React from 'react';
+const AlbumOfTheWeek = React.createContext({
+  title: 'Pop Food',
+  artist: 'Jack Stauber',
+  genre: 'Edible Pop', // lol
+});
+export default AlbumOfTheWeek;
+</code></pre>
+<pre><code>import React from 'react';
+import ReactDOM from 'react-dom';
+import AlbumOfTheWeek from './context/album-of-the-week';
+function App() {
+  return (
+    &lt;UserProfile /&gt;
+  );
+}
+function UserProfile() {
+  return (
+    &lt;section&gt;
+      &lt;h1&gt;Hi I'm Osman and this is my album of the week:&lt;/h1&gt;
+      &lt;AlbumOfTheWeek.Consumer&gt;
+        {album =&gt; (
+          &lt;dl&gt;
+            &lt;dt&gt;Title:&lt;/dt&gt;
+            &lt;dd&gt;{album.title}&lt;/dd&gt;
+            &lt;dt&gt;Artist:&lt;/dt&gt;
+            &lt;dd&gt;{album.artist}&lt;/dd&gt;
+            &lt;dt&gt;Genre:&lt;/dt&gt;
+            &lt;dd&gt;{album.genre}&lt;/dd&gt;
+          &lt;/dl&gt;
+        )}
+      &lt;/AlbumOfTheWeek.Consumer&gt;
+    &lt;/section&gt;
+  );
+}
+ReactDOM.render(
+  &lt;App /&gt;,
+  document.getElementByID('root')
+);
+</code></pre>
+<pre><code>// ...
+import { getAlbumOfTheWeek } from './services/album-of-the-week';
+class App extends React.Component {
+  state = {
+    album: null
+  };
+  componentDidMount() {
+    getAlbumOfTheWeek().then(res =&gt; {
+      this.setState({ album: res.data });
+    });
+  }
+  render() {
+    return (
+      &lt;AlbumOfTheWeek.Provider value={this.state.album}&gt;
+        &lt;UserProfile /&gt;
+      &lt;/AlbumOfTheWeek.Provider&gt;
+    );
+  }
+}
+</code></pre>
+<pre><code>function UserProfile() {
+  return (
+    &lt;section&gt;
+      &lt;h1&gt;Hi I'm Osman and this is my album of the week:&lt;/h1&gt;
+      &lt;AlbumOfTheWeek.Consumer&gt;
+        // Renderizamos la información sólo si album es truthy
+        {album =&gt; album &amp;&amp; (
+          &lt;dl&gt;
+            &lt;dt&gt;Title:&lt;/dt&gt;
+            &lt;dd&gt;{album.title}&lt;/dd&gt;
+            &lt;dt&gt;Artist:&lt;/dt&gt;
+            &lt;dd&gt;{album.artist}&lt;/dd&gt;
+            &lt;dt&gt;Genre:&lt;/dt&gt;
+            &lt;dd&gt;{album.genre}&lt;/dd&gt;
+          &lt;/dl&gt;
+        )}
+      &lt;/AlbumOfTheWeek.Consumer&gt;
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+<p><strong>Zapatero a tus zapatos -- Pastelero a tus pasteles</strong></p>
+<pre><code>class AlbumOfTheWeekProvider extends React.Component {
+  state = {
+    album: null
+  };
+  componentDidMount() {
+    getAlbumOfTheWeek().then(res =&gt; {
+      this.setState({ album: res.data });
+    });
+  }
+  render() {
+    const { children } = this.props;
+    return (
+      &lt;AlbumOfTheWeek.Provider value={this.state.album}&gt;
+        {children}
+      &lt;/AlbumOfTheWeek.Provider&gt;
+    );
+  }
+}
+</code></pre>
+<pre><code>function App() {
+  return (
+    &lt;AlbumOfTheWeekProvider&gt;
+      &lt;UserProfile /&gt;
+    &lt;/AlbumOfTheWeekProvider&gt;
+  );
+}
+ReactDOM.render(
+  &lt;App /&gt;,
+  document.getElementByID('root')
+);
+</code></pre>
+<p><strong>Introducciendo Hooks</strong></p>
+<pre><code>import React from &quot;react&quot;;
+import {
+  BrowserRouter as Router, Switch, Route, NavLink
+} from &quot;react-router-dom&quot;;
+// ...
+function App() {
+  return (
+    &lt;AlbumOfTheWeekProvider&gt;
+      &lt;Router&gt;
+        &lt;nav&gt;
+          &lt;NavLink exact activeClassName=&quot;active&quot; to=&quot;/&quot;&gt;
+            Home
+          &lt;/NavLink&gt;
+          &lt;NavLink activeClassName=&quot;active&quot; to=&quot;/album-of-the-week&quot;&gt;
+            Album
+          &lt;/NavLink&gt;
+        &lt;/nav&gt;
+        &lt;Switch&gt;
+          &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+          &lt;Route
+            path=&quot;/album-of-the-week&quot;
+            component={UserProfile}
+          /&gt;
+        &lt;/Switch&gt;
+      &lt;/Router&gt;
+    &lt;/AlbumOfTheWeekProvider&gt;
+  );
+}
+</code></pre>
+<pre><code>class UserProfile extends React.Component {
+  static contextType = AlbumOfTheWeek;
+  componentDidMount() {
+    // ¿Actualizamos document.title aquí?
+    if (this.context) {
+      document.title = this.context.title;
+    }
+  }
+  componentDidUpdate() {
+    // ¿O lo actualizamos aquí?
+    if (document.title !== this.context.title) {
+      document.title = this.context.title;
+    }
+  }
+  render() {
+    return (
+      &lt;section&gt;
+        &lt;h1&gt;Hi I'm Osman and this is my album of the week:&lt;/h1&gt;
+        {this.context &amp;&amp; (
+          &lt;dl&gt;
+            &lt;dt&gt;Title:&lt;/dt&gt;
+            &lt;dd&gt;{this.context.title}&lt;/dd&gt;
+            &lt;dt&gt;Artist:&lt;/dt&gt;
+            &lt;dd&gt;{this.context.artist}&lt;/dd&gt;
+            &lt;dt&gt;Genre:&lt;/dt&gt;
+            &lt;dd&gt;{this.context.genre}&lt;/dd&gt;
+          &lt;/dl&gt;
+        )}
+      &lt;/section&gt;
+    );
+  }
+}
+</code></pre>
+<pre><code>function UserProfile() {
+  const album = React.useContext(AlbumOfTheWeek);
+  React.useEffect(() =&gt; {
+    if (album) {
+      document.title = album.title;
+    }
+  }, [album]);
+  return (
+    &lt;section&gt;
+      &lt;h1&gt;Hi I'm Osman and this is my album of the week:&lt;/h1&gt;
+      {album &amp;&amp; (
+        &lt;dl&gt;
+          &lt;dt&gt;Title:&lt;/dt&gt;
+          &lt;dd&gt;{album.title}&lt;/dd&gt;
+          &lt;dt&gt;Artist:&lt;/dt&gt;
+          &lt;dd&gt;{album.artist}&lt;/dd&gt;
+          &lt;dt&gt;Genre:&lt;/dt&gt;
+          &lt;dd&gt;{album.genre}&lt;/dd&gt;
+        &lt;/dl&gt;
+      )}
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+<p><strong>Cambiar de lugar donde se provee el contexto.</strong></p>
+<pre><code>function App() {
+  return (
+    &lt;Router&gt;
+      &lt;nav&gt;
+        &lt;NavLink exact activeClassName=&quot;active&quot; to=&quot;/&quot;&gt;
+          Home
+        &lt;/NavLink&gt;
+        &lt;NavLink activeClassName=&quot;active&quot; to=&quot;/album-of-the-week&quot;&gt;
+          Album
+        &lt;/NavLink&gt;
+      &lt;/nav&gt;
+      &lt;Switch&gt;
+        &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+        &lt;Route
+          path=&quot;/album-of-the-week&quot;
+          render={routeProps =&gt; (
+            &lt;AlbumOfTheWeekProvider&gt;
+              &lt;UserProfile {...routeProps} /&gt;
+            &lt;/AlbumOfTheWeekProvider&gt;
+          )}
+        /&gt;
+      &lt;/Switch&gt;
+    &lt;/Router&gt;
+  );
+}
+</code></pre>
+<p><strong>Contexto como una API</strong></p>
+<pre><code>class AlbumOfTheWeekProvider extends React.Component {
+  state = {
+    album: null,
+    getAlbumOfTheWeek: this.getAlbumOfTheWeek.bind(this)
+  };
+  getAlbumOfTheWeek() {
+    if (this.state.album) {
+      return;
+    }
+    
+    return getAlbumOfTheWeek().then(res =&gt; {
+      this.setState({ album: res.data });
+    });
+  };
+  render() {
+    const { children } = this.props;
+    return (
+      &lt;AlbumOfTheWeek.Provider value={this.state}&gt;
+        {children}
+      &lt;/AlbumOfTheWeek.Provider&gt;;
+    );
+  }
+}
+</code></pre>
+<pre><code>function UserProfile() {
+  const {
+    album, getAlbumOfTheWeek
+  } = React.useContext(AlbumOfTheWeek);
+  useEffect(() =&gt; {
+    if (album) {
+      document.title = album.title;
+    }
+  }, [album]);
+  // Añadimos este efecto
+  useEffect(() =&gt; {
+    getAlbumOfTheWeek();
+  }, [getAlbumOfTheWeek]);
+  return (
+    &lt;section&gt;
+      &lt;h1&gt;Hi I'm Osman and this is my album of the week:&lt;/h1&gt;
+      {album &amp;&amp; (
+        &lt;dl&gt;
+          &lt;dt&gt;Title:&lt;/dt&gt;
+          &lt;dd&gt;{album.title}&lt;/dd&gt;
+          &lt;dt&gt;Artist:&lt;/dt&gt;
+          &lt;dd&gt;{album.artist}&lt;/dd&gt;
+          &lt;dt&gt;Genre:&lt;/dt&gt;
+          &lt;dd&gt;{album.genre}&lt;/dd&gt;
+        &lt;/dl&gt;
+      )}
+    &lt;/section&gt;
+  );
+}
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<hr />
+<h1 id="react-context-en-20-minutos"><a class="header" href="#react-context-en-20-minutos">React Context en 20 minutos</a></h1>
+<p>https://www.youtube.com/watch?v=gigKP6PPmW0</p>
+<hr />
+<h1 id="react-has-built-in-dependency-injection"><a class="header" href="#react-has-built-in-dependency-injection">React Has Built-In Dependency Injection</a></h1>
+<p>https://marmelab.com/blog/2019/03/13/react-dependency-injection.html</p>
+<p><strong>¿Que es inyeccion de dependencias?</strong></p>
+<pre><code>import ConsoleLogger from &quot;./ConsoleLogger&quot;;
+
+class Calculator {
+  constructor() {
+    this.logger = new ConsoleLogger();
+  }
+
+  add(a, b) {
+    this.logger.log(`Adding ${a} to ${b}`);
+    return a + b;
+  }
+}
+</code></pre>
+<pre><code>-import ConsoleLogger from './ConsoleLogger';
+
+class Calculator {
+-   constructor() {
+-       this.logger = new ConsoleLogger();
+-   }
++   constructor(logger) {
++       this.logger = logger;
++   }
+
+    add(a, b) {
+        this.logger.log(`Adding ${a} to ${b}`);
+        return a+b;
+    }
+}
+</code></pre>
+<pre><code>const logger = new ConsoleLogger();
+const calculator = new Calculator(logger);
+const result = calculator.add(1, 2); // console shows &quot;Adding 1 to 2&quot;
+</code></pre>
+<pre><code>const logger = new NullLogger();
+const calculator = new Calculator(logger);
+const result = calculator.add(1, 2); // console shows nothing
+</code></pre>
+<p><strong>JSX es Inyeccion de dependencias</strong></p>
+<pre><code>const ReviewList = props =&gt; (
+  &lt;List resource=&quot;reviews&quot; perPage={50}&gt;
+    &lt;Datagrid rowClick=&quot;edit&quot;&gt;
+      &lt;DateField source=&quot;date&quot; /&gt;
+      &lt;CustomerField source=&quot;customer_id&quot; /&gt;
+      &lt;ProductField source=&quot;product_id&quot; /&gt;
+      &lt;RatingField source=&quot;rating&quot; /&gt;
+      &lt;TextField source=&quot;body&quot; label=&quot;Comment&quot; /&gt;
+      &lt;StatusField source=&quot;status&quot; /&gt;
+    &lt;/Datagrid&gt;
+  &lt;/List&gt;
+);
+</code></pre>
+<pre><code>const ReviewList = props =&gt; (
+    &lt;List resource=&quot;reviews&quot; perPage={50}&gt;
+-       &lt;Datagrid rowClick=&quot;edit&quot;&gt;
++       &lt;Datagrid rowClick=&quot;edit&quot; body={&lt;MyDatagridBody /&gt;} &gt;
+            &lt;DateField source=&quot;date&quot; /&gt;
+            &lt;CustomerField source=&quot;customer_id&quot; /&gt;
+            &lt;ProductField source=&quot;product_id&quot; /&gt;
+            &lt;RatingField source=&quot;rating&quot; /&gt;
+            &lt;TextField source=&quot;body&quot; label=&quot;Comment&quot;/&gt;
+            &lt;StatusField source=&quot;status&quot; /&gt;
+        &lt;/Datagrid&gt;
+    &lt;/List&gt;
+)
+</code></pre>
+<pre><code>const ReviewList = props =&gt; (
+    &lt;List resource=&quot;reviews&quot; perPage={50}&gt;
+        &lt;Datagrid
+            rowClick=&quot;edit&quot;
+-           body={&lt;MyDatagridBody /&gt;}
++           body={&lt;MyDatagridBody withBulkActions /&gt;}
+        &gt;
+            &lt;DateField source=&quot;date&quot; /&gt;
+            &lt;CustomerField source=&quot;customer_id&quot; /&gt;
+            &lt;ProductField source=&quot;product_id&quot; /&gt;
+            &lt;RatingField source=&quot;rating&quot; /&gt;
+            &lt;TextField source=&quot;body&quot; label=&quot;Comment&quot;/&gt;
+            &lt;StatusField source=&quot;status&quot; /&gt;
+        &lt;/Datagrid&gt;
+    &lt;/List&gt;
+)
+</code></pre>
+<p><strong>Service Locator</strong></p>
+<pre><code>const englishTranslator = message =&gt; {
+  if (message == &quot;hello.world&quot;) {
+    return &quot;Hello, World!&quot;;
+  }
+  return &quot;Not yet translated&quot;;
+};
+
+const Greeting = ({ translate }) =&gt; {
+  return &lt;div&gt;{translate(&quot;hello.world&quot;)}.&lt;/div&gt;;
+};
+
+const App = () =&gt; &lt;Greeting translate={englishTranslator} /&gt;;
+</code></pre>
+<pre><code>import React, { useContext } from &quot;react&quot;;
+
+const englishMessages = message =&gt; {
+  if (message == &quot;hello.world&quot;) {
+    return &quot;Hello, World!&quot;;
+  }
+  return &quot;Not yet translated&quot;;
+};
+
+const TranslationContext = React.createContext();
+
+const Greeting = () =&gt; {
+  const translate = useContext(TranslationContext);
+  return &lt;div&gt;{translate(&quot;hello.world&quot;)}.&lt;/div&gt;;
+};
+
+const App = () =&gt; (
+  &lt;TranslationContext.Provider value={englishMessages}&gt;
+    &lt;Greeting /&gt;
+  &lt;/TranslationContext.Provider&gt;
+);
+</code></pre>
+<p><strong>Interface Segregation</strong></p>
+<p>Para este enfoque hay que utilizar typescript</p>
+<pre><code>interface ListChildProps {
+    data: any;
+    ids: Identifier[];
+    perPage?: number;
+}
+
+interface ListProps {
+    children: React.ReactElement&lt;ListChildProps&gt;;
+}
+
+const List: React.SFC&lt;ListProps&gt; = props =&gt; (
+    ...
+)
+</code></pre>
+<p>React.SFC es un antiguo metodo para crear componentes funcionales de una manera imperativa, esta clase esta deprecada ahora se utiliza React.FunctionComponent o React.FC</p>
+<pre><code>interface DummyProps {
+  foo: string;
+}
+const DummyListView: React.SFC&lt;DummyProps&gt; = () =&gt; &lt;span&gt;Hello, dummy!&lt;/span&gt;;
+
+const ReviewList = props =&gt; (
+  &lt;List resource=&quot;reviews&quot; perPage={50}&gt;
+    &lt;DummyListView /&gt;
+  &lt;/List&gt;
+);
+</code></pre>
+<hr />
+<h3 id="verificación-de-tipos-con-proptypes"><a class="header" href="#verificación-de-tipos-con-proptypes">Verificación de tipos con PropTypes</a></h3>
+<p>https://es.reactjs.org/docs/typechecking-with-proptypes.html</p>
+<hr />
+<h3 id="react-default-props-a-complete-guide"><a class="header" href="#react-default-props-a-complete-guide">React Default Props: a complete guide</a></h3>
+<p>https://blog.logrocket.com/a-complete-guide-to-default-props-in-react-984ea8e6972d/</p>
+<pre><code>// Simple React Component
+function ReactHeader(props) {
+  return &lt;h1&gt;React {props.version} Documentation&lt;/h1&gt;
+}
+</code></pre>
+<pre><code>// Simple React Component (without JSX)
+function ReactHeader(props) {
+  return React.createElement('h1', null, `React ${props.version} Documentation`);
+}
+</code></pre>
+<p><strong>Usando React.createClass() in React</strong></p>
+<pre><code>* Using React.createClass()
+ *
+ * Renders a Bootstrap themed button element.
+ */
+ 
+const ThemedButton = React.createClass({
+
+  // Component display name
+  displayName: 'ThemedButton',
+  
+  // render() method
+  render() {
+    const { theme, label, ...props } = this.props;
+    return { label }
+  }
+  
+});
+</code></pre>
+<pre><code>// [...ThemedButton component here]
+
+function App(props) {
+  return (
+    &lt;div&gt;
+      &lt;ThemedButton theme=&quot;danger&quot; label=&quot;Delete Item&quot; /&gt;
+      &lt;ThemedButton theme=&quot;primary&quot; label=&quot;Create Item&quot; /&gt;
+      &lt;ThemedButton theme=&quot;success&quot; label=&quot;Update Item&quot; /&gt;
+      &lt;ThemedButton theme=&quot;warning&quot; label=&quot;Add to Cart&quot; /&gt;
+      &lt;ThemedButton /&gt;
+    &lt;/div&gt;
+  );
+}
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(&lt;App /&gt;, rootElement);
+</code></pre>
+<pre><code>const ThemedButton = React.createClass({
+
+  // Component display name
+  displayName: 'ThemedButton',
+  
+  // render() method
+  render() {
+    const { theme, label, ...props } = this.props;
+    return &lt;button className={`btn btn-${theme}`} {...props}&gt;{ label }&lt;/button&gt;
+  },
+  
+  // Set default props
+  getDefaultProps() {
+    return {
+      theme: &quot;secondary&quot;,
+      label: &quot;Button Text&quot;
+    };
+  }
+  
+})
+</code></pre>
+<p><strong>Usando Componentes de Clase</strong></p>
+<pre><code>import React, { Component } from 'react';
+
+class ThemedButton extends Component {
+
+  // render() method
+  render() {
+    const { theme, label, ...props } = this.props;
+    return &lt;button className={`btn btn-${theme}`} {...props}&gt;{ label }&lt;/button&gt;
+  }
+
+}
+</code></pre>
+<pre><code>class ThemedButton extends React.Component {
+  render() {
+    // ...implement render method
+  }
+}
+
+// Set default props
+ThemedButton.defaultProps = {
+  theme: &quot;secondary&quot;,
+  label: &quot;Button Text&quot;
+};
+</code></pre>
+<pre><code>class ThemedButton extends React.Component {
+  render() {
+    // ...implement render method
+  }
+  
+  // Set default props
+  static defaultProps = {
+    theme: &quot;secondary&quot;,
+    label: &quot;Button Text&quot;
+  }
+}
+</code></pre>
+<p><strong>Componentes funcionales en React</strong></p>
+<pre><code>import React from 'react';
+
+function ThemedButton(props) {
+  const { theme, label, ...restProps } = props;
+  return &lt;button className={`btn btn-${theme}`} {...restProps}&gt;{ label }&lt;/button&gt;
+}
+</code></pre>
+<pre><code>function ThemedButton(props) {
+  // ...render component
+}
+
+// Set default props
+ThemedButton.defaultProps = {
+  theme: &quot;secondary&quot;,
+  label: &quot;Button Text&quot;
+};
+</code></pre>
+<pre><code>import React from 'react';
+
+// METHOD 1:
+// Default Props with destructuring
+function ThemedButton(props) {
+  const { theme = 'secondary', label = 'Button Text', ...restProps } = props;
+  return &lt;button className={`btn btn-${theme}`} {...restProps}&gt;{ label }&lt;/button&gt;
+}
+
+// METHOD 2:
+// More compact destructured props
+function ThemedButton({ theme = 'secondary', label = 'Button Text', ...restProps }) {
+  return &lt;button className={`btn btn-${theme}`} {...restProps}&gt;{ label }&lt;/button&gt;
+}
+</code></pre>
+<p><strong>Usando componentes de primer orden</strong>
+Hay una libreria muy utilizada en react para mezclar las propiedades que tu añades por defecto con las propiedades <em>props</em> que se utilizan en el componente</p>
+<pre><code>npm install recompose --save
+</code></pre>
+<pre><code>import React from 'react';
+import { defaultProps } from 'recompose';
+
+// React Component
+function ThemedButton(props) {
+  const { theme, label, ...restProps } = props;
+  return &lt;button className={`btn btn-${theme}`} {...restProps}&gt;{ label }&lt;/button&gt;
+}
+
+// Default Props HOC
+const withDefaultProps = defaultProps({
+  theme: &quot;secondary&quot;,
+  label: &quot;Button Text&quot;
+});
+
+// Enhanced Component with default props
+ThemedButton = withDefaultProps(ThemedButton);
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<hr />
+<h1 id="midudevcrea-una-app-con-react-usando-create-react-app"><a class="header" href="#midudevcrea-una-app-con-react-usando-create-react-app">MiduDev:Crea una app con React usando create-react-app</a></h1>
+<p>https://www.youtube.com/watch?v=QBLbXgeXMU8</p>
+<p>Autor:MiduDev</p>
+<p>Para instalar el entorno de desarrollo para react</p>
+<pre><code>npm i create-react-app giffy
+</code></pre>
+<p>App.css</p>
+<pre><code>.App{
+  text-align: center;
+}
+
+.App-content {
+  background-color: #282c34;
+  min-height: 100vh
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-link {
+  color: #61dafb;
+}
+
+</code></pre>
+<p>El codigo del componente App.js</p>
+<pre><code>import React,{useEffect, useState} from 'react'
+import './App.css'
+
+const apiUrl = '...'
+
+function App(){
+  const state = useState([])
+  const gifs= state[0]
+  const setGifs = state[1]
+  // o tambien lo podemos poner asi
+
+  const [gifs,setGifs] = useState([])
+  useEffect(function(){
+    fetch(apiUrl)
+           .then(res =&gt; res.json())
+           .then(response =&gt; {
+             const {data = []} = response
+             const gifs = data.map(image =&gt; image.images.downsize_medium.url)
+             setGifs(gifs)
+           })
+  },[])
+  
+  
+  return (
+    &lt;div className=&quot;App&quot; &gt;
+      &lt;section className=&quot;App-content&quot; &gt;
+        {
+           
+           gifs.map(singlegif =&gt; &lt;img src={singleGif} /&gt;)
+            
+        }
+        
+      &lt;/section&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App;
+</code></pre>
+<p>La llamada ajax se puede poner en una carpeta llamada services y crear funciones exportables
+Podemos crear en la carpeta services el fichero getGifs.js con lo siguiente:</p>
+<pre><code>const apiUrl = '...'
+
+export default function getGifs () {
+    return fetch(apiUrl)
+           .then(res =&gt; res.json())
+           .then(response =&gt; {
+             const {data = []} = response
+             const gifs = data.map(image =&gt; image.images.downsize_medium.url)
+               return gifs
+           })
+
+}
+</code></pre>
+<p>Y poner lo siguiente en la App:</p>
+<pre><code>import React,{useEffect, useState} from 'react'
+import './App.css'
+import getGifs from './services/getGifs';
+
+const apiUrl = '...'
+
+function App(){
+  const state = useState([])
+  const gifs= state[0]
+  const setGifs = state[1]
+  // o tambien lo podemos poner asi
+
+  const [gifs,setGifs] = useState([])
+  useEffect(function(){
+     getGifs().then(gifs =&gt; setGifs(gifs))
+  },[])
+  
+  
+  return (
+    &lt;div className=&quot;App&quot; &gt;
+      &lt;section className=&quot;App-content&quot; &gt;
+        {
+           
+           gifs.map(singlegif =&gt; &lt;img src={singleGif} /&gt;)
+            
+        }
+        
+      &lt;/section&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App;
+</code></pre>
+<p>Vamos a crear una carpeta components y dentro creamos un fichero  Gif.js</p>
+<pre><code>import React from 'react'
+
+export default function Gif ({title,id,url}) {
+  return (
+    &lt;div&gt;
+       &lt;h4&gt;{title}&lt;/h4&gt;
+         &lt;small&gt;{id}&lt;/small&gt;
+       &lt;img alt={title} src= {url} /&gt;
+    &lt;/div&gt;
+  )
+}
+
+
+</code></pre>
+<p>Refactorizamos y añadimos el componente Gif.js de la carpeta component</p>
+<pre><code>import React,{useEffect, useState} from 'react'
+import './App.css'
+import getGifs from './services/getGifs';
+import Gif from './components/Gif'
+
+const apiUrl = '...'
+
+function App(){
+  const state = useState([])
+  const gifs= state[0]
+  const setGifs = state[1]
+  // o tambien lo podemos poner asi
+
+  const [gifs,setGifs] = useState([])
+  useEffect(function(){
+     getGifs().then(gifs =&gt; setGifs(gifs))
+  },[])
+  
+  
+  return (
+    &lt;div className=&quot;App&quot; &gt;
+      &lt;section className=&quot;App-content&quot; &gt;
+        {
+           &lt;Gif id={singleGif.id}
+                title={singleGif.Title}
+                url={singleGif.url}
+           /&gt;
+           //gifs.map(singlegif =&gt; &lt;img src={singleGif} /&gt;)
+            
+        }
+        
+      &lt;/section&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App;
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<hr />
+<h2 id="midudevcss-grid-infinite-scroll-y-tests-en-nuestra-app-de-react"><a class="header" href="#midudevcss-grid-infinite-scroll-y-tests-en-nuestra-app-de-react">MiduDev:CSS Grid, Infinite Scroll y Tests en nuestra app de React</a></h2>
+<p>https://www.youtube.com/watch?v=oCHdFiCgOSE&amp;list=PLV8x_i1fqBw0B008sQn79YxCjkHJU84pC&amp;index=5</p>
+<p>css grid
+Aqui importante es grid-template-columns con la unidad de medida fraccion (fr) en este caso decimos 4 columnas</p>
+<pre><code>   .
+   .
+   .
+
+.ListOfGifs{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  
+}
+   .
+   .
+   .
+</code></pre>
+<p>Tambien podemos ponerlo asi el grid-template-colums con el atribute repeat para las fracciones</p>
+<pre><code>   .
+   .
+   .
+
+.ListOfGifs{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(4,1fr);
+  
+}
+   .
+   .
+   .
+</code></pre>
+<p>tambien podemos añadir un gap entre columnas tanto horizontal como vertical (0 16px)</p>
+<pre><code>    .
+    .
+    .
+
+.ListOfGifs{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 0 16px ; 
+}
+   .
+   .
+   .
+
+</code></pre>
+<p>ahora las columnas en vez de decirle 4 columnas, le decimos que lo calcule, que se auto ajuste:
+le pondemos el valor auto-fit en vez de cuatro columnas y el va ajustando automaticamente, conforme vamos cambiando de tamaño la ventana, el ira ajustando el numero de columnas posibles para el tamaño de la ventana</p>
+<pre><code>    .
+    .
+    .
+
+.ListOfGifs{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(auto-fit,1fr);
+  grid-gap: 0 16px ; 
+}
+   .
+   .
+
+</code></pre>
+<p>Esto tiene un problema y es que se queda por los lados espacios vacios, tenemos que echar mano de minmax en css</p>
+<pre><code>    .
+    .
+    .
+.ListOfGifs{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(auto-fit,minmax(300px , 1fr));
+  grid-gap: 0 16px ; 
+}
+   .
+   .
+
+</code></pre>
+<p>Tambien en vez de poner auto-fit podriamos poner auto-fill</p>
+<pre><code>    
+    .
+    .
+
+.ListOfGifs{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(auto-fill,minmax(300px , 1fr));
+  grid-gap: 0 16px ; 
+}
+
+   .
+   .
+</code></pre>
+<p>Podemos centrar los elementos entre cada fila con align-items: center</p>
+<pre><code>   
+    .
+    .
+.ListOfGifs{
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(auto-fill,minmax(300px , 1fr));
+  align-items: center; 
+}
+   .
+   .
+
+</code></pre>
+<p>tambien le podemos poner una altura maxima con max-height</p>
+<pre><code>.Gif-link{
+  color: #000;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  max-height:300px;
+  overflow: hidden;
+}
+
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<hr />
+<h1 id="midudevcreando-custom-hooks-y-usando-context-para-conseguir-un-estado-global-en-reactjs"><a class="header" href="#midudevcreando-custom-hooks-y-usando-context-para-conseguir-un-estado-global-en-reactjs">MiduDev:Creando Custom Hooks y usando Context para conseguir un estado global en ReactJS</a></h1>
+<p>https://www.youtube.com/watch?v=2qgs7buSnHQ</p>
+<p>Aqui esta el componente App.js</p>
+<pre><code>import {Link,Route} from 'wouter'
+
+export default function App() {
+  &lt;div className = &quot;App&quot; &gt;
+    &lt;section className=&quot;App-content&quot; &gt;
+      &lt;Link to = &quot;/&quot; &gt;
+         &lt;img className=&quot;App-logo&quot; alt='Giffy logo' src='/logo.png' /&gt;
+      &lt;/Link&gt;
+      &lt;Route component = {home} path=&quot;/&quot; &gt;
+      &lt;Route component = {SearchResults} path=&quot;/search/:keyword&quot; /&gt;
+      &lt;Route component = {Detail} path=&quot;/gif/:id&quot; /&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+ )
+}
+</code></pre>
+<p>El componente Gif</p>
+<pre><code>import React from 'react'
+import {Link} from 'wouter'
+import './Gif.css'
+
+export default function Gif({title,id,url})
+{
+  &lt;div className=&quot;Gif&quot; &gt;
+    &lt;Link to={`/gif/${id}`} className='Gif-link'&gt;
+      &lt;h4&gt;{title}&lt;/h4&gt;
+      &lt;img alt={title} src={url} /&gt;
+    &lt;/Link&gt;
+  &lt;/div&gt;
+}
+
+</code></pre>
+<p>La pagina o componente Home con la busqueda</p>
+<pre><code>import React,{useState} from 'react'
+import {Link,useLocation} from 'wouter'
+
+const POPULAR_GIFS = [&quot;Matrix&quot;,&quot;Venezuela&quot;,&quot;Chile&quot;,&quot;Colombia&quot;,&quot;Ecuador&quot;]
+
+export default function Home() {
+  const [keyword,setKeyword] = useState('')
+  const [path,pushLocation] = useLocation()
+  
+  const handleSubmit = evt =&gt; {
+    evt.preventDefault()
+
+    pushLocation(`/search/${keyword}`)
+  }
+
+  const handleChange = evt =&gt; {
+    setKeyword(evt.target.value)
+  }
+  
+  return (
+    &lt;&gt;
+      &lt;form onSubmit={handleSubmit}&gt;
+        &lt;input onChange={handleChange} type='text' value={keyword} /&gt;
+      &lt;/form&gt;
+      &lt;h3 className=&quot;App-title&quot;&gt;Los gifs mas populares&lt;/h3&gt;
+      &lt;ul&gt;
+      {POPULAR_GIFS.map((popularGif) =&gt; (
+        &lt;li key={popularGif}&gt;
+          &lt;Link to={`/search/${popularGif}`}&gt;Gifs de {popularGif} &lt;/Link&gt;
+        &lt;/li&gt;
+      ))}
+      &lt;/ul&gt;
+    &lt;/&gt;
+  )
+  
+  
+}
+
+</code></pre>
+<p>Creando la logica de  busqueda con hooks y con el spinner de progreso</p>
+<pre><code>import React,{useEffect,useState} from 'react'
+import Spinner from '../../components/Spinner'
+import ListOfGits from '../../components/ListOfGifs'
+import getGifs from '../../services/getGifs'
+
+export default SearchResults ({params}){
+  const {keyword} = params
+  const [loading,setLoading] = useState(false)
+  const [gifs, setGifs] = useState([])
+
+  useEffect(function () {
+    setLoading(true)
+    getGifs({keyword}).then(gifs =&gt; {
+      setGifs(gifs)
+      setLoading(false)
+    })
+  },[keyword])
+
+  return &lt;&gt;
+  {
+     loading ? &lt;Spinner /&gt; : &lt;ListOfGifs gifs={gifs} /&gt;
+  }
+  &lt;/&gt;
+}
+</code></pre>
+<p>Refactorizarlo con un react custom hook, creamos el nuevo hook en un archivo aparte</p>
+<pre><code>import {useEffect,useState} from 'react'
+import getGifs from '../services/getGifs'
+
+export default function useGifs ({keyword}) {
+  const [loading,setLoading] = useState(false)
+  const [gifs, setGifs] = useState([])
+
+  useEffect(function(){
+    setLoading(true)
+    getGifs({keyword}).then(gifs =&gt; {
+        setGifs(gifs)
+        setLoading(false)
+    })
+  },[keyword])
+
+  return {loading,gifs}
+}
+
+
+
+</code></pre>
+<p>Refactorizamos el codigo del componente para usar el custom hook</p>
+<pre><code>import React,{useEffect,useState} from 'react'
+import Spinner from '../../components/Spinner'
+import ListOfGits from '../../components/ListOfGifs'
+import {useGifs} from '../../hooks/useGifs'
+
+export default SearchResults ({params}){
+  const {keyword} = params
+  //Codigo del custom hook
+  const {loading,gifs} = useGifs({keyword})  
+  
+  
+//Codigo refactorizado  
+/*  
+  const [loading,setLoading] = useState(false)
+  const [gifs, setGifs] = useState([])
+
+  useEffect(function () {
+    setLoading(true)
+    getGifs({keyword}).then(gifs =&gt; {
+      setGifs(gifs)
+      setLoading(false)
+    })
+  },[keyword])
+*/
+  return &lt;&gt;
+  {
+     loading ? &lt;Spinner /&gt; : &lt;ListOfGifs gifs={gifs} /&gt;
+  }
+  &lt;/&gt;
+}
+
+</code></pre>
+<p>Podemos añadir un memo para optimizar el renderizado y que no renderize tanto</p>
+<pre><code>import React,{useEffect,useState} from 'react'
+import Spinner from '../../components/Spinner'
+import ListOfGits from '../../components/ListOfGifs'
+import {useGifs} from '../../hooks/useGifs'
+
+export  SearchResults ({params}){
+  const {keyword} = params
+  //Codigo del custom hook
+  const {loading,gifs} = useGifs({keyword})  
+  
+  
+//Codigo refactorizado  
+/*  
+  const [loading,setLoading] = useState(false)
+  const [gifs, setGifs] = useState([])
+
+  useEffect(function () {
+    setLoading(true)
+    getGifs({keyword}).then(gifs =&gt; {
+      setGifs(gifs)
+      setLoading(false)
+    })
+  },[keyword])
+*/
+  return &lt;&gt;
+  {
+     loading ? &lt;Spinner /&gt; : &lt;ListOfGifs gifs={gifs} /&gt;
+  }
+  &lt;/&gt;
+}
+
+export default React.memo(SearchResults)
+
+</code></pre>
+<hr />
+<h2 id="react--typescript-ejemplo-práctico-sencillo"><a class="header" href="#react--typescript-ejemplo-práctico-sencillo">React &amp; Typescript, Ejemplo Práctico sencillo</a></h2>
+<p>https://www.youtube.com/watch?v=IbJFERe9F9w&amp;t=801s</p>
+<p>Comenzar un proyecto con react typescrip</p>
+<pre><code>npx create-react-app react-tasks-app --template typescript
+
+</code></pre>
+<pre><code>import React,{Fragment,useState} from 'react'
+
+type FormElement = React.FormEvent&lt;HTMLFormElement&gt;
+
+function App(): JSX.Element {
+  const [newTask,setNewTask] = useState&lt;string&gt;('')
+
+  const handleSubmit = (e: FormElement) =&gt; {
+    e.preventDefault()
+    addTask(newTask);
+    console.log(newTask)
+  }
+  
+  const AddTask=(name:string) =&gt; {
+    const newTasks: ITask[] = [...tasks,{name,done: false}]
+    setTasks(newTasks)
+  }
+  
+  return (
+     &lt;Fragment&gt;   
+        &lt;form onSubmit={handleSubmit} &gt;
+            &lt;input type=&quot;text&quot; onChange={e =&gt; setNewTask(e.target.value)} /&gt;
+            &lt;button&gt;
+              Save
+            &lt;/button&gt;
+        &lt;/form&gt; 
+     &lt;/Fragment&gt;
+  )
+}
+
+
+</code></pre>
+<hr />
+<h2 id="webpack---typescript---react-boilerplate-from-scratch"><a class="header" href="#webpack---typescript---react-boilerplate-from-scratch">Webpack - TypeScript - React boilerplate from Scratch!</a></h2>
+<p>https://www.youtube.com/watch?v=3APDDtxohBU</p>
+<pre><code>npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin babel-loader
+</code></pre>
+<pre><code>npm install --save-dev @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript 
+</code></pre>
+<pre><code>npm install --save-dev typescript @types/react @types/react-dom
+</code></pre>
+<pre><code>npm install --save react react-dom
+</code></pre>
+<hr />
+<h2 id="lazy-load-suspense-y-paginación-con-react"><a class="header" href="#lazy-load-suspense-y-paginación-con-react">Lazy Load, Suspense y paginación con React</a></h2>
+<p>https://www.youtube.com/watch?v=VcxXipZg1-0&amp;list=PLV8x_i1fqBw0B008sQn79YxCjkHJU84pC&amp;index=4</p>
+<pre><code>import React,{Suspense} from 'react'
+import useNearScreen from 'hooks/useNearScreen'
+
+/* Carga dinamica de un control */
+const TrendingSearches = React.Lazy(
+   () =&gt; import('./TrendingSearches')
+)
+
+export default function LazyTrending() {
+
+  const {isNearScreen,fromRef} = useNearScreen({
+    distante:'200px'
+  })
+  
+  return &lt;div ref={fromRef}&gt;
+            &lt;Suspense fallback={null}&gt;
+              {isNearScreen ? &lt;TrendingSearches /&gt; : null}
+            &lt;/Suspense&gt;  
+         &lt;/div&gt;
+}
+
+</code></pre>
+<hr />
+<h2 id="crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-español--parte-1"><a class="header" href="#crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-español--parte-1">CRUD FullStack React JS, ASP.NET Core y SQL Server || Tutorial en Español || Parte 1</a></h2>
+<p>https://www.youtube.com/watch?v=Usj0J4rUumI&amp;list=PLqC1FgzJhTiw4HaSmkN8_mMgKlZayIQHe</p>
+<hr />
+<h2 id="react-lazy-loading--code-splitting"><a class="header" href="#react-lazy-loading--code-splitting">React Lazy Loading &amp; Code splitting</a></h2>
+<p>https://www.youtube.com/watch?v=tV9gvls8IP8</p>
+<hr />
+<h2 id="react-formularios--formik-parte-1-1"><a class="header" href="#react-formularios--formik-parte-1-1">React Formularios – Formik Parte 1</a></h2>
+<p>https://www.youtube.com/watch?v=Dj-Kjj8ZIBU&amp;t=1595s</p>
+<hr />
+<p>React Bootstrap Tutorial</p>
+<p>https://www.youtube.com/watch?v=8pKjULHzs0s</p>
+<pre><code>
+</code></pre>
+<hr />
+<h2 id="build-a-website-with-react-react-bootstrap-react-router-and-styled-components"><a class="header" href="#build-a-website-with-react-react-bootstrap-react-router-and-styled-components">Build a website with React, React-Bootstrap, React-Router and Styled-Components</a></h2>
+<p>https://www.youtube.com/watch?v=tOK9l5uP06U</p>
+<p>App.js</p>
+<pre><code>import React,{Component} from 'react'
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+import {Home} from './Home'
+import {About} from './About'
+import {Layout} from './Layout'
+import {NavigationBar} '.NavigationBar'
+
+class App extends Component{
+render() {
+  return (
+    &lt;React.Fragment&gt;
+      &lt;NavigationBar /&gt;
+      &lt;Layout&gt;
+       &lt;Router&gt; 
+         &lt;Switch&gt;
+             &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+             &lt;Route path=&quot;/about&quot; component={About} /&gt;
+             &lt;Route path=&quot;/contact&quot; component={Contact} /&gt;
+             &lt;Route component={NoMatch} /&gt;
+         &lt;/Switch&gt;
+       &lt;/Router&gt;
+      &lt;/Layout&gt;
+    &lt;/React.Fragment&gt;
+  )
+}
+
+}
+
+export default App
+</code></pre>
+<p>Home.js</p>
+<pre><code>import React from 'react'
+
+export const Home = () =&gt; (
+    &lt;div&gt;
+      &lt;h2&gt;Hello word&lt;/h2&gt;
+      &lt;p&gt;....&lt;/p&gt;
+      &lt;p&gt;....&lt;/p&gt;
+      &lt;p&gt;....&lt;/p&gt;
+      
+       
+    &lt;/div&gt;
+)
+</code></pre>
+<p>Layout.js</p>
+<pre><code>import React from 'react'
+import {Container} from 'react-bootstrap'
+
+export const Layout = (props) =&gt; (
+    &lt;Container&gt;
+       {props.children}
+    &lt;/Container&gt;
+)
+
+
+</code></pre>
+<p>NavigationBar.js</p>
+<pre><code>import React from 'react'
+import {Nav,Navbar} from 'react-bootstrap'
+import styled from 'styled-components'
+
+const Styles = styled.div`
+.navbar {
+   background-color: #222;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  color: #bbb;
+
+  &amp;:hover {
+    color: white;
+  }
+}
+
+`
+
+export const NavigationBar= () =&gt; (
+   &lt;Styles&gt;
+     &lt;Navbar expand=&quot;lg&quot; &gt;  
+        &lt;Navbar.Brand href=&quot;/&quot; &gt;Code Life&lt;/Navbar.Brand&gt;
+        &lt;Navbar.Toggle aria-controls=&quot;basic-navbar-nav&quot; /&gt;
+        &lt;Navbar.Collapse id=&quot;basic-navbar-nav&quot; &gt;
+           &lt;Nav className=&quot;ml-auto&quot; &gt;
+              &lt;Nav.Item&gt;&lt;Nav.Link href=&quot;/&quot; &gt;Home &lt;/Nav.Link&gt;&lt;/Nav.Item&gt;
+              &lt;Nav.Item&gt;&lt;Nav.Link href=&quot;/about&quot; &gt;About&lt;/Nav.Link&gt;&lt;/Nav.Item&gt;
+              &lt;Nav.Item&gt;&lt;Nav.Link href=&quot;/contact&quot;&gt;Contact&lt;/Nav.Link&gt;&lt;/Nav.Item&gt;
+           &lt;/Nav&gt;
+     &lt;/Navbar&gt; 
+   &lt;/Styles&gt;
+)
+
+</code></pre>
+<pre><code>
+</code></pre>
+<hr />
+<h2 id="5-top-react-hooks-libraries-compared"><a class="header" href="#5-top-react-hooks-libraries-compared">5 top React Hooks libraries compared</a></h2>
+<p>https://blog.logrocket.com/5-top-react-hooks-libraries-compared/</p>
+<p>Librerias de tipo Hook para react</p>
+<h3 id="react-hooks-lib"><a class="header" href="#react-hooks-lib">React Hooks Lib</a></h3>
+<pre><code>npm i react-hooks-lib --save
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useDidMount } from &quot;react-hooks-lib&quot;;
+
+export default function App() {
+  useDidMount(() =&gt; {
+    console.log(&quot;did mount&quot;);
+  });
+
+  return (
+    &lt;div className=&quot;App&quot;&gt;
+      &lt;h1&gt;Hello world&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useCounter } from &quot;react-hooks-lib&quot;;
+
+export default function App() {
+  const { count, inc, dec, reset } = useCounter(0);
+  return (
+    &lt;div&gt;
+      {count}
+      &lt;button onClick={() =&gt; inc(1)}&gt;increment&lt;/button&gt;
+      &lt;button onClick={() =&gt; dec(1)}&gt;decrement&lt;/button&gt;
+      &lt;button onClick={reset}&gt;reset&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useField } from &quot;react-hooks-lib&quot;;
+
+export default function App() {
+  const { value, bind } = useField(&quot;text&quot;);
+
+  return (
+    &lt;div&gt;
+      &lt;input type=&quot;text&quot; {...bind} /&gt;
+      &lt;p&gt;{value}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useField } from &quot;react-hooks-lib&quot;;
+
+export default function App() {
+  const { value, bind } = useField(&quot;text&quot;);
+
+  return (
+    &lt;div&gt;
+      &lt;select {...bind}&gt;
+        &lt;option value=&quot;apple&quot;&gt;apple&lt;/option&gt;
+        &lt;option value=&quot;orange&quot;&gt;orange&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;p&gt;{value}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h3 id="react-hanger"><a class="header" href="#react-hanger">react-hanger</a></h3>
+<ul>
+<li>useInput</li>
+<li>useBoolean</li>
+<li>useNumber</li>
+<li>useArray</li>
+<li>useOnMount</li>
+<li>useStateful</li>
+</ul>
+<pre><code>import React from &quot;react&quot;;
+import { useInput } from &quot;react-hanger&quot;;
+
+export default function App() {
+  const input = useInput(&quot;&quot;);
+
+  return (
+    &lt;div&gt;
+      &lt;input type=&quot;text&quot; value={input.value} onChange={input.onChange} /&gt;
+      &lt;p&gt;{input.value}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useNumber } from &quot;react-hanger&quot;;
+
+export default function App() {
+  const counter = useNumber(3, { lowerLimit: 0, upperLimit: 5 });
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt; {counter.value} &lt;/p&gt;
+      &lt;button onClick={() =&gt; counter.increase()}&gt; increase &lt;/button&gt;
+      &lt;button onClick={() =&gt; counter.decrease()}&gt; decrease &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useStateful } from &quot;react-hanger&quot;;
+
+export default function App() {
+  const username = useStateful(&quot;tom&quot;);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt; {username.value} &lt;/p&gt;
+      &lt;button onClick={() =&gt; username.setValue(&quot;tom&quot;)}&gt; tom &lt;/button&gt;
+      &lt;button onClick={() =&gt; username.setValue(&quot;jerry&quot;)}&gt; jerry &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<h3 id="react-hookedup"><a class="header" href="#react-hookedup">React hookedUp</a></h3>
+<pre><code>import React from &quot;react&quot;;
+import { useHover } from &quot;react-hookedup&quot;;
+
+export default function App() {
+  const { hovered, bind } = useHover();
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;{hovered ? &quot;hovered&quot; : &quot;not hovered&quot;}&lt;/p&gt;
+      &lt;input {...bind} /&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useOnMount } from &quot;react-hookedup&quot;;
+
+export default function App() {
+  useOnMount(() =&gt; console.log(&quot;mounted&quot;));
+  return &lt;div&gt; hello world &lt;/div&gt;;
+}
+</code></pre>
+<pre><code>import React, { useState } from &quot;react&quot;;
+import { useInterval } from &quot;react-hookedup&quot;;
+
+export default function App() {
+  const [time, setTime] = useState(new Date().toString());
+
+  useInterval(() =&gt; setTime(new Date().toString()), 1000);
+
+  return &lt;p&gt;{time}&lt;/p&gt;;
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useTimeout } from &quot;react-hookedup&quot;;
+
+export default function App() {
+  useTimeout(() =&gt; alert(&quot;hello world&quot;), 1500);
+
+  return &lt;h1&gt;hello world&lt;/h1&gt;;
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useOnlineStatus } from &quot;react-hookedup&quot;;
+
+export default function App() {
+  const { online } = useOnlineStatus();
+
+  return &lt;h1&gt;{online ? &quot;online&quot; : &quot;offline&quot;}&lt;/h1&gt;;
+}
+</code></pre>
+<h3 id="react-use"><a class="header" href="#react-use">react-use</a></h3>
+<pre><code>import React from &quot;react&quot;;
+import { useMouse } from &quot;react-use&quot;;
+
+export default function App() {
+  const ref = React.useRef(null);
+  const { docX, docY, posX, posY, elX, elY, elW, elH } = useMouse(ref);
+
+  return (
+    &lt;div ref={ref}&gt;
+      &lt;div&gt;
+        Mouse position in document - ({docX}, {docY})
+      &lt;/div&gt;
+      &lt;div&gt;
+        Mouse position in element - ({elX}, {elY})
+      &lt;/div&gt;
+      &lt;div&gt;
+        Element position- ({posX} , {posY})
+      &lt;/div&gt;
+      &lt;div&gt;
+        Element dimensions - {elW}x{elH}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import { useScroll } from &quot;react-use&quot;;
+
+export default function App() {
+  const scrollRef = React.useRef(null);
+  const { x, y } = useScroll(scrollRef);
+
+  return (
+    &lt;div ref={scrollRef} style={{ height: 300, overflowY: &quot;scroll&quot; }}&gt;
+      &lt;div style={{ position: &quot;fixed&quot; }}&gt;
+        &lt;div&gt;x: {x}&lt;/div&gt;
+        &lt;div&gt;y: {y}&lt;/div&gt;
+      &lt;/div&gt;
+      {Array(100)
+        .fill()
+        .map((_, i) =&gt; (
+          &lt;p key={i}&gt;{i}&lt;/p&gt;
+        ))}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React, { useState } from &quot;react&quot;;
+import useSpring from &quot;react-use/lib/useSpring&quot;;
+
+export default function App() {
+  const [target, setTarget] = useState(50);
+  const value = useSpring(target);
+
+  return (
+    &lt;div&gt;
+      {value}
+      &lt;br /&gt;
+      &lt;button onClick={() =&gt; setTarget(0)}&gt;Set 0&lt;/button&gt;
+      &lt;button onClick={() =&gt; setTarget(200)}&gt;Set 100&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<pre><code>import React, { useState } from &quot;react&quot;;
+import useCopyToClipboard from &quot;react-use/lib/useCopyToClipboard&quot;;
+
+export default function App() {
+  const [text, setText] = useState(&quot;&quot;);
+  const [state, copyToClipboard] = useCopyToClipboard();
+
+  return (
+    &lt;div&gt;
+      &lt;input value={text} onChange={(e) =&gt; setText(e.target.value)} /&gt;
+      &lt;button type=&quot;button&quot; onClick={() =&gt; copyToClipboard(text)}&gt;
+        copy text
+      &lt;/button&gt;
+      {state.error ? (
+        &lt;p&gt;error: {state.error.message}&lt;/p&gt;
+      ) : (
+        state.value &amp;&amp; &lt;p&gt;Copied {state.value}&lt;/p&gt;
+      )}
+    &lt;/div&gt;
+  );
+</code></pre>
+<pre><code>import React from &quot;react&quot;;
+import useLocalStorage from &quot;react-use/lib/useLocalStorage&quot;;
+
+export default function App() {
+  const [value, setValue, remove] = useLocalStorage(&quot;key&quot;, &quot;foo&quot;);
+
+  return (
+    &lt;div&gt;
+      &lt;div&gt;Value: {value}&lt;/div&gt;
+      &lt;button onClick={() =&gt; setValue(&quot;bar&quot;)}&gt;bar&lt;/button&gt;
+      &lt;button onClick={() =&gt; setValue(&quot;baz&quot;)}&gt;baz&lt;/button&gt;
+      &lt;button onClick={() =&gt; remove()}&gt;Remove&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<hr />
+<p>Libreria Hook para cargar api rest en react</p>
+<p>SWR, React Hooks for Remote Data fetching</p>
+<pre><code>npm install swr
+</code></pre>
+<pre><code>const { data, error, isValidating, mutate } = useSWR(key, fetcher, options)
+</code></pre>
+<pre><code>import fetch from 'unfetch'
+
+const fetcher = url =&gt; fetch(url).then(r =&gt; r.json())
+
+function App() {
+  const { data } = useSWR('/api/data', fetcher)
+  // ...
+}
+</code></pre>
+<pre><code>import { request } from 'graphql-request'
+
+const fetcher = query =&gt; request('/api/graphql', query)
+
+function App() {
+  const { data, error } = useSWR(
+    `{
+      Movie(title: &quot;Inception&quot;) {
+        releaseDate
+        actors {
+          name
+        }
+      }
+    }`,
+    fetcher
+  )
+  // ...
+}
+</code></pre>
+<p>Conditional Fetching</p>
+<pre><code>// conditionally fetch
+const { data } = useSWR(shouldFetch ? '/api/data' : null, fetcher)
+
+// ...or return a falsy value
+const { data } = useSWR(() =&gt; shouldFetch ? '/api/data' : null, fetcher)
+
+// ... or throw an error when user.id is not defined
+const { data } = useSWR(() =&gt; '/api/data?uid=' + user.id, fetcher)
+</code></pre>
+<p>Dependent Fetching</p>
+<pre><code>function MyProjects() {
+  const { data: user } = useSWR('/api/user')
+  const { data: projects } = useSWR(() =&gt; '/api/projects?uid=' + user.id)
+  // When passing a function, SWR will use the return
+  // value as `key`. If the function throws or returns
+  // falsy, SWR will know that some dependencies are not
+  // ready. In this case `user.id` throws when `user`
+  // isn't loaded.
+
+  if (!projects) return 'loading...'
+  return 'You have ' + projects.length + ' projects'
+}
+</code></pre>
+<p>Multiple Arguments</p>
+<pre><code>useSWR('/api/user', url =&gt; fetchWithToken(url, token))
+</code></pre>
+<pre><code>const { data: user } = useSWR(['/api/user', token], fetchWithToken)
+
+// ...and pass it as an argument to another query
+const { data: orders } = useSWR(user ? ['/api/orders', user] : null, fetchWithUser)
+</code></pre>
+<pre><code>// Don’t do this! Deps will be changed on every render.
+useSWR(['/api/user', { id }], query)
+
+// Instead, you should only pass “stable” values.
+useSWR(['/api/user', id], (url, id) =&gt; query(url, { id }))
+</code></pre>
+<p>Mutation and Post Request</p>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<hr />
+<h2 id="react-spinners"><a class="header" href="#react-spinners">React Spinners</a></h2>
+<p>Coleccion de spinner para react</p>
+<p>http://yuanyan.github.io/halogen/</p>
+<pre><code>import { useState } from &quot;react&quot;;
+import { css } from &quot;@emotion/core&quot;;
+import ClipLoader from &quot;react-spinners/ClipLoader&quot;;
+
+// Can be a string as well. Need to ensure each key-value pair ends with ;
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
+function App() {
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState(&quot;#ffffff&quot;);
+
+  return (
+    &lt;div className=&quot;sweet-loading&quot;&gt;
+      &lt;button onClick={() =&gt; setLoading(!loading)}&gt;Toggle Loader&lt;/button&gt;
+      &lt;input
+        value={color}
+        onChange={(input) =&gt; setColor(input.target.value)}
+        placeholder=&quot;Color of the loader&quot;
+      /&gt;
+
+      &lt;ClipLoader color={color} loading={loading} css={override} size={150} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+</code></pre>
+<hr />
+<h2 id="react-loader-spinner"><a class="header" href="#react-loader-spinner">react-loader-spinner</a></h2>
+<p>https://www.npmjs.com/package/react-loader-spinner</p>
+<hr />
+<h2 id="midudevcómo-usar-reactmemo-mejorar-el-rendimiento-y-hacer-deploy-con-vercel-de-nuestra-app-de-react"><a class="header" href="#midudevcómo-usar-reactmemo-mejorar-el-rendimiento-y-hacer-deploy-con-vercel-de-nuestra-app-de-react">midudev:Cómo usar React.memo, mejorar el rendimiento y hacer deploy con Vercel de nuestra app de React</a></h2>
+<p>https://www.youtube.com/watch?v=Wo7_OVtu1ls</p>
+<hr />
+<h2 id="midudevusereducer-y-tests-de-hooks-con-react-hooks-testing-library"><a class="header" href="#midudevusereducer-y-tests-de-hooks-con-react-hooks-testing-library">midudev:useReducer y tests de hooks con react-hooks-testing-library</a></h2>
+<p>https://www.youtube.com/watch?v=Wjy_nlYXTik&amp;t=2243s</p>
+<hr />
+<h2 id="crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-español--parte-1-1"><a class="header" href="#crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-español--parte-1-1">CRUD FullStack React JS, ASP.NET Core y SQL Server || Tutorial en Español || Parte 1</a></h2>
+<p>https://www.youtube.com/watch?v=Usj0J4rUumI&amp;list=PLqC1FgzJhTiw4HaSmkN8_mMgKlZayIQHe</p>
+<p>Tutorial completo con Asp.net Core React y sql server, aqui tenemos la primera parte son cuatro partes en videos de youtube</p>
+<pre><code>
+</code></pre>
+<hr />
+<h2 id="midudevfetching-y-mutación-de-datos-en-react-con-el-hook-useeffect"><a class="header" href="#midudevfetching-y-mutación-de-datos-en-react-con-el-hook-useeffect">midudev:Fetching y Mutación de Datos en React con el hook useEffect</a></h2>
+<p>https://www.youtube.com/watch?v=JEWFdKmr5wM</p>
+<pre><code>
+</code></pre>
+<hr />
+<h2 id="cómo-utilizar-use-reducer-en-react-hooks"><a class="header" href="#cómo-utilizar-use-reducer-en-react-hooks">Cómo utilizar USE REDUCER en React HOOKS!</a></h2>
+<p>https://www.youtube.com/watch?v=fZojNH1OplI</p>
+<pre><code>
+</code></pre>
+<hr />
+<h2 id="curso-react-45-validación-formularios-definición-de-componentes-y-lógica--1--4----jonmircha"><a class="header" href="#curso-react-45-validación-formularios-definición-de-componentes-y-lógica--1--4----jonmircha">Curso React: 45. Validación Formularios: Definición de componentes y lógica ( 1 / 4 ) - jonmircha</a></h2>
+<p>https://www.youtube.com/watch?v=JYFMc_S6kWc</p>
+<pre><code>
+</code></pre>
+<hr />
+<h2 id="curso-react-46-validación-formularios-programación-de-eventos--2--4----jonmircha"><a class="header" href="#curso-react-46-validación-formularios-programación-de-eventos--2--4----jonmircha">Curso React: 46. Validación Formularios: Programación de eventos ( 2 / 4 ) - jonmircha</a></h2>
+<p>https://www.youtube.com/watch?v=n6i_3H3sA-Q</p>
+<pre><code>
+</code></pre>
+<pre><code>
+</code></pre>
+<hr />
+<p>Redux desde cero - ¡Primeros pasos e introducción a Redux en español! (FullStack Bootcamp)</p>
+<p>https://www.youtube.com/watch?v=QEsukdXFxxs</p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Apuntes React useRef.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="Apuntes Redux.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Apuntes React useRef.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="Apuntes Redux.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="custom.js"></script>
+
+
+    </body>
+</html>

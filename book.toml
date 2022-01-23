@@ -1,0 +1,14 @@
+[book]
+authors = ["LAPTOP-CGJ3RLTN\\andre"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Mis notas"
+
+[output.html]
+additional-css = ["custom.css", "custom2.css"]
+additional-js = ["custom.js"]
+
+
+[output.html.fold]
+enable = true

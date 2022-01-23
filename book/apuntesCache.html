@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Apuntes Asp Cache - Mis notas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="custom2.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Apuntes ALM.html"><strong aria-hidden="true">1.</strong> Apuntes ALM</a></li><li class="chapter-item "><a href="Apuntes AspNet Handfire.html"><strong aria-hidden="true">2.</strong> Apuntes AspNet Handfire</a></li><li class="chapter-item "><a href="Apuntes Azure Lista.html"><strong aria-hidden="true">3.</strong> Azure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes Azure AD.html"><strong aria-hidden="true">3.1.</strong> Apuntes Azure AD</a></li><li class="chapter-item "><a href="Apuntes Azure App Service.html"><strong aria-hidden="true">3.2.</strong> Apuntes Azure App Service.md</a></li><li class="chapter-item "><a href="Apuntes Azure Devops.html"><strong aria-hidden="true">3.3.</strong> Apuntes Azure Devops</a></li><li class="chapter-item "><a href="Apuntes Azure Functions.html"><strong aria-hidden="true">3.4.</strong> Apuntes Azure Functions</a></li><li class="chapter-item "><a href="Apuntes Azure Service Fabric.html"><strong aria-hidden="true">3.5.</strong> Apuntes Azure Service Fabric</a></li><li class="chapter-item "><a href="Apuntes Azure Sql Server.html"><strong aria-hidden="true">3.6.</strong> Apuntes Azure Sql Server</a></li><li class="chapter-item "><a href="Apuntes Azure.html"><strong aria-hidden="true">3.7.</strong> Apuntes Azure</a></li></ol></li><li class="chapter-item "><a href="Apuntes Consul.html"><strong aria-hidden="true">4.</strong> Apuntes Consul</a></li><li class="chapter-item "><a href="Apuntes CSS.html"><strong aria-hidden="true">5.</strong> Apuntes CSS</a></li><li class="chapter-item "><a href="Apuntes Expresiones Regulares.html"><strong aria-hidden="true">6.</strong> Apuntes Expresiones Regulares</a></li><li class="chapter-item "><a href="apuntes influxdb.html"><strong aria-hidden="true">7.</strong> Apuntes influxdb</a></li><li class="chapter-item "><a href="Apuntes jenkins basico.html"><strong aria-hidden="true">8.</strong> Apuntes jenkins basico</a></li><li class="chapter-item "><a href="Apuntes Nomad.html"><strong aria-hidden="true">9.</strong> Apuntes Nomad</a></li><li class="chapter-item "><a href="Apuntes Packer.html"><strong aria-hidden="true">10.</strong> Apuntes Packer</a></li><li class="chapter-item "><a href="Apuntes Proyectos.html"><strong aria-hidden="true">11.</strong> Apuntes Proyectos</a></li><li class="chapter-item "><a href="Apuntes React Lista.html"><strong aria-hidden="true">12.</strong> React</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes React Context.html"><strong aria-hidden="true">12.1.</strong> Apuntes React Context</a></li><li class="chapter-item "><a href="Apuntes React Formik.html"><strong aria-hidden="true">12.2.</strong> Apuntes React Formik</a></li><li class="chapter-item "><a href="Apuntes React Hooks.html"><strong aria-hidden="true">12.3.</strong> Apuntes React Hooks</a></li><li class="chapter-item "><a href="Apuntes React useCallback.html"><strong aria-hidden="true">12.4.</strong> Apuntes React useCallback</a></li><li class="chapter-item "><a href="Apuntes React useContext.html"><strong aria-hidden="true">12.5.</strong> Apuntes React useContext</a></li><li class="chapter-item "><a href="Apuntes React useReducer context.html"><strong aria-hidden="true">12.6.</strong> Apuntes React useReducer</a></li><li class="chapter-item "><a href="Apuntes React useRef.html"><strong aria-hidden="true">12.7.</strong> Apuntes React useRef</a></li><li class="chapter-item "><a href="Apuntes Reatjs.html"><strong aria-hidden="true">12.8.</strong> Apuntes Reactjs</a></li><li class="chapter-item "><a href="Apuntes Redux.html"><strong aria-hidden="true">12.9.</strong> Apuntes Redux</a></li><li class="chapter-item "><a href="Apuntes_gatsby.html"><strong aria-hidden="true">12.10.</strong> Apuntes Gatsby</a></li></ol></li><li class="chapter-item "><a href="Apuntes Rust.html"><strong aria-hidden="true">13.</strong> Apuntes Rust</a></li><li class="chapter-item "><a href="Apuntes Tailwind.html"><strong aria-hidden="true">14.</strong> Apuntes Tailwind</a></li><li class="chapter-item "><a href="Apuntes TemplateT4.html"><strong aria-hidden="true">15.</strong> Apuntes TemplateT4</a></li><li class="chapter-item "><a href="Apuntes Terraform Azure.html"><strong aria-hidden="true">16.</strong> Apuntes Terraform Azure</a></li><li class="chapter-item "><a href="Apuntes UrlRewrite.html"><strong aria-hidden="true">17.</strong> Apuntes UrlRewrite</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Windows Server</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes windows 2019.html"><strong aria-hidden="true">18.1.</strong> Apuntes windows 2019</a></li><li class="chapter-item "><a href="Apuntes windows ADDS.html"><strong aria-hidden="true">18.2.</strong> Apuntes windows ADDS</a></li><li class="chapter-item "><a href="Apuntes windows ADFS.html"><strong aria-hidden="true">18.3.</strong> Apuntes windows ADFS</a></li><li class="chapter-item "><a href="Apuntes Windows Core.html"><strong aria-hidden="true">18.4.</strong> Apuntes Windows Core</a></li><li class="chapter-item "><a href="Apuntes windows DNS.html"><strong aria-hidden="true">18.5.</strong> Apuntes Windows DNS</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">19.</strong> Asp.Net</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes_ApiGateway_Ocelot.html"><strong aria-hidden="true">19.1.</strong> Apuntes ApiGateway ocelot</a></li><li class="chapter-item "><a href="Apuntes_AspNET_Clasico_Inyeccion_Dependencies_01.html"><strong aria-hidden="true">19.2.</strong> Apuntes AspNet Clasico Inyeccion de dependencias</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_01.html"><strong aria-hidden="true">19.3.</strong> Apuntes AspNet Core GraphQL 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_02.html"><strong aria-hidden="true">19.4.</strong> Apuntes AspNet Core GraphQL 02</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_03.html"><strong aria-hidden="true">19.5.</strong> Apuntes AspNet Core GraphQL 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_04.html"><strong aria-hidden="true">19.6.</strong> Apuntes AspNet Core GraphQL 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_05.html"><strong aria-hidden="true">19.7.</strong> Apuntes AspNet Core GraphQL 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_01.html"><strong aria-hidden="true">19.8.</strong> Apuntes AspNet Core Inyeccion Dependencias 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_02.html"><strong aria-hidden="true">19.9.</strong> Apuntes AspNet Core Inyeccion Dependencias 02</a></li><li class="chapter-item "><a href="Apuntes_Aspnet_Core_Inyeccion_Dependencias_03.html"><strong aria-hidden="true">19.10.</strong> Apuntes AspNet Core Inyeccion Dependencias 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_04.html"><strong aria-hidden="true">19.11.</strong> Apuntes AspNet Core Inyeccion Dependencias 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_05.html"><strong aria-hidden="true">19.12.</strong> Apuntes AspNet Core Inyeccion Dependencias 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_06.html"><strong aria-hidden="true">19.13.</strong> Apuntes AspNet Core Inyeccion Dependencias 06</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_07.html"><strong aria-hidden="true">19.14.</strong> Apuntes AspNet Core Inyeccion Dependencias 07</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Serilog_SqlServer.html"><strong aria-hidden="true">19.15.</strong> Apuntes AspNet Core Serilog Sql Server</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core.html"><strong aria-hidden="true">19.16.</strong> Apuntes AspNet Core</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Identidy.html"><strong aria-hidden="true">19.17.</strong> Apuntes AspNet Idendity</a></li><li class="chapter-item "><a href="Apuntes_AspNet_IdentityServer4.html"><strong aria-hidden="true">19.18.</strong> Apuntes AspNet IdentityServer4</a></li><li class="chapter-item "><a href="Apuntes_AspNET_SignalR_01.html"><strong aria-hidden="true">19.19.</strong> Apuntes AspNet SignalR 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_SignalR.html"><strong aria-hidden="true">19.20.</strong> Apuntes AspNet SignalR</a></li><li class="chapter-item "><a href="Apuntes_Blazor.html"><strong aria-hidden="true">19.21.</strong> Apuntes AspNet Blazor</a></li><li class="chapter-item "><a href="Apuntes_ErrorExceptionWeb.html"><strong aria-hidden="true">19.22.</strong> Apuntes Error Excepcion Web</a></li><li class="chapter-item "><a href="Apuntes_Net5_Y_Docker.html"><strong aria-hidden="true">19.23.</strong> Apuntes Net5 y Docker</a></li><li class="chapter-item "><a href="ApuntesEF.html"><strong aria-hidden="true">19.24.</strong> Apuntes EF</a></li><li class="chapter-item "><a href="ApuntesMVC I.html"><strong aria-hidden="true">19.25.</strong> Apuntes MVC I</a></li><li class="chapter-item "><a href="ApuntesMVC II.html"><strong aria-hidden="true">19.26.</strong> Apuntes MVC II</a></li><li class="chapter-item "><a href="ApuntesNancy.html"><strong aria-hidden="true">19.27.</strong> Apuntes Nancy</a></li><li class="chapter-item "><a href="ApuntesNet.html"><strong aria-hidden="true">19.28.</strong> Apuntes Net</a></li><li class="chapter-item "><a href="ApuntesNinject.html"><strong aria-hidden="true">19.29.</strong> Apuntes Ninject</a></li><li class="chapter-item "><a href="ApuntesOptimizacion.html"><strong aria-hidden="true">19.30.</strong> Apuntes Optimizacion Framework</a></li><li class="chapter-item "><a href="apuntesOwin.html"><strong aria-hidden="true">19.31.</strong> Apuntes OWIN</a></li><li class="chapter-item "><a href="ApuntesWebApi.html"><strong aria-hidden="true">19.32.</strong> Apuntes Web Api</a></li><li class="chapter-item "><a href="ApuntesWebApiCore.html"><strong aria-hidden="true">19.33.</strong> Apuntes Web Api Core</a></li><li class="chapter-item "><a href="asp.net core webapi-ef template.html"><strong aria-hidden="true">19.34.</strong> Apuntes Asp.net core Web Api-EF Template</a></li><li class="chapter-item "><a href="asp.net core-EF.html"><strong aria-hidden="true">19.35.</strong> Apuntes Asp.net Core-EF</a></li><li class="chapter-item "><a href="asp.net core-MVC.html"><strong aria-hidden="true">19.36.</strong> Apuntes Asp.net Core-MVC</a></li><li class="chapter-item "><a href="Blazor_Apuntes.html"><strong aria-hidden="true">19.37.</strong> Apuntes Blazor</a></li><li class="chapter-item "><a href="ApuntesAutofac.html"><strong aria-hidden="true">19.38.</strong> Apuntes AutoFac</a></li></ol></li><li class="chapter-item "><a href="ApuntesDocker.html"><strong aria-hidden="true">20.</strong> Apuntes Docker I</a></li><li class="chapter-item "><a href="ApuntesDocker II.html"><strong aria-hidden="true">21.</strong> Apuntes Docker II</a></li><li class="chapter-item "><a href="ApuntesNGINX.html"><strong aria-hidden="true">22.</strong> Apuntes NGINX</a></li><li class="chapter-item "><a href="ApuntesJavascript.html"><strong aria-hidden="true">23.</strong> Apuntes Javascript I</a></li><li class="chapter-item "><a href="ApuntesJavascriptII.html"><strong aria-hidden="true">24.</strong> Apuntes Javascript II</a></li><li class="chapter-item "><a href="ApuntesKubernetes.html"><strong aria-hidden="true">25.</strong> Apuntes Kubernetes</a></li><li class="chapter-item "><a href="ApuntesGit.html"><strong aria-hidden="true">26.</strong> Apuntes Git</a></li><li class="chapter-item "><a href="webpack.html"><strong aria-hidden="true">27.</strong> Apuntes WebPack</a></li><li class="chapter-item "><a href="Apuntes-Angular.html"><strong aria-hidden="true">28.</strong> Apuntes Angular</a></li><li class="chapter-item "><a href="Apuntes_wasm.html"><strong aria-hidden="true">29.</strong> Apuntes WebAssembly</a></li><li class="chapter-item expanded "><a href="apuntesCache.html" class="active"><strong aria-hidden="true">30.</strong> Apuntes Asp Cache</a></li><li class="chapter-item "><a href="apuntesCacheRedis.html"><strong aria-hidden="true">31.</strong> Apuntes Asp Cache Redix</a></li><li class="chapter-item "><a href="ApuntesActivarSSL.html"><strong aria-hidden="true">32.</strong> Apuntes Activar SSL</a></li><li class="chapter-item "><a href="Apuntes_certificados.html"><strong aria-hidden="true">33.</strong> Apuntes Certificados</a></li><li class="chapter-item "><a href="Apuntes_OAUTH20.html"><strong aria-hidden="true">34.</strong> Apuntes OAUTH 2.0</a></li><li class="chapter-item "><a href="ApuntesSeguridad.html"><strong aria-hidden="true">35.</strong> Apuntes Seguridad</a></li><li class="chapter-item "><a href="Apuntes_PowerShell.html"><strong aria-hidden="true">36.</strong> Apuntes PowerShell</a></li><li class="chapter-item "><a href="ApuntesTypescript.html"><strong aria-hidden="true">37.</strong> Apuntes TypeScript</a></li><li class="chapter-item "><a href="ApuntesRequirejs.html"><strong aria-hidden="true">38.</strong> Apuntes RequireJS</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Mis notas</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="titulo-apuntes-cache-aspnet"><a class="header" href="#titulo-apuntes-cache-aspnet">Titulo: &quot;Apuntes Cache ASP.NET&quot;</a></h2>
+<h1 id="apuntes-cache-aspnet"><a class="header" href="#apuntes-cache-aspnet">Apuntes Cache ASP.NET</a></h1>
+<ul>
+<li><a href="#apuntes-cache-aspnet">Apuntes Cache ASP.NET</a>
+<ul>
+<li><a href="#-cache-data-tipos">### <strong>Cache Data, tipos:</strong></a>
+<ul>
+<li><a href="#simple-way-to-implement-caching-in-aspnet-web-api"><strong>Simple way to implement caching in ASP.NET Web API</strong></a></li>
+<li><a href="#in-memory-caching-in-aspnet-mvc-5-is-not-working"><strong>In memory caching in ASP.NET MVC 5 is not working</strong></a></li>
+<li><a href="#how-to-cache-data-in-a-mvc-application"><strong>How to cache data in a MVC application</strong></a></li>
+<li><a href="#caching-and-session-in-aspnet-part-1"><strong>Caching and Session in ASP.NET, part 1</strong></a></li>
+<li><a href="#working-with-systemruntimecachingmemorycache"><strong>Working with System.Runtime.Caching.MemoryCache</strong></a></li>
+<li><a href="#enterprise-aspnet-mvc-part-8-aspnet-cache-before-repository"><strong>Enterprise Asp.Net MVC Part 8: Asp.Net cache before repository</strong></a></li>
+<li><a href="#caching-data-at-application-startup"><strong>Caching Data at Application Startup</strong></a></li>
+<li><a href="#a-beginners-tutorial-for-understanding-and-implementing-caching-in-aspnet-mvc"><strong>A Beginner's Tutorial for Understanding and Implementing Caching in ASP.NET MVC</strong></a></li>
+<li><a href="#walkthrough-caching-application-data-in-aspnet"><strong>Walkthrough: Caching Application Data in ASP.NET</strong></a></li>
+<li><a href="#using-memorycache-in-net-40"><strong>Using MemoryCache in .NET 4.0</strong></a></li>
+<li><a href="#what-is-difference-between-normal-cache-class-and-memorycache-class"><strong>what is difference between normal cache class and MemoryCache class?</strong></a></li>
+<li><a href="#caching-in-wcf-services-part-2-appfabric-distributed-cache"><strong>Caching in WCF Services: Part 2 AppFabric distributed cache</strong></a></li>
+<li><a href="#how-to-implement-sql-caching-in-aspnet-poll-based-sql-cache-dependency"><strong>How to implement SQL Caching in ASP.NET (Poll based SQL Cache dependency)</strong></a></li>
+<li><a href="#httpruntimecache-vs-httpcontextcurrentcache"><strong>HttpRuntime.Cache vs. HttpContext.Current.Cache</strong></a></li>
+<li><a href="#caching-in-net-and-sql-server-notifications"><strong>Caching in .NET and SQL Server Notifications</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="cache-data-tipos"><a class="header" href="#cache-data-tipos"><strong>Cache Data, tipos:</strong></a></h3>
+<hr />
+<pre><code>- InProc
+
+- OutProc(Distributed Cache):
+
+   - State Server
+   - SQL Server
+   - Custom Providers
+                  AppFabric
+                  NCache
+                  Cache Cow --&gt; WebApi
+                  Redis ??
+</code></pre>
+<p>En Asp.Net tenemos el System.Web.Caching para trabajar en el contexto de 
+aplicaciones web con caches, pero esto esta cambiando a partir del .Net Framework 4.5
+y por supuesto en Asp.Net Core 1.0.<br></p>
+<p>Y dentro de este contexto de aplicaciones web podemos clasificar las diferentes tipos de 
+cache en:</p>
+<ul>
+<li>Output Cache</li>
+<li>Application Cache</li>
+<li>Page Caching</li>
+</ul>
+<p>Para Situaciones mas generales desde .Net 4.0 tenemos <strong>System.Runtime.Caching</strong> y este tipo
+de cache mas generica, por asi decirlo, la podemos utilizar por ejemplo en aplicaciones winform por ejemplo.</p>
+<p><strong>Nota:</strong> En Asp.Net Core 1.0 se han anadido proveedores de cache para Redis y SQL Server Cache:</p>
+<code>
+Microsoft.Framework.Caching.SQLServer<br>
+Microsoft.Framework.Caching.Redis
+</code>
+<hr />
+<h3 id="simple-way-to-implement-caching-in-aspnet-web-api"><a class="header" href="#simple-way-to-implement-caching-in-aspnet-web-api"><strong>Simple way to implement caching in ASP.NET Web API</strong></a></h3>
+<p>http://blog.developers.ba/simple-way-implement-caching-asp-net-web-api/</p>
+<hr />
+<h3 id="in-memory-caching-in-aspnet-mvc-5-is-not-working"><a class="header" href="#in-memory-caching-in-aspnet-mvc-5-is-not-working"><strong>In memory caching in ASP.NET MVC 5 is not working</strong></a></h3>
+<p>http://stackoverflow.com/questions/37495658/in-memory-caching-in-asp-net-mvc-5-is-not-working</p>
+<hr />
+<h3 id="how-to-cache-data-in-a-mvc-application"><a class="header" href="#how-to-cache-data-in-a-mvc-application"><strong>How to cache data in a MVC application</strong></a></h3>
+<pre><code>Aqui utiliza como ejemplo para cacherar la libreria system.web.caching.cache
+
+</code></pre>
+<p>http://stackoverflow.com/questions/343899/how-to-cache-data-in-a-mvc-application</p>
+<hr />
+<h3 id="caching-and-session-in-aspnet-part-1"><a class="header" href="#caching-and-session-in-aspnet-part-1"><strong>Caching and Session in ASP.NET, part 1</strong></a></h3>
+<pre><code>Este articulo habla sobre cache de session y tambien sobre httpcontext.cache
+y hay dos tipos de este tipo de cache:
+
+-  Cache de aplicacion
+
+-  Cache de pagina
+
+Es bueno el articulo, el problema depende de httpcontext.cache que a su vez 
+dependera de system.cache
+
+</code></pre>
+<p>http://stvault.net/post/caching-and-session-in-asp-net-part-1</p>
+<hr />
+<h3 id="working-with-systemruntimecachingmemorycache"><a class="header" href="#working-with-systemruntimecachingmemorycache"><strong>Working with System.Runtime.Caching.MemoryCache</strong></a></h3>
+<p>https://blog.falafel.com/working-system-runtime-caching-memorycache/</p>
+<hr />
+<h3 id="enterprise-aspnet-mvc-part-8-aspnet-cache-before-repository"><a class="header" href="#enterprise-aspnet-mvc-part-8-aspnet-cache-before-repository"><strong>Enterprise Asp.Net MVC Part 8: Asp.Net cache before repository</strong></a></h3>
+<p>http://patrickdesjardins.com/blog/enterprise-asp-net-mvc-part-8-asp-net-cache-before-repository</p>
+<hr />
+<h3 id="caching-data-at-application-startup"><a class="header" href="#caching-data-at-application-startup"><strong>Caching Data at Application Startup</strong></a></h3>
+<pre><code>Ejemplo de cachear datos del ano 2007 pero interesante utilizando el global.asax y el evento
+application_Start con HttpRuntime.Cache
+</code></pre>
+<p>https://www.asp.net/web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs</p>
+<hr />
+<h3 id="a-beginners-tutorial-for-understanding-and-implementing-caching-in-aspnet-mvc"><a class="header" href="#a-beginners-tutorial-for-understanding-and-implementing-caching-in-aspnet-mvc"><strong>A Beginner's Tutorial for Understanding and Implementing Caching in ASP.NET MVC</strong></a></h3>
+<p>https://www.codeproject.com/Articles/757201/A-Beginners-Tutorial-for-Understanding-and-Imple</p>
+<hr />
+<h3 id="walkthrough-caching-application-data-in-aspnet"><a class="header" href="#walkthrough-caching-application-data-in-aspnet"><strong>Walkthrough: Caching Application Data in ASP.NET</strong></a></h3>
+<p>https://msdn.microsoft.com/en-us/library/ff477235.aspx</p>
+<hr />
+<h3 id="using-memorycache-in-net-40"><a class="header" href="#using-memorycache-in-net-40"><strong>Using MemoryCache in .NET 4.0</strong></a></h3>
+<p>https://www.codeproject.com/articles/290935/using-memorycache-in-net-4-0</p>
+<hr />
+<h3 id="what-is-difference-between-normal-cache-class-and-memorycache-class"><a class="header" href="#what-is-difference-between-normal-cache-class-and-memorycache-class"><strong>what is difference between normal cache class and MemoryCache class?</strong></a></h3>
+<pre><code>Trata de explicar la diferencia entre system.web.cache y system.runtime.cache
+
+</code></pre>
+<p>http://stackoverflow.com/questions/32382743/what-is-difference-between-normal-cache-class-and-memorycache-class</p>
+<hr />
+<h3 id="caching-in-wcf-services-part-2-appfabric-distributed-cache"><a class="header" href="#caching-in-wcf-services-part-2-appfabric-distributed-cache"><strong>Caching in WCF Services: Part 2 AppFabric distributed cache</strong></a></h3>
+<p>https://pieterderycke.wordpress.com/2012/08/28/caching-in-wcf-services-part-2-appfabric-distributed-cache/</p>
+<hr />
+<h3 id="how-to-implement-sql-caching-in-aspnet-poll-based-sql-cache-dependency"><a class="header" href="#how-to-implement-sql-caching-in-aspnet-poll-based-sql-cache-dependency"><strong>How to implement SQL Caching in ASP.NET (Poll based SQL Cache dependency)</strong></a></h3>
+<blockquote>
+<p>SQL Caching in ASP.NET using Poll based SQL Cache dependency.
+The Push based SQL Cache dependency shall be covered in other article.</p>
+</blockquote>
+<pre><code>O sea que en este tipo de cache sql hay dos tipos:
+
+- Poll based SQL Cache dependency
+- Push based SQL Cache dependency
+</code></pre>
+<p>http://www.dotnetfunda.com/articles/show/1382/how-to-implement-sql-caching-in-aspnet-poll-based-sql-cache-dependency</p>
+<hr />
+<h3 id="httpruntimecache-vs-httpcontextcurrentcache"><a class="header" href="#httpruntimecache-vs-httpcontextcurrentcache"><strong>HttpRuntime.Cache vs. HttpContext.Current.Cache</strong></a></h3>
+<p>https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache</p>
+<hr />
+<h3 id="caching-in-net-and-sql-server-notifications"><a class="header" href="#caching-in-net-and-sql-server-notifications"><strong>Caching in .NET and SQL Server Notifications</strong></a></h3>
+<ul>
+<li>
+<p>Explicit caching</p>
+</li>
+<li>
+<p>AOP Style
+How to update cached data?</p>
+<p>Sql server query notificacions</p>
+</li>
+</ul>
+<p>How to implement cached data updates with ADO.NET</p>
+<p>How to implement cached data updates with Entity Framework and LINQ</p>
+<p>https://www.apriorit.com/dev-blog/386-caching-in-dot-net</p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Apuntes_wasm.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="apuntesCacheRedis.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Apuntes_wasm.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="apuntesCacheRedis.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="custom.js"></script>
+
+
+    </body>
+</html>

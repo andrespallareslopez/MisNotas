@@ -1,0 +1,996 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Apuntes Javascript II - Mis notas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="custom2.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Apuntes ALM.html"><strong aria-hidden="true">1.</strong> Apuntes ALM</a></li><li class="chapter-item "><a href="Apuntes AspNet Handfire.html"><strong aria-hidden="true">2.</strong> Apuntes AspNet Handfire</a></li><li class="chapter-item "><a href="Apuntes Azure Lista.html"><strong aria-hidden="true">3.</strong> Azure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes Azure AD.html"><strong aria-hidden="true">3.1.</strong> Apuntes Azure AD</a></li><li class="chapter-item "><a href="Apuntes Azure App Service.html"><strong aria-hidden="true">3.2.</strong> Apuntes Azure App Service.md</a></li><li class="chapter-item "><a href="Apuntes Azure Devops.html"><strong aria-hidden="true">3.3.</strong> Apuntes Azure Devops</a></li><li class="chapter-item "><a href="Apuntes Azure Functions.html"><strong aria-hidden="true">3.4.</strong> Apuntes Azure Functions</a></li><li class="chapter-item "><a href="Apuntes Azure Service Fabric.html"><strong aria-hidden="true">3.5.</strong> Apuntes Azure Service Fabric</a></li><li class="chapter-item "><a href="Apuntes Azure Sql Server.html"><strong aria-hidden="true">3.6.</strong> Apuntes Azure Sql Server</a></li><li class="chapter-item "><a href="Apuntes Azure.html"><strong aria-hidden="true">3.7.</strong> Apuntes Azure</a></li></ol></li><li class="chapter-item "><a href="Apuntes Consul.html"><strong aria-hidden="true">4.</strong> Apuntes Consul</a></li><li class="chapter-item "><a href="Apuntes CSS.html"><strong aria-hidden="true">5.</strong> Apuntes CSS</a></li><li class="chapter-item "><a href="Apuntes Expresiones Regulares.html"><strong aria-hidden="true">6.</strong> Apuntes Expresiones Regulares</a></li><li class="chapter-item "><a href="apuntes influxdb.html"><strong aria-hidden="true">7.</strong> Apuntes influxdb</a></li><li class="chapter-item "><a href="Apuntes jenkins basico.html"><strong aria-hidden="true">8.</strong> Apuntes jenkins basico</a></li><li class="chapter-item "><a href="Apuntes Nomad.html"><strong aria-hidden="true">9.</strong> Apuntes Nomad</a></li><li class="chapter-item "><a href="Apuntes Packer.html"><strong aria-hidden="true">10.</strong> Apuntes Packer</a></li><li class="chapter-item "><a href="Apuntes Proyectos.html"><strong aria-hidden="true">11.</strong> Apuntes Proyectos</a></li><li class="chapter-item "><a href="Apuntes React Lista.html"><strong aria-hidden="true">12.</strong> React</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes React Context.html"><strong aria-hidden="true">12.1.</strong> Apuntes React Context</a></li><li class="chapter-item "><a href="Apuntes React Formik.html"><strong aria-hidden="true">12.2.</strong> Apuntes React Formik</a></li><li class="chapter-item "><a href="Apuntes React Hooks.html"><strong aria-hidden="true">12.3.</strong> Apuntes React Hooks</a></li><li class="chapter-item "><a href="Apuntes React useCallback.html"><strong aria-hidden="true">12.4.</strong> Apuntes React useCallback</a></li><li class="chapter-item "><a href="Apuntes React useContext.html"><strong aria-hidden="true">12.5.</strong> Apuntes React useContext</a></li><li class="chapter-item "><a href="Apuntes React useReducer context.html"><strong aria-hidden="true">12.6.</strong> Apuntes React useReducer</a></li><li class="chapter-item "><a href="Apuntes React useRef.html"><strong aria-hidden="true">12.7.</strong> Apuntes React useRef</a></li><li class="chapter-item "><a href="Apuntes Reatjs.html"><strong aria-hidden="true">12.8.</strong> Apuntes Reactjs</a></li><li class="chapter-item "><a href="Apuntes Redux.html"><strong aria-hidden="true">12.9.</strong> Apuntes Redux</a></li><li class="chapter-item "><a href="Apuntes_gatsby.html"><strong aria-hidden="true">12.10.</strong> Apuntes Gatsby</a></li></ol></li><li class="chapter-item "><a href="Apuntes Rust.html"><strong aria-hidden="true">13.</strong> Apuntes Rust</a></li><li class="chapter-item "><a href="Apuntes Tailwind.html"><strong aria-hidden="true">14.</strong> Apuntes Tailwind</a></li><li class="chapter-item "><a href="Apuntes TemplateT4.html"><strong aria-hidden="true">15.</strong> Apuntes TemplateT4</a></li><li class="chapter-item "><a href="Apuntes Terraform Azure.html"><strong aria-hidden="true">16.</strong> Apuntes Terraform Azure</a></li><li class="chapter-item "><a href="Apuntes UrlRewrite.html"><strong aria-hidden="true">17.</strong> Apuntes UrlRewrite</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Windows Server</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes windows 2019.html"><strong aria-hidden="true">18.1.</strong> Apuntes windows 2019</a></li><li class="chapter-item "><a href="Apuntes windows ADDS.html"><strong aria-hidden="true">18.2.</strong> Apuntes windows ADDS</a></li><li class="chapter-item "><a href="Apuntes windows ADFS.html"><strong aria-hidden="true">18.3.</strong> Apuntes windows ADFS</a></li><li class="chapter-item "><a href="Apuntes Windows Core.html"><strong aria-hidden="true">18.4.</strong> Apuntes Windows Core</a></li><li class="chapter-item "><a href="Apuntes windows DNS.html"><strong aria-hidden="true">18.5.</strong> Apuntes Windows DNS</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">19.</strong> Asp.Net</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes_ApiGateway_Ocelot.html"><strong aria-hidden="true">19.1.</strong> Apuntes ApiGateway ocelot</a></li><li class="chapter-item "><a href="Apuntes_AspNET_Clasico_Inyeccion_Dependencies_01.html"><strong aria-hidden="true">19.2.</strong> Apuntes AspNet Clasico Inyeccion de dependencias</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_01.html"><strong aria-hidden="true">19.3.</strong> Apuntes AspNet Core GraphQL 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_02.html"><strong aria-hidden="true">19.4.</strong> Apuntes AspNet Core GraphQL 02</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_03.html"><strong aria-hidden="true">19.5.</strong> Apuntes AspNet Core GraphQL 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_04.html"><strong aria-hidden="true">19.6.</strong> Apuntes AspNet Core GraphQL 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_05.html"><strong aria-hidden="true">19.7.</strong> Apuntes AspNet Core GraphQL 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_01.html"><strong aria-hidden="true">19.8.</strong> Apuntes AspNet Core Inyeccion Dependencias 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_02.html"><strong aria-hidden="true">19.9.</strong> Apuntes AspNet Core Inyeccion Dependencias 02</a></li><li class="chapter-item "><a href="Apuntes_Aspnet_Core_Inyeccion_Dependencias_03.html"><strong aria-hidden="true">19.10.</strong> Apuntes AspNet Core Inyeccion Dependencias 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_04.html"><strong aria-hidden="true">19.11.</strong> Apuntes AspNet Core Inyeccion Dependencias 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_05.html"><strong aria-hidden="true">19.12.</strong> Apuntes AspNet Core Inyeccion Dependencias 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_06.html"><strong aria-hidden="true">19.13.</strong> Apuntes AspNet Core Inyeccion Dependencias 06</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_07.html"><strong aria-hidden="true">19.14.</strong> Apuntes AspNet Core Inyeccion Dependencias 07</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Serilog_SqlServer.html"><strong aria-hidden="true">19.15.</strong> Apuntes AspNet Core Serilog Sql Server</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core.html"><strong aria-hidden="true">19.16.</strong> Apuntes AspNet Core</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Identidy.html"><strong aria-hidden="true">19.17.</strong> Apuntes AspNet Idendity</a></li><li class="chapter-item "><a href="Apuntes_AspNet_IdentityServer4.html"><strong aria-hidden="true">19.18.</strong> Apuntes AspNet IdentityServer4</a></li><li class="chapter-item "><a href="Apuntes_AspNET_SignalR_01.html"><strong aria-hidden="true">19.19.</strong> Apuntes AspNet SignalR 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_SignalR.html"><strong aria-hidden="true">19.20.</strong> Apuntes AspNet SignalR</a></li><li class="chapter-item "><a href="Apuntes_Blazor.html"><strong aria-hidden="true">19.21.</strong> Apuntes AspNet Blazor</a></li><li class="chapter-item "><a href="Apuntes_ErrorExceptionWeb.html"><strong aria-hidden="true">19.22.</strong> Apuntes Error Excepcion Web</a></li><li class="chapter-item "><a href="Apuntes_Net5_Y_Docker.html"><strong aria-hidden="true">19.23.</strong> Apuntes Net5 y Docker</a></li><li class="chapter-item "><a href="ApuntesEF.html"><strong aria-hidden="true">19.24.</strong> Apuntes EF</a></li><li class="chapter-item "><a href="ApuntesMVC I.html"><strong aria-hidden="true">19.25.</strong> Apuntes MVC I</a></li><li class="chapter-item "><a href="ApuntesMVC II.html"><strong aria-hidden="true">19.26.</strong> Apuntes MVC II</a></li><li class="chapter-item "><a href="ApuntesNancy.html"><strong aria-hidden="true">19.27.</strong> Apuntes Nancy</a></li><li class="chapter-item "><a href="ApuntesNet.html"><strong aria-hidden="true">19.28.</strong> Apuntes Net</a></li><li class="chapter-item "><a href="ApuntesNinject.html"><strong aria-hidden="true">19.29.</strong> Apuntes Ninject</a></li><li class="chapter-item "><a href="ApuntesOptimizacion.html"><strong aria-hidden="true">19.30.</strong> Apuntes Optimizacion Framework</a></li><li class="chapter-item "><a href="apuntesOwin.html"><strong aria-hidden="true">19.31.</strong> Apuntes OWIN</a></li><li class="chapter-item "><a href="ApuntesWebApi.html"><strong aria-hidden="true">19.32.</strong> Apuntes Web Api</a></li><li class="chapter-item "><a href="ApuntesWebApiCore.html"><strong aria-hidden="true">19.33.</strong> Apuntes Web Api Core</a></li><li class="chapter-item "><a href="asp.net core webapi-ef template.html"><strong aria-hidden="true">19.34.</strong> Apuntes Asp.net core Web Api-EF Template</a></li><li class="chapter-item "><a href="asp.net core-EF.html"><strong aria-hidden="true">19.35.</strong> Apuntes Asp.net Core-EF</a></li><li class="chapter-item "><a href="asp.net core-MVC.html"><strong aria-hidden="true">19.36.</strong> Apuntes Asp.net Core-MVC</a></li><li class="chapter-item "><a href="Blazor_Apuntes.html"><strong aria-hidden="true">19.37.</strong> Apuntes Blazor</a></li><li class="chapter-item "><a href="ApuntesAutofac.html"><strong aria-hidden="true">19.38.</strong> Apuntes AutoFac</a></li></ol></li><li class="chapter-item "><a href="ApuntesDocker.html"><strong aria-hidden="true">20.</strong> Apuntes Docker I</a></li><li class="chapter-item "><a href="ApuntesDocker II.html"><strong aria-hidden="true">21.</strong> Apuntes Docker II</a></li><li class="chapter-item "><a href="ApuntesNGINX.html"><strong aria-hidden="true">22.</strong> Apuntes NGINX</a></li><li class="chapter-item "><a href="ApuntesJavascript.html"><strong aria-hidden="true">23.</strong> Apuntes Javascript I</a></li><li class="chapter-item expanded "><a href="ApuntesJavascriptII.html" class="active"><strong aria-hidden="true">24.</strong> Apuntes Javascript II</a></li><li class="chapter-item "><a href="ApuntesKubernetes.html"><strong aria-hidden="true">25.</strong> Apuntes Kubernetes</a></li><li class="chapter-item "><a href="ApuntesGit.html"><strong aria-hidden="true">26.</strong> Apuntes Git</a></li><li class="chapter-item "><a href="webpack.html"><strong aria-hidden="true">27.</strong> Apuntes WebPack</a></li><li class="chapter-item "><a href="Apuntes-Angular.html"><strong aria-hidden="true">28.</strong> Apuntes Angular</a></li><li class="chapter-item "><a href="Apuntes_wasm.html"><strong aria-hidden="true">29.</strong> Apuntes WebAssembly</a></li><li class="chapter-item "><a href="apuntesCache.html"><strong aria-hidden="true">30.</strong> Apuntes Asp Cache</a></li><li class="chapter-item "><a href="apuntesCacheRedis.html"><strong aria-hidden="true">31.</strong> Apuntes Asp Cache Redix</a></li><li class="chapter-item "><a href="ApuntesActivarSSL.html"><strong aria-hidden="true">32.</strong> Apuntes Activar SSL</a></li><li class="chapter-item "><a href="Apuntes_certificados.html"><strong aria-hidden="true">33.</strong> Apuntes Certificados</a></li><li class="chapter-item "><a href="Apuntes_OAUTH20.html"><strong aria-hidden="true">34.</strong> Apuntes OAUTH 2.0</a></li><li class="chapter-item "><a href="ApuntesSeguridad.html"><strong aria-hidden="true">35.</strong> Apuntes Seguridad</a></li><li class="chapter-item "><a href="Apuntes_PowerShell.html"><strong aria-hidden="true">36.</strong> Apuntes PowerShell</a></li><li class="chapter-item "><a href="ApuntesTypescript.html"><strong aria-hidden="true">37.</strong> Apuntes TypeScript</a></li><li class="chapter-item "><a href="ApuntesRequirejs.html"><strong aria-hidden="true">38.</strong> Apuntes RequireJS</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Mis notas</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="titulo-apuntes-javascript-ii"><a class="header" href="#titulo-apuntes-javascript-ii">Titulo: &quot;Apuntes Javascript II&quot;</a></h2>
+<h1 id="apuntes-javascript"><a class="header" href="#apuntes-javascript">Apuntes javascript</a></h1>
+<ul>
+<li><a href="#001">HTMLScript - Dynamically importing scripts</a><br></li>
+<li><a href="#002" >Example - MutationObserver y proxy</a><br></li>
+<li><a href="#003tip">Angular tips</a><br></li>
+<li><a href="#004">Everything I Know About The Script Tag</a><br></li>
+<li><a href="#005">The best way to load external JavaScript(Articulo 2009)</a><br></li>
+<li><a href="#006">Loading Javascript Modules</a></li>
+<li><a href="#007">JavaScript Module Pattern</a></li>
+<li><a href="#008">A 10 minute primer to JavaScript modules, module formats, module loaders and module bundlers</a></li>
+<li><a href="#009">16. Module</a></li>
+<li><a href="#010">JavaScript dynamic import() &amp; export</a></li>
+<li></li>
+</ul>
+<hr />
+<p><a id="001"></a>
+Create a Basic Loader with JavaScript Promises</p>
+<p>https://davidwalsh.name/javascript-loader</p>
+<hr />
+<p><a id="002" ></a>
+HTMLScriptElement - Dynamically importing scripts</p>
+<p>https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement</p>
+<p>Aqui hay ejemplos donde se utiliza el currenscript para cargar dinamicamente script js.</p>
+<hr />
+<p>Pieza de codigo recogido del articulo:MutationObserver y proxy</p>
+<p>https://stackoverflow.com/questions/27851153/determine-whether-element-was-added-by-js-vs-original-html-doc-or-detect-when</p>
+<pre><code>var elem = isInIE() ? HTMLElement : Element;    // IE and FF have different inheritance models, behind the scenes.
+var proxiedInnerHTML = Object.getOwnPropertyDescriptor(elem.prototype, &quot;innerHTML&quot;);
+
+Object.defineProperty(elem.prototype, &quot;innerHTML&quot;, {
+    set: function ( htmlContent )
+    {
+        // custom code goes here
+
+        proxiedInnerHTML.set.call(this, htmlContent);
+    }); 
+</code></pre>
+<hr />
+<p><a id="003tip" ></a>Angular Tips: Dynamic Module Imports with the Angular CLI</p>
+<p>https://coryrylan.com/blog/angular-tips-dynamic-module-imports-with-the-angular-cli</p>
+<p>Este articulo habla sobre la importacion dinamica de modulos dentro de angular 6 aunque esto se puede hacer en cualquier angular utilizando alguna libreria para esto.</p>
+<pre><code>import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    My name {{name}}
+    &lt;button (click)=&quot;reverse()&quot;&gt;Reverse&lt;/button&gt;
+  `
+})
+export class AppComponent {
+  name = 'Cory Rylan';
+
+  reverse() {
+    import('./string-helpers').then(module =&gt; {
+      this.name = module.reverseString(this.name);
+    });
+  }
+}
+
+</code></pre>
+<hr />
+<p><a id="004"></a></p>
+<h3 id="everything-i-know-about-the-script-tag"><a class="header" href="#everything-i-know-about-the-script-tag"><strong>Everything I Know About The Script Tag</strong></a></h3>
+<p>https://eager.io/blog/everything-I-know-about-the-script-tag/</p>
+<p>Describe muy bien todas las opciones del tag script con sus diferentes atributos y tambien a nivel de api de javascript</p>
+<pre><code>&lt;noscript&gt;
+  Please use Internet Explorer 5.5 or above.
+&lt;/noscript&gt;
+&lt;script&gt;
+  exploitInternetExplorer0Day();
+&lt;/script&gt;
+
+
+</code></pre>
+<pre><code>var myScript = document.createElement('script');
+myScript.textContent = 'alert(&quot;✋&quot;)';
+document.head.appendChild(myScript);
+</code></pre>
+<p>o</p>
+<pre><code>document.head.innerHTML += '&lt;script&gt;alert(&quot;✋&quot;)&lt;/script&gt;';
+pero esto no se deberia de hacer.
+</code></pre>
+<hr />
+<p><a id="005"></a></p>
+<h3 id="the-best-way-to-load-external-javascriptarticulo-2009"><a class="header" href="#the-best-way-to-load-external-javascriptarticulo-2009"><strong>The best way to load external JavaScript(Articulo 2009)</strong></a></h3>
+<p>https://humanwhocodes.com/blog/2009/07/28/the-best-way-to-load-external-javascript/</p>
+<p>Articulo del 2009</p>
+<p>Ya se hablaba de la carga dinamica de modulos, pero aun no existia RequireJS, que iba en este sentido.</p>
+<pre><code>function loadScript(url, callback){
+
+    var script = document.createElement(&quot;script&quot;)
+    script.type = &quot;text/javascript&quot;;
+
+    if (script.readyState){  //IE
+        script.onreadystatechange = function(){
+            if (script.readyState == &quot;loaded&quot; ||
+                    script.readyState == &quot;complete&quot;){
+                script.onreadystatechange = null;
+                callback();
+            }
+        };
+    } else {  //Others
+        script.onload = function(){
+            callback();
+        };
+    }
+
+    script.src = url;
+    document.getElementsByTagName(&quot;head&quot;)[0].appendChild(script);
+}
+</code></pre>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://your.cdn.com/first.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+loadScript(&quot;http://your.cdn.com/second.js&quot;, function(){
+    //initialization code
+});
+&lt;/script&gt;
+</code></pre>
+<hr />
+<p><a id="006"></a></p>
+<h3 id="loading-javascript-modules"><a class="header" href="#loading-javascript-modules"><strong>Loading Javascript Modules</strong></a></h3>
+<p>https://libraryinstitute.wordpress.com/2010/12/01/loading-javascript-modules/</p>
+<p>Module Pattern.</p>
+<p>Este patron de carga dinamica de modulos es el utilizado en angular JS</p>
+<p>Muy buen Articulo.</p>
+<hr />
+<p><a id="007"></a></p>
+<h3 id="javascript-module-pattern"><a class="header" href="#javascript-module-pattern"><strong>JavaScript Module Pattern</strong></a></h3>
+<p>https://medium.com/@tkssharma/javascript-module-pattern-b4b5012ada9f</p>
+<p>Habla del patron UMD(Universal Module Definition) que es soportar AMD y CommonJS al mismo tiempo en la carga de los modulos.</p>
+<p>Un ejemplo de aplicar este tipo de patro es el siguiente:</p>
+<pre><code>(function (root, factory) {
+  if (typeof define === 'function' &amp;&amp; define.amd) {
+      // AMD
+    define(['myModule', 'myOtherModule'], factory);
+  } else if (typeof exports === 'object') {
+      // CommonJS
+    module.exports = factory(require('myModule'), require('myOtherModule'));
+  } else {
+    // Browser globals (Note: root is window)
+    root.returnExports = factory(root.myModule, root.myOtherModule);
+  }
+}(this, function (myModule, myOtherModule) {
+  // Methods
+  function notHelloOrGoodbye(){}; // A private method
+  function hello(){}; // A public method because it's returned (see below)
+  function goodbye(){}; // A public method because it's returned (see below)
+
+  // Exposed public methods
+  return {
+      hello: hello,
+      goodbye: goodbye
+  }
+}));
+
+</code></pre>
+<hr />
+<p><a id="008"></a></p>
+<h3 id="a-10-minute-primer-to-javascript-modules-module-formats-module-loaders-and-module-bundlers"><a class="header" href="#a-10-minute-primer-to-javascript-modules-module-formats-module-loaders-and-module-bundlers"><strong>A 10 minute primer to JavaScript modules, module formats, module loaders and module bundlers</strong></a></h3>
+<p>Tambien habla de UMD(Universal Module Pattern)</p>
+<pre><code>(function (root, factory) {
+  if (typeof define === 'function' &amp;&amp; define.amd) {
+    // AMD. Register as an anonymous module.
+      define(['b'], factory);
+  } else if (typeof module === 'object' &amp;&amp; module.exports) {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory(require('b'));
+  } else {
+    // Browser globals (root is window)
+    root.returnExports = factory(root.b);
+  }
+}(this, function (b) {
+  //use b in some fashion.
+
+  // Just return a value to define the module export.
+  // This example returns an object, but the module
+  // can return a function as the exported value.
+  return {};
+}));
+</code></pre>
+<p>Browserify:bundler for CommonJS modules</p>
+<p>Webpack:bundler for AMD,CommonJS,ES6 modules</p>
+<hr />
+<p><a id="009"></a></p>
+<h3 id="16-modules"><a class="header" href="#16-modules"><strong>16. Modules</strong></a></h3>
+<p>http://exploringjs.com/es6/ch_modules.html</p>
+<p>Explicacion de modulos en diferentes formas y puntos de vista desde ES5 a ES6 comentando en ES5 esta AMD y commonJS y sus correspondientes ejemplos y en ES6 con la instruccion import y como es export default ... y que la estructura de los modulos en ES6 es static, tu no puedes condicionalmente exportar o importar, o sea la carga perezosa o condifinal no se soporta en ES6 de forma nativa pero tenemos librerias como SystemJs que si se puede cargar modulos condicionalmente.</p>
+<p>Luego habla en un apartado del articulo de systemJS y pone cosas como esta:</p>
+<pre><code>   System.import('some_module')
+.then(some_module =&gt; {
+    // Use some_module
+})
+.catch(error =&gt; {
+    ···
+});
+</code></pre>
+<pre><code> Promise.all(
+    ['module1', 'module2', 'module3']
+    .map(x =&gt; System.import(x)))
+ .then(([module1, module2, module3]) =&gt; {
+    // Use module1, module2, module3
+ });
+</code></pre>
+<p>Librerias para cargar modulos javascript al estilo AMD</p>
+<p>LAB.js, curljs, and Almond</p>
+<p>Otra libreria interesante de carga de modulos es yepnote.js integrada en modernizer</p>
+<pre><code>yepnope.injectJs(&quot;jquery.js&quot;,function(){
+  console.log(&quot;jquery loaded!&quot;)
+},{charset:&quot;utf-8&quot;},5000)
+
+</code></pre>
+<pre><code>   yepnope.injectCSS(&quot;print.css&quot;,function(){
+      console.log(&quot;css injected&quot;);
+   },{media:&quot;print&quot;},5000)
+</code></pre>
+<pre><code>   yepnope({
+     load:[&quot;https://my-cdn.com/jquery.min.js?v=1.7.1&quot;,&quot;https://my-cdn.com/jquery-ui.min.js?v=1.8.16&quot;],
+     callback:{
+       &quot;jquery.min.js&quot;:function(){
+          console.log(&quot;jquery loaded&quot;)
+       },
+       &quot;jquery-ui.min.js&quot;:function(){
+          console.log(&quot;jquery-ui loaded!&quot;)
+       }
+     }
+   })
+</code></pre>
+<hr />
+<p><a id="010" ></a></p>
+<h3 id="javascript-dynamic-import--export"><a class="header" href="#javascript-dynamic-import--export"><strong>JavaScript dynamic import() &amp; export</strong></a></h3>
+<p>https://medium.com/@WebReflection/javascript-dynamic-import-export-b0e8775a59d4</p>
+<p>Explica desde un punto de vista moderno y muy actualizado con ES7 las importaciones utilizando async await</p>
+<p>Trata de forma nativa la carga dinamica con import, una nueva caracteristica que estan empezando a meter los navegadores.Import es estatico, pero ahora puede empezar a cargar dinamicamente.</p>
+<p>Utiliza una libreria polifill llamada import.js https://github.com/WebReflection/import.js</p>
+<p>Explica tambien Commonjs y AMD pero como algo de ES5, como legacy.</p>
+<p>Aqui utiliza bastante ES2017 
+Aqui tenemos algunos ejemplos</p>
+<pre><code>//module.js
+export default new Promise(async $export =&gt; {
+  const module = await Promise.resolve(
+    {my: 'module'}
+  );
+  $export(module);
+});
+</code></pre>
+<pre><code>// ES2015 consumer
+import module from './module.js';
+
+module.then(exports =&gt; {
+  // will log &quot;module&quot;
+  console.log(exports.my);
+});
+</code></pre>
+<pre><code>// ES2017 consumer
+(async () =&gt; {
+  const module = await (
+    await import('./module.js')
+  ).default;
+})();
+
+</code></pre>
+<pre><code>// ES2017 consumer and exporter
+export default new Promise(async $export =&gt; {
+  const module = await (
+    await import('./module.js')
+  ).default;
+  $export({module, method(){}});
+});
+</code></pre>
+<hr />
+<p><strong>Dependency injection in JavaScript</strong></p>
+<p>http://krasimirtsonev.com/blog/article/Dependency-injection-in-JavaScript</p>
+<hr />
+<p><strong>Why Dependency Injection? (libreria Constitude)</strong></p>
+<p>https://github.com/justmoon/constitute</p>
+<hr />
+<p><strong>InversifyJS
+A powerful and lightweight inversion of control container 
+for JavaScript &amp; Node.js apps powered by TypeScript.</strong></p>
+<p>http://inversify.io/</p>
+<hr />
+<h3 id="web-components"><a class="header" href="#web-components"><strong>Web Components</strong></a></h3>
+<p><strong>Attributes and Properties in Custom Elements</strong></p>
+<p>https://alligator.io/web-components/attributes-properties/</p>
+<p><strong>HTML Imports</strong></p>
+<p>https://www.html5rocks.com/en/tutorials/webcomponents/imports/</p>
+<p><strong>Custom Elements-V0</strong>
+https://www.html5rocks.com/en/tutorials/webcomponents/customelements/</p>
+<p><strong>HTML Imports</strong>
+https://www.html5rocks.com/en/tutorials/webcomponents/imports/</p>
+<p><strong>Custom Elements v1: Componentes web reutilizables</strong>
+https://developers.google.com/web/fundamentals/web-components/customelements</p>
+<p><strong>Shadow DOM v1: Componentes web independientes</strong>
+https://developers.google.com/web/fundamentals/web-components/shadowdom</p>
+<hr />
+<h2 id="ejemplos-javascript-css"><a class="header" href="#ejemplos-javascript-css"><strong>Ejemplos javascript CSS</strong></a></h2>
+<p>Destination Globe (Spinning + Versor Drag)</p>
+<p>http://bl.ocks.org/tlfrd/df1f1f705c7940a6a7c0dca47041fec8</p>
+<p>Va poniendo un globo con ciudades y rutas dibujadas entre ciudades, tal vez interesante</p>
+<p><strong>CSS 3D Sphere</strong></p>
+<p>http://timokorinth.de/css-3d-sphere/</p>
+<hr />
+<h2 id="babel"><a class="header" href="#babel"><strong>BABEL</strong></a></h2>
+<h2 id="decoradores"><a class="header" href="#decoradores"><strong>Decoradores</strong></a></h2>
+<p><strong>Exploring EcmaScript Decorators</strong></p>
+<p>https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841</p>
+<p>Articulo sobre los decoradores en javascript y las diferentes formas de aplicarlos, a metodos, a clases...</p>
+<h1 id="libreria-rxjs"><a class="header" href="#libreria-rxjs"><strong>Libreria Rx.JS</strong></a></h1>
+<p><strong>RxJS: destroy the state machine!</strong></p>
+<p>https://www.youtube.com/watch?v=1abiJ9VBsDc</p>
+<p>En este video vienen cosas como esta:</p>
+<p><strong>RxJS 5 in-depth - Gerard Sans</strong></p>
+<p>https://www.youtube.com/watch?v=KTlay8cZdAk</p>
+<p><strong>Gerard Sans — Bending time with Schedulers and RxJS 5</strong></p>
+<p>https://www.youtube.com/watch?v=AL8dG1tuH40&amp;t=2165s</p>
+<p><strong>BOW 2018 - Bending time with Schedulers and RxJS 5-6 -Gerard Sans</strong></p>
+<p>https://www.youtube.com/watch?v=IysUYXcQkp4</p>
+<p><strong>Tamir Dresher - Testing and Time and Concurrency With Rx.NET Schedulers</strong></p>
+<p>https://www.youtube.com/watch?v=qOST2eCgo2I&amp;list=PLrsxaudxGz8umIsIzIU4CG-D2YxatpGJ8</p>
+<p>por el minuto 16:46 vienen unos screenshot clasificando los rx operators,
+hay conseguir este screenshot porque nos ayuda a entender mas y mejor los operadores y en que situacion elegir en funcion de esta clasificacion.</p>
+<p><strong>HTML5 device mockups v3</strong></p>
+<p>https://github.com/pixelsign/html5-device-mockups</p>
+<p>Para simular que esta dentro de un mobile, hay ejemplos en este enlace como este:</p>
+<pre><code>&lt;div class=&quot;device-wrapper&quot;&gt;
+  &lt;div class=&quot;device&quot; data-device=&quot;iPhone5&quot; data-orientation=&quot;portrait&quot; data-color=&quot;black&quot;&gt;
+    &lt;div class=&quot;screen&quot;&gt;
+      &lt;!-- PUT CONTENTS HERE --&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;button&quot;&gt;
+      &lt;!-- You can hook the &quot;home button&quot; to some JavaScript events or just remove it --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Writing a JavaScript Framework - Data Binding with ES6 Proxies</strong>
+https://blog.risingstack.com/writing-a-javascript-framework-data-binding-es6-proxy/</p>
+<p><strong>How To Do Data Binding in Pure JavaScript</strong>
+https://www.wintellect.com/data-binding-pure-javascript/</p>
+<hr />
+<p><strong>Obtener un elemento</strong></p>
+<pre><code>var el = document.querySelector(&quot;.miClase&quot;);
+</code></pre>
+<p><strong>Obtener elementos por attributo</strong></p>
+<pre><code>var matches = myBox.querySelectorAll(&quot;p&quot;);
+document.querySelectorAll('[data-foo=&quot;value&quot;]');
+</code></pre>
+<p><strong>Atributos Personalizados Binding</strong>
+-bind-to=&quot;Text:User.name&quot;--&gt; dentro del data de la clase ira un User con propiedad <strong>~name~</strong> 
+-bind-on=&quot;onClick:function&quot;</p>
+<p><strong>Eventos en un elemento del DOM</strong></p>
+<ul>
+<li>onblur</li>
+<li>onchange</li>
+<li>onclick</li>
+<li>ondblclick</li>
+<li>onfocus</li>
+<li>onkeydown</li>
+<li>onkeypress</li>
+<li>onkeyup</li>
+<li>onload</li>
+<li>onmouseout</li>
+<li>onmouseover</li>
+<li>onmouseup</li>
+<li>onreset</li>
+<li>onresize</li>
+<li>onselect</li>
+<li>onsubmit</li>
+<li>onunload</li>
+</ul>
+<p><strong>Manejar Eventos</strong></p>
+<pre><code>document.getElementById('content').addEventListener(&quot;click&quot;,function(){
+            alert(&quot;addEventListener handler&quot;);
+        });
+</code></pre>
+<p><strong>Conver to camelcase to dash</strong></p>
+<pre><code>function camelCaseToDash( myStr ) {
+    return myStr.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
+}
+var myStr = camelCaseToDash( 'thisString' );
+alert( myStr ); // =&gt; this-string
+</code></pre>
+<p><strong>Convert to dash to camelCase</strong></p>
+<pre><code>function dashToCamelCase( myStr ) {
+    return myStr.replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); });
+}
+
+var myStr = dashToCamelCase( 'this-string' );
+alert( myStr ); // =&gt; thisString
+
+</code></pre>
+<h1 id="ejemplos-de-manejadores-de-eventos-genericos"><a class="header" href="#ejemplos-de-manejadores-de-eventos-genericos"><strong>Ejemplos de manejadores de eventos genericos</strong></a></h1>
+<pre><code>function TestEvent(element){
+   element.addEventListener('click', this, false);
+
+}
+
+TestEvent.prototype.handleEvent = function(e) {
+ console.log(e);
+}
+var t = new TestEvent(document.body);
+</code></pre>
+<p>The method can be inherited obtaining exact same results, meaning there is one single method in memory instead of O(N)</p>
+<pre><code>var EventListener = {
+  handleEvent(e) {
+    this['on' + e.type](e);
+  }
+};
+
+// component
+var Clicker = Object.create(EventListener, {
+  clicks: {writable: true, value: 0},
+  onclick: {value(e) {
+    e.preventDefault();
+    console.log(++this.clicks);
+  }}
+});
+
+// object
+var clicker = Object.create(Clicker);
+document.body.addEventListener('click', clicker);
+</code></pre>
+<p>Which in turn it means we can use classes too</p>
+<pre><code>class TenClicks {
+
+  constructor(currentTarget) {
+    this.clicks = 10;
+    currentTarget.addEventListener('click', this);
+  }
+
+  handleEvent(event) {
+    this['on' + event.type](event);
+  }
+
+  onclick(event) {
+    event.preventDefault();
+    // once we reach 0
+    if (--this.clicks &lt; 1) {
+      // remove the listener
+      event.currentTarget
+           .removeEventListener(event.type, this);
+      // show the result
+      console.log('You made it!');
+    }
+  }
+
+}
+
+let ten = new TenClicks(document.body);
+</code></pre>
+<p>An object that implements handleEvent can be used both internally and externally to intercept and react to any sort of listener.</p>
+<p>Using prototypal or classical inheritance to add a minimal amount of abstraction is straight forward, and the result is quite stunning</p>
+<pre><code>class Clicker extends Handler {
+  onclick(event) {
+    alert(event.type); // click
+  }
+}
+
+// generic event handler
+class Handler {
+
+  // lazy static list definition
+  static get events() {
+    return this._events || Object.defineProperty(
+      this, '_events',
+      {value: Object.getOwnPropertyNames(this.prototype)
+                    .filter(type =&gt; /^on/.test(type))
+                    .map(type =&gt; type.slice(2))}
+    )._events;
+  }
+
+  constructor(node) {
+    for (let
+      events = this.constructor.events,
+      i = events.length;
+      i--;
+      node.addEventListener(events[i], this)
+    );
+  }
+
+  handleEvent(event) {
+    this['on' + event.type](event);
+  }
+}
+
+// test it
+new Clicker(document.body);
+</code></pre>
+<hr />
+<p><strong>Js: Vanilla two way binding</strong></p>
+<p>https://medium.com/frontend-fun/js-vanilla-two-way-binding-5a29bc86c787</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head lang=&quot;en&quot;&gt;
+     
+     
+  &lt;/head&gt;
+  &lt;body&gt;
+    
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code> var elements = document.querySelectorAll('[data-tw-bind]'),
+        scope = {};
+    elements.forEach(function(element) {
+        //execute scope setter
+        if(element.type === 'text'|| element.type === 'textarea'){
+            var propToBind = element.getAttribute('data-tw-bind');
+            addScopeProp(propToBind);
+            element.onkeyup = function(){
+                scope[propToBind] = element.value;
+            }
+        };
+</code></pre>
+<hr />
+<p><strong>Writing a JavaScript Framework - Data Binding with ES6 Proxies</strong></p>
+<p>https://blog.risingstack.com/writing-a-javascript-framework-data-binding-es6-proxy/</p>
+<p><a href="https://github.com/nx-js/observer-util">nx-observe library</a></p>
+<hr />
+<p><a href="https://nosir.github.io/cleave.js/">Liberia de validacion y formato de elementos cleave.js </a></p>
+<hr />
+<p><strong>Interpolacion de cadenas en javascript</strong>
+Ejemplos:</p>
+<pre><code>var article = {
+  title: 'Hello Template Literals',
+  teaser: 'String interpolation is awesome. Here are some features',
+  body: 'Lots and lots of sanitized HTML',
+  tags: ['es6', 'template-literals', 'es6-in-depth']
+}
+var {title,teaser,body,tags} = article
+var html = `&lt;article&gt;
+  &lt;header&gt;
+    &lt;h1&gt;${title}&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;section&gt;
+    &lt;div&gt;${teaser}&lt;/div&gt;
+    &lt;div&gt;${body}&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;footer&gt;
+    &lt;ul&gt;
+      ${tags.map(tag =&gt; `&lt;li&gt;${tag}&lt;/li&gt;`).join('\n      ')}
+    &lt;/ul&gt;
+  &lt;/footer&gt;
+&lt;/article&gt;`
+</code></pre>
+<pre><code>var alumnos=[{nombre:&quot;pedro&quot;,nota:3},{nombre:&quot;angel&quot;,nota:7}];
+var plantilla= `
+&lt;div&gt;
+${alumnos.map(a=&gt; `${a.nombre} ${a.nota&gt;5?&quot;aprobado&quot;:&quot;suspenso&quot;}`)}
+&lt;/div&gt;
+ 
+`;
+ 
+window.onload=function() {
+ 
+var body= document.getElementsByTagName(&quot;body&quot;)[0];
+console.log(body);
+body.innerHTML=plantilla;
+}
+</code></pre>
+<p>Un motor de plantillas para node:</p>
+<p><a href="https://olado.github.io/doT/index.html">The fastest + concise javascript template engine
+for Node.js and browsers.</a></p>
+<hr />
+<p><em><strong>Angular</strong></em></p>
+<p>Tips:</p>
+<p><a href="https://blog.bitsrc.io/how-to-build-dynamic-components-in-angular-6-41f50abddc64">How To Build Dynamic Components in Angular 6 (youtube)</a></p>
+<p><a href="https://www.youtube.com/watch?v=I317BhehZKM&amp;app=desktop">Sharing Data between Components in Angular (youtube)</a></p>
+<p><a href="https://www.youtube.com/watch?v=Fdf5aTYRW0E">Angular Crash Course - 2019 (youtube)</a></p>
+<p><em><strong>Arquitectura de software</strong></em></p>
+<p><a href="https://medium.com/laboratoria-how-to/de-monolito-a-microservicios-33c56746cd7b">De Monolito a microservicios</a></p>
+<p><a href="https://www.youtube.com/watch?v=ztGZiaAisYA">¿Microservicios, monolitos o microlitos? - Paradigma Digital</a>
+Habla sobre el probema de java con docker y escalado con docker
+El problema es la jvm.</p>
+<p>Para ver los problemas de que generan los microservicios utilizan estos terminos &quot;Monolito,microlito,microservicios&quot;.</p>
+<p>Desde el punto de vista de sistemas spring boot es un dolor.</p>
+<p><a href="https://www.youtube.com/watch?v=awoIkFtRHx4&amp;list=PLT0cDfgjhieuFd9ZXOlnmRMiuLKKeRbhX&amp;index=2">Transacciones en Microservicios... ¿Mito o realidad?</a></p>
+<p>Aqui habla de la problematica de los microservicios cuando hay que simular transaccionalidad.</p>
+<p><em><strong>Responsive Tips</strong></em></p>
+<p><a href="https://www.codexworld.com/create-toggle-switch-using-css/">How to Create a Toggle Switch using CSS</a></p>
+<p><a href="https://codepen.io/mburnette/pen/LxNxNg">All-CSS Toggle Switch (Checkbox Hack)</a></p>
+<pre><code>HTML Code:
+&lt;input type=&quot;checkbox&quot; id=&quot;switch&quot; /&gt;&lt;label for=&quot;switch&quot;&gt;Toggle&lt;/label&gt;
+CSS Code:
+
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 200px;
+	height: 100px;
+	background: grey;
+	display: block;
+	border-radius: 100px;
+	position: relative;
+}
+
+label:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 90px;
+	height: 90px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+input:checked + label {
+	background: #bada55;
+}
+
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+label:active:after {
+	width: 130px;
+}
+
+// centering
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+</code></pre>
+<p><a href="https://codeburst.io/pure-css3-input-as-the-ios-checkbox-8b6347d5cefb">Pure CSS3 iOS switch checkbox</a></p>
+<hr />
+<p>Libreria Require.js para manipular mediaquery desde javascript.</p>
+<hr />
+<p><a href="https://codepen.io/JGallardo/pen/lJoyk">Fixed sticky header when scrolling</a></p>
+<p><a href="https://wicky.nillia.ms/headroom.js/">Hide your header until you need it.HeadRoom.js</a></p>
+<p><a href="https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c">Hide header on scroll down, show on scroll up</a></p>
+<p><a href="https://osvaldas.info/auto-hide-sticky-header">Auto-Hide Sticky Header</a></p>
+<hr />
+<p><a href="https://www.youtube.com/watch?v=nK54s84xRRs">Writing Allocation Free Code in C# - Matt Ellis</a></p>
+<hr />
+<h2 id="proxy-reflections-decoradores"><a class="header" href="#proxy-reflections-decoradores">Proxy Reflections Decoradores</a></h2>
+<p><a href="https://uniwebsidad.com/tutoriales/que-son-y-como-funcionan-los-proxies-de-ecmascript-5-es2015">Qué son y cómo funcionan los proxies de ECMAScript 5 (ES2015)</a></p>
+<p><a href="https://medium.com/@mattburgess/javascript-shinies-decorators-4fa005638022">JavaScript Shinies: Decorators</a></p>
+<pre><code>const debug = debugName =&gt; {
+  return function(target, name, descriptor){
+    const method = descriptor.value;
+    descriptor.value = function(...args){
+      console.group(debugName);
+      console.log(`Calling ${name} with arguments: %o`, args);
+      let result = method.apply(this, args);
+      console.log(`result is %o`, result);
+      console.groupEnd();
+      return result;
+    };
+  }
+}
+</code></pre>
+<p><a href="https://2ality.com/2015/10/intercepting-method-calls.html">Intercepting method calls via ES6 Proxies</a></p>
+<pre><code>function traceMethodCalls(obj) {
+    let handler = {
+        get(target, propKey, receiver) {
+            const origMethod = target[propKey];
+            return function (...args) {
+                let result = origMethod.apply(this, args);
+                console.log(propKey + JSON.stringify(args)
+                    + ' -&gt; ' + JSON.stringify(result));
+                return result;
+            };
+        }
+    };
+    return new Proxy(obj, handler);
+}
+</code></pre>
+<pre><code>let obj = {
+    multiply(x, y) {
+        return x * y;
+    },
+    squared(x) {
+        return this.multiply(x, x);
+    },
+};
+</code></pre>
+<pre><code>&gt; let tracedObj = traceMethodCalls(obj);
+&gt; tracedObj.multiply(2,7)
+multiply[2,7] -&gt; 14
+14
+&gt; tracedObj.squared(9)
+multiply[9,9] -&gt; 81
+squared[9] -&gt; 81
+81
+</code></pre>
+<p><a href="https://www.sitepoint.com/javascript-decorators-what-they-are/">JavaScript Decorators: What They Are and When to Use Them</a></p>
+<pre><code>function log(target, name, descriptor) {
+  const original = descriptor.value;
+  if (typeof original === 'function') {
+    descriptor.value = function(...args) {
+      console.log(`Arguments: ${args}`);
+      try {
+        const result = original.apply(this, args);
+        console.log(`Result: ${result}`);
+        return result;
+      } catch (e) {
+        console.log(`Error: ${e}`);
+        throw e;
+      }
+    }
+  }
+  return descriptor;
+}
+</code></pre>
+<p><a href="https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841">Exploring EcmaScript Decorators</a></p>
+<pre><code>
+</code></pre>
+<p><a href="https://netbasal.com/create-and-test-decorators-in-javascript-85e8d5cf879c">Create and Test Decorators in JavaScript</a></p>
+<ul>
+<li>
+<p>Class Decorators</p>
+</li>
+<li>
+<p>Method Decorators</p>
+</li>
+<li>
+<p>Property Decorators</p>
+</li>
+</ul>
+<pre><code>function logProperty(target: any, key: string) {
+ 
+  let value;
+ 
+  const getter = function() {
+    console.log(`Get =&gt; ${key}`);
+    return value;
+  };
+ 
+  const setter = function(newVal) {
+    console.log(`Set: ${key} =&gt; ${newVal}`);
+    value = newVal;
+  };
+ 
+  Object.defineProperty(target, key, {
+    get: getter,
+    set: setter,
+    enumerable: true,
+    configurable: true
+  });
+}
+</code></pre>
+<h2 id="ejemplos-de-knockoutjs"><a class="header" href="#ejemplos-de-knockoutjs">Ejemplos de knockout.js</a></h2>
+<p>Aplicar modelos y applyBindigns por Id elements:</p>
+<pre><code>&lt;div id=&quot;one&quot;&gt;
+  &lt;input data-bind=&quot;value: name&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;two&quot;&gt;
+  &lt;input data-bind=&quot;value: name&quot; /&gt;
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+  var viewModelA = {
+     name: ko.observable(&quot;Bob&quot;)
+  };
+
+  var viewModelB = {
+     name: ko.observable(&quot;Ted&quot;)
+  };
+
+  ko.applyBindings(viewModelA, document.getElementById(&quot;one&quot;));
+  ko.applyBindings(viewModelB, document.getElementById(&quot;two&quot;));
+&lt;/script&gt;
+</code></pre>
+<h3 id="crea-un-calendario--con-sÓlo-3-lÍneas-de-css"><a class="header" href="#crea-un-calendario--con-sÓlo-3-lÍneas-de-css">¡CREA un Calendario 📆 con SÓLO 3 LÍNEAS de CSS!</a></h3>
+<p>https://www.youtube.com/watch?v=Bpyl59_fjvU</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ApuntesJavascript.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ApuntesKubernetes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ApuntesJavascript.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ApuntesKubernetes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="custom.js"></script>
+
+
+    </body>
+</html>

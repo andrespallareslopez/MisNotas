@@ -1,0 +1,902 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Apuntes Asp.net Core-EF - Mis notas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="custom2.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Apuntes ALM.html"><strong aria-hidden="true">1.</strong> Apuntes ALM</a></li><li class="chapter-item "><a href="Apuntes AspNet Handfire.html"><strong aria-hidden="true">2.</strong> Apuntes AspNet Handfire</a></li><li class="chapter-item "><a href="Apuntes Azure Lista.html"><strong aria-hidden="true">3.</strong> Azure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes Azure AD.html"><strong aria-hidden="true">3.1.</strong> Apuntes Azure AD</a></li><li class="chapter-item "><a href="Apuntes Azure App Service.html"><strong aria-hidden="true">3.2.</strong> Apuntes Azure App Service.md</a></li><li class="chapter-item "><a href="Apuntes Azure Devops.html"><strong aria-hidden="true">3.3.</strong> Apuntes Azure Devops</a></li><li class="chapter-item "><a href="Apuntes Azure Functions.html"><strong aria-hidden="true">3.4.</strong> Apuntes Azure Functions</a></li><li class="chapter-item "><a href="Apuntes Azure Service Fabric.html"><strong aria-hidden="true">3.5.</strong> Apuntes Azure Service Fabric</a></li><li class="chapter-item "><a href="Apuntes Azure Sql Server.html"><strong aria-hidden="true">3.6.</strong> Apuntes Azure Sql Server</a></li><li class="chapter-item "><a href="Apuntes Azure.html"><strong aria-hidden="true">3.7.</strong> Apuntes Azure</a></li></ol></li><li class="chapter-item "><a href="Apuntes Consul.html"><strong aria-hidden="true">4.</strong> Apuntes Consul</a></li><li class="chapter-item "><a href="Apuntes CSS.html"><strong aria-hidden="true">5.</strong> Apuntes CSS</a></li><li class="chapter-item "><a href="Apuntes Expresiones Regulares.html"><strong aria-hidden="true">6.</strong> Apuntes Expresiones Regulares</a></li><li class="chapter-item "><a href="apuntes influxdb.html"><strong aria-hidden="true">7.</strong> Apuntes influxdb</a></li><li class="chapter-item "><a href="Apuntes jenkins basico.html"><strong aria-hidden="true">8.</strong> Apuntes jenkins basico</a></li><li class="chapter-item "><a href="Apuntes Nomad.html"><strong aria-hidden="true">9.</strong> Apuntes Nomad</a></li><li class="chapter-item "><a href="Apuntes Packer.html"><strong aria-hidden="true">10.</strong> Apuntes Packer</a></li><li class="chapter-item "><a href="Apuntes Proyectos.html"><strong aria-hidden="true">11.</strong> Apuntes Proyectos</a></li><li class="chapter-item "><a href="Apuntes React Lista.html"><strong aria-hidden="true">12.</strong> React</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes React Context.html"><strong aria-hidden="true">12.1.</strong> Apuntes React Context</a></li><li class="chapter-item "><a href="Apuntes React Formik.html"><strong aria-hidden="true">12.2.</strong> Apuntes React Formik</a></li><li class="chapter-item "><a href="Apuntes React Hooks.html"><strong aria-hidden="true">12.3.</strong> Apuntes React Hooks</a></li><li class="chapter-item "><a href="Apuntes React useCallback.html"><strong aria-hidden="true">12.4.</strong> Apuntes React useCallback</a></li><li class="chapter-item "><a href="Apuntes React useContext.html"><strong aria-hidden="true">12.5.</strong> Apuntes React useContext</a></li><li class="chapter-item "><a href="Apuntes React useReducer context.html"><strong aria-hidden="true">12.6.</strong> Apuntes React useReducer</a></li><li class="chapter-item "><a href="Apuntes React useRef.html"><strong aria-hidden="true">12.7.</strong> Apuntes React useRef</a></li><li class="chapter-item "><a href="Apuntes Reatjs.html"><strong aria-hidden="true">12.8.</strong> Apuntes Reactjs</a></li><li class="chapter-item "><a href="Apuntes Redux.html"><strong aria-hidden="true">12.9.</strong> Apuntes Redux</a></li><li class="chapter-item "><a href="Apuntes_gatsby.html"><strong aria-hidden="true">12.10.</strong> Apuntes Gatsby</a></li></ol></li><li class="chapter-item "><a href="Apuntes Rust.html"><strong aria-hidden="true">13.</strong> Apuntes Rust</a></li><li class="chapter-item "><a href="Apuntes Tailwind.html"><strong aria-hidden="true">14.</strong> Apuntes Tailwind</a></li><li class="chapter-item "><a href="Apuntes TemplateT4.html"><strong aria-hidden="true">15.</strong> Apuntes TemplateT4</a></li><li class="chapter-item "><a href="Apuntes Terraform Azure.html"><strong aria-hidden="true">16.</strong> Apuntes Terraform Azure</a></li><li class="chapter-item "><a href="Apuntes UrlRewrite.html"><strong aria-hidden="true">17.</strong> Apuntes UrlRewrite</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Windows Server</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes windows 2019.html"><strong aria-hidden="true">18.1.</strong> Apuntes windows 2019</a></li><li class="chapter-item "><a href="Apuntes windows ADDS.html"><strong aria-hidden="true">18.2.</strong> Apuntes windows ADDS</a></li><li class="chapter-item "><a href="Apuntes windows ADFS.html"><strong aria-hidden="true">18.3.</strong> Apuntes windows ADFS</a></li><li class="chapter-item "><a href="Apuntes Windows Core.html"><strong aria-hidden="true">18.4.</strong> Apuntes Windows Core</a></li><li class="chapter-item "><a href="Apuntes windows DNS.html"><strong aria-hidden="true">18.5.</strong> Apuntes Windows DNS</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">19.</strong> Asp.Net</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes_ApiGateway_Ocelot.html"><strong aria-hidden="true">19.1.</strong> Apuntes ApiGateway ocelot</a></li><li class="chapter-item "><a href="Apuntes_AspNET_Clasico_Inyeccion_Dependencies_01.html"><strong aria-hidden="true">19.2.</strong> Apuntes AspNet Clasico Inyeccion de dependencias</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_01.html"><strong aria-hidden="true">19.3.</strong> Apuntes AspNet Core GraphQL 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_02.html"><strong aria-hidden="true">19.4.</strong> Apuntes AspNet Core GraphQL 02</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_03.html"><strong aria-hidden="true">19.5.</strong> Apuntes AspNet Core GraphQL 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_04.html"><strong aria-hidden="true">19.6.</strong> Apuntes AspNet Core GraphQL 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_05.html"><strong aria-hidden="true">19.7.</strong> Apuntes AspNet Core GraphQL 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_01.html"><strong aria-hidden="true">19.8.</strong> Apuntes AspNet Core Inyeccion Dependencias 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_02.html"><strong aria-hidden="true">19.9.</strong> Apuntes AspNet Core Inyeccion Dependencias 02</a></li><li class="chapter-item "><a href="Apuntes_Aspnet_Core_Inyeccion_Dependencias_03.html"><strong aria-hidden="true">19.10.</strong> Apuntes AspNet Core Inyeccion Dependencias 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_04.html"><strong aria-hidden="true">19.11.</strong> Apuntes AspNet Core Inyeccion Dependencias 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_05.html"><strong aria-hidden="true">19.12.</strong> Apuntes AspNet Core Inyeccion Dependencias 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_06.html"><strong aria-hidden="true">19.13.</strong> Apuntes AspNet Core Inyeccion Dependencias 06</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_07.html"><strong aria-hidden="true">19.14.</strong> Apuntes AspNet Core Inyeccion Dependencias 07</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Serilog_SqlServer.html"><strong aria-hidden="true">19.15.</strong> Apuntes AspNet Core Serilog Sql Server</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core.html"><strong aria-hidden="true">19.16.</strong> Apuntes AspNet Core</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Identidy.html"><strong aria-hidden="true">19.17.</strong> Apuntes AspNet Idendity</a></li><li class="chapter-item "><a href="Apuntes_AspNet_IdentityServer4.html"><strong aria-hidden="true">19.18.</strong> Apuntes AspNet IdentityServer4</a></li><li class="chapter-item "><a href="Apuntes_AspNET_SignalR_01.html"><strong aria-hidden="true">19.19.</strong> Apuntes AspNet SignalR 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_SignalR.html"><strong aria-hidden="true">19.20.</strong> Apuntes AspNet SignalR</a></li><li class="chapter-item "><a href="Apuntes_Blazor.html"><strong aria-hidden="true">19.21.</strong> Apuntes AspNet Blazor</a></li><li class="chapter-item "><a href="Apuntes_ErrorExceptionWeb.html"><strong aria-hidden="true">19.22.</strong> Apuntes Error Excepcion Web</a></li><li class="chapter-item "><a href="Apuntes_Net5_Y_Docker.html"><strong aria-hidden="true">19.23.</strong> Apuntes Net5 y Docker</a></li><li class="chapter-item "><a href="ApuntesEF.html"><strong aria-hidden="true">19.24.</strong> Apuntes EF</a></li><li class="chapter-item "><a href="ApuntesMVC I.html"><strong aria-hidden="true">19.25.</strong> Apuntes MVC I</a></li><li class="chapter-item "><a href="ApuntesMVC II.html"><strong aria-hidden="true">19.26.</strong> Apuntes MVC II</a></li><li class="chapter-item "><a href="ApuntesNancy.html"><strong aria-hidden="true">19.27.</strong> Apuntes Nancy</a></li><li class="chapter-item "><a href="ApuntesNet.html"><strong aria-hidden="true">19.28.</strong> Apuntes Net</a></li><li class="chapter-item "><a href="ApuntesNinject.html"><strong aria-hidden="true">19.29.</strong> Apuntes Ninject</a></li><li class="chapter-item "><a href="ApuntesOptimizacion.html"><strong aria-hidden="true">19.30.</strong> Apuntes Optimizacion Framework</a></li><li class="chapter-item "><a href="apuntesOwin.html"><strong aria-hidden="true">19.31.</strong> Apuntes OWIN</a></li><li class="chapter-item "><a href="ApuntesWebApi.html"><strong aria-hidden="true">19.32.</strong> Apuntes Web Api</a></li><li class="chapter-item "><a href="ApuntesWebApiCore.html"><strong aria-hidden="true">19.33.</strong> Apuntes Web Api Core</a></li><li class="chapter-item "><a href="asp.net core webapi-ef template.html"><strong aria-hidden="true">19.34.</strong> Apuntes Asp.net core Web Api-EF Template</a></li><li class="chapter-item expanded "><a href="asp.net core-EF.html" class="active"><strong aria-hidden="true">19.35.</strong> Apuntes Asp.net Core-EF</a></li><li class="chapter-item "><a href="asp.net core-MVC.html"><strong aria-hidden="true">19.36.</strong> Apuntes Asp.net Core-MVC</a></li><li class="chapter-item "><a href="Blazor_Apuntes.html"><strong aria-hidden="true">19.37.</strong> Apuntes Blazor</a></li><li class="chapter-item "><a href="ApuntesAutofac.html"><strong aria-hidden="true">19.38.</strong> Apuntes AutoFac</a></li></ol></li><li class="chapter-item "><a href="ApuntesDocker.html"><strong aria-hidden="true">20.</strong> Apuntes Docker I</a></li><li class="chapter-item "><a href="ApuntesDocker II.html"><strong aria-hidden="true">21.</strong> Apuntes Docker II</a></li><li class="chapter-item "><a href="ApuntesNGINX.html"><strong aria-hidden="true">22.</strong> Apuntes NGINX</a></li><li class="chapter-item "><a href="ApuntesJavascript.html"><strong aria-hidden="true">23.</strong> Apuntes Javascript I</a></li><li class="chapter-item "><a href="ApuntesJavascriptII.html"><strong aria-hidden="true">24.</strong> Apuntes Javascript II</a></li><li class="chapter-item "><a href="ApuntesKubernetes.html"><strong aria-hidden="true">25.</strong> Apuntes Kubernetes</a></li><li class="chapter-item "><a href="ApuntesGit.html"><strong aria-hidden="true">26.</strong> Apuntes Git</a></li><li class="chapter-item "><a href="webpack.html"><strong aria-hidden="true">27.</strong> Apuntes WebPack</a></li><li class="chapter-item "><a href="Apuntes-Angular.html"><strong aria-hidden="true">28.</strong> Apuntes Angular</a></li><li class="chapter-item "><a href="Apuntes_wasm.html"><strong aria-hidden="true">29.</strong> Apuntes WebAssembly</a></li><li class="chapter-item "><a href="apuntesCache.html"><strong aria-hidden="true">30.</strong> Apuntes Asp Cache</a></li><li class="chapter-item "><a href="apuntesCacheRedis.html"><strong aria-hidden="true">31.</strong> Apuntes Asp Cache Redix</a></li><li class="chapter-item "><a href="ApuntesActivarSSL.html"><strong aria-hidden="true">32.</strong> Apuntes Activar SSL</a></li><li class="chapter-item "><a href="Apuntes_certificados.html"><strong aria-hidden="true">33.</strong> Apuntes Certificados</a></li><li class="chapter-item "><a href="Apuntes_OAUTH20.html"><strong aria-hidden="true">34.</strong> Apuntes OAUTH 2.0</a></li><li class="chapter-item "><a href="ApuntesSeguridad.html"><strong aria-hidden="true">35.</strong> Apuntes Seguridad</a></li><li class="chapter-item "><a href="Apuntes_PowerShell.html"><strong aria-hidden="true">36.</strong> Apuntes PowerShell</a></li><li class="chapter-item "><a href="ApuntesTypescript.html"><strong aria-hidden="true">37.</strong> Apuntes TypeScript</a></li><li class="chapter-item "><a href="ApuntesRequirejs.html"><strong aria-hidden="true">38.</strong> Apuntes RequireJS</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Mis notas</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="titulo-apuntes-aspnet-core-entity-frameworkdrecipes"><a class="header" href="#titulo-apuntes-aspnet-core-entity-frameworkdrecipes">Titulo: &quot;Apuntes Asp.Net Core Entity Frameworkd(Recipes)&quot;</a></h2>
+<h1 id="apuntes-aspnet-core-entity-frameworkdrecipes"><a class="header" href="#apuntes-aspnet-core-entity-frameworkdrecipes">Apuntes Asp.Net Core Entity Frameworkd(Recipes)</a></h1>
+<p>Command line for .Net core<br><br>
+<code>
+dotnet new web -o mywebapp<br>
+dotnet new --help<br>
+dotnet run<br>
+dotnet build<br></p>
+</code>
+Tenemos ejemplos mas concretos. <br>
+En este ejemplo creatmos un proyecto de tipo webapi:<br>
+<code>
+dotnet new webapi -n AspNetCoreWebApi
+</code>
+<p>Para crear un proyecto de consola :<br></p>
+<code>
+dotnet new console -o console01
+</code>
+<p>Para crear un proyecto MVC:<br></p>
+<p><code>dotnet new mvc -o proyectmvc01</code></p>
+<p>Para crear un  proyecto de  solucion:</p>
+<p><code>dotnet new sln -o nuevasolucion</code></p>
+<p><code>dotnet sln todo.sln add todo-app/todo-app.csproj</code></p>
+<p>Agregue varios proyectos de C# a una solución:</p>
+<p><code>dotnet sln todo.sln add todo-app/todo-app.csproj back-end/back-end.csproj</code></p>
+<p>Quite un proyecto de C# de una solución:<br>
+<code>dotnet sln todo.sln remove todo-app/todo-app.csproj</code></p>
+<p>Tambien tenemos msbuild para la  creacion  y compilacion de todas sus dependencias:</p>
+<p><code>dotnet msbuild</code></p>
+<p>Tambien tenemos comandos de referencia de proyecto:<br></p>
+<p><code>dotnet add reference</code><br>
+<code>dotnet list reference</code><br>
+<code>dotnet remove reference</code><br></p>
+<p>Tambien tenemos comandos de paquete de proyecto:</p>
+<p><code>dotnet add package</code><br>
+<code>dotnet list package</code><br>
+<code>dotnet  remove package</code><br></p>
+<p>Con la version 3.0 de net tenemos:</p>
+<pre>
+dotnet new wpf
+dotnet new winforms
+</pre>
+<p>Tenemos en la pagina de microsoft explicando todos los comandos:<br></p>
+<h3 id="dotnet-new"><a class="header" href="#dotnet-new"><a href="https://docs.microsoft.com/es-es/dotnet/core/tools/dotnet-new?tabs=netcore22">dotnet new</a></a></h3>
+<h3 id="tutorial-ef-de-todas-las-versiones-muy-bueno"><a class="header" href="#tutorial-ef-de-todas-las-versiones-muy-bueno"><a href="https://www.entityframeworktutorial.net/">Tutorial EF de todas las versiones</a> muy bueno.</a></h3>
+<p>A webApp program scaffolding example in .Net Core 2.0:</p>
+<pre>
+public class Program
+{
+    BuildWebHost(args).Run();
+}
+public static IWebHost BuildWebHost(string[] args) => 
+    WebHost.CreateDefaultBuilder(args).
+    UserStartUp<StartUp>().
+    Build(); 
+</pre>
+<p>Esta es la nueva manera de ejecutar una app autocontenida en la version .Net core 2.0</p>
+<pre>
+ public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+    if (env.IsDevelopment())
+    {
+        builder.AddUserSecrets<Startup>();
+    }
+
+    builder.AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+</pre>
+<p>En la version de .Net Core 1.x el patro de creacion de una aplicacion web app era diferente.</p>
+<p>Para usar micrations tenemos que añadir esto:</p>
+<p>Microsoft.EntityFrameworkCore.Tools y tenemos que añadirlo utilizando nuget</p>
+<p>Luego en la line a de comando podemos utilizar code first con migraciones:</p>
+<pre>
+dotnet ef migrations add MyMigration [options]
+dotnet ef database update [options]
+dotnet ef migrations remove [options]
+dotnet ef migrations script [From] [To] [options]
+</pre>
+<p>Tambien podemos hacer reverse ingeniering con la siguiente linea de comando</p>
+<pre>
+dotnet ef dbcontext scaffold [Connection] [Provider] [options]
+</pre>
+<p>Esto nos generara un dbcontext de entity framework desde una base de datos con esta linea de comandos y sus parametros apropiados.</p>
+<p>Para añadir paquetes nuget desde la linea de comandos</p>
+<pre>
+dotnet add package Newtonsoft.Json
+
+dotnet add package Microsoft.AspNetCore.StaticFiles
+
+</pre>
+<p>Para trabajar con Entity Framework tenemos que añadir los siguientes packetes:</p>
+<pre>
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+dotnet add package --version 2.0.3
+
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+</pre>
+<p>El paquete <code>Microsoft.EntityFrameworkCore.Tools </code> es para lo siguiente:</p>
+<p>Enables these commonly used commands:<br>
+Add-Migration<br>
+Drop-Database<br>
+Get-DbContext<br>
+Scaffold-DbContext<br>
+Script-Migrations<br>
+Update-Database<br></p>
+<p>Estos comando mencionados anteriormente se utilizarian en visual studio 2017/2019.<br></p>
+<p>Cuales son las diferencias entre estos dos paquetes:</p>
+<p><code>Microsoft.EntityFrameworkCore.Tools</code> are tools for use with the Package Manager Console (PMC) inside Visual Studio 2017/2019. Includes Scaffold-DbContext, Add-Migration, and Update-Database.</p>
+<p><code>Microsoft.EntityFrameworkCore.Tools.DotNet</code> are for use with .NET Core, specifically the dotnet.exe command line tool.</p>
+<p>El paquete <code>microsoft.entityframeworkcore.design</code> es utilizado tambien para ef migrations y para reverse ingeniering pero para CLI dentro del sdk de net core y sobre todo en visual studio code.</p>
+<p>Para la version .Net core 3.0 para instalar las herramientas ef de EntityFramework:<br>
+Tambien esto se llama .Net core command lines interfaces (CLI) tools.</p>
+<pre>
+dotnet tool install --global dotnet-ef --version 3.0.0-*
+</pre>
+<p>Por ejemplo para utilizar entity framework con sql lite:</p>
+<pre>
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Design
+</pre>
+<p>Luego podemos hacer <code> dotnet restore </code> para que se baje los paquetes al proyecto.</p>
+<p>Aqui tenemos ejemplo de codigo de un contexto EF, definido por convencion:<br>
+(tambien podemos hacerlo por configuracion)</p>
+<pre>
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+
+namespace ConsoleApp.SQLite
+{
+    public class BloggingContext : DbContext
+    {
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=blogging.db");
+        }
+    }
+
+    public class Blog
+    {
+        public int BlogId { get; set; }
+        public string Url { get; set; }
+
+        public ICollection<Post> Posts { get; set; }
+    }
+
+    public class Post
+    {
+        public int PostId { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+
+        public int BlogId { get; set; }
+        public Blog Blog { get; set; }
+    }
+}
+</pre>
+<p>En el optionBuilder tambien podemos tener:</p>
+<pre>
+optionsBuilder
+    .UseSqlServer(connectionString, providerOptions=>providerOptions.CommandTimeout(60))
+    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+</pre>
+<p>Tambien puede ser:</p>
+<pre>
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    if (!optionsBuilder.IsConfigured)
+    {
+        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory;Trusted_Connection=True;ConnectRetryCount=0");
+    }
+}
+</pre>
+<p>Luego podemos correr el siguiente comando para aplicar code first, o sea crear una base de datos a partir de nuestro modelo definido:</p>
+<pre>
+dotnet ef migrations add InitialCreate
+
+dotnet ef database update
+</pre>
+<p>El comando <code>dotnet ef database update</code> es para aplicar los cambios del modelo a la base de datos.</p>
+<pre>
+using System;
+
+namespace ConsoleApp.SQLite
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            using (var db = new BloggingContext())
+            {
+                db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/adonet" });
+                var count = db.SaveChanges();
+                Console.WriteLine("{0} records saved to database", count);
+
+                Console.WriteLine();
+                Console.WriteLine("All blogs in database:");
+                foreach (var blog in db.Blogs)
+                {
+                    Console.WriteLine(" - {0}", blog.Url);
+                }
+            }
+        }
+    }
+}
+</pre>
+<h3 id="proveedor-de-base-de-datos-inmemory-para-ef-core"><a class="header" href="#proveedor-de-base-de-datos-inmemory-para-ef-core">Proveedor de base de datos InMemory para EF Core</a></h3>
+<pre>
+   Install-Package Microsoft.EntityFrameworkCore.InMemory
+</pre>
+<pre>
+dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 2.2.6 (Ojo para la version 2.x, existe ya la version core 3.0)
+</pre>
+<p>InMemory no es una base de datos relacional.</p>
+<pre>
+public class BloggingContext : DbContext
+{
+    public BloggingContext()
+    { }
+
+    public BloggingContext(DbContextOptions<BloggingContext> options)
+        : base(options)
+    { }
+</pre>
+<pre>
+using BusinessLogic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+
+namespace TestProject.InMemory
+{
+    [TestClass]
+    public class BlogServiceTests
+    {
+        [TestMethod]
+        public void Add_writes_to_database()
+        {
+            var options = new DbContextOptionsBuilder<BloggingContext>()
+                .UseInMemoryDatabase(databaseName: "Add_writes_to_database")
+                .Options;
+
+            // Run the test against one instance of the context
+            using (var context = new BloggingContext(options))
+            {
+                var service = new BlogService(context);
+                service.Add("http://sample.com");
+            }
+
+            // Use a separate instance of the context to verify correct data was saved to database
+            using (var context = new BloggingContext(options))
+            {
+                Assert.AreEqual(1, context.Blogs.Count());
+                Assert.AreEqual("http://sample.com", context.Blogs.Single().Url);
+            }
+        }
+
+        [TestMethod]
+        public void Find_searches_url()
+        {
+            var options = new DbContextOptionsBuilder<BloggingContext>()
+                .UseInMemoryDatabase(databaseName: "Find_searches_url")
+                .Options;
+
+            // Insert seed data into the database using one instance of the context
+            using (var context = new BloggingContext(options))
+            {
+                context.Blogs.Add(new Blog { Url = "http://sample.com/cats" });
+                context.Blogs.Add(new Blog { Url = "http://sample.com/catfish" });
+                context.Blogs.Add(new Blog { Url = "http://sample.com/dogs" });
+                context.SaveChanges();
+            }
+
+            // Use a clean instance of the context to run the test
+            using (var context = new BloggingContext(options))
+            {
+                var service = new BlogService(context);
+                var result = service.Find("cat");
+                Assert.AreEqual(2, result.Count());
+            }
+        }
+    }
+}
+</pre>
+<h3 id="ejemplo-con-sql-servercode-first"><a class="header" href="#ejemplo-con-sql-servercode-first">Ejemplo con Sql server(Code-first)</a></h3>
+<p>Aqui tenemos los paquetes a introducir en el proyecto:</p>
+<pre>
+
+dotnet add package Microsoft.EntityFramecore.SqlServer
+
+dotnet add package Microsoft.EntityFrameworkcore.SqlServer.Design
+
+Microsoft.EntityFrameworkcore.Tools(este paquete seria mas para visual studio 2017/2019)
+</pre>
+<p>Aqui tenemos el modelo</p>
+<pre>
+namespace EFCore.models
+{
+    public class Product
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+}
+</pre>
+<p>Y aqui tenemos el contexto de la base de datos</p>
+<pre>
+using Microsoft.EntityFrameworkCore;
+ 
+namespace EFCore.models
+{
+    public class EFContext : DbContext
+    {
+ 
+        private const string connectionString = "Server=(localdb)\\mssqllocaldb;Database=EFCore;Trusted_Connection=True;";
+ 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+ 
+        public DbSet<Product> Products { get; set; }
+ 
+    }
+}
+</pre>
+<p>Para crear la base de datos desde el modelo y en visual studio 2017/2019</p>
+<pre>
+Add-Migration “NewDatabase”
+
+update-database
+</pre>
+<p>Y luego le añadimos algunos datos, una vez creada la base de datos:</p>
+<pre>
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello World!");
+        insertProduct();
+ 
+        Console.WriteLine("Press any key to continue");
+        Console.ReadKey();
+    }
+ 
+    static void insertProduct()
+    {
+        using (var db = new EFContext())
+        { 
+            Product product = new Product();
+            product.Name = "Pen Drive";
+            db.Add(product);
+ 
+            product = new Product();
+            product.Name = "Memory Card";
+            db.Add(product);
+ 
+            db.SaveChanges();
+        }
+        return;
+   }
+}
+</pre>
+<pre>
+using System.Linq;
+ 
+static void readProduct()
+{
+ 
+    using (var db = new EFContext())
+    {
+        List<Product> products = db.Products.ToList();
+        foreach(Product p in products)
+        {
+            Console.WriteLine("{0} {1}",p.Id, p.Name);
+        }
+    }
+    return;
+}
+</pre>
+<h3 id="varios-connectionstring-ejemplos"><a class="header" href="#varios-connectionstring-ejemplos">Varios ConnectionString Ejemplos</a></h3>
+<pre>
+@"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory;Trusted_Connection=True;ConnectRetryCount=0")
+</pre>
+<p>Conectarse a una cuenta windows integrada en Sql Server:</p>
+<pre>
+"Persist Security Info=False;Integrated Security=true;  
+    Initial Catalog=AdventureWorks;Server=MSSQL1"  
+"Persist Security Info=False;Integrated Security=SSPI;  
+    database=AdventureWorks;server=(local)"  
+"Persist Security Info=False;Trusted_Connection=True;  
+    database=AdventureWorks;server=(local)" 
+</pre>
+<p>Conectarse a una cuenta Sql Server:</p>
+<pre>
+"Persist Security Info=False;User ID=*****;Password=*****;Initial Catalog=AdventureWorks;Server=MySqlServer"
+</pre>
+<p>Conectarse a una instancia con nombre de SQL Server</p>
+<pre>
+Data Source=MySqlServer\MSSQL1;"
+</pre>
+<p>Standard Security</p>
+<pre>
+Server=myServerAddress;Database=myDataBase;User Id=myUsername;
+Password=myPassword;
+</pre>
+<p>Connection to a SQL Server instance</p>
+<pre>
+Server=myServerName\myInstanceName;Database=myDataBase;User Id=myUsername;
+Password=myPassword;
+</pre>
+<p>Connect via an IP address</p>
+<pre>
+Data Source=190.190.200.100,1433;Network Library=DBMSSOCN;
+Initial Catalog=myDataBase;User ID=myUsername;Password=myPassword;
+</pre>
+<p>Enable MARS</p>
+<pre>
+Server=myServerAddress;Database=myDataBase;Trusted_Connection=True;
+MultipleActiveResultSets=true;
+</pre>
+<p>Attach a database file on connect to a local SQL Server Express instance</p>
+<pre>
+Server=.\SQLExpress;AttachDbFilename=C:\MyFolder\MyDataFile.mdf;Database=dbname;
+Trusted_Connection=
+</pre>
+<p>Todas estas cadenas de conexion las he sacado de la siguiente url:</p>
+<p>https://www.connectionstrings.com/sql-server/</p>
+<h3 id="scaffold-dbcontext-command"><a class="header" href="#scaffold-dbcontext-command">Scaffold-DbContext Command</a></h3>
+<pre>
+dotnet ef dbcontext scaffold "Server=.\SQLEXPRESS;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+</pre>
+<p>Estructura de la clase dbcontext en EF Core:</p>
+<pre>
+public class SchoolContext : DbContext
+{
+    public SchoolContext()
+    {
+  
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+    }
+    //entities
+    public DbSet<Student> Students { get; set; }
+    public DbSet<Course> Courses { get; set; }
+} 
+</pre>
+<pre>
+namespace EFCoreTutorials
+{
+    public class SchoolContext : DbContext
+    {
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        { 
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=SchoolDB;Trusted_Connection=True;");
+        }
+    }
+}
+</pre>
+<p>Para crear la base de datos:</p>
+<pre>
+add-migration CreateSchoolDB
+</pre>
+<pre>
+dotnet ef migrations add CreateSchoolDB
+</pre>
+<p>Para materializar los cambios en la base de datos:</p>
+<pre>
+ update-database –verbose
+</pre>
+<pre>
+dotnet ef database update
+</pre>
+<p>Luego agregar datos a dicha base de datos:</p>
+<pre>
+namespace EFCoreTutorials
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            using (var context = new SchoolContext()) {
+
+                var std = new Student()
+                {
+                     Name = "Bill"
+                };
+
+                context.Students.Add(std);
+                context.SaveChanges();
+            }
+        }
+    }
+}
+</pre>
+<h3 id="procedimientos-almacenados-en-entity-framework"><a class="header" href="#procedimientos-almacenados-en-entity-framework">Procedimientos almacenados en Entity Framework</a></h3>
+<p>Una manera de añadir un procedimiento almacenado en code-first :<br>
+Añadimos una migracion en blanco que nos generara un scaffolding</p>
+<pre>
+Add-migration sp-GetStudents
+</pre>
+<pre>
+public partial class spGetStudents : Migration
+{
+    protected override void Up(MigrationBuilder migrationBuilder)
+    {
+        var sp = @"CREATE PROCEDURE [dbo].[GetStudents]
+                    @FirstName varchar(50)
+                AS
+                BEGIN
+                    SET NOCOUNT ON;
+                    select * from Students where FirstName like @FirstName +'%'
+                END";
+
+        migrationBuilder.Sql(sp);
+    }
+
+    protected override void Down(MigrationBuilder migrationBuilder)
+    {
+
+    }
+}
+</pre>
+<pre>
+Update-database
+</pre>
+<p>De esta manera añadimos el procedimiento almacenado con el enfoque code-first a la base de datos.</p>
+<p>Vamos a ver como se ejecuta el procedimiento sql con el metodo FromSql:</p>
+<pre>
+var context = new SchoolContext(); 
+
+var students = context.Students.FromSql("GetStudents 'Bill'").ToList()
+</pre>
+<pre>
+var name = "Bill";
+
+var context = new SchoolContext(); 
+var students = context.Students
+                      .FromSql($"GetStudents {name}")
+                      .ToList();
+
+//or
+//var students = context.Students.FromSql($"exec GetStudents {name}").ToList();
+
+</pre>
+<pre>
+var context = new SchoolContext(); 
+var param = new SqlParameter("@FirstName", "Bill");
+//or
+/*var param = new SqlParameter() {
+                    ParameterName = "@FirstName",
+                    SqlDbType =  System.Data.SqlDbType.VarChar,
+                    Direction = System.Data.ParameterDirection.Input,
+                    Size = 50,
+                    Value = "Bill"
+};*/
+
+var students = context.Students.FromSql("GetStudents @FirstName", param).ToList();
+</pre>
+<p>Y con el metodo <code>ExecuteSqlCommand()</code> tendriamos lo siguiente:</p>
+<pre>
+var context = new SchoolContext(); 
+
+var rowsAffected = context.Database.ExecuteSqlCommand("Update Students set FirstName = 'Bill' where StudentId = 1;");
+</pre>
+<pre>
+var context = new SchoolContext(); 
+
+context.Database.ExecuteSqlCommand("CreateStudents @p0, @p1", parameters: new[] { "Bill", "Gates" });
+</pre>
+<h3 id="entity-framework-core-database-first"><a class="header" href="#entity-framework-core-database-first">Entity Framework Core Database-First</a></h3>
+<p>Tambien este enfoque es llamado desde EF core nuevas versiones &quot;Ingeniería inversa&quot;.</p>
+<p>Tenemos un articulo muy bueno explicando todo esto:</p>
+<p>https://docs.microsoft.com/es-es/ef/core/managing-schemas/scaffolding.</p>
+<p>Aqui tenemos algunos comandos de ejemplos de importar desde una base de datos el modelo relacional a un modelo de clases o de dominio:</p>
+<pre>
+Scaffold-DbContext "host=server;database=test;user id=postgres;" Devart.Data.PostgreSql.Entity.EFCore
+</pre>
+<pre>
+Scaffold-DbContext "host=server;database=test;user id=postgres;" Devart.Data.PostgreSql.Entity.EFCore -Tables dept,emp
+</pre>
+<p>Aqui tenemos mas ejemplos:</p>
+<pre>
+dotnet ef dbcontext scaffold "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Chinook" Microsoft.EntityFrameworkCore.SqlServer
+</pre>
+<p>Esto se utiliza con la herramienta secret manager:</p>
+<pre>
+dotnet user-secrets set ConnectionStrings.Chinook "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Chinook"
+dotnet ef dbcontext scaffold Name=Chinook Microsoft.EntityFrameworkCore.SqlServer
+</pre>
+<p>Especificacion de tablas:
+El -Schemas parámetro en la PMC y --schema opción en la CLI puede utilizarse para incluir todas las tablas dentro de un esquema.</p>
+<p>-Tables (PMC) y --table (CLI) puede usarse para incluir tablas específicas.</p>
+<pre>
+Scaffold-DbContext ... -Tables Artist, Album
+</pre>
+<pre>
+dotnet ef dbcontext scaffold ... --table Artist --table Album
+</pre>
+<hr />
+<p>.NET Core 3.1 Web API &amp; Entity Framework Core Jumpstart</p>
+<p>https://www.youtube.com/watch?v=H4qg9HJX_SE</p>
+<hr />
+<p>Entity Framework Core (CRUD Operation in .NET Core 3.0)</p>
+<p>https://www.youtube.com/watch?v=VVWi9ZdAS9M</p>
+<p>Hay que instalar Microsoft.EntityFrameworkCore y 
+Microsoft.EntityFramework.SqlServer</p>
+<hr />
+<h2 id="referencia-de-herramientas-de-entity-framework-core-consola-del-administrador-de-paquetes-en-visual-studio"><a class="header" href="#referencia-de-herramientas-de-entity-framework-core-consola-del-administrador-de-paquetes-en-visual-studio">Referencia de herramientas de Entity Framework Core: consola del administrador de paquetes en Visual Studio</a></h2>
+<p>https://docs.microsoft.com/es-es/ef/core/cli/powershell</p>
+<p>Activamos las migraciones</p>
+<pre><code>enable-migrations
+</code></pre>
+<p>Generame un script sql para actualizar la base de datos</p>
+<pre><code>Update-Database -Script -SourceMigration: $InitialDatabase
+</code></pre>
+<p>ahora tenemos las herramientas de entity framework core desde la consola de administracion de paquetes, para utilizarlo desde visual studio</p>
+<p>Sacado del siguiente articulo:</p>
+<p>Referencia de herramientas de Entity Framework Core: consola del administrador de paquetes en Visual Studio</p>
+<p>https://docs.microsoft.com/es-es/ef/core/cli/powershell</p>
+<pre><code>Install-Package Microsoft.EntityFrameworkCore.Tools
+
+Update-Package Microsoft.EntityFrameworkCore.Tools
+
+
+</code></pre>
+<p>Y desde powershell podemos ver las herramientas instaladas</p>
+<pre><code>Get-Help about_EntityFrameworkCore
+</code></pre>
+<p>Lista de comandos</p>
+<p>Añadir una migracion</p>
+<pre><code>Add-Migration -Name &quot;nombremigracion&quot;
+</code></pre>
+<pre><code>Drop-Database
+</code></pre>
+<pre><code>Get-DbContext
+</code></pre>
+<p>Esta es nueva en EF Core 5.0</p>
+<pre><code>Get-Migration
+</code></pre>
+<pre><code>Remove-Migration -Force
+</code></pre>
+<pre><code>Scaffold-DbContext &quot;Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;&quot; Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+</code></pre>
+<p>Ejemplo que scaffolding solo selecciona tablas y crea el contexto en una carpeta independiente con un nombre y un espacio de nombres especificados:</p>
+<pre><code>Scaffold-DbContext &quot;Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;&quot; Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables &quot;Blog&quot;,&quot;Post&quot; -ContextDir Context -Context BlogContext -ContextNamespace New.Namespace
+</code></pre>
+<p>Genera un script SQL desde DbContext.Agregado en EF Core 3,0.</p>
+<pre><code>Script-DbContext
+</code></pre>
+<p>Genera un script SQL que aplica todos los cambios de una migración seleccionada a otra migración seleccionada.</p>
+<pre><code>Script-Migration 0 InitialCreate
+</code></pre>
+<p>En el ejemplo siguiente se crea un script para todas las migraciones después de la migración de InitialCreate con el identificador de migración.</p>
+<pre><code>Script-Migration 20180904195021_InitialCreate
+</code></pre>
+<p>Actualiza la base de datos a la última migración o a una migración especificada.</p>
+<pre><code>Update-Database
+</code></pre>
+<p>En el ejemplo siguiente se revierten todas las migraciones.</p>
+<pre><code>Update-Database 0
+</code></pre>
+<p>En los siguientes ejemplos se actualiza la base de datos a una migración especificada. El primero usa el nombre de la migración y el segundo usa el identificador de migración y una conexión especificada:</p>
+<pre><code>Update-Database InitialCreate
+Update-Database 20180904195021_InitialCreate -Connection your_connection_string
+</code></pre>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="asp.net core webapi-ef template.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="asp.net core-MVC.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="asp.net core webapi-ef template.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="asp.net core-MVC.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="custom.js"></script>
+
+
+    </body>
+</html>

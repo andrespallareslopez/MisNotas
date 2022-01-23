@@ -1,0 +1,721 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Apuntes AspNet IdentityServer4 - Mis notas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="custom2.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Apuntes ALM.html"><strong aria-hidden="true">1.</strong> Apuntes ALM</a></li><li class="chapter-item "><a href="Apuntes AspNet Handfire.html"><strong aria-hidden="true">2.</strong> Apuntes AspNet Handfire</a></li><li class="chapter-item "><a href="Apuntes Azure Lista.html"><strong aria-hidden="true">3.</strong> Azure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes Azure AD.html"><strong aria-hidden="true">3.1.</strong> Apuntes Azure AD</a></li><li class="chapter-item "><a href="Apuntes Azure App Service.html"><strong aria-hidden="true">3.2.</strong> Apuntes Azure App Service.md</a></li><li class="chapter-item "><a href="Apuntes Azure Devops.html"><strong aria-hidden="true">3.3.</strong> Apuntes Azure Devops</a></li><li class="chapter-item "><a href="Apuntes Azure Functions.html"><strong aria-hidden="true">3.4.</strong> Apuntes Azure Functions</a></li><li class="chapter-item "><a href="Apuntes Azure Service Fabric.html"><strong aria-hidden="true">3.5.</strong> Apuntes Azure Service Fabric</a></li><li class="chapter-item "><a href="Apuntes Azure Sql Server.html"><strong aria-hidden="true">3.6.</strong> Apuntes Azure Sql Server</a></li><li class="chapter-item "><a href="Apuntes Azure.html"><strong aria-hidden="true">3.7.</strong> Apuntes Azure</a></li></ol></li><li class="chapter-item "><a href="Apuntes Consul.html"><strong aria-hidden="true">4.</strong> Apuntes Consul</a></li><li class="chapter-item "><a href="Apuntes CSS.html"><strong aria-hidden="true">5.</strong> Apuntes CSS</a></li><li class="chapter-item "><a href="Apuntes Expresiones Regulares.html"><strong aria-hidden="true">6.</strong> Apuntes Expresiones Regulares</a></li><li class="chapter-item "><a href="apuntes influxdb.html"><strong aria-hidden="true">7.</strong> Apuntes influxdb</a></li><li class="chapter-item "><a href="Apuntes jenkins basico.html"><strong aria-hidden="true">8.</strong> Apuntes jenkins basico</a></li><li class="chapter-item "><a href="Apuntes Nomad.html"><strong aria-hidden="true">9.</strong> Apuntes Nomad</a></li><li class="chapter-item "><a href="Apuntes Packer.html"><strong aria-hidden="true">10.</strong> Apuntes Packer</a></li><li class="chapter-item "><a href="Apuntes Proyectos.html"><strong aria-hidden="true">11.</strong> Apuntes Proyectos</a></li><li class="chapter-item "><a href="Apuntes React Lista.html"><strong aria-hidden="true">12.</strong> React</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes React Context.html"><strong aria-hidden="true">12.1.</strong> Apuntes React Context</a></li><li class="chapter-item "><a href="Apuntes React Formik.html"><strong aria-hidden="true">12.2.</strong> Apuntes React Formik</a></li><li class="chapter-item "><a href="Apuntes React Hooks.html"><strong aria-hidden="true">12.3.</strong> Apuntes React Hooks</a></li><li class="chapter-item "><a href="Apuntes React useCallback.html"><strong aria-hidden="true">12.4.</strong> Apuntes React useCallback</a></li><li class="chapter-item "><a href="Apuntes React useContext.html"><strong aria-hidden="true">12.5.</strong> Apuntes React useContext</a></li><li class="chapter-item "><a href="Apuntes React useReducer context.html"><strong aria-hidden="true">12.6.</strong> Apuntes React useReducer</a></li><li class="chapter-item "><a href="Apuntes React useRef.html"><strong aria-hidden="true">12.7.</strong> Apuntes React useRef</a></li><li class="chapter-item "><a href="Apuntes Reatjs.html"><strong aria-hidden="true">12.8.</strong> Apuntes Reactjs</a></li><li class="chapter-item "><a href="Apuntes Redux.html"><strong aria-hidden="true">12.9.</strong> Apuntes Redux</a></li><li class="chapter-item "><a href="Apuntes_gatsby.html"><strong aria-hidden="true">12.10.</strong> Apuntes Gatsby</a></li></ol></li><li class="chapter-item "><a href="Apuntes Rust.html"><strong aria-hidden="true">13.</strong> Apuntes Rust</a></li><li class="chapter-item "><a href="Apuntes Tailwind.html"><strong aria-hidden="true">14.</strong> Apuntes Tailwind</a></li><li class="chapter-item "><a href="Apuntes TemplateT4.html"><strong aria-hidden="true">15.</strong> Apuntes TemplateT4</a></li><li class="chapter-item "><a href="Apuntes Terraform Azure.html"><strong aria-hidden="true">16.</strong> Apuntes Terraform Azure</a></li><li class="chapter-item "><a href="Apuntes UrlRewrite.html"><strong aria-hidden="true">17.</strong> Apuntes UrlRewrite</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Windows Server</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes windows 2019.html"><strong aria-hidden="true">18.1.</strong> Apuntes windows 2019</a></li><li class="chapter-item "><a href="Apuntes windows ADDS.html"><strong aria-hidden="true">18.2.</strong> Apuntes windows ADDS</a></li><li class="chapter-item "><a href="Apuntes windows ADFS.html"><strong aria-hidden="true">18.3.</strong> Apuntes windows ADFS</a></li><li class="chapter-item "><a href="Apuntes Windows Core.html"><strong aria-hidden="true">18.4.</strong> Apuntes Windows Core</a></li><li class="chapter-item "><a href="Apuntes windows DNS.html"><strong aria-hidden="true">18.5.</strong> Apuntes Windows DNS</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">19.</strong> Asp.Net</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes_ApiGateway_Ocelot.html"><strong aria-hidden="true">19.1.</strong> Apuntes ApiGateway ocelot</a></li><li class="chapter-item "><a href="Apuntes_AspNET_Clasico_Inyeccion_Dependencies_01.html"><strong aria-hidden="true">19.2.</strong> Apuntes AspNet Clasico Inyeccion de dependencias</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_01.html"><strong aria-hidden="true">19.3.</strong> Apuntes AspNet Core GraphQL 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_02.html"><strong aria-hidden="true">19.4.</strong> Apuntes AspNet Core GraphQL 02</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_03.html"><strong aria-hidden="true">19.5.</strong> Apuntes AspNet Core GraphQL 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_04.html"><strong aria-hidden="true">19.6.</strong> Apuntes AspNet Core GraphQL 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_05.html"><strong aria-hidden="true">19.7.</strong> Apuntes AspNet Core GraphQL 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_01.html"><strong aria-hidden="true">19.8.</strong> Apuntes AspNet Core Inyeccion Dependencias 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_02.html"><strong aria-hidden="true">19.9.</strong> Apuntes AspNet Core Inyeccion Dependencias 02</a></li><li class="chapter-item "><a href="Apuntes_Aspnet_Core_Inyeccion_Dependencias_03.html"><strong aria-hidden="true">19.10.</strong> Apuntes AspNet Core Inyeccion Dependencias 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_04.html"><strong aria-hidden="true">19.11.</strong> Apuntes AspNet Core Inyeccion Dependencias 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_05.html"><strong aria-hidden="true">19.12.</strong> Apuntes AspNet Core Inyeccion Dependencias 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_06.html"><strong aria-hidden="true">19.13.</strong> Apuntes AspNet Core Inyeccion Dependencias 06</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_07.html"><strong aria-hidden="true">19.14.</strong> Apuntes AspNet Core Inyeccion Dependencias 07</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Serilog_SqlServer.html"><strong aria-hidden="true">19.15.</strong> Apuntes AspNet Core Serilog Sql Server</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core.html"><strong aria-hidden="true">19.16.</strong> Apuntes AspNet Core</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Identidy.html"><strong aria-hidden="true">19.17.</strong> Apuntes AspNet Idendity</a></li><li class="chapter-item expanded "><a href="Apuntes_AspNet_IdentityServer4.html" class="active"><strong aria-hidden="true">19.18.</strong> Apuntes AspNet IdentityServer4</a></li><li class="chapter-item "><a href="Apuntes_AspNET_SignalR_01.html"><strong aria-hidden="true">19.19.</strong> Apuntes AspNet SignalR 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_SignalR.html"><strong aria-hidden="true">19.20.</strong> Apuntes AspNet SignalR</a></li><li class="chapter-item "><a href="Apuntes_Blazor.html"><strong aria-hidden="true">19.21.</strong> Apuntes AspNet Blazor</a></li><li class="chapter-item "><a href="Apuntes_ErrorExceptionWeb.html"><strong aria-hidden="true">19.22.</strong> Apuntes Error Excepcion Web</a></li><li class="chapter-item "><a href="Apuntes_Net5_Y_Docker.html"><strong aria-hidden="true">19.23.</strong> Apuntes Net5 y Docker</a></li><li class="chapter-item "><a href="ApuntesEF.html"><strong aria-hidden="true">19.24.</strong> Apuntes EF</a></li><li class="chapter-item "><a href="ApuntesMVC I.html"><strong aria-hidden="true">19.25.</strong> Apuntes MVC I</a></li><li class="chapter-item "><a href="ApuntesMVC II.html"><strong aria-hidden="true">19.26.</strong> Apuntes MVC II</a></li><li class="chapter-item "><a href="ApuntesNancy.html"><strong aria-hidden="true">19.27.</strong> Apuntes Nancy</a></li><li class="chapter-item "><a href="ApuntesNet.html"><strong aria-hidden="true">19.28.</strong> Apuntes Net</a></li><li class="chapter-item "><a href="ApuntesNinject.html"><strong aria-hidden="true">19.29.</strong> Apuntes Ninject</a></li><li class="chapter-item "><a href="ApuntesOptimizacion.html"><strong aria-hidden="true">19.30.</strong> Apuntes Optimizacion Framework</a></li><li class="chapter-item "><a href="apuntesOwin.html"><strong aria-hidden="true">19.31.</strong> Apuntes OWIN</a></li><li class="chapter-item "><a href="ApuntesWebApi.html"><strong aria-hidden="true">19.32.</strong> Apuntes Web Api</a></li><li class="chapter-item "><a href="ApuntesWebApiCore.html"><strong aria-hidden="true">19.33.</strong> Apuntes Web Api Core</a></li><li class="chapter-item "><a href="asp.net core webapi-ef template.html"><strong aria-hidden="true">19.34.</strong> Apuntes Asp.net core Web Api-EF Template</a></li><li class="chapter-item "><a href="asp.net core-EF.html"><strong aria-hidden="true">19.35.</strong> Apuntes Asp.net Core-EF</a></li><li class="chapter-item "><a href="asp.net core-MVC.html"><strong aria-hidden="true">19.36.</strong> Apuntes Asp.net Core-MVC</a></li><li class="chapter-item "><a href="Blazor_Apuntes.html"><strong aria-hidden="true">19.37.</strong> Apuntes Blazor</a></li><li class="chapter-item "><a href="ApuntesAutofac.html"><strong aria-hidden="true">19.38.</strong> Apuntes AutoFac</a></li></ol></li><li class="chapter-item "><a href="ApuntesDocker.html"><strong aria-hidden="true">20.</strong> Apuntes Docker I</a></li><li class="chapter-item "><a href="ApuntesDocker II.html"><strong aria-hidden="true">21.</strong> Apuntes Docker II</a></li><li class="chapter-item "><a href="ApuntesNGINX.html"><strong aria-hidden="true">22.</strong> Apuntes NGINX</a></li><li class="chapter-item "><a href="ApuntesJavascript.html"><strong aria-hidden="true">23.</strong> Apuntes Javascript I</a></li><li class="chapter-item "><a href="ApuntesJavascriptII.html"><strong aria-hidden="true">24.</strong> Apuntes Javascript II</a></li><li class="chapter-item "><a href="ApuntesKubernetes.html"><strong aria-hidden="true">25.</strong> Apuntes Kubernetes</a></li><li class="chapter-item "><a href="ApuntesGit.html"><strong aria-hidden="true">26.</strong> Apuntes Git</a></li><li class="chapter-item "><a href="webpack.html"><strong aria-hidden="true">27.</strong> Apuntes WebPack</a></li><li class="chapter-item "><a href="Apuntes-Angular.html"><strong aria-hidden="true">28.</strong> Apuntes Angular</a></li><li class="chapter-item "><a href="Apuntes_wasm.html"><strong aria-hidden="true">29.</strong> Apuntes WebAssembly</a></li><li class="chapter-item "><a href="apuntesCache.html"><strong aria-hidden="true">30.</strong> Apuntes Asp Cache</a></li><li class="chapter-item "><a href="apuntesCacheRedis.html"><strong aria-hidden="true">31.</strong> Apuntes Asp Cache Redix</a></li><li class="chapter-item "><a href="ApuntesActivarSSL.html"><strong aria-hidden="true">32.</strong> Apuntes Activar SSL</a></li><li class="chapter-item "><a href="Apuntes_certificados.html"><strong aria-hidden="true">33.</strong> Apuntes Certificados</a></li><li class="chapter-item "><a href="Apuntes_OAUTH20.html"><strong aria-hidden="true">34.</strong> Apuntes OAUTH 2.0</a></li><li class="chapter-item "><a href="ApuntesSeguridad.html"><strong aria-hidden="true">35.</strong> Apuntes Seguridad</a></li><li class="chapter-item "><a href="Apuntes_PowerShell.html"><strong aria-hidden="true">36.</strong> Apuntes PowerShell</a></li><li class="chapter-item "><a href="ApuntesTypescript.html"><strong aria-hidden="true">37.</strong> Apuntes TypeScript</a></li><li class="chapter-item "><a href="ApuntesRequirejs.html"><strong aria-hidden="true">38.</strong> Apuntes RequireJS</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Mis notas</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="titulo-apuntes-identityserver"><a class="header" href="#titulo-apuntes-identityserver">Titulo: Apuntes IdentityServer</a></h2>
+<h1 id="apuntes-identityserver"><a class="header" href="#apuntes-identityserver">Apuntes IdentityServer</a></h1>
+<ul>
+<li><a href="#apuntes-identityserver">Apuntes IdentityServer</a>
+<ul>
+<li><a href="#resumen-oauth-openid-connect">Resumen OAUTH OPENID Connect</a></li>
+<li><a href="#identityserver4-i---conceptos-b%C3%A1sicos">IdentityServer4 (I) - Conceptos básicos</a></li>
+<li><a href="#identityserver4-ii---creando-servidor-de-autentificaci%C3%B3n-en-aspnet-core-2">IdentityServer4 (II) - Creando servidor de autentificación en ASP.Net Core 2</a></li>
+<li><a href="#aspnet-core-3---identityserver4---ep9-client-credentials-introduction">ASP.NET Core 3 - IdentityServer4 - Ep.9 Client Credentials (Introduction)</a></li>
+<li><a href="#c%C3%B3mo-securizar-tus-apps-con-identity-server-y-net-core-parte-i">Cómo securizar tus apps con Identity Server y .NET Core (Parte I)</a></li>
+<li><a href="#aspnet-core-building-a-robust-authentication-and-authorization-system-using-identityserver">ASP.NET Core: Building a Robust Authentication and Authorization System using IdentityServer</a></li>
+<li><a href="#creating-your-first-identityserver4-solution">Creating your First IdentityServer4 Solution</a></li>
+<li><a href="#creacion-de-un-proyecto-con-identityserver4-desde-cero">Creacion de un proyecto con IdentityServer4 desde cero</a></li>
+<li><a href="#creacion-de-un-proyecto-aspnet-web-api">Creacion de un proyecto Asp.net Web api</a></li>
+<li><a href="#creacion-de-una-aplicacion-aspnet-core-mvc">Creacion de una aplicacion Asp.net Core MVC</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="resumen-oauth-openid-connect"><a class="header" href="#resumen-oauth-openid-connect">Resumen OAUTH OPENID Connect</a></h3>
+<p><strong>OAUTH 2</strong></p>
+<ul>
+<li>Protected Resource</li>
+<li>Client</li>
+<li>Resource Owner</li>
+<li>Autorizacion Server</li>
+</ul>
+<p><strong>Consentimiento</strong></p>
+<p><strong>Endpoints</strong></p>
+<ul>
+<li>Autorization endpoint (/autorize)</li>
+<li>Token endpoint (/token):</li>
+</ul>
+<p><strong>Scopes</strong></p>
+<p><strong>Tipos de clientes</strong></p>
+<ul>
+<li>Clientes confidenciales</li>
+<li>Clientes publicos</li>
+</ul>
+<p><strong>Diferentes formas de obtener un token de acceso</strong></p>
+<p><strong>Autorization Code Flow</strong></p>
+<p>Parametros obligatorios</p>
+<ul>
+<li>response_type</li>
+<li>client_id</li>
+<li>redirect_uri</li>
+<li>state</li>
+<li>scope</li>
+</ul>
+<p><strong>Implicit Flow</strong></p>
+<p><strong>Client Credentials Flow</strong></p>
+<p><strong>Resource Owner Password Credentials (ROPC) Flow</strong></p>
+<hr />
+<h3 id="identityserver4-i---conceptos-básicos"><a class="header" href="#identityserver4-i---conceptos-básicos">IdentityServer4 (I) - Conceptos básicos</a></h3>
+<p>https://www.youtube.com/watch?v=Jj2ghnm7gL8</p>
+<hr />
+<h3 id="identityserver4-ii---creando-servidor-de-autentificación-en-aspnet-core-2"><a class="header" href="#identityserver4-ii---creando-servidor-de-autentificación-en-aspnet-core-2">IdentityServer4 (II) - Creando servidor de autentificación en ASP.Net Core 2</a></h3>
+<p>https://www.youtube.com/watch?v=F_eL4wcs-Fc</p>
+<hr />
+<h3 id="aspnet-core-3---identityserver4---ep9-client-credentials-introduction"><a class="header" href="#aspnet-core-3---identityserver4---ep9-client-credentials-introduction">ASP.NET Core 3 - IdentityServer4 - Ep.9 Client Credentials (Introduction)</a></h3>
+<p>https://www.youtube.com/watch?v=jARHHUsljeo&amp;list=PLOeFnOV9YBa7dnrjpOG6lMpcyd7Wn7E8V&amp;index=11</p>
+<hr />
+<h3 id="cómo-securizar-tus-apps-con-identity-server-y-net-core-parte-i"><a class="header" href="#cómo-securizar-tus-apps-con-identity-server-y-net-core-parte-i">Cómo securizar tus apps con Identity Server y .NET Core (Parte I)</a></h3>
+<p>https://blogs.encamina.com/piensa-en-software-desarrolla-en-colores/securizar-tus-apps-identity-server-net-core-parte-i/</p>
+<hr />
+<h3 id="aspnet-core-building-a-robust-authentication-and-authorization-system-using-identityserver"><a class="header" href="#aspnet-core-building-a-robust-authentication-and-authorization-system-using-identityserver">ASP.NET Core: Building a Robust Authentication and Authorization System using IdentityServer</a></h3>
+<p>https://www.codeproject.com/Articles/5281881/ASP-NET-Core-Building-a-Robust-Authentication-and</p>
+<hr />
+<h3 id="creating-your-first-identityserver4-solution"><a class="header" href="#creating-your-first-identityserver4-solution">Creating your First IdentityServer4 Solution</a></h3>
+<p>https://www.youtube.com/watch?v=HJQ2-sJURvA&amp;list=PLz9t0GSOz9eCS7Bd3ChKavbQgOyKVjleD</p>
+<ul>
+<li>Update Identity Server to use Entity Framework stores</li>
+<li>Update Identity Server to use ASP.NET Identity for its user store</li>
+<li>Host Identity Server on Azure</li>
+<li>Add AdminUI to Identity Server on Azure</li>
+</ul>
+<h3 id="creacion-de-un-proyecto-con-identityserver4-desde-cero"><a class="header" href="#creacion-de-un-proyecto-con-identityserver4-desde-cero">Creacion de un proyecto con IdentityServer4 desde cero</a></h3>
+<p>podemos crear un proyecto desde cero y añadir identityserver4</p>
+<p>Nombre de Paquetes nugets para identityserver4</p>
+<p>IdentityServer4</p>
+<p>Luego en Asp.net Core tenemos en el fichero StartUp.cs el metodo ConfigureServices</p>
+<p>Añadimos lo siguiente</p>
+<pre>
+    services.AddIdentityServer()
+          .AddInMemoryClients(new List<Client>())
+          /* el new List<Client>() lo sustituimos por Config.Clients*/
+          .AddInMemoryIdentityResources(new List<IdentityResource>())
+          .AddInMemoryApiResources(new List<ApiResource>())
+          .AddInMemoryApiScopes(new List<ApiScope>())
+          .AddTestUsers(new List<TestUser>())
+          .AddDeveloperSigningCredential();
+</pre>
+<p>Luego en el metodo Configure tenemos que añadir lo siguiente</p>
+<pre>
+    app.UserIdentityServer();
+</pre>
+<p>Si levantamos el proyecto podemos consultar lo que expone el servidor IdentityServer4 en la siguiente url:</p>
+<pre>
+   https://localhost:5443/.well-known/openid-configuration
+</pre>
+<p>Luego creamos una clase statica llamada Config en un fichero llamado Config.cs</p>
+<p>Metemos varias listas de con clases relacionadas con los siguientes conceptos</p>
+<ul>
+<li>User</li>
+<li>Clients</li>
+<li>Resources,Scopes</li>
+</ul>
+<pre>
+public static class Config
+{
+   public static List<TestUser> Users
+   {
+       get
+       {
+            var address=new 
+            {
+                street_address = "One Hacker Way",
+                locality = "Heidelberg",
+                postal_code = 69118,
+                country = "Germanyu"
+            };
+            return new List<TestUser>
+            {
+                new TestUser
+                {
+                    SubjectId = "818727"
+                    UserName = "alice"
+                    PassWord="..."
+                    Claims= 
+                    {
+                        new Claim(type:JwtClaimTypes.Name, value: "Alice Smith"),
+                        new Claim(type:JwtClaimTypes.GivenName, value: "Alice"),
+                        new Claim(type:JwtClaimTypes.FamilyName, value: "Smith"),
+                        new Claim(type:JwtClaimTypes.Email, value: "AliceSmith@email.com"),
+                        new Claim(type:JwtClaimTypes.EmailVerified ,value: "true",valueType: ClaimValueTypes.Boolean),
+                        new Claim(type:JwtClaimTypes.Role, value: "admin"),
+                        new Claim(type:JwtClaimTypes.WebSite, value: "http://alice.com"),
+                        new Claim(type:JwtClaimTypes.Address, value: JsonSerializer.Serialize(address), valueType: IdentityServerConstants.ClaimValueTypes.Json)
+                    }
+                },
+                new TestUser
+                {
+                    SubjectId = "88421113",
+                    Username = "bob",
+                    Password = "bob",
+                    Claims = 
+                    {
+                        new Claim(type: JwtClaimTypes.Name, value: "Bob Smith"),
+                        new Claim(type: JwtClaimTypes.GivenName, value: "Bob"),
+                        new Claim(type: JwtClaimTypes.FamilyName, value: "Smith"),
+                        new Claim(type: JwtClaimTypes.Email, value: "BobSmith@email.com"),
+                        new Claim(type: JwtClaimTypes.EmailVerified, value:"true",valueType: ClaimValueTypes.Boolean),
+                        new Claim(type: JwtClaimTypes.Role, value: "user"),
+                        new Claim(type: JwtClaimTypes.WebSite, value: "http://bob.com"),
+                        new Claim(type: JwtClaimTypes.Address, value: JsonSerializer.Serialize(address),valueType: IdentityServerConstants.ClaimValueTypes.Json)
+                    }
+                }
+            };    
+       }
+   }
+   public static IEnumerable<IdentityResource> IdentityResources =>
+     new[] {
+        new IdentityResources.OpenId(),
+        new IdentityResources.Profile(),
+        new IdentityResource
+        {
+            Name = "role",
+            UserClaims = new List<scrint> {"role"}
+        }
+     }
+  public static IEnumerable<ApiScope> ApiScopes =>
+    new[]
+    {
+        new ApiScope(name: "weatherapi.read"),
+        new ApiScope(name: "weatherapi.write")
+    }
+  public static IEnumerable<ApiResource> ApiResources => 
+    new[]
+    {
+        new ApiResource(name:"watherapi0")
+        {
+            Scopes=new List<string> {"weatherapi.read","weatherapi.write"},
+            ApiSecrets = new List<Secret> {new Secret("ScopeSecret".Sha256())},
+            UserClaims = new List<string> {"role"}
+        }
+    };
+  public static IEnumerable<Client> Clients => 
+    new[]
+    {
+       new Client
+       { 
+         ClientId = "m2m.client",  /* machine to machine client */
+         ClientName = "Client Credentials Client",
+
+         AllowedGrantTypes = GrantTypes.ClientCredentials,
+         ClientSecrets = {new Secret("SuperSecretPassword".Sha256())},
+         AllowedScopes = {"weatherapi.read", "weatherapi.write"}
+       }
+       new Client
+       {
+          Client = interactive",
+          ClientSecrets = {new Secret("SuperSecretPassword".Sha256())},
+          AllowedGrantTypes = GrantTypes.Code,
+          RedirectUris ={"https://localhots:5444/signin-oidc"},
+          FrontChannelLogoutUri = "https//localhost:5444/signout-oidc",
+          PostLogoutRedirectUris = {"https://localhots:5444/signout-callback-oidc"},
+          AllowOfflineAccess = true,
+          AllowedScopes = {"openid", "profile", "watherapi.read"}
+
+       }
+    }
+     
+
+   
+}
+
+</pre>
+<p>Esta clase estatica llamada Config se va a utilizar para sustituir lo que hemos escrito antes en el metodo ConfigureServices de la clase StartUp</p>
+<p>Si sustituimos los parametros de dicha construccion , quedaria lo siguiente:</p>
+<pre>
+ services.AddIdentityServer()
+          .AddInMemoryClients(Config.Clients)
+          /* el new List<Client>() lo sustituimos por Config.Clients*/
+          .AddInMemoryIdentityResources(Config.IdentityResources)
+          .AddInMemoryApiResources(Config.ApiResources)
+          .AddInMemoryApiScopes(Config.ApiScopes)
+          .AddTestUsers(Config.Users)
+          .AddDeveloperSigningCredential();    
+
+</pre>
+<p>Con el comando curl para mandar peticiones podemos obtener un token de dicho servidor IdentityServer</p>
+<pre>
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'client_id=m2m.client&scope=weatherapi.read&client_secret=SuperSecretPassword&grant_type=client_credentials' "https://localhost:5443/connect/token"
+</pre>
+<p>y obtengo un token y el contenido del token si nos vamos auna pagina https://jwt.ms</p>
+<p>y decodificamos el token obtendremos lo siguiente los claims y informacion del token que estaba codificado.</p>
+<h3 id="creacion-de-un-proyecto-aspnet-web-api"><a class="header" href="#creacion-de-un-proyecto-aspnet-web-api">Creacion de un proyecto Asp.net Web api</a></h3>
+<p>Ahora podemos crear una web api para probar el servidor IdentityServer contra la web api que vamos a crear</p>
+<p>Utilizamos el siguiente comando:</p>
+<pre>
+   dotnet new api
+</pre>
+<p>y una vez creado el proyecto web api añadimos el siguiente packete nuget:</p>
+<p>IdentityServer4.AccessTokenValidation </p>
+<p>a dicho proyecto, y en el metodo ConfigureServices añadimos lo siguiente:</p>
+<pre>
+    services.AddAutentication(defaultScheme:"Bearer")
+         .AddIdentityServerAuthentication("Bearer", configureOptions: options =>
+         {
+             options.ApiName = "weatherapi";
+             options.Authority = "https://localhost:5443";
+         });
+
+         services.AddControllers();
+</pre>
+<p>y en el metodo Configure tenemos que añadir lo siguiente, y tiene que ir en ese orden las instrucciones:</p>
+<pre>
+      .
+      .
+    app.UseAuthentication();
+    app.UseAuthorization();
+      .
+      .
+</pre>
+<p>Y luego tenemos que añadir el atibuto [Authorize] al principio del controlador que queramos aplicar la autorizacion.</p>
+<p>Podemos probar que esta funcionando la autorizacion en dicha web api que hemos creado contra el servidor ItentityServer con los comandos curl:</p>
+<pre>
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -H "Cache-Control: no-cache" -d 'client_id=m2m.client&scope=weatherapi.read&client_secret=SuperSecretPassword&grant_type=client_credentials' "https://localhots:5443/connect/token"
+</pre>
+<p>y con el token que nos devuelva,lo copiamos, podemos hacer una peticion get con el comando curl de la siguiente manera:</p>
+<pre>
+curl -X Get -H "Autorization: Bearer ........." -H "Cache-Control: no-cache" "https://localhost:5445/weatherforecast"
+
+</pre>
+<p>Y nos dara el json de la peticion a la web api, si no lo hacemos con llamada token, nos va a devolver un error 401.</p>
+<h3 id="creacion-de-una-aplicacion-aspnet-core-mvc"><a class="header" href="#creacion-de-una-aplicacion-aspnet-core-mvc">Creacion de una aplicacion Asp.net Core MVC</a></h3>
+<p>Ahora vamos a hacer la llamada desde una web application asp.net core MVC y como hacer las llamadas para conseguir el token desde este tipo de aplicaciones.</p>
+<p>una vez creado el proyecto asp.net MVC core, necesitamos añadir el siguiente packete nuget</p>
+<pre>
+IdentityModel
+</pre>
+<p>Una vez que tenemos creado el proyecto MVC podemos añadir una accion o metodo dentro de un controllador para hacer la llamada Web Api desde el controlador de la Web Aplication MVC</p>
+<pre>
+   public async Task<IActionResult> Weather()
+   {
+       var data = new List<WeatherData>();
+
+       using (var client = new HttpClient())
+       {
+           var result = client.GetAsync("https://localhost:5445/weatherforecast).Result;
+       }
+       
+       if (result.IsSuccessStatusCode)
+       {
+           var model = result.Content.ReadStringAsync().Result;
+           data = JsonConvert.DeserializeObject<List<WeatherData>>(model);
+
+           return View(data);
+       }
+       else
+       {
+           throw new Exception("Unable to get content");
+       }
+        
+       
+        
+   }
+</pre>
+<p>Para añadir el token a la llamada http necesitamos introducir el concepto de token service.</p>
+<p>Añadimos una carpeta en el proyecto MVC llamada services y creamos los siguientes archivos:</p>
+<p>Fichero IdentityServerSettings.cs</p>
+<pre>
+Public class IdentityServerSettings
+{
+    public string DiscoveryUrl {get;set;}
+    public string ClientName  {get;set;}
+    public string ClientPassword {get;set;}
+    public string UseHttps {get;set;}
+}
+</pre>
+<p>Luego en el fichero de configuracion appsettings.json definimos lo siguiente:</p>
+<pre>
+"IdentityServerSettings" :{
+    "DiscoveryUrl": "https://localhost:5443",
+    "ClientName": "m2m.client",
+    "ClientPassword": "SuperSecretPassword",
+    "UseHttps":true
+}
+</pre>
+<p>Fichero ITokenService.cs</p>
+<pre>
+  Public interface ITokenService
+  {
+      Task<TokenResponse> GetToken(string scope);
+  }
+</pre>
+<p>Fichero TokenService.cs</p>
+<pre>
+public class TokenService : ITokenService
+{
+     private readonly ILogger<TokenService> _logger
+     private readonly IOptions<IdentityServerSettings> _identityServerSettings;
+     private readonly DiscoveryDocumentResponse _discoveryDocument;
+
+     public TokenService(ILogger<TokenService> logger, IOptions<IdentityServerSettings> identityServerSettings)
+     {
+         _logger = logger;
+         _identityServerSettings = identityServerSettings;
+
+          using var httpClient = new HttpClient();
+          /* tal vez venga del paquete nuget IdentityModel*/
+          _discoveryDocument = httpClient.GetDiscoveryDocumentAsyng(identityServerSettings.Value.DiscoveryUrl).Result;
+          if (_discoveryDocument.IsError)
+          {
+              logger.LogError("Unable to get discovery documen. Error is :{_discoveryDocument.Error}");
+              throw new Exception("Unable to get discovery document", _discoveryDocument.Exception);
+          }
+     }
+
+     public async Task<TokenResponse> GetToken(string scope)
+     {
+         using var client = new HttpClient();
+         /* Este metodo viene del packete nuget IdentityModel */ 
+         var tokenResponse = await client.ResquestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest 
+         {
+             Address  = _discoveryDocument.TokenEndpoint,
+             ClientId = _identityServerSettings.Value.ClientName,
+             ClientSecret = _identityServerSettings.Value.ClientPassword,
+             Scope = scope      
+         });
+
+         if (tokenResponse.IsError)
+         {
+             _logger.LogError("Unable to get token. Error is: {tokenResponse.Error}");
+             throw new Exception ("Unable to get token", tokenResponse.Exception);
+         }
+         return TokenResponse
+     }
+}
+</pre>
+<p>Luego en en el HomeController del proyecto, en su constructor, definimos lo siguiente:</p>
+<pre>
+public class HomeController : Controller
+{
+    private readonly ITokenService _tokenService;ç
+    private readonly ILogger<HomeController> _logger;
+
+    public HomeController(ITokenService tokenService, ILogger<HomeController> logger)
+    {
+         _tokenService = tokenService;ç
+         _logger = logger;
+    }
+    .
+    .
+    .
+    .
+    public async Task<IActionResult> Weather()
+    {
+        var data = new List<WeaderData>();
+
+        using (var client = new HttpClient())
+        {
+            var tokenResponse = await _tokenService.GetToken("weatherapi.read");
+            
+            client.SetBearerToken(tokenResponse.AccessToken);ç
+
+            var result = client.GetAsync("https://localhost:5445/weatherforecast").Result;
+
+            if (result.IsSuccessStatusCode)
+            {
+                var model = JsonConvert.DeserializeObject<List<WeatherData>>(Model);
+
+                return View(data);
+            }
+            
+
+
+        }
+    }
+}
+</pre>
+<p>Y en el metodo ConfigureServices del fichero StartUp.cs tenemos que añadir lo siguiente para el servicio de recoger el token este disponible en la aplicacion:</p>
+<pre>
+      .
+      .
+      .
+
+     public void ConfigureServices(IServiceCollection services)
+     {
+          services.AddControllersWithViews();
+          services.Configure<IdentityServerSettings>(Configuration.GetSection("IdentityServerSettings"));
+          services.AddSingleton<ITokenService,TokenService>();
+
+     }
+     .
+     .
+     .
+
+</pre>
+<p>Ya con esta configuracion, las llamadas a la Web api estan protegidas con IdentityServer, ahora vamos a ver como protegemos la aplicacion MVC con usuario y contraseña.</p>
+<p>Ahora necesitamos protecer la aplication ASP.NET MVC desde IdentityServer con autenticacion mediante login, con usuario y contraseña.</p>
+<p>En el servidor IdentityServer necesitamos poner el formulario de login, de consentimiento,etc.. esto se va añadir añadiendo a este proyecto donde esta el servidor IdentityServer un codigo complementario ya eso para estas pantallas como si fuera una aplicacion MVC</p>
+<p>Vamos al github y tenemos el siguiente codigo en </p>
+<p>IdentityServer/IdentityServer4.QuickStart.UI</p>
+<p>Tenemos tres directorios en el codigo de github</p>
+<p>Quickstart
+Views
+wwwroot</p>
+<p>estas tres carpetas los copiamos en el proyecto IdentityServer4 que hemos creado.</p>
+<p>En el proyecto de identityServer tenemos que añadir en el StartUp en el metodo ConfigureServices lo siguiente a lo que ya hay:</p>
+<pre>
+    services.AddControllerWithViews();
+</pre>
+<p>y en el metodo configure tenemos que actualizar un metodo y poner lo siguiente:</p>
+<pre>
+/*añadir el metodo UseAutorization*/
+app.UseAuthorization();
+app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
+</pre>
+<p>Nos aparecera una pantalla de html como hemos añadido la parte visual de itentityserver cuando arranquemos dicho servidor.</p>
+<p>Luego en el proyecto de la aplicacion MVC necesitamos añadir un nuevo paquete nuget, que es el siguiente:</p>
+<p>Microsoft.AspNetCore.Autentication.OpenIdConnect</p>
+<p>y necesitamos añdir en su metodo ConfigureService de StartUp lo siguiente:</p>
+<pre>
+services.AddAuthentication(options => {
+    options.DefaultScheme = "cookie";
+    options.DefaultChallengeScheme = "oidc"
+}).AddCookie("cookie")
+   .AddOpenIdConnect("oidc", options =>{
+       options.Authority = Configuration["InteractiveServiceSettings:AutorityUrl"];
+       options.ClientId = Configuration["InteractiveServiceSettings:ClientId"];
+       options.ClientSecret = Configuration["InteractiveServiceSettings:ClientSecret"];
+       
+       options.ResponseType = "code";
+       options.UsePkce =true;
+       options.ResponseMode = "query";
+       
+       options.Scope.Add(Configuration["InteractiveServiceSettings:Scopes:0"]);
+       options.SaveTokens = true;
+
+   });
+   
+
+
+</pre>
+<p>Coge informacion del fichero appsettings.json.
+La configuracion la tenemos que tener en fichero appsettings.json y seria la siguiente:</p>
+<pre>
+   "InteractiveServiceSettings" : {
+       "AutorityUrl" : "https://localhost:5443",
+       "ClientId" : "interactive",
+       "ClientSecret" : "SuperSecretPassword",
+       "Scopes": ["weatherapi:read"]
+   }
+</pre>
+<p>Luego en StartUp en el metodo Configure necesitamos añadir lo siguiente:</p>
+<pre>
+    app.UseAuthentication();
+    app.UseAuthorization();
+</pre>
+<hr />
+<p>ASP.NET Core, C#, IdentityServer4 - Authentication - Tricking Library Ep28</p>
+<p>https://www.youtube.com/watch?v=Ql0ZB67J0TQ&amp;t=65s</p>
+<pre>
+
+
+</pre>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Apuntes_AspNet_Identidy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="Apuntes_AspNET_SignalR_01.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Apuntes_AspNet_Identidy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="Apuntes_AspNET_SignalR_01.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="custom.js"></script>
+
+
+    </body>
+</html>

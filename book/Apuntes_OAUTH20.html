@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Apuntes OAUTH 2.0 - Mis notas</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="custom2.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Apuntes ALM.html"><strong aria-hidden="true">1.</strong> Apuntes ALM</a></li><li class="chapter-item "><a href="Apuntes AspNet Handfire.html"><strong aria-hidden="true">2.</strong> Apuntes AspNet Handfire</a></li><li class="chapter-item "><a href="Apuntes Azure Lista.html"><strong aria-hidden="true">3.</strong> Azure</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes Azure AD.html"><strong aria-hidden="true">3.1.</strong> Apuntes Azure AD</a></li><li class="chapter-item "><a href="Apuntes Azure App Service.html"><strong aria-hidden="true">3.2.</strong> Apuntes Azure App Service.md</a></li><li class="chapter-item "><a href="Apuntes Azure Devops.html"><strong aria-hidden="true">3.3.</strong> Apuntes Azure Devops</a></li><li class="chapter-item "><a href="Apuntes Azure Functions.html"><strong aria-hidden="true">3.4.</strong> Apuntes Azure Functions</a></li><li class="chapter-item "><a href="Apuntes Azure Service Fabric.html"><strong aria-hidden="true">3.5.</strong> Apuntes Azure Service Fabric</a></li><li class="chapter-item "><a href="Apuntes Azure Sql Server.html"><strong aria-hidden="true">3.6.</strong> Apuntes Azure Sql Server</a></li><li class="chapter-item "><a href="Apuntes Azure.html"><strong aria-hidden="true">3.7.</strong> Apuntes Azure</a></li></ol></li><li class="chapter-item "><a href="Apuntes Consul.html"><strong aria-hidden="true">4.</strong> Apuntes Consul</a></li><li class="chapter-item "><a href="Apuntes CSS.html"><strong aria-hidden="true">5.</strong> Apuntes CSS</a></li><li class="chapter-item "><a href="Apuntes Expresiones Regulares.html"><strong aria-hidden="true">6.</strong> Apuntes Expresiones Regulares</a></li><li class="chapter-item "><a href="apuntes influxdb.html"><strong aria-hidden="true">7.</strong> Apuntes influxdb</a></li><li class="chapter-item "><a href="Apuntes jenkins basico.html"><strong aria-hidden="true">8.</strong> Apuntes jenkins basico</a></li><li class="chapter-item "><a href="Apuntes Nomad.html"><strong aria-hidden="true">9.</strong> Apuntes Nomad</a></li><li class="chapter-item "><a href="Apuntes Packer.html"><strong aria-hidden="true">10.</strong> Apuntes Packer</a></li><li class="chapter-item "><a href="Apuntes Proyectos.html"><strong aria-hidden="true">11.</strong> Apuntes Proyectos</a></li><li class="chapter-item "><a href="Apuntes React Lista.html"><strong aria-hidden="true">12.</strong> React</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes React Context.html"><strong aria-hidden="true">12.1.</strong> Apuntes React Context</a></li><li class="chapter-item "><a href="Apuntes React Formik.html"><strong aria-hidden="true">12.2.</strong> Apuntes React Formik</a></li><li class="chapter-item "><a href="Apuntes React Hooks.html"><strong aria-hidden="true">12.3.</strong> Apuntes React Hooks</a></li><li class="chapter-item "><a href="Apuntes React useCallback.html"><strong aria-hidden="true">12.4.</strong> Apuntes React useCallback</a></li><li class="chapter-item "><a href="Apuntes React useContext.html"><strong aria-hidden="true">12.5.</strong> Apuntes React useContext</a></li><li class="chapter-item "><a href="Apuntes React useReducer context.html"><strong aria-hidden="true">12.6.</strong> Apuntes React useReducer</a></li><li class="chapter-item "><a href="Apuntes React useRef.html"><strong aria-hidden="true">12.7.</strong> Apuntes React useRef</a></li><li class="chapter-item "><a href="Apuntes Reatjs.html"><strong aria-hidden="true">12.8.</strong> Apuntes Reactjs</a></li><li class="chapter-item "><a href="Apuntes Redux.html"><strong aria-hidden="true">12.9.</strong> Apuntes Redux</a></li><li class="chapter-item "><a href="Apuntes_gatsby.html"><strong aria-hidden="true">12.10.</strong> Apuntes Gatsby</a></li></ol></li><li class="chapter-item "><a href="Apuntes Rust.html"><strong aria-hidden="true">13.</strong> Apuntes Rust</a></li><li class="chapter-item "><a href="Apuntes Tailwind.html"><strong aria-hidden="true">14.</strong> Apuntes Tailwind</a></li><li class="chapter-item "><a href="Apuntes TemplateT4.html"><strong aria-hidden="true">15.</strong> Apuntes TemplateT4</a></li><li class="chapter-item "><a href="Apuntes Terraform Azure.html"><strong aria-hidden="true">16.</strong> Apuntes Terraform Azure</a></li><li class="chapter-item "><a href="Apuntes UrlRewrite.html"><strong aria-hidden="true">17.</strong> Apuntes UrlRewrite</a></li><li class="chapter-item "><div><strong aria-hidden="true">18.</strong> Windows Server</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes windows 2019.html"><strong aria-hidden="true">18.1.</strong> Apuntes windows 2019</a></li><li class="chapter-item "><a href="Apuntes windows ADDS.html"><strong aria-hidden="true">18.2.</strong> Apuntes windows ADDS</a></li><li class="chapter-item "><a href="Apuntes windows ADFS.html"><strong aria-hidden="true">18.3.</strong> Apuntes windows ADFS</a></li><li class="chapter-item "><a href="Apuntes Windows Core.html"><strong aria-hidden="true">18.4.</strong> Apuntes Windows Core</a></li><li class="chapter-item "><a href="Apuntes windows DNS.html"><strong aria-hidden="true">18.5.</strong> Apuntes Windows DNS</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">19.</strong> Asp.Net</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="Apuntes_ApiGateway_Ocelot.html"><strong aria-hidden="true">19.1.</strong> Apuntes ApiGateway ocelot</a></li><li class="chapter-item "><a href="Apuntes_AspNET_Clasico_Inyeccion_Dependencies_01.html"><strong aria-hidden="true">19.2.</strong> Apuntes AspNet Clasico Inyeccion de dependencias</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_01.html"><strong aria-hidden="true">19.3.</strong> Apuntes AspNet Core GraphQL 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_02.html"><strong aria-hidden="true">19.4.</strong> Apuntes AspNet Core GraphQL 02</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_03.html"><strong aria-hidden="true">19.5.</strong> Apuntes AspNet Core GraphQL 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_04.html"><strong aria-hidden="true">19.6.</strong> Apuntes AspNet Core GraphQL 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_GraphQL_05.html"><strong aria-hidden="true">19.7.</strong> Apuntes AspNet Core GraphQL 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_01.html"><strong aria-hidden="true">19.8.</strong> Apuntes AspNet Core Inyeccion Dependencias 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_02.html"><strong aria-hidden="true">19.9.</strong> Apuntes AspNet Core Inyeccion Dependencias 02</a></li><li class="chapter-item "><a href="Apuntes_Aspnet_Core_Inyeccion_Dependencias_03.html"><strong aria-hidden="true">19.10.</strong> Apuntes AspNet Core Inyeccion Dependencias 03</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_04.html"><strong aria-hidden="true">19.11.</strong> Apuntes AspNet Core Inyeccion Dependencias 04</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_05.html"><strong aria-hidden="true">19.12.</strong> Apuntes AspNet Core Inyeccion Dependencias 05</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_06.html"><strong aria-hidden="true">19.13.</strong> Apuntes AspNet Core Inyeccion Dependencias 06</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Inyeccion_Dependencias_07.html"><strong aria-hidden="true">19.14.</strong> Apuntes AspNet Core Inyeccion Dependencias 07</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core_Serilog_SqlServer.html"><strong aria-hidden="true">19.15.</strong> Apuntes AspNet Core Serilog Sql Server</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Core.html"><strong aria-hidden="true">19.16.</strong> Apuntes AspNet Core</a></li><li class="chapter-item "><a href="Apuntes_AspNet_Identidy.html"><strong aria-hidden="true">19.17.</strong> Apuntes AspNet Idendity</a></li><li class="chapter-item "><a href="Apuntes_AspNet_IdentityServer4.html"><strong aria-hidden="true">19.18.</strong> Apuntes AspNet IdentityServer4</a></li><li class="chapter-item "><a href="Apuntes_AspNET_SignalR_01.html"><strong aria-hidden="true">19.19.</strong> Apuntes AspNet SignalR 01</a></li><li class="chapter-item "><a href="Apuntes_AspNet_SignalR.html"><strong aria-hidden="true">19.20.</strong> Apuntes AspNet SignalR</a></li><li class="chapter-item "><a href="Apuntes_Blazor.html"><strong aria-hidden="true">19.21.</strong> Apuntes AspNet Blazor</a></li><li class="chapter-item "><a href="Apuntes_ErrorExceptionWeb.html"><strong aria-hidden="true">19.22.</strong> Apuntes Error Excepcion Web</a></li><li class="chapter-item "><a href="Apuntes_Net5_Y_Docker.html"><strong aria-hidden="true">19.23.</strong> Apuntes Net5 y Docker</a></li><li class="chapter-item "><a href="ApuntesEF.html"><strong aria-hidden="true">19.24.</strong> Apuntes EF</a></li><li class="chapter-item "><a href="ApuntesMVC I.html"><strong aria-hidden="true">19.25.</strong> Apuntes MVC I</a></li><li class="chapter-item "><a href="ApuntesMVC II.html"><strong aria-hidden="true">19.26.</strong> Apuntes MVC II</a></li><li class="chapter-item "><a href="ApuntesNancy.html"><strong aria-hidden="true">19.27.</strong> Apuntes Nancy</a></li><li class="chapter-item "><a href="ApuntesNet.html"><strong aria-hidden="true">19.28.</strong> Apuntes Net</a></li><li class="chapter-item "><a href="ApuntesNinject.html"><strong aria-hidden="true">19.29.</strong> Apuntes Ninject</a></li><li class="chapter-item "><a href="ApuntesOptimizacion.html"><strong aria-hidden="true">19.30.</strong> Apuntes Optimizacion Framework</a></li><li class="chapter-item "><a href="apuntesOwin.html"><strong aria-hidden="true">19.31.</strong> Apuntes OWIN</a></li><li class="chapter-item "><a href="ApuntesWebApi.html"><strong aria-hidden="true">19.32.</strong> Apuntes Web Api</a></li><li class="chapter-item "><a href="ApuntesWebApiCore.html"><strong aria-hidden="true">19.33.</strong> Apuntes Web Api Core</a></li><li class="chapter-item "><a href="asp.net core webapi-ef template.html"><strong aria-hidden="true">19.34.</strong> Apuntes Asp.net core Web Api-EF Template</a></li><li class="chapter-item "><a href="asp.net core-EF.html"><strong aria-hidden="true">19.35.</strong> Apuntes Asp.net Core-EF</a></li><li class="chapter-item "><a href="asp.net core-MVC.html"><strong aria-hidden="true">19.36.</strong> Apuntes Asp.net Core-MVC</a></li><li class="chapter-item "><a href="Blazor_Apuntes.html"><strong aria-hidden="true">19.37.</strong> Apuntes Blazor</a></li><li class="chapter-item "><a href="ApuntesAutofac.html"><strong aria-hidden="true">19.38.</strong> Apuntes AutoFac</a></li></ol></li><li class="chapter-item "><a href="ApuntesDocker.html"><strong aria-hidden="true">20.</strong> Apuntes Docker I</a></li><li class="chapter-item "><a href="ApuntesDocker II.html"><strong aria-hidden="true">21.</strong> Apuntes Docker II</a></li><li class="chapter-item "><a href="ApuntesNGINX.html"><strong aria-hidden="true">22.</strong> Apuntes NGINX</a></li><li class="chapter-item "><a href="ApuntesJavascript.html"><strong aria-hidden="true">23.</strong> Apuntes Javascript I</a></li><li class="chapter-item "><a href="ApuntesJavascriptII.html"><strong aria-hidden="true">24.</strong> Apuntes Javascript II</a></li><li class="chapter-item "><a href="ApuntesKubernetes.html"><strong aria-hidden="true">25.</strong> Apuntes Kubernetes</a></li><li class="chapter-item "><a href="ApuntesGit.html"><strong aria-hidden="true">26.</strong> Apuntes Git</a></li><li class="chapter-item "><a href="webpack.html"><strong aria-hidden="true">27.</strong> Apuntes WebPack</a></li><li class="chapter-item "><a href="Apuntes-Angular.html"><strong aria-hidden="true">28.</strong> Apuntes Angular</a></li><li class="chapter-item "><a href="Apuntes_wasm.html"><strong aria-hidden="true">29.</strong> Apuntes WebAssembly</a></li><li class="chapter-item "><a href="apuntesCache.html"><strong aria-hidden="true">30.</strong> Apuntes Asp Cache</a></li><li class="chapter-item "><a href="apuntesCacheRedis.html"><strong aria-hidden="true">31.</strong> Apuntes Asp Cache Redix</a></li><li class="chapter-item "><a href="ApuntesActivarSSL.html"><strong aria-hidden="true">32.</strong> Apuntes Activar SSL</a></li><li class="chapter-item "><a href="Apuntes_certificados.html"><strong aria-hidden="true">33.</strong> Apuntes Certificados</a></li><li class="chapter-item expanded "><a href="Apuntes_OAUTH20.html" class="active"><strong aria-hidden="true">34.</strong> Apuntes OAUTH 2.0</a></li><li class="chapter-item "><a href="ApuntesSeguridad.html"><strong aria-hidden="true">35.</strong> Apuntes Seguridad</a></li><li class="chapter-item "><a href="Apuntes_PowerShell.html"><strong aria-hidden="true">36.</strong> Apuntes PowerShell</a></li><li class="chapter-item "><a href="ApuntesTypescript.html"><strong aria-hidden="true">37.</strong> Apuntes TypeScript</a></li><li class="chapter-item "><a href="ApuntesRequirejs.html"><strong aria-hidden="true">38.</strong> Apuntes RequireJS</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Mis notas</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="titulo-apuntes-oauth20"><a class="header" href="#titulo-apuntes-oauth20">Titulo: &quot;Apuntes OAUTH2.0&quot;</a></h2>
+<h1 id="apuntes-oauth"><a class="header" href="#apuntes-oauth">Apuntes OAUTH</a></h1>
+<ul>
+<li><a href="#apuntes-oauth">Apuntes OAUTH</a>
+<ul>
+<li><a href="#oauth-20-openid-connect-y-json-web-tokens-jwt-qu%C3%A9-es-qu%C3%A9">OAuth 2.0, OpenID Connect y JSON Web Tokens (JWT) ¿Qué es qué?</a></li>
+<li><a href="#consentimiento-consent">Consentimiento (Consent)</a></li>
+<li><a href="#endpoints">EndPoints</a></li>
+<li><a href="#scopes">Scopes</a></li>
+<li><a href="#tipos-de-clientes">Tipos de Clientes</a></li>
+<li><a href="#diferentes-formas-de-obtener-un-token-de-acceso">Diferentes formas de obtener un token de acceso</a></li>
+<li><a href="#authorization-code-flow">Authorization Code Flow</a></li>
+<li><a href="#implicit-flow">Implicit Flow</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="oauth-20-openid-connect-y-json-web-tokens-jwt-qué-es-qué"><a class="header" href="#oauth-20-openid-connect-y-json-web-tokens-jwt-qué-es-qué">OAuth 2.0, OpenID Connect y JSON Web Tokens (JWT) ¿Qué es qué?</a></h3>
+<p>https://www.returngis.net/2019/04/oauth-2-0-openid-connect-y-json-web-tokens-jwt-que-es-que/</p>
+<p>Resumen sacado de este articulo, para entender OAUTH 2.0</p>
+<p>OAuth se construyo especificamente para acceder a APIs a traves de HTTP. El usuario delega en la aplicacion la capacidad de realizar ciertas acciones en su nombre. Es importante recarlcar que OAuth es un framework para la autorizacion, que no la autenticacion.</p>
+<p>En OAuth 2.0 se trabaja con estas 4 partes:</p>
+<ul>
+<li><strong>Protected Resource</strong>: El recurso al que queremos acceder, una API</li>
+<li><strong>Client</strong>: La aplicacion que quiere acceder al recurso que esta protegido, en nombre de alguien. Este cliente puede ser una aplicacion web, movil, de escritorio, ....</li>
+<li><strong>Resource Owner</strong>: Se trata del usuario. Se le llama el propietario de los recursos porque, si bien la API no es tuya los datos que maneja si lo son.</li>
+<li><strong>Authorization server</strong>: es el responsable de gestionar las peticiones de authorizacion.</li>
+</ul>
+<p>La forma en la que estas 4 partes se relacionan entre si es la siguiente:</p>
+<ol>
+<li>La aplicacion solicita al usuario que se autentique.</li>
+<li>Para ello, este es redirigido al servidor de autorizacion para su identificacion. Este puede logarse a traves de usuario y contraseña, a traves de reconocimiento facial, de voz, puede tener un segundo factor de autenticacion o incluso de le puede el acceso a otras cuentas que son el usuario, como Google, Facebook, Amazon,etc. Lo que sea necesario para verificar su identidad. Una vez que el usuario es validado, este debe estar de acuerdo con lo que la aplicacion quiere hacer, esto se llama consentimiento. Normalmente se muestra una lista de los permisos que la aplicacion esta solicitando.</li>
+<li>Cuando la identidad del usuario es validada de manera satistactoria, y esta ha consentido lo que se quiere hacer con esta autorizacion, el usuario es redirigido a la aplicacion cliente. Le otorga a esta un codigo confirmando que despues de que el usuario se ha autenticado, este le autoriza hacer cosas por el en el recurso protegido.</li>
+<li>La aplicacion cliente hace una solititud al servidor de autorizacion, con el permiso que el suaruio le ha dado, ademas de algunos datos que identifica a la aplicacion para que se verifique que es un cliente valido para acceder a los recursos que se propone.</li>
+<li>Si todo va bien, el servidor de autorizacion respondera con un token de acceso( access token).</li>
+<li>Con este access token la aplicacion cliente sera capaz de realizar llamadas a la API que necesita acceder para llevar a cabo su cometido.</li>
+<li>Cuando el recurso protegido recibe el access token necesita verificarlo de alguna manera. Una vez validado, comprobará si el usuario tiene los permisos por los cuales se hizo la petición y, si esta todo ok, la API respondera con los datos que se le han pedido.</li>
+</ol>
+<p>Ahora que ha hemos visto la foto general, vamos a ver algunos detalles de este flujo.</p>
+<h3 id="consentimiento-consent"><a class="header" href="#consentimiento-consent">Consentimiento (Consent)</a></h3>
+<p>En el paso 2 comente que el usuario debe consentir lo que la aplicacion esta pidiendo de el. Seguro que lo has visto muchas veces en diferentes tipos de aplicacion.</p>
+<p>En OAUTH 2.0 te aseguras de que el usuario es consciente de para que tu aplicacion quiere tu permiso y que puede hacer con el.</p>
+<h3 id="endpoints"><a class="header" href="#endpoints">EndPoints</a></h3>
+<p>Para el paso 2 y paso 4, en OAUTH tenemos dos EndPoints o URLs en nuestro servidor de autorizacion:</p>
+<ul>
+<li>Authorization endpoint (/autorize): se utiliza para la interaccion con usuarios, cuando este tiene que identificarse.</li>
+<li>Token endpoint (/Token): solo para maquinas, sin interaccion del usuario.</li>
+</ul>
+<p>Ambos usan TLS (Transport Segurity Layer) y estas URLs deben ser conocidas por la aplicacion cliente.</p>
+<h3 id="scopes"><a class="header" href="#scopes">Scopes</a></h3>
+<p>Los scopes son los permisos para hacer algo dentro de un recurso protegido en nombre de un usuario. Estos scopes pueden variar dependiendo del entorno, es decir que son iguales en todos los sitios. Lo ideal es que se definan de manera inequivoca. Me explico: En lugar del scope read que sea un scope returngis_api.read, ya que refleja claramente que este es solo el acceso en modo lectura a una API en concreto.</p>
+<h3 id="tipos-de-clientes"><a class="header" href="#tipos-de-clientes">Tipos de Clientes</a></h3>
+<p>Oauth 2.0 reconoce dos tipos de clientes:</p>
+<ul>
+<li>Clientes confidenciales: son aquellos que son capaces de guardar una contraseña sin que esta sea expuesta.</li>
+<li>Clientes Publicos: aquellos que no pueden manetener una contraseña a salvo.</li>
+</ul>
+<p>Dependiendo del tipo de cliente que tengamos valoraremos una forma u otra de obtener un token de acceso.</p>
+<h3 id="diferentes-formas-de-obtener-un-token-de-acceso"><a class="header" href="#diferentes-formas-de-obtener-un-token-de-acceso">Diferentes formas de obtener un token de acceso</a></h3>
+<p>Debido a existen diferentes tipos de aplicaciones y necesidades, existen diferentes formas de obtener un token de acceso. Estas formas en OAUTH 2.0 se llaman Flows y deberas utilizar una y otra dependiendo del tipo de aplicacion cliente que tengas.</p>
+<h3 id="authorization-code-flow"><a class="header" href="#authorization-code-flow">Authorization Code Flow</a></h3>
+<p>Este es el flujo que te he mostrado a traves de la imagen, y es el mas completo, y por lo tanto el mas seguro. Se utiliza con lo que se llaman con que se llaman confidential clients, que son aplicaciones que pueden guardar una contraseña (secreto). Este screto deber ser guardado en un sitio donde no pueda ser accedido a traves del cliente. Es decir, este secreto no se puede guardar en una aplicacion hecha en javascript, donde el usuario podría navegar a traves del codigo y encontrarlo. Este escenario aplica perfectamente para websites que tienen un back end seguro.</p>
+<p>Entrando mas en detalle que en la imagen anterior, esto es lo que ocurre cuando comienza el flujo:</p>
+<p>Primero se redirige al usuario al endpoint de autorizacion, el cual la aplicacion cliente conoce, con una serie de parámetros:</p>
+<pre>
+https://authorization.server.com/autorize?
+response_type=code&
+client_id=213f6de8-f232-4854-8c20-80a9b385cca7&
+redirect_uri=https://client.example.com/callback&
+state=abc&
+scope=returngis_api.readAndWrite
+</pre>
+<p>Segun la especificacion, estos son los parametros obligatorios que necesita este tipo de autorizacion:</p>
+<ul>
+<li>responde_type: este parametro es el que dice que tipo de flujo de OAuth 2.0 vamos a seguir para recuperar el token, en ese caso el valor deber ser code.</li>
+<li>client_id: se trata de un identificador de mi aplicacion cliente, registrado en el servidor de autorizacion. Durante la explicacion a alto nivel te dije que el servidor de autorizacion debe verificar que el cliente que solicita el token deber ser un cliente valido. Es por ello que todo cliente que quiera solicitar permisos sobre nuestros recursos protegidos debe estar registrado en nuestro servidor de autorizacion. Cuando esto ocurre se asocia un ID a esa aplicacion registrada en el servidor que representa a nuestra aplicacion.</li>
+<li>redirect_uri: cuando la autenticacion del cliente finalice, necesitamos especificar una URL de vuelta a nuestra aplicacion. Ademas, esta URL tambien esta guardada como parte del registrode nuestra aplicacion cliente en el servidor de autorizacion.</li>
+<li>state: es recomendado, pero no es obligatorio. Nos permite confirmar que la respuesta que recibimos por parte del servidor es licita, de tal forma que nos aseguramos que ningun malo ha cambiado la respuesta del servidor por el camino.</li>
+<li>scope: se utiliza para decir el &quot;para que quiero esta autorizacion&quot;. Son los permisos que se estan pidiendo sobre nuestra API. La forma de especificar varios scopes es a traves de un espacion en blanco entre ellos.</li>
+</ul>
+<p>Cuando el usuario se ha validado correctamente, el servidor de autorizacion respondera con lo siguiente:</p>
+<pre>
+https://client.example.com/callback
+?code=xxxxxxxxxxxx
+&state=abc
+</pre>
+<p>Code representa el consentimiento del usuario y su autorizacion, y tiene un tiempo de vida bastante corto. Tenemos ademas el parametro state que deberia de ser igual al que enviamos en la primera peticion. Con este codigo la aplicacion hara una llamda a traves de un POST al servidor de autorizacion con el siguiente formato:</p>
+<pre>
+POST /token HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=autorizacion_code
+&code=xxxxxxxxxxxxxx
+&redirect_url=https://client.example.com/callback
+&client_id=213f6de8-f232-4854-8c20-80a9b385cca7
+&client_secret=nH7TbHkgsjOWIAtb4NV78RQD5EOtOH16nIusaVzZ4EI=
+</pre>
+<p>Se puede utilizar autenticacion basica o meter el client_id y el client_secret en el body junto con el resto. Este client_secret es el secreto del que te hablaba y es obtenido durante el registro de la aplicacion en el servidor de autorizacion.</p>
+<p>Si todo va bien, recibiremos la siguiente respuesta:</p>
+<pre>
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+   "access_token" : "una cadena muy larga",
+   "token_type" : "Bearer",
+   "expires_in" : 3600,
+   "scope" : "returngis_api.read api2.readAndWrite"
+}
+</pre>
+<h3 id="implicit-flow"><a class="header" href="#implicit-flow">Implicit Flow</a></h3>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Apuntes_certificados.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ApuntesSeguridad.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Apuntes_certificados.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ApuntesSeguridad.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="custom.js"></script>
+
+
+    </body>
+</html>
