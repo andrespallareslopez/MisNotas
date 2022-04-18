@@ -80,6 +80,7 @@
     - [Apuntes Asp.net Core-MVC](./asp.net%20core-MVC.md)
     - [Apuntes Blazor](./Blazor_Apuntes.md)
     - [Apuntes AutoFac](./ApuntesAutofac.md)
+    - [Apuntes Asp.net core 6](./Apuntes_AspNet_Core_6.md)
 - [Apuntes Docker I](./ApuntesDocker.md)
 - [Apuntes Docker II](./ApuntesDocker%20II.md)
 - [Apuntes NGINX](./ApuntesNGINX.md)
