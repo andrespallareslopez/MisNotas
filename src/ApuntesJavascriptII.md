@@ -1027,5 +1027,15 @@ Aplicar modelos y applyBindigns por Id elements:
 https://www.youtube.com/watch?v=Bpyl59_fjvU
 
 
+### Critical CSS desde Cero usando PLAYWRIGHT 🎭 y NODE.JS ¡MEJORA el rendimiento de tu WEB fácilmente!
+
+https://www.youtube.com/watch?v=BDomHRQh7zU
+
+### Scraping desde cero con Playwright, JavaScript y despliegue en Azure Functions
+
+https://www.youtube.com/watch?v=YjbRkt8cew8
+
+
+Playwright - Testing end-to-end
 
 

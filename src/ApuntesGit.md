@@ -250,3 +250,16 @@ ___
 https://medium.com/@MiguelCasas/diferencia-entre-git-rebase-y-git-merge-workshop-de-git-8622dedde2d7
 
 ___
+Gitignore not working
+
+https://stackoverflow.com/questions/25436312/gitignore-not-working
+
+Hay que lanzar estos comandos desde la consola:
+
+~~~
+git rm -rf --cached .
+git add .
+~~~
+
+Luego commitea los cambios y subilos haciendo push, te quitara los directorios que estaban en gitignore
+___

@@ -6,7 +6,9 @@ Titulo: "Azure Devops"
 
 Pool Agent
 
-Provision deployment groups[https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/?view=azure-devops]
+Provision deployment groups
+
+https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/?view=azure-devops
 
 Ventajas de Azure Deployment Groups:
 
@@ -55,7 +57,7 @@ stages:
     steps:
       - script: echo Hello Stage B!
       - script: echo $(isMain)
-<pre>
+</pre>
 
 ____
 
@@ -79,4 +81,91 @@ https://www.youtube.com/watch?v=UQlRITs7veM
 
 ___
 
+Azure DevOps Stages, Jobs & Steps
 
+https://www.youtube.com/watch?v=Dti6XLNm1XI
+
+
+~~~
+
+~~~
+
+
+
+___
+
+Using ARM TEMPLATES In AZURE DEVOPS PIPELINE To Automatically CREATE INFRASTRUCTURE As CODE
+
+https://www.youtube.com/watch?v=3IRwtbGlshk
+
+
+~~~
+
+~~~
+
+
+
+___
+YAML RELEASES In AZURE DEVOPS PIPELINE | Configure Build and Release in YML file
+
+https://www.youtube.com/watch?v=F93dKycIqEM&t=223s
+
+![esquema](./img/Esquema_YAML_PIPELINE_01.PNG)
+
+
+~~~
+
+~~~
+
+
+
+
+___
+Azure DevOps YAML self hosted agent pipeline build is stuck at locating self-agent
+
+https://stackoverflow.com/questions/63697959/azure-devops-yaml-self-hosted-agent-pipeline-build-is-stuck-at-locating-self-age?rq=1
+
+~~~
+trigger:
+- master
+
+pool:
+  name: Default
+  demands:
+   - agent.name -equals Weltgeist
+
+steps:
+- script: |
+    mkdir build
+    g++ -o ./build/hello-world.exe ./src/hello-world.cpp
+  displayName: 'Run a build script'
+
+- script: |
+    cd build
+    hello-world.exe
+    cd ..
+  displayName: 'Run Display task'
+
+- script: |
+    rm -r build
+  displayName: 'Clean task'
+~~~
+
+
+~~~
+pool:
+  name: NameOfYourPool
+  demands:
+   - agent.name -equals NameOfYourAgent
+
+~~~
+
+![agent_pool](./img/Agent_pool_devops_01.PNG)
+
+
+
+___
+
+
+
+___
