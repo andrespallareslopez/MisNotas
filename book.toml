@@ -9,6 +9,8 @@ title = "Mis notas"
 additional-css = ["custom.css", "custom2.css"]
 additional-js = ["custom.js"]
 
+[preprocessor.plantuml]
+plantuml-cmd="java -jar plantuml.jar"
 
 [output.html.fold]
 enable = true
