@@ -166,6 +166,10 @@ pool:
 
 ___
 
+LetsDevOps: YAML Pipeline Tutorial, Setting up CI/CD using YAML Pipeline, Multi Stage/Job Setup.
+
+https://www.youtube.com/watch?v=JtbG6WkLGng
+
 
 
 ___
