@@ -621,4 +621,9 @@ https://www.youtube.com/watch?v=Ql0ZB67J0TQ&t=65s
 
 
 ___
+ASP.NET Identity with Identity Server 4 | Tutorial Part 1
 
+https://www.youtube.com/watch?v=SXJ377G5bOg
+
+
+___
