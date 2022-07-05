@@ -253,8 +253,11 @@ https://www.youtube.com/watch?v=fwyDqi3uQZ0
 
 ____
 
+Complete Guide to Asp.Net Core Identity - Authentication and Authorization (2022)
 
+https://www.youtube.com/watch?v%3DsogS0DtejVA
 
+___
 
 
 
