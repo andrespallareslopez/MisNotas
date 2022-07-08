@@ -14,6 +14,9 @@ Hay que instalar con powershell
 
 Install-windowsFeature Web-Server,Web-Mgmt-Service
 
+luego para que feature tienes instalada en powershell podemos lanzar el siguiente comando:
+get-windowsfeature
+
 una vez instalado ejectuamos:
 
 regedit
