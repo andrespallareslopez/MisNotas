@@ -27,7 +27,7 @@ sc config wmsvc start=auto
 
 net start wmsvc
 
-shutdown -l
+shutdown -l es la ele de letra L pero en minusculas
 
 
 
