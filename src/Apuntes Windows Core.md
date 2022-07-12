@@ -143,8 +143,23 @@ Get-Service
 
 ___
 
+Curso de Windows Admin Center - Instalación de Windows Admin Center en Server Core
+
+https://www.youtube.com/watch?v=HixLC2NM9yo
+
+<pre>
+$cred = Get-Credential
+$s = New-PSSession -ComputerName svf0 -Credential $cred
+Copy-Item -Path .\WindowsAdminCenter.msi -ToSession $s -Destination "C:\Users\Administrador"
 
 
+
+</pre>
+
+
+
+
+___
 
 
 

@@ -259,7 +259,15 @@ https://www.youtube.com/watch?v%3DsogS0DtejVA
 
 ___
 
+Beginners ASP.NET Core Identity Tutorial
 
+
+https://www.youtube.com/watch?v=5UfJeDcoC1k
+
+Code With Julian
+
+
+___
 
 
 

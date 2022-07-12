@@ -34,7 +34,11 @@ shutdown -l es la ele de letra L pero en minusculas
 
 ___
 
+netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
 
+o en español
+
+netsh advfirewall firewall set rule group="Compartir archivos e impresoras" new enable=Yes
 
 
 ___
