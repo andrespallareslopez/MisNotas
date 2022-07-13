@@ -87,9 +87,9 @@ https://www.youtube.com/watch?v=f6tXZBth5zc
 
 ___
 
+ASP.NET Core Single Sign On using Cookies
 
-
-
+https://www.youtube.com/watch?v=o6lFWj6ExJs
 
 ___
 

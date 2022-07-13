@@ -1124,7 +1124,16 @@ https://www.youtube.com/watch?v=X1-uHpEqNGM
 
 ___
 
+ASP.NET Core Single Sign On using Cookies
 
+https://www.youtube.com/watch?v=o6lFWj6ExJs
+
+___
+
+ASP.NET Core Web API Authentication and Authorization with JWT (Json Web Token)
+
+https://www.youtube.com/watch?v=kM1fPt1BcLc
+___
 
 
 
