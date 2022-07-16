@@ -112,9 +112,13 @@ https://www.developerro.com/2021/11/16/novedades-aspnet-core-6/
 
 ___
 
+Brian Pedersen's Sitecore and .NET Blog
+
+https://briancaos.wordpress.com/2022/03/01/net-6-0-and-simple-minimal-apis-create-an-api-without-controllers/
 
 
 
+___
 
 
 
