@@ -120,6 +120,15 @@ https://briancaos.wordpress.com/2022/03/01/net-6-0-and-simple-minimal-apis-creat
 
 ___
 
+.NET 6: Quiero mi fichero Startup.cs
+
+https://blogs.encamina.com/piensa-en-software-desarrolla-en-colores/net-6-quiero-mi-fichero-startup-cs/amp/
+
+
+
+
+___
+
 
 
 
