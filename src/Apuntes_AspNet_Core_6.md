@@ -94,8 +94,23 @@ https://www.youtube.com/watch?v=o6lFWj6ExJs
 ___
 
 
+.NET 6 Web API Authentication | Minimal API & Swagger (CRUD)
+
+https://www.youtube.com/watch?v=f2IdQqpjR0c&t=26s
+
+Code with Julian
 
 
+___
+
+Novedades Asp.Net Core 6.0
+
+https://www.developerro.com/2021/11/16/novedades-aspnet-core-6/
+
+
+
+
+___
 
 
 
