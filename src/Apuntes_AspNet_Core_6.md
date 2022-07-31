@@ -129,6 +129,30 @@ https://blogs.encamina.com/piensa-en-software-desarrolla-en-colores/net-6-quiero
 
 ___
 
+Building a Web API in .NET 6 | Minimal API
+
+https://www.youtube.com/watch?v=j8gM6pBrclI&t=72s
+
+Code with julian
+
+___
+
+.NET 6 Minimal API Full Build
+
+https://www.youtube.com/watch?v=5YB49OEmbbE
+
+Les Jackson
+
+___
+
+
+
+
+
+
+
+
+
 
 
 
