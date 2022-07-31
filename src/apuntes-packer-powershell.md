@@ -96,7 +96,7 @@ Al final tenemos que generar la imgagen iso con la instalacion desatendida y ten
 
 para crear luego con packet necesitmos el checsum del archivo iso creado:
 
->get-filehash c:\iso\winserver2019Des.iso -Algorithm SHA256
+>get-filehash c:\iso\winserver2019Ret.iso -Algorithm SHA256
 
 Para saber las politicas de grupo y modificarlas en un windows tenemos el siguiente comando
 
