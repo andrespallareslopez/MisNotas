@@ -159,6 +159,29 @@ https://www.youtube.com/watch?v=wBDx-7s1Xsg&list=PLD6P04ISnnX5HhU578FyJSdbZzOPju
 
 ___
 
+Service Discovery for .NET Core services with HashiCorp Consul
+
+https://www.youtube.com/watch?v=wpUjiB7PEIA
+
+___
+
+Service discovery para todos tus microservicios 
+
+https://www.youtube.com/watch?v=UuXD8HVvucY
+
+___
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
