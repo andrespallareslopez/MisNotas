@@ -1,13 +1,13 @@
 # Apuntes Envoy Proxy
 
-Get started with Envoy Proxy in 5 minutes
+**Get started with Envoy Proxy in 5 minutes**
 
 https://www.tetrate.io/blog/get-started-with-envoy-in-5-minutes/
 
 
 ___
 
-Using Envoy Proxy to Improve Reliability, Security, and Observability of Microservices
+**Using Envoy Proxy to Improve Reliability, Security, and Observability of Microservices**
 
 https://betterprogramming.pub/using-envoy-proxy-to-improve-reliability-security-and-observability-of-microservices-85032e08d3f4
 
@@ -69,7 +69,7 @@ admin:
 
 ___
 
-Configuring a basic Envoy proxy
+**Configuring a basic Envoy proxy**
 
 https://techtalkker.com/envoy-proxy-basics/
 
@@ -294,7 +294,7 @@ static_resources:
 
 ___
 
-GETTING STARTED WITH ENVOY & OPEN POLICY AGENT — 01 —
+**GETTING STARTED WITH ENVOY & OPEN POLICY AGENT — 01 —**
 
 USING ENVOY AS A FRONT PROXY
 
@@ -302,15 +302,288 @@ https://helpfulbadger.github.io/blog/envoy_opa_1_front_proxy/
 
 
 
+- **Front proxy**
+
+![front-envoy](./img/envoy_front.PNG)
+
+- **Sidecar proxy**
+
+![sidecar-envoy](./img/proxy_sidecar.svg)
+
+
+
+
+
 ___
 
-Building a Service Mesh with Envoy
+**Building a Service Mesh with Envoy**
 
 https://www.thoughtworks.com/insights/blog/building-service-mesh-envoy-0
 
 
+Habla y da un repositorio github de control de plano llamado envoy-pilot y es una extension de go-control-plane
+
+https://github.com/tak2siva/Envoy-Pilot
+
+
+![proxy-service](./img/proxy_service.PNG)
+
+
+![sidecar-model](./img/sidecar_model.PNG)
+
+
+![envoy-front-sidecar](./img/envoy_front_sidecar.PNG)
+
+~~~
+admin:
+  access_log_path: "/tmp/admin_access.log"
+  address: 
+    socket_address: 
+      address: "127.0.0.1"
+      port_value: 9901
+static_resources: 
+  listeners:
+    - 
+      name: "http_listener"
+      address: 
+        socket_address: 
+          address: "0.0.0.0"
+          port_value: 80
+      filter_chains:
+          filters: 
+            - 
+              name: "envoy.http_connection_manager"
+              config:
+                stat_prefix: "ingress"
+                route_config: 
+                  name: "local_route"
+                  virtual_hosts: 
+                    - 
+                      name: "http-route"
+                      domains: 
+                        - "*"
+                      routes: 
+                        - 
+                          match: 
+                            prefix: "/"
+                          route:
+                            cluster: "service_a"
+                http_filters:
+                  - 
+                    name: "envoy.router"
+  clusters:
+    - 
+      name: "service_a"
+      connect_timeout: "0.25s"
+      type: "strict_dns"
+      lb_policy: "ROUND_ROBIN"
+      hosts:
+        - 
+          socket_address: 
+            address: "service_a_envoy"
+            port_value: 8786
+
+
+~~~
+
+
+
+
+~~~
+admin:
+  access_log_path: "/tmp/admin_access.log"
+  address: 
+    socket_address: 
+      address: "127.0.0.1"
+      port_value: 9901
+static_resources:
+  listeners:
+
+    -
+      name: "service-a-svc-http-listener"
+      address:
+        socket_address:
+          address: "0.0.0.0"
+          port_value: 8786
+      filter_chains:
+        -
+          filters:
+            -
+              name: "envoy.http_connection_manager"
+              config:
+                stat_prefix: "ingress"
+                codec_type: "AUTO"
+                route_config:
+                  name: "service-a-svc-http-route"
+                  virtual_hosts:
+                    -
+                      name: "service-a-svc-http-route"
+                      domains:
+                        - "*"
+                      routes:
+                        -
+                          match:
+                            prefix: "/"
+                          route:
+                            cluster: "service_a"
+                http_filters:
+                  -
+                    name: "envoy.router"
+    -
+      name: "service-b-svc-http-listener"
+      address:
+        socket_address:
+          address: "0.0.0.0"
+          port_value: 8788
+      filter_chains:
+        -
+          filters:
+            -
+              name: "envoy.http_connection_manager"
+              config:
+                stat_prefix: "egress"
+                codec_type: "AUTO"
+                route_config:
+                  name: "service-b-svc-http-route"
+                  virtual_hosts:
+                    -
+                      name: "service-b-svc-http-route"
+                      domains:
+                        - "*"
+                      routes:
+                        -
+                          match:
+                            prefix: "/"
+                          route:
+                            cluster: "service_b"
+                http_filters:
+                  -
+                    name: "envoy.router"
+
+    -
+      name: "service-c-svc-http-listener"
+      address:
+        socket_address:
+          address: "0.0.0.0"
+          port_value: 8791
+      filter_chains:
+        -
+          filters:
+            -
+              name: "envoy.http_connection_manager"
+              config:
+                stat_prefix: "egress"
+                codec_type: "AUTO"
+                route_config:
+                  name: "service-b-svc-http-route"
+                  virtual_hosts:
+                    -
+                      name: "service-b-svc-http-route"
+                      domains:
+                        - "*"
+                      routes:
+                        -
+                          match:
+                            prefix: "/"
+                          route:
+                            cluster: "service_c"
+                http_filters:
+                  -
+                    name: "envoy.router"                                
+  clusters:
+      -
+        name: "service_a"
+        connect_timeout: "0.25s"
+        type: "strict_dns"
+        lb_policy: "ROUND_ROBIN"
+        hosts:
+          -
+            socket_address:
+              address: "service_a"
+              port_value: 8081  
+      -
+        name: "service_b"
+        connect_timeout: "0.25s"
+        type: "strict_dns"
+        lb_policy: "ROUND_ROBIN"
+        hosts:
+          -
+            socket_address:
+              address: "service_b_envoy"
+              port_value: 8789
+
+      -
+        name: "service_c"
+        connect_timeout: "0.25s"
+        type: "strict_dns"
+        lb_policy: "ROUND_ROBIN"
+        hosts:
+          -
+            socket_address:
+              address: "service_c_envoy"
+              port_value: 8790
+
+
+~~~
+
 
 ___
+
+**Integrating Service Discovery with Envoy**
+
+https://blog.turbinelabs.io/integrating-service-discovery-with-envoy-19d871e6d0ad
+
+Control Plane Implementation
+
+go-control-plane
+
+https://github.com/envoyproxy/go-control-plane
+
+
+___
+
+**Service mesh data plane vs. control plane**
+
+https://blog.envoyproxy.io/service-mesh-data-plane-vs-control-plane-2774e720f7fc
+
+
+![sidekar-proxy](./img/sidekar_proxy.PNG)
+
+La malla de servicio se puede aplicar al plano de datos o al de control.
+
+
+**The data plane**
+
+In a service mesh, the sidecar proxy performs the following tasks:
+
+- Service discovery
+
+- Health checking
+
+- Routing
+
+- Load balancing
+
+- Authentication and authorization
+
+- Observability
+
+
+**The control plane**
+
+
+**Data plane vs. control plane summary**
+
+- Service mesh data plane
+
+- Service mesh control plane
+
+
+
+
+
+
+
 
 
 
