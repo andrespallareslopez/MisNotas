@@ -140,6 +140,57 @@ https://danielparker.me/nginx/consul-template/consul/nginx-consul-template/
 
 ____
 
+Consul Part 1: Service discovery, the easy way
+
+https://www.youtube.com/watch?v=xyU8v5RO_kQ&list=PLD6P04ISnnX5HhU578FyJSdbZzOPjuFjJ
+
+___
+
+Consul Part 2: Health checks and templates
+
+https://www.youtube.com/watch?v=KgTtQnXrnMk&list=PLD6P04ISnnX5HhU578FyJSdbZzOPjuFjJ&index=2
+
+___
+
+
+Consul Part 3: Key/Value store and Web UI
+
+https://www.youtube.com/watch?v=wBDx-7s1Xsg&list=PLD6P04ISnnX5HhU578FyJSdbZzOPjuFjJ&index=3
+
+___
+
+Service Discovery for .NET Core services with HashiCorp Consul
+
+https://www.youtube.com/watch?v=wpUjiB7PEIA
+
+___
+
+Service discovery para todos tus microservicios 
+
+https://www.youtube.com/watch?v=UuXD8HVvucY
+
+___
+
+Build an API Gateway with Envoy and use with .NET Core APIs
+
+https://www.youtube.com/watch?v=UsoH5cqE1OA&t=5249s
+
+___
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

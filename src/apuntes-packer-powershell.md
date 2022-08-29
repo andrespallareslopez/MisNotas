@@ -96,7 +96,7 @@ Al final tenemos que generar la imgagen iso con la instalacion desatendida y ten
 
 para crear luego con packet necesitmos el checsum del archivo iso creado:
 
->get-filehash c:\iso\winserver2019Des.iso -Algorithm SHA256
+>get-filehash c:\iso\winserver2019Ret.iso -Algorithm SHA256
 
 Para saber las politicas de grupo y modificarlas en un windows tenemos el siguiente comando
 
@@ -109,11 +109,21 @@ packer build -debug prueba.json
 
 para forzar y borrar lo ya existente:
 
+En la carpeta c:\azuredevops\SRBWRED01\install esta el fichero "Configurationfile.ini" y dentro hay una clave:
+
+SQLSYSADMINACCOUNTS="SRBWRED01\Administrador"
+
+el nombre del equipo SRBWRED01 hay que actualizarlo en dicho archivo.
+
+
 <pre>
 packer build -force prueba.json
 </pre>
 
 Para una instalacion desatendida de sql server 2019 express, para que nos genere un fichero de configuracion, tehemos que arrancar el wizard de la siguiente manera en el sql server express version 2019:
+
+
+
 
 <pre>
   SETUP.exe /UIMODE=Normal /ACTION=INSTALL

@@ -87,9 +87,61 @@ https://www.youtube.com/watch?v=f6tXZBth5zc
 
 ___
 
+ASP.NET Core Single Sign On using Cookies
+
+https://www.youtube.com/watch?v=o6lFWj6ExJs
+
+___
+
+
+.NET 6 Web API Authentication | Minimal API & Swagger (CRUD)
+
+https://www.youtube.com/watch?v=f2IdQqpjR0c&t=26s
+
+Code with Julian
+
+
+___
+
+Novedades Asp.Net Core 6.0
+
+https://www.developerro.com/2021/11/16/novedades-aspnet-core-6/
 
 
 
+
+___
+
+Brian Pedersen's Sitecore and .NET Blog
+
+https://briancaos.wordpress.com/2022/03/01/net-6-0-and-simple-minimal-apis-create-an-api-without-controllers/
+
+
+
+___
+
+.NET 6: Quiero mi fichero Startup.cs
+
+https://blogs.encamina.com/piensa-en-software-desarrolla-en-colores/net-6-quiero-mi-fichero-startup-cs/amp/
+
+
+
+
+___
+
+Building a Web API in .NET 6 | Minimal API
+
+https://www.youtube.com/watch?v=j8gM6pBrclI&t=72s
+
+Code with julian
+
+___
+
+.NET 6 Minimal API Full Build
+
+https://www.youtube.com/watch?v=5YB49OEmbbE
+
+Les Jackson
 
 ___
 
