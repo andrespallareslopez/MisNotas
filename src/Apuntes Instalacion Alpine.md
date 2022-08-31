@@ -26,3 +26,9 @@ pg_ctl stop -D /var/lib/postgresql/data
 
 
 ___
+
+https://dit.gonzalonazareno.org/gestiona/proyectos/2017-18/Proyecto_Antonio_Gomez.pdf
+
+
+
+___
