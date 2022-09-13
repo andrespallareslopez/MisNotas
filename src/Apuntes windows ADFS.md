@@ -49,7 +49,14 @@ Despues de configurar hay que esperarse un poco porque si entramos a la herramie
 set-adfsproperties -EnableIdpInitiatedSignonpage $True
 ___
 
+ADFS 2016
 
+https://www.youtube.com/watch?v=TlzH0wnPD2I
+
+Revisarlo, parece que es bueno y completo
+
+
+___
 
 
 
