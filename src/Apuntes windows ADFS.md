@@ -93,3 +93,16 @@ Autenticación de usuarios con WS-Federation en ASP.NET Core
 https://docs.microsoft.com/es-es/aspnet/core/security/authentication/ws-federation?view=aspnetcore-6.0
 
 ___
+
+issued que es?
+
+Identity Provider (IP)
+
+Secure Token Service (STS)
+
+Realying Party (RP) o Resource Provider
+
+
+
+
+___
