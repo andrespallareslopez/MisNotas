@@ -75,7 +75,9 @@ ssh-add ~/.ssh/id_rsa
 
 y nos pedira el passphase 'zorrete'
 
-a continuacion el comando ansible testserver -m ping
+a continuacion lanzar el comando 
+
+ansible testserver -m ping
 
 y no nos preguntara mientras ejecuta el comando ansible correspondiente por el passphrase de las claves de cada uno de los servidores que se quiere conectar
 
@@ -121,6 +123,16 @@ ansible testserver -m ping
 
 ~~~
 
+___
 
+Ansible – 6. Redactando un playbook
+
+https://www.youtube.com/watch?v=Wuv0ZPOMLf0&list=PLTd5ehIj0goP2RSCvTiz3-Cko8U6SQV1P&index=6
+
+
+___
+
+
+___
 
 
