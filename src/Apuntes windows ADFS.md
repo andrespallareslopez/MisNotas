@@ -49,7 +49,60 @@ Despues de configurar hay que esperarse un poco porque si entramos a la herramie
 set-adfsproperties -EnableIdpInitiatedSignonpage $True
 ___
 
+ADFS Install and Configure with a wildcard certificate
+
+https://www.youtube.com/watch?v=qiz1igBQDaU
+___
+ADFS 2016
+
+https://www.youtube.com/watch?v=TlzH0wnPD2I
+
+Revisarlo, parece que es bueno y completo
+
+
+___
+
+Autenticación de máquina a máquina con WebAPI, WS-Trust y ADFS
+
+
+https://www.youtube.com/watch?v=Oin817bsQAE
+
+
+___
+
+Installing and Configuring ADFS and using with with C# Console app Demo
+
+https://www.youtube.com/watch?v=Do_B3YPPXug
 
 
 
 
+___
+
+Authenticate From ASP.NET Application To On-Premise AD
+
+https://www.c-sharpcorner.com/article/authenticate-from-azure-to-on-premise-ad/
+
+
+
+
+___
+
+Autenticación de usuarios con WS-Federation en ASP.NET Core
+
+https://docs.microsoft.com/es-es/aspnet/core/security/authentication/ws-federation?view=aspnetcore-6.0
+
+___
+
+issued que es?
+
+Identity Provider (IP)
+
+Secure Token Service (STS)
+
+Realying Party (RP) o Resource Provider
+
+
+
+
+___

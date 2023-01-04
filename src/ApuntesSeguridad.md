@@ -554,4 +554,11 @@ https://long2know.com/2015/04/owin-authorization-code-grant-sso/
 
 ___
 
+La nueva era de la autentificación: Claims
+
+https://itblogsogeti.com/2015/07/23/la-nueva-era-de-la-autentificacion-claims-amaia-baigorri-sogeti/
+
+___
+
+
 

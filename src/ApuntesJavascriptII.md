@@ -1038,4 +1038,94 @@ https://www.youtube.com/watch?v=YjbRkt8cew8
 
 Playwright - Testing end-to-end
 
+### Enlaces para hacer un wizard
+
+ejemplo fechas
+https://codepen.io/Sweetums66/pen/jLYNja
+
+
+ejemplo con circulos simulando un wizar con botones y todo
+
+https://codepen.io/sjackson4/pen/OJQPGNe
+
+
+Step by step tab style form validation Wizard using Bootstrap
+
+https://www.2my4edge.com/2014/12/step-by-step-tab-style-form-validation.html
+
+
+
+CSS Arrows for Wizard Progress
+
+https://long2know.com/2015/07/css-arrows-for-wizard-progress/
+
+
+·How to create multi step progress bar· esta seria el texto de la busqueda para buscar una especie de wizard con progreso por internet 
+
+Multi Step Form with Step Progress Bar in HTML CSS & JavaScript
+
+https://www.codingnepalweb.com/multi-step-form-html-css-javascript/
+
+
+Animated Step Progress Bar In Pure JavaScript
+
+
+https://www.cssscript.com/animated-step-progress-bar-pure-javascript/
+
+
+
+How to Build a Responsive and Dynamic Progress Bar with HTML, CSS, and JavaScript
+
+https://www.freecodecamp.org/news/how-to-build-a-responsive-and-dynamic-progress-bar/
+
+
+Steps Progress Bar only with CSS
+
+http://cssstars.com/steps-progress-bar-only-with-css/
+
+
+Multi-step submission
+
+https://codepen.io/astridfarmer/pen/grXZpj
+
+
+Pure CSS Multi step form with vertical progressbar
+
+https://bbbootstrap.com/snippets/bootstrap-5-multi-step-form-90565495
+
+How To Create An Animated Tab With A Progress Bar Indicator | HTML CSS
+
+https://www.youtube.com/watch?v=DB9TdlOwfYI
+
+video muy bueno
+
+
+
+Box with triangle arrow
+
+https://codepen.io/lideo/pen/KKGeQG
+
+
+
+How To Put Arrows at the Bottom of a Div
+
+https://dev.to/flippedcoding/how-to-put-arrows-at-the-bottom-of-a-div-4hnn
+
+
+12 CSS Arrow Box Examples Source Code
+
+https://onaircode.com/html-css-arrow-box-examples/
+
+Adobe-like Arrow Headers
+
+https://css-tricks.com/adobe-like-arrow-headers/
+
+
+
+
+
+
+
+
+
 
