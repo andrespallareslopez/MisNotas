@@ -1136,6 +1136,19 @@ https://www.youtube.com/watch?v=kM1fPt1BcLc
 ___
 
 
+API Mínimas .NET 6 C# - ¿Qué son? ¿Cómo se usan? ¿Merecen la pena? - MINIMAL API CRUD EN 10 MINUTOS
+
+https://www.youtube.com/watch?v=2eaQkjSQLtU&t=356s
+
+
+
+
+___
+
+
+
+
+
 
 
 
