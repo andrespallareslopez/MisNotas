@@ -89,4 +89,36 @@ Putting the ".NET" into "Kubernetes"
 
 https://www.youtube.com/watch?v=GBOPBfcJ2zM
 
+Kubectl basics for beginners | Kubernetes
+
+https://www.youtube.com/watch?v=feLpGydQVio&list=RDCMUCFe9-V_rN9nLqVNiI8Yof3w&index=12
+
+
+
+~~~
+
+~~~
+
+
+
+____
+.NET Microservices – Full Course (Les Jackson)
+
+Les Jackson
+
+https://www.youtube.com/watch?v=DgVjEo3OGBI&t=5s
+
+es un curso muy largo pero interviene el despliegue y manejo de kubernetes para .net
+
+
+
+
+
+
+
+
+
+
+
+
 
