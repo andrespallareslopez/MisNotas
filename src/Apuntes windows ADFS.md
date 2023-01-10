@@ -106,3 +106,30 @@ Realying Party (RP) o Resource Provider
 
 
 ___
+
+
+ADFS Install and Configure with a wildcard certificate
+
+
+https://www.youtube.com/watch?v=qiz1igBQDaU&t=304s
+
+
+
+
+
+Seguir los pasos del video:
+powershell
+
+set-adfsproperties -EnableIdpInitiatedSignonPage $true
+
+get-adfsproperties | select FullUrl | clip
+
+
+
+https://srbwrsd02.sareb.srb/adfs/ls/Idpinitiatedsignon.aspx
+
+___
+
+
+
+
