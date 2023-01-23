@@ -186,3 +186,10 @@ ___
 
 https://medium.com/@osmancea/programaci%C3%B3n-reactiva-en-javascript-997478d45bfb
 
+
+___
+
+02 - Introduction to Gulp.js series and parallel tasks - Gulp 4
+
+https://www.youtube.com/watch?v=cgqgf_GPGUc&list=PLM0LBHjz37LVNapdMeupY-SevP4TrgVxZ&index=2
+___
