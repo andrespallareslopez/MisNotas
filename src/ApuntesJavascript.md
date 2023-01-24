@@ -186,3 +186,22 @@ ___
 
 https://medium.com/@osmancea/programaci%C3%B3n-reactiva-en-javascript-997478d45bfb
 
+___
+Convert JS date time to MySQL datetime
+
+https://stackoverflow.com/questions/5129624/convert-js-date-time-to-mysql-datetime
+
+~~~
+new Date().toISOString().slice(0, 19).replace('T', ' ');
+~~~
+
+con la libreria moment.js
+
+~~~
+require('moment')().format('YYYY-MM-DD HH:mm:ss');
+~~~
+
+
+
+
+___

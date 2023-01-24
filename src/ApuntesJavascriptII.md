@@ -1121,7 +1121,25 @@ Adobe-like Arrow Headers
 https://css-tricks.com/adobe-like-arrow-headers/
 
 
+___
+Convert JS date time to MySQL datetime
 
+https://stackoverflow.com/questions/5129624/convert-js-date-time-to-mysql-datetime
+
+~~~
+new Date().toISOString().slice(0, 19).replace('T', ' ');
+~~~
+
+con la libreria moment.js
+
+~~~
+require('moment')().format('YYYY-MM-DD HH:mm:ss');
+~~~
+
+
+
+
+___
 
 
 
