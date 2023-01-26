@@ -163,3 +163,119 @@ require('moment')().format('YYYY-MM-DD HH:mm:ss');
 
 
 ___
+
+
+2 Ways to Merge Arrays in JavaScript
+
+https://www.samanthaming.com/tidbits/49-2-ways-to-merge-arrays/
+
+~~~
+const cars = ['🚗', '🚙'];
+const trucks = ['🚚', '🚛'];
+
+// Method 1: Concat
+const combined1 = [].concat(cars, trucks);
+
+// Method 2: Spread
+const combined2 = [...cars, ...trucks];
+~~~
+
+___
+Most efficient method to groupby on an array of objects in Javascript
+
+https://www.tutorialspoint.com/most-efficient-method-to-groupby-on-an-array-of-objects-in-javascript
+
+~~~
+
+~~~
+
+
+
+
+___
+Ejemplos de transformar arrays del proyecto CMD V2
+
+~~~
+function groupBy(objectArray, property) {
+    return objectArray.reduce((acc, obj) => {
+        const key = obj[property];
+        if (!acc[key]) {
+            acc[key] = [];
+        }
+        // Add object to list for given key's value
+        acc[key].push(obj);
+        return acc;
+    }, {});
+}
+
+//Mensajes Errores dataSM
+//Agrupar errores porque pueden ser repetidos
+/*
+let mensajesAgrupados = (msg.ErroresSM.length > 0) ? [].concat(Object.entries(groupBy(msg.ErroresSM, 'message')).map((e) => {
+    let [key, value] = e;
+    return { tabla: 'sm_incidencias', mensaje: key, count: value.length, source: value[0].source.name }
+})) : [];
+*/
+let mensajesAgrupados = [].concat(Object.entries(groupBy(msg.ErroresSM || [], 'message')).map((e) => {
+    let [key, value] = e;
+    return { tabla: 'sm_incidencias', mensaje: key, count: value.length, source: value[0].source.name }
+}));
+/*
+if (msg.ErroresSM.length>0){
+    mensajesAgrupados = mensajesAgrupados.concat( Object.entries(groupBy(msg.ErroresSM, 'message')).map((e) => {
+        let [key, value] = e;
+        return { tabla: 'sm_incidencias', mensaje: key, count: value.length, source: value[0].source.name }
+    }));
+}
+*/
+
+
+//Mensajes Errores dataClarity
+/*
+mensajesAgrupados = (msg.ErroresClarity.length > 0) ? mensajesAgrupados.concat(Object.entries(groupBy(msg.ErroresClarity, 'message')).map((e) => {
+    let [key, value] = e;
+    return { tabla: 'clarity_peticiones', mensaje: key, count: value.length, source: value[0].source.name }
+})) : mensajesAgrupados ;
+*/
+mensajesAgrupados = mensajesAgrupados.concat(Object.entries(groupBy(msg.ErroresClarity || [], 'message')).map((e) => {
+    let [key, value] = e;
+    return { tabla: 'clarity_peticiones', mensaje: key, count: value.length, source: value[0].source.name }
+}));
+/*
+if (msg.ErroresClarity.length>0){
+    mensajesAgrupados = mensajesAgrupados.concat(Object.entries(groupBy(msg.ErroresClarity, 'message')).map((e)=>{
+        let [key, value] = e;
+        return { tabla: 'clarity_peticiones', mensaje: key, count: value.length, source: value[0].source.name }
+    }));
+}
+*/
+
+if (mensajesAgrupados.length>0){
+    msg.topic="Reporte de Errores de la aplicacion CMD V2";
+    msg.mensajesAgrupados=mensajesAgrupados;
+    msg.payload=mensajesAgrupados;
+}else{
+    msg.payload=null;
+}
+
+return msg;
+~~~
+
+otro ejemplo para coger un array de un array
+
+~~~
+
+var vehiculos = [];
+var results = msg.payload.map((e) => {
+    vehiculos = vehiculos.concat(e.results);
+});
+ 
+
+msg.payload = vehiculos.filter((e) => {
+    return e.crew <= 5 && e.passengers > 10
+});
+~~~
+
+
+
+___
