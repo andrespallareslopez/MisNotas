@@ -59,3 +59,26 @@ https://www.youtube.com/watch?v=HrV0HeGnzIw&list=PLCKuOXG0bPi26-eawizqyLOgM7j66H
 
 
 ___
+
+React + TypeScript: useContext , createContext, ContextProvider
+
+https://www.youtube.com/watch?v=8HE657KssxE&list=PLCKuOXG0bPi26-eawizqyLOgM7j66H_4M&index=6
+
+
+
+~~~
+npx create-react-app todo-app --template typescript
+~~~
+
+
+___
+
+
+
+
+
+
+___
+
+
+
