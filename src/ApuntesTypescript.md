@@ -8,6 +8,8 @@ https://www.youtube.com/watch?v=JDyo1j1u3PQ
 
 Habla del typecasting:|
 
+
+Como hacer un agrupamiento:
 ~~~
 const people = [
    { name: 'Lee', age: 21 },

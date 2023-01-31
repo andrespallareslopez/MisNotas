@@ -193,7 +193,7 @@ https://www.tutorialspoint.com/most-efficient-method-to-groupby-on-an-array-of-o
 
 
 ___
-Ejemplos de transformar arrays del proyecto CMD V2
+## Ejemplos de transformar arrays del proyecto CMD V2 ##
 
 ~~~
 function groupBy(objectArray, property) {
