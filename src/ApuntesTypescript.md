@@ -159,11 +159,5 @@ const result1 = { ...obj1, ...obj2 }; // Type { prop: string }
 const result2 = { ...obj2, ...obj1 }; // Type { prop: number }
 ~~~
 
-
-
-
-
-
-
 ___
 
