@@ -163,3 +163,8 @@ const result2 = { ...obj2, ...obj1 }; // Type { prop: number }
 
 ___
 
+
+
+
+
+___
