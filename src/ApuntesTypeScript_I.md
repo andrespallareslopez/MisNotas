@@ -983,7 +983,3 @@ Dentro de la carpeta Clases vamos a crear un archivo llamdo ListTemplate.ts
 
 
 ___
-
-
-
-___
