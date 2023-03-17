@@ -1,5 +1,66 @@
 # Proyecto KTL
 
+
+Version 1 de docker file
+~~~
+FROM node:alpine as BUILD_IMAGE
+WORKDIR /app
+COPY package.json yarn.lock ./
+# install dependencies
+RUN yarn install --frozen-lockfile
+COPY . .
+# build
+RUN yarn build
+# remove dev dependencies
+RUN npm prune --production
+FROM node:alpine
+WORKDIR /app
+# copy from build image
+COPY --from=BUILD_IMAGE /app/package.json ./package.json
+COPY --from=BUILD_IMAGE /app/node_modules ./node_modules
+COPY --from=BUILD_IMAGE /app/.next ./.next
+COPY --from=BUILD_IMAGE /app/public ./public
+EXPOSE 3000
+CMD ["yarn", "start"]
+~~~
+
+Version 2 de dockerfile
+~~~
+FROM mhart/alpine-node
+WORKDIR /app
+COPY . .
+RUN yarn install
+RUN yarn build
+
+EXPOSE 3000
+CMD ["yarn", "start"]
+~~~
+
+Archivo .env
+~~~
+URL_CHECK_TOKEN=http://deptapps.a2i.everis.cloud/api/mdone/auth/token/metadata
+URL_MDONE_FOR_ASSIGN_ADFS_EVERIS_GROUP=https://mdone.a2i.everis.cloud/api/auth/login
+X_AUTH_TOKEN=X-Auth-Token
+
+# For developing purposes you must provide on env.local the following variables:
+
+SECRET_COOKIE_PASSWORD=y0uR!S3cUre-P4ssW0rD_12345678900_ghj88TTTTT55_6666
+KTL_ECU_SERVICE_HOST=192.168.18.226
+KTL_ECU_SERVICE_PORT=7000
+# KTL_MANAGER_SERVICE_HOST=localhost
+# KTL_MANAGER_SERVICE_PORT=8001
+~~~
+
+
+Levantar ktl desde docker de diversas maneras:
+
+
+docker run --env-file=.env -d --name ktl2 -p 3000:3000 produccion2
+
+docker exec -it ktl2 sh
+
+
+
 netstat -aof | findstr :7000
 netstat -aof | findstr :5672
 

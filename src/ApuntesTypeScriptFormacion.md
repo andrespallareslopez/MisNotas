@@ -1,7 +1,6 @@
 <!-- TOC -->
 
 - [Introduccion y configuracion](#introduccion-y-configuracion)
-- [diferencia entre null y undefined](#diferencia-entre-null-y-undefined)
 - [Compilando typescript](#compilando-typescript)
 - [Tipos Basicos](#tipos-basicos)
 - [Objetos y Arrays](#objetos-y-arrays)
@@ -17,6 +16,7 @@
 - [Interfaces y Type](#interfaces-y-type)
 - [Implementacion de interfaces con Clases](#implementacion-de-interfaces-con-clases)
 - [Renderizando HTML template](#renderizando-html-template)
+- [diferencia entre null y undefined](#diferencia-entre-null-y-undefined)
 
 <!-- /TOC -->
 
@@ -30,7 +30,7 @@ ___
 
 - Nos permite usar tipado fuerte
 - Soporta modernas caracteristicas (arrow funcions, let,const)
--Caracteristicas Extras como genericidad, interfaces, tuplas,etc
+-Caracteristicas Extras como genericidad, interfaces, tuplas,sintaxis expread, desestructuracion de objetos o arrays a variables,etc
 
 Seria aconsejable saber javascript que contiene tambien:
 
@@ -64,36 +64,6 @@ Se utiliza typescript bastante en:
 
 
 ___
-### diferencia entre null y undefined ###
-
-undefined indica que una variable no tiene un valor asignado, mientras que null indica que una variable tiene un valor nulo. En JavaScript, null es un objeto, a diferencia de undefined, que no lo es.
-
-~~~
-{
-    var s = 'hola';
-    var n_1 = null;
-    var u_1 = undefined;
-    var all = 'any';
-    all = 1;
-    s = undefined;
-    
-    function checkNull(s) {
-        if (typeof s === 'object') {
-        }
-        return (s !== n_1 || s !== u_1);
-    }
-    
-    if (s !== null && s !== undefined && s !== '') {
-    }
-    if (!!s) {
-    }
-}
-
-
-~~~
-
-
-___
 
 
 
@@ -124,7 +94,7 @@ compilara el mismo codigo, cuando compilemos el fichero .ts
 
 ~~~
 tsc -v
-tec --help
+tsc --help
 tsc prueba.ts
 tsc prueba.ts -w
 ~~~
@@ -855,3 +825,32 @@ Dentro de la carpeta Clases vamos a crear un archivo llamdo ListTemplate.ts
 
 
 ___
+
+### diferencia entre null y undefined ###
+
+undefined indica que una variable no tiene un valor asignado, mientras que null indica que una variable tiene un valor nulo. En JavaScript, null es un objeto, a diferencia de undefined, que no lo es.
+
+~~~
+{
+    var s = 'hola';
+    var n_1 = null;
+    var u_1 = undefined;
+    var all = 'any';
+    all = 1;
+    s = undefined;
+    
+    function checkNull(s) {
+        if (typeof s === 'object') {
+        }
+        return (s !== n_1 || s !== u_1);
+    }
+    
+    if (s !== null && s !== undefined && s !== '') {
+    }
+    if (!!s) {
+    }
+}
+
+
+~~~
+

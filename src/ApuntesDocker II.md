@@ -69,3 +69,19 @@ Tutorial Docker - Comunicacion entre 2 Contenedores (Apache + MYSQL + PHP)
 
 https://www.youtube.com/watch?v=EVUNz9UxQLA
 
+***07 - Curso de DOCKER 🐳 - BIND MOUNTS (GUARDAR DATOS)***
+
+https://www.youtube.com/watch?v=8S-i34g-_o8
+
+
+~~~
+
+
+~~~
+
+
+
+
+
+
+
