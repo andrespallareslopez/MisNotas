@@ -32,6 +32,12 @@ wsl --update
 
 wsl --shutdown
 
+ wsl.exe --set-default-version 2
+
+ wsl.exe --set-version (distro name) 2
+
+ wsl --set-default <distro name>
+ 
 ~~~
 
 -instalar jre
