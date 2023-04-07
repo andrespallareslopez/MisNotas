@@ -1,5 +1,25 @@
 # Apuntes TLM-React-TypeScript
 
+
+
+
+rear un contenedor con persistencia de datos
+
+~~~
+docker volume create mongodb-data
+~~~
+
+Arrancar el contenedor:
+
+~~~
+
+~~~
+
+
+
+
+
+
 ## How to request a GraphQL API with Fetch or Axios
 
 https://hasura.io/blog/how-to-request-a-graphql-api-with-fetch-or-axios/

@@ -21,7 +21,7 @@ Práctica 5. Creación de un contenedor Docker con MySQL Server
 
 https://josejuansanchez.org/bd/practica-05/index.html
 
-Cómo crear un contenedor sin persistencia de datos
+Cómo crear un contenedor con persistencia de datos
 
 ~~~
 docker volume create mysql-data
