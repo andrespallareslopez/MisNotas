@@ -130,6 +130,26 @@ https://srbwrsd02.sareb.srb/adfs/ls/Idpinitiatedsignon.aspx
 
 ___
 
+AD FS OpenID Connect/OAuth flows and Application Scenarios
+
+https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios
+
+Aqui habla de los tipos de flujo OAuth 2.0.
+
+- implicit grant flow
+- Autorization Code grant flow
+- On-behalf-of
+- client credentials
+- Resource owner password credentials
+- Devide code
+
+y hay una tabla con el tipo de aplicaciones SPA,web-app, native-app, web-app llama a una web api..., indicando cuando se debería de aplicar cada flujo.
+
+Por ejemplo para SPA deberia aplicar el flujo implicit grant flow, y explica en este articulo ese flujo aplicando la libreria MSAL.js de microsoft
+
+___
+
+
 
 
 

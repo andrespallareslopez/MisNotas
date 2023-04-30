@@ -1,6 +1,11 @@
 # Apuntes TLM-React-TypeScript
 
 
+
+
+
+
+
 Problema relacionado con popper.js con la libreria material ui
 
 https://favouritejome.hashnode.dev/overcoming-challenges-when-moving-from-create-react-app-cra-to-vite-debugging-tips#heading-4-uncaught-referenceerror-makestylesdefault-is-not-defined
