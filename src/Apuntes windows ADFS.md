@@ -147,6 +147,24 @@ y hay una tabla con el tipo de aplicaciones SPA,web-app, native-app, web-app lla
 
 Por ejemplo para SPA deberia aplicar el flujo implicit grant flow, y explica en este articulo ese flujo aplicando la libreria MSAL.js de microsoft
 
+
+Luego asociado a este hay un articulo llamado:
+
+Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única (SPA) a través del flujo de código de autenticación
+
+https://learn.microsoft.com/es-es/azure/active-directory/develop/single-page-app-quickstart?pivots=devlang-javascript
+
+que hace una implementacion del flujo implicit grant
+
+
+
+
+
+
+
+
+
+
 ___
 
 

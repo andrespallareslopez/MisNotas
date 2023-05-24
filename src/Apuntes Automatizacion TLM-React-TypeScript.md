@@ -1,19 +1,93 @@
 # Apuntes TLM-React-TypeScript
 
+Poner en ambiente productivo parte front
+
+Podemos tomar como ejemplo este docker file sacado de:
+
+https://www.knowledgehut.com/blog/web-development/how-to-dockerize-react-app
+
+habria que poner esto en el package.json en el apartado devDependencies
+
+ "ts-node-dev": "~2.0",
+ "tsconfig-paths": "~4.1",
+ "typescript": "~4.8",
+
+
+~~~
+FROM node:17-alpine as builder
+WORKDIR /app
+COPY package.json .
+COPY package-lock.json .
+COPY npm install
+COPY . .
+COPY npm run build
+
+FROM nginx:1.19.0
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/dist .
+ENTRYPOINT ["nginx","-g","daemon off;"]
+
+~~~
+
+pero con el anterior dockerfile no instala tsc el compilador de typescript, habria que poner explicitamente en el package.json en el apartado de devdepencencies, las dependencias puestas arriba. 
+
+
+
+este valdria:
+~~~
+FROM node:17-alpine as builder
+WORKDIR /app
+COPY dist .
+
+
+FROM nginx:1.19.0
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app .
+ENTRYPOINT ["nginx","-g","daemon off;"]
+
+~~~
 
 
 
 
 
+ponemos como nombre de imagen "front01"
 
+docker build -t "front01" .
+
+esto crea una imagen en docker y levantamos con docker una instancia de esa imange con nombre de contenedor "front1" y puerto 8080:
+
+
+Luego podemos entrar a la instancia para verificar cosas como:
+
+docker exec -it front1 "bash"
+
+
+## Notas autenticacion ADFS para TLM
+
+Ejemplo de url real de autenticacion de KTL
+
+https://sso.a2i.everis.cloud:443/sso/login?kc_idp_hint=microsoftonline
+
+Este tipo de url esta relacionado con keycload que es un proveedor de idenditad que esta conectado o hace como una especie de proxy a un ADFS
+
+Keycloak AD FS login without user interaction
+
+https://stackoverflow.com/questions/49233722/keycloak-ad-fs-login-without-user-interaction
+
+
+___
 Problema relacionado con popper.js con la libreria material ui
 
 https://favouritejome.hashnode.dev/overcoming-challenges-when-moving-from-create-react-app-cra-to-vite-debugging-tips#heading-4-uncaught-referenceerror-makestylesdefault-is-not-defined
 
+Hemos tenidos que quitar un componente datepicker de material-ui y poner otro porque el datepiker de material-ui da problemas con vite build y vitar start en modo dev
 
 ___
 
-rear un contenedor con persistencia de datos
+## crear un contenedor con persistencia de datos
 
 ~~~
 docker volume create mongodb-data
@@ -26,9 +100,7 @@ Arrancar el contenedor:
 ~~~
 
 
-
-
-
+___
 
 ## How to request a GraphQL API with Fetch or Axios
 
