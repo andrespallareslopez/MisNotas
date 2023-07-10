@@ -174,6 +174,20 @@ https://www.youtube.com/watch?v=JtbG6WkLGng
 
 ___
 
+Azure Function Build and Release Pipeline in Azure DevOps CI CD
+
+https://medium.com/swlh/azure-function-build-and-release-pipeline-in-azure-devops-ci-cd-974ed28d2ac4
+
+
+
+
+
+
+___
+
+
+
+
 
 
 
