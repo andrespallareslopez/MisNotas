@@ -1,13 +1,443 @@
+# Apuntes TLM-React-TypeScript
 
 
+## Docker file para la aplicacion
+Poner en ambiente productivo parte front
+
+Podemos tomar como ejemplo este docker file sacado de:
+
+https://www.knowledgehut.com/blog/web-development/how-to-dockerize-react-app
+
+habria que poner esto en el package.json en el apartado devDependencies
+
+ "ts-node-dev": "~2.0",
+ "tsconfig-paths": "~4.1",
+ "typescript": "~4.8",
+
+
+~~~
+FROM node:17-alpine as builder
+WORKDIR /app
+COPY package.json .
+COPY package-lock.json .
+COPY npm install
+COPY . .
+COPY npm run build
+
+FROM nginx:1.19.0
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app/dist .
+ENTRYPOINT ["nginx","-g","daemon off;"]
+
+~~~
+
+pero con el anterior dockerfile no instala tsc el compilador de typescript, habria que poner explicitamente en el package.json en el apartado de devdepencencies, las dependencias puestas arriba. 
+
+
+
+este valdria:
+~~~
+FROM node:17-alpine as builder
+WORKDIR /app
+COPY dist .
+
+
+FROM nginx:1.19.0
+WORKDIR /usr/share/nginx/html
+RUN rm -rf ./*
+COPY --from=builder /app .
+ENTRYPOINT ["nginx","-g","daemon off;"]
+
+~~~
+
+
+## comandos docker para contruir la imagen y meterse en una instancia
+
+ponemos como nombre de imagen "front01"
+
+docker build -t "front01" .
+
+esto crea una imagen en docker y levantamos con docker una instancia de esa imangen con nombre de contenedor "front1" y puerto 8080:
+
+en la parte del backend hay que tener en cuenta el fichero tsconfig.base.json y tsconfig.json
+
+en el tsconfig.json tenemos la clave "extends" que normalmente apunta a ../tsconfig.base.json hay que cambiarlo a ./tsconfig.base.json y tener dicho archivo bajo la carpeta backend, tiene que estar junto a tsconfig.json, ahora de momento lo tenemos asi, pero hay que hacer funcionar la imagen apuntando a ../tsconfig.base.json.
+
+La imagen de backed la tenemos asi por sacar una version preliminar que puedan testear y tener un feedback, pero hay que trabajar mas la creacion de la imagen del backend y el dockerfile para que se quede una construccion mucho mas robusta de la imagen y si puede ser que nos genera una imagen de backend de menor tamaño.
+
+Luego hay que tener en cuenta en la imagen del backend la carpeta build, cuando creamos la build, se genera una carpeta llamada igual build, dentro hay una subcarpeta api, y dentro de esta mas subcarpeta, en cada una de estas carpetas, he tenido que copiar unos arhivos manualmente con extension graphql, para que pueda levantar la aplicacion desde la build, y luego en la imagen de docker funcione.
+
+
+
+Luego podemos entrar a la instancia para verificar cosas como:
+
+~~~
+docker exec -it front1 "bash"
+~~~
+
+Poner la parte de backend en docker:
+
+Para conectar mongo, y node tenemos que crear una red en docker
+
+docker network create node-network
+
+Luego creamos instancias con esa nueva red que hemos creado
+
+~~~
+docker run -d -p 27017:27017 --network node-network --name mongodb1 mongo
+
+docker run -d -p 3000:3000 --network node-network --name backend2 backend01
+~~~
+
+luego en el backend hay que tener en cuenta el fichero .env que no hay que poner "localhost" si no el nombre de la instancia del contenedor que en este caso es "mongodb1".
+
+Creamos la imagen con este .env con el DB_SERVER=mongodb1 y funcionara la conexion entre el node y mongo.
+
+En el front igual tenemos que crear una imagen que contenga en el API_URL referencia a lo siguiente:
+
+http://backend2:3000/graphql
+
+y luego crear la instancia como sigue:
+
+~~~
+docker run -d -p 8080:80 --network node-network --name front1 front01
+~~~
+
+Para crear instancias con variables de entorno tenemos que hacer lo siguiente:
+!!! ojo no poner comillas y envolver la cadena con comillas simples o dobles
+~~~
+docker run -d -p 3000:3000 -e DB_SERVER=mongodb2 --network node-network --name backend3 backend01
+~~~
+
+
+## crear un despliegue en mi cuenta azure, Azure container registry y Azure container instance
+
+-Crear un Container Registry
+
+-Conectarme a un container Registry
+
+Para poder hacer push, necesito lanzar el siguiente comando
+~~~
+az acr login --name andrespallareslopez.azurecr.io/front02
+
+o simplificado con -n
+az acr login -n andrespallareslopez.azurecr.io
+~~~
+
+
+Luego hay que darle un nuevo tag a la imagen que queremos subir
+
+~~~
+docker tag front01 andrespallareslopez.azurecr.io/front01
+
+docker tag front02 andrespallareslopez.azurecr.io/front02
+
+docker push andrespallareslopez.azurecr.io/front01
+
+docker push andrespallareslopez.azurecr.io/front02
+
+docker tag backend01 andrespallareslopez.azurecr.io/backend01
+
+docker push andrespallareslopez.azurecr.io/backend01
+
+docker tag mongo andrespallareslopez.azurecr.io/mongo
+
+docker push andrespallareslopez.azurecr.io/mongo
+
+docker tag front03 andrespallareslopez.azurecr.io/front03
+
+docker push andrespallareslopez.azurecr.io/front03
+~~~
+
+Consultar las imagenes que tengo instaladas
+~~~
+az acr respository list --name andrespallareslopez
+~~~
+
+Tengo tres instancias levantas:
+
+mongodb1:
+mongodbtlm.atg0c4ckdpd5ehga.francecentral.azurecontainer.io
+front1:
+fronttlm.hjd9hrfzckbee8er.francecentral.azurecontainer.io
+backend1:
+backendtlm.e0h9axdzesdmecdp.francecentral.azurecontainer.io
+
+
+## Crear un AKS en azure (Clustes Kubernetes en Azure)
+Hay que instalar unas herramientas con az:
+
+~~~
+az aks install-cli
+~~~
+
+
+hay que habilitar el usuario administrador para manejar instancias de contenedor desde container registry, es necesario lanzar el siguiente comando:
+~~~
+az acr update -n andrespallareslopez --admin-enabled true
+~~~
+creado una instancia de mongo con la siguiente direccion:
+
+mongodbtlm.atg0c4ckdpd5ehga.francecentral.azurecontainer.io
+
+
+He creado un cluster de kubernetes llamado akstlm
+
+para entrar al cluster
+
+~~~
+az aks get-credentials --resource-group prueba01_group --name akstlm
+~~~
+
+para enganchar desde el cluster de kubernetes a container registry
+
+~~~
+az aks update -n akstlm -g prueba01_group --attach-acr andrespallareslopez.azurecr.io
+~~~
+
+
+
+Ejemplo de manifiesto yaml para un pod:
+~~~
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+   name: web1
+   labels:
+      app: web
+
+spec:
+   containers:
+   - name: front1
+     image: httpd:latest
+     ports:
+        - containerPort: 80
+   - name: back1
+     image: ubuntu:latest
+     command: ["/bin/sh"]
+     args: ["-c","while true;do echo hello;sleep 10; done"]
+
+~~~
+
+kubectl cluster-info 
+kubectl cluster-info dump
+
+
+
+para desplegar este archivo hacemos lo siguiente:
+
+~~~
+kubectl apply -f app1.yml
+~~~
+
+una vez desplegado hacemos lo siguiente:
+
+~~~
+kubectl get all
+
+kubectl describe pod web1
+~~~
+podemos borrar lo anterior haciendo lo siguiente:
+~~~
+kubectl delete -f app1.yml
+~~~
+
+para ver los recursos que consume un pod
+
+~~~
+kubectl top pod web1
+~~~
+
+como el pod web1 tiene dos contenedores
+~~~
+kubectl logs web1 -c back1
+
+kubectl logs web1 -c front1
+~~~
+
+conectarme a una instancia
+
+~~~
+kubectl exec web1 -it -c front1 /bin/bash
+
+kubectl cp /home/origen pod:/..... -c front1
+~~~
+
+Hacer port-forwading
+
+~~~
+kubectl port-forward --address 0.0.0.0 pod/web1 8080:80
+
+kubectl get namespaces
+
+kubectl create namespace app2
+
+kubectl apply -f app2.yml --namespace=app2
+
+kubectl get all --namespace=app2
+
+kubectl config set-context --current --namespace=app2
+~~~
+
+para el caso de nuestro cluster de pruebas akstlm:
+
+~~~
+kubectl port-forward --address 0.0.0.0 pod/front1 8080:80
+kubectl port-forward --address 0.0.0.0 pod/backend1 3000:3000
+~~~
+si exponemos un servicio como nodeport, hacemos lo siguiente:
+
+sigue una nomeclatura distinta para llegar:
+
+radia-mongodb-0.radia-mongodb-svc.activos-coe.svc.cluster.local:27017
+
+Aqui en este link explica como va el nombrado cuando se utiliza un servicio por nodeport:
+
+https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
+
+
+Tenemos un manifiesto en el backend para hacer el servicio del backend publico:
+
+~~~
+apiVersion: v1
+
+kind: Service
+
+metadata:
+   annotations:
+      service.beta.kubernetes.io/azure-dns-label-name: apptlm
+   name: service2
+
+spec:
+   type: LoadBalancer
+   selector:
+      app: backend
+   ports:
+     - protocol: TCP
+       port: 3000
+       targetPort: 3000
+
+~~~
+Este manifiesto seria para hacer public el servicio del front:
+
+~~~
+apiVersion: v1
+
+kind: Service
+
+metadata:
+   annotations:
+      service.beta.kubernetes.io/azure-dns-label-name: fronttlm
+   name: service3
+
+spec:
+   type: LoadBalancer
+   selector:
+      app: front3
+   ports:
+     - protocol: TCP
+       port: 80
+       targetPort: 80
+
+~~~
+
+
+
+esto crea un servicio en kubernetes de tipo loadbalancer y con dns asociado, que seria el siguiente dns para el backend:
+
+http://apptlm.francecentral.cloudapp.azure.com/
+
+y si ponemos:
+
+http://apptlm.francecentral.cloudapp.azure.com:3000/graphql
+
+podemos comprobar si funciona la dns por:
+
+nslookup apptlm.francecentral.cloudapp.azure.com
+
+para la parte de front, tenemos 
+
+http://fronttlm.francecentral.cloudapp.azure.com/
+
+
+
+
+cuando hago kubectl get all solo me salen los pod de app2
+
+servicios tipos
+
+-cluste ip
+-node port
+-load balancer
+
+Ejemplo de servicios
+~~~
+apiVersion: v1
+
+kind: Service
+
+metadata:
+   name: service1
+
+spec:
+    type: NodePort
+    selector:
+      app: backend
+    ports:
+      - protocol: TCP
+        port: 3000
+        targetPort: 3000
+
+~~~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Notas autenticacion ADFS para TLM
+
+Ejemplo de url real de autenticacion de KTL
+
+https://sso.a2i.everis.cloud:443/sso/login?kc_idp_hint=microsoftonline
+
+Este tipo de url esta relacionado con keycload que es un proveedor de idenditad que esta conectado o hace como una especie de proxy a un ADFS corporatico
+
+Keycloak AD FS login without user interaction
+
+https://stackoverflow.com/questions/49233722/keycloak-ad-fs-login-without-user-interaction
+
+
+___
 Problema relacionado con popper.js con la libreria material ui
 
 https://favouritejome.hashnode.dev/overcoming-challenges-when-moving-from-create-react-app-cra-to-vite-debugging-tips#heading-4-uncaught-referenceerror-makestylesdefault-is-not-defined
 
+Hemos tenidos que quitar un componente datepicker de material-ui y poner otro porque el datepiker de material-ui da problemas con vite build y vitar start en modo dev
 
 ___
 
-rear un contenedor con persistencia de datos
+## crear un contenedor con persistencia de datos
 
 ~~~
 docker volume create mongodb-data
