@@ -130,43 +130,17 @@ https://srbwrsd02.sareb.srb/adfs/ls/Idpinitiatedsignon.aspx
 
 ___
 
-AD FS OpenID Connect/OAuth flows and Application Scenarios
+Instalación Active Directory Federation Services
 
-https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios
+Interesante video de como crear un certificado desde el server certificado autoridad y luego crear ADFS y asociar el certificado.
 
-Aqui habla de los tipos de flujo OAuth 2.0.
-
-- implicit grant flow
-- Autorization Code grant flow
-- On-behalf-of
-- client credentials
-- Resource owner password credentials
-- Devide code
-
-y hay una tabla con el tipo de aplicaciones SPA,web-app, native-app, web-app llama a una web api..., indicando cuando se debería de aplicar cada flujo.
-
-Por ejemplo para SPA deberia aplicar el flujo implicit grant flow, y explica en este articulo ese flujo aplicando la libreria MSAL.js de microsoft
+CRear una nueva cuenta , configurar una GPO( crear una nueva politica de grupo), y configurar el ADFS para esta nueva politica de grupo
 
 
-Luego asociado a este hay un articulo llamado:
-
-Inicio rápido: Inicio de sesión de usuarios en aplicaciones de página única (SPA) a través del flujo de código de autenticación
-
-https://learn.microsoft.com/es-es/azure/active-directory/develop/single-page-app-quickstart?pivots=devlang-javascript
-
-que hace una implementacion del flujo implicit grant
-
-
-
-
-
-
-
-
+https://www.youtube.com/watch?v=MRl9SXSOWsM&t=497s
 
 
 ___
-
 
 
 
