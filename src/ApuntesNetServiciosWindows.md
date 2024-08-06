@@ -1,19 +1,517 @@
-# Apuntes Net C#. Servicios windows en C#
+# Apuntes Net C#. Servicios windows en C# y SignalR
 
-
-
-
-!!!Importante!!! en los servidores IIS hay que añadir la caracteristica para WebSocket
-
-igual hay que lanzar un comando como este si nos diera un access denies Exception
-
-netsh http add urlacl url=http://*:8080/ user=DOMAIN\username
-
-o un comando parecido
+- [Apuntes Net C#. Servicios windows en C# y SignalR](#apuntes-net-c-servicios-windows-en-c-y-signalr)
+    - [Notas](#notas)
+  - [Introduccion SignalR - Basico](#introduccion-signalr---basico)
+    - [Understanding SignalR From Scratch](#understanding-signalr-from-scratch)
+    - [How to Push Data from Server to Client Using SignalR](#how-to-push-data-from-server-to-client-using-signalr)
+    - [Tutorial: **Prueba** interna de SignalR](#tutorial-prueba-interna-de-signalr)
+    - [SignalR Console app example](#signalr-console-app-example)
+  - [Como hacer debug en servicio de windows](#como-hacer-debug-en-servicio-de-windows)
+    - [C# - How to Create a Windows Service - Part 1/3](#c---how-to-create-a-windows-service---part-13)
+    - [Running a Windows Service in Debug Mode](#running-a-windows-service-in-debug-mode)
+  - [SelfHosted](#selfhosted)
+    - [SignalR with Self-hosted Windows Service](#signalr-with-self-hosted-windows-service)
+    - [Self-Hosting SignalR in a Windows Service \*](#self-hosting-signalr-in-a-windows-service-)
+    - [How to easily create self hosted signalr windows service using TopShelf framework](#how-to-easily-create-self-hosted-signalr-windows-service-using-topshelf-framework)
+    - [libro de jose Manuel Aguilar en ingles , pagina 123 habla de los servicios de windows y signalR](#libro-de-jose-manuel-aguilar-en-ingles--pagina-123-habla-de-los-servicios-de-windows-y-signalr)
+    - [Simple SignalR Server and Client Applications Demonstrating Common Usage Scenarios](#simple-signalr-server-and-client-applications-demonstrating-common-usage-scenarios)
+    - [Introduction To ASP.Net SignalR Self Hosting](#introduction-to-aspnet-signalr-self-hosting)
+    - [Tutorial: SignalR Self-Host](#tutorial-signalr-self-host)
+    - [Self Hosting With SignalR and Web API Part 1 (Self Host Server, C#)](#self-hosting-with-signalr-and-web-api-part-1-self-host-server-c)
+    - [Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 2](#self-hosting-signalr-and-web-api-self-host-server-c--visual-studio-2019--part-2)
+    - [Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 3](#self-hosting-signalr-and-web-api-self-host-server-c--visual-studio-2019--part-3)
+    - [Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 4](#self-hosting-signalr-and-web-api-self-host-server-c--visual-studio-2019--part-4)
+    - [Hosting SignalR under SSL/https](#hosting-signalr-under-sslhttps)
+    - [Painless .NET Windows Service Creation with Topshelf](#painless-net-windows-service-creation-with-topshelf)
+    - [Migrating SignalR from ASP.NET Web API 2 to Self Hosted Server (Part 3)](#migrating-signalr-from-aspnet-web-api-2-to-self-hosted-server-part-3)
+    - [Self Hosted signalR in windows service; Minimum permissions for base url = http://\*:1111](#self-hosted-signalr-in-windows-service-minimum-permissions-for-base-url--http1111)
+    - [How to easily create self hosted signalr windows service using TopShelf framework](#how-to-easily-create-self-hosted-signalr-windows-service-using-topshelf-framework-1)
+  - [Injeccion de dependencias (IoC)](#injeccion-de-dependencias-ioc)
+    - [Dependency Inject with SignalR \& Castle Windsor](#dependency-inject-with-signalr--castle-windsor)
+    - [Using Unity for Dependency Injection with SignalR](#using-unity-for-dependency-injection-with-signalr)
+    - [SignalR with an IoC container](#signalr-with-an-ioc-container)
+    - [Using SignalR with Unity](#using-signalr-with-unity)
+    - [Dependency Injection in SignalR](#dependency-injection-in-signalr)
 
 
 ---
-## SignalR with Self-hosted Windows Service
+### Notas
+!!!Importante!!! en los servidores IIS hay que añadir la caracteristica para WebSocket
+
+igual hay que lanzar un comando como este si nos diera un access denies Exception
+~~~
+netsh http add urlacl url=http://*:8080/ user=DOMAIN\username
+~~~
+o un comando parecido
+
+---
+## Introduccion SignalR - Basico
+
+
+### Understanding SignalR From Scratch
+
+https://www.c-sharpcorner.com/article/understanding-signalr-from-scratch/
+
+Codigo de este articulo, paquetes nuget signalR
+
+~~~
+Microsoft.AspNet.SignalR
+Microsoft.AspNet.SignalR.Client
+
+Microsoft.AspNet.SignalR.JS
+
+
+Microsoft.Owin.SelfHost
+Microsoft.Owin.Cors
+Microsoft.AspNet.SignalR.Core
+Microsoft.AspNet.SignalR.SelfHost
+
+
+~~~
+---
+
+
+### How to Push Data from Server to Client Using SignalR
+
+https://www.codeguru.com/blog/how-to-push-data-from-server-to-client-using-signalr/
+
+~~~
+public class MyChatHub : Hub
+    {
+        public void BroadcastMessageToAll(string message)
+        {
+            Clients.All.newMessageReceived(message);
+        }
+ 
+        public void JoinAGroup(string group)
+        {
+            Groups.Add(Context.ConnectionId, group);
+        }
+ 
+        public void RemoveFromAGroup(string group)
+        {
+            Groups.Remove(Context.ConnectionId, group);
+        }
+ 
+        public void BroadcastToGroup(string message, string group)
+        {
+            Clients.Group(group).newMessageReceived(message);
+        }
+    }
+~~~
+
+
+~~~
+[assembly: OwinStartup(typeof(MyChatApplicationServer.Startup))]
+ 
+namespace MyChatApplicationServer
+{
+    public class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            app.MapSignalR();
+        }
+    }
+}
+~~~
+
+
+
+~~~
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.0.1.min.js"></script>
+    <script src="http://localhost:32555/signalr/hubs/" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var myChatHub = $.connection.myChatHub;
+            myChatHub.client.newMessageReceived = function (message) {
+                $('#ulChatMessages').append('<li>' + message + '</li>');
+            }
+            $.connection.hub.url = "http://localhost:32555/signalr";
+            $.connection.hub.start().done(function () {
+                $('#btnSubmit').click(function (e) {
+                    myChatHub.server.broadcastMessageToAll($('#txtEnterMessage').val(), 'Web user');
+                });
+            }).fail(function (error) {
+                console.error(error);
+            });;
+           
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <label id="lblEnterMessage">Enter Message: </label>
+        <input type="text" id="txtEnterMessage" />
+        <input type="submit" id="btnSubmit" value="Send Message" />
+        <ul id="ulChatMessages"></ul>
+    </div>
+</body>
+</html>
+~~~
+
+Pushing Data to a Windows Application Client
+
+~~~
+namespace WinFormClient
+{
+    public partial class Form1 : Form
+    {
+        HubConnection hubConnection;
+        IHubProxy hubProxy;
+        public Form1()
+        {
+            InitializeComponent();
+            hubConnection = new HubConnection("http://localhost:32555/signalr/hubs");
+            hubProxy = hubConnection.CreateHubProxy("MyChatHub");
+            hubProxy.On<string>("newMessageReceived", (message) => lstMessages.Items.Add(message));
+            hubConnection.Start().Wait();
+        }
+ 
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            hubProxy.Invoke("BroadcastMessageToAll", textBox1.Text, "Window App User").Wait();
+        }
+    }
+}
+~~~
+
+---
+
+### Tutorial: **Prueba** interna de SignalR
+
+https://learn.microsoft.com/es-es/aspnet/signalr/overview/deployment/tutorial-signalr-self-host
+
+---
+
+
+### SignalR Console app example
+
+https://stackoverflow.com/questions/11140164/signalr-console-app-example
+
+Hay que agregar los siguientes paquetes nugets para los proyectos de consola
+~~~
+Install-Package SignalR.Hosting.Self -Version 0.5.2 (version antigua)
+
+Install-Package Microsoft.AspNet.SignalR.SelfHost -Version 2.2.1
+
+Install-Package Microsoft.AspNet.SignalR.Client (version antigua)
+
+Install-Package Microsoft.AspNet.SignalR.Client -Version 2.2.1
+
+
+~~~
+
+El paquete Microsoft.AspNet.SignalR.Client contiene soporte para WinRT,Silverlight,WPF,Console applicacion,para net 4.0 y net 4.5
+
+El paquete llamado Microsoft.AspNet.SignalR es distinto, no contiene este soporte
+
+
+Tenemo el detalle de esto en el siguinte articulo:
+ASP.NET SignalR Hubs API Guide - .NET Client (C#)
+
+https://learn.microsoft.com/en-us/aspnet/signalr/overview/guide-to-the-api/hubs-api-guide-net-client
+
+
+Aqui tenemos el codigo de ejemplo del articulo de levantar un servidor y un cliente en modo consola
+
+
+Server console app
+
+~~~
+using System;
+using SignalR.Hubs;
+
+namespace SignalR.Hosting.Self.Samples {
+    class Program {
+        static void Main(string[] args) {
+            string url = "http://127.0.0.1:8088/";
+            var server = new Server(url);
+
+            // Map the default hub url (/signalr)
+            server.MapHubs();
+
+            // Start the server
+            server.Start();
+
+            Console.WriteLine("Server running on {0}", url);
+
+            // Keep going until somebody hits 'x'
+            while (true) {
+                ConsoleKeyInfo ki = Console.ReadKey(true);
+                if (ki.Key == ConsoleKey.X) {
+                    break;
+                }
+            }
+        }
+
+        [HubName("CustomHub")]
+        public class MyHub : Hub {
+            public string Send(string message) {
+                return message;
+            }
+
+            public void DoSomething(string param) {
+                Clients.addMessage(param);
+            }
+        }
+    }
+}
+~~~
+
+Client console app
+
+~~~
+using System;
+using SignalR.Client.Hubs;
+
+namespace SignalRConsoleApp {
+    internal class Program {
+        private static void Main(string[] args) {
+            //Set connection
+            var connection = new HubConnection("http://127.0.0.1:8088/");
+            //Make proxy to hub based on hub name on server
+            var myHub = connection.CreateHubProxy("CustomHub");
+            //Start connection
+
+            connection.Start().ContinueWith(task => {
+                if (task.IsFaulted) {
+                    Console.WriteLine("There was an error opening the connection:{0}",
+                                      task.Exception.GetBaseException());
+                } else {
+                    Console.WriteLine("Connected");
+                }
+
+            }).Wait();
+
+            myHub.Invoke<string>("Send", "HELLO World ").ContinueWith(task => {
+                if (task.IsFaulted) {
+                    Console.WriteLine("There was an error calling send: {0}",
+                                      task.Exception.GetBaseException());
+                } else {
+                    Console.WriteLine(task.Result);
+                }
+            });
+
+            myHub.On<string>("addMessage", param => {
+                Console.WriteLine(param);
+            });
+
+            myHub.Invoke<string>("DoSomething", "I'm doing something!!!").Wait();
+
+
+            Console.Read();
+            connection.Stop();
+        }
+    }
+}
+~~~
+
+
+
+
+
+---
+
+
+## Como hacer debug en servicio de windows
+
+
+### C# - How to Create a Windows Service - Part 1/3
+
+https://www.youtube.com/watch?v=uM9o8GsO_u4
+
+Por el minuto 5 empieza a hablar de como poner en modo debug el servicio y que hacer
+para poder levantarlo en el modo debug, hay que escribir un codigo como este para que cuando
+entre en modo debug podamos levantar el servicio y depurarlo
+
+
+En el fichero Program.cs
+~~~
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceProcess;
+using System.Text;
+
+namespace WindowsService1
+{
+    static void Main()
+    {
+        
+ #if debug
+       Service1 myService = new Service1();
+       myService.OnDebug();
+       System.Threading.Sleep(System.Threading.Timeout.Infinite);
+ #else       
+        
+        ServiceBase[] ServicesToRun;
+        ServicesToRun new ServiceBase[];
+        {
+            new Service1();
+        };
+        ServiceBase.Run(ServicesToRun);
+ #endif       
+        
+    }
+
+
+
+}
+
+~~~
+
+En el fichero Service1.cs
+~~~
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Linq;
+using System.ServiceProcess;ç
+using System.Text;
+
+namespace WindowsService1
+{
+    public Service1()
+    {
+       InitializeComponent();  
+    }
+    
+    public void OnDebug()
+    {
+        OnStart(null);
+    }
+    
+    protected override void OnStart(string[] args)
+    {
+        
+    }
+
+    protected override void OnStop()
+    {
+         
+    }
+}
+
+~~~
+
+---
+	
+### Running a Windows Service in Debug Mode
+
+https://www.c-sharpcorner.com/UploadFile/akkiraju/running-a-windows-service-in-debug-mode/
+
+Service.cs
+~~~
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Linq;
+using System.ServiceProcess;ç
+using System.Text;
+
+namespace WindowsService1
+{
+    public partial service1: ServiceBase
+    {
+        private static System.Timers.Timer _aTimer;
+
+        public Service1()
+        {
+            _aTimer = new System.Timers.Timer(30000);
+           _aTimer.Enabled = true;
+           _aTimer.Elapsed += new System.Timers.ElapsedEventHandler(_aTimer_Elapsed);
+           
+            InitializeComponent();  
+        }
+        
+        public void Start()
+        {
+            _aTimer.Start();
+        }
+        public void Stop()
+        {
+            _aTimer.Stop();
+        }
+        
+        protected override void OnStart(string[] args)
+        {
+            this.Start();
+        }
+
+        protected override void OnStop()
+        {
+            this.Stop();
+        }
+    }
+}
+~~~
+Hacemos una serie de cambios en el program.cs
+
+~~~
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceProcess;
+using System.Text;
+using System.Threading;namespace TestService
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        static void Main()
+        {
+
+
+#if DEBUG
+            //If the mode is in debugging
+            //create a new service instance
+            Service1 myService = new Service1();
+            //call the start method - this will start the Timer.
+            myService.Start();
+            //Set the Thread to sleep
+            Thread.Sleep(60000);
+            //Call the Stop method-this will stop the Timer.
+            myService.Stop();
+#else
+            //The following is the default code - You may fine tune
+            //the code to create one instance of the service on the top
+            //and use the instance variable in both debug and release mode
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[] 
+                          { 
+                                   new Service1() 
+                          };
+            ServiceBase.Run(ServicesToRun);
+#endif
+        }
+    }
+}
+
+~~~
+
+---
+
+
+
+
+
+
+## SelfHosted
+
+### SignalR with Self-hosted Windows Service
 
 https://www.codeproject.com/Articles/881511/SignalR-with-Self-hosted-Windows-Service
 
@@ -228,51 +726,25 @@ PM> Install-Package Microsoft.AspNet.SignalR.JS
 
 ---
 
-## Self-Hosting SignalR in a Windows Service *
+### Self-Hosting SignalR in a Windows Service *
 
 
 https://weblog.west-wind.com/posts/2013/Sep/04/SelfHosting-SignalR-in-a-Windows-Service
 
 ---
 
-## How to easily create self hosted signalr windows service using TopShelf framework
+### How to easily create self hosted signalr windows service using TopShelf framework
 
 https://krishnrajrana.wordpress.com/2017/05/03/how-to-easily-create-self-hosted-signalr-windows-service-using-topshelf-framework/
 
 ---
 
-## Tutorial: Prueba interna de SignalR
 
-https://learn.microsoft.com/es-es/aspnet/signalr/overview/deployment/tutorial-signalr-self-host
+### libro de jose Manuel Aguilar en ingles , pagina 123 habla de los servicios de windows y signalR
+
 
 ---
-
-## libro de jose Manuel Aguilar en ingles , pagina 123 habla de los servicios de windows y signalR
-
----
-
-## Understanding SignalR From Scratch
-
-https://www.c-sharpcorner.com/article/understanding-signalr-from-scratch/
-
-Codigo de este articulo, paquetes nuget signalR
-
-~~~
-Microsoft.AspNet.SignalR
-Microsoft.AspNet.SignalR.Client
-
-Microsoft.AspNet.SignalR.JS
-
-
-Microsoft.Owin.SelfHost
-Microsoft.Owin.Cors
-Microsoft.AspNet.SignalR.Core
-Microsoft.AspNet.SignalR.SelfHost
-
-
-~~~
-
-## Simple SignalR Server and Client Applications Demonstrating Common Usage Scenarios
+### Simple SignalR Server and Client Applications Demonstrating Common Usage Scenarios
 
 
 https://www.codeproject.com/Articles/5162436/Simple-SignalR-Server-and-Client-Applications-Demo
@@ -331,123 +803,9 @@ Groups.Remove(userConectionId, groupName);
 
 ---
 
-## How to Push Data from Server to Client Using SignalR
-
-https://www.codeguru.com/blog/how-to-push-data-from-server-to-client-using-signalr/
-
-~~~
-public class MyChatHub : Hub
-    {
-        public void BroadcastMessageToAll(string message)
-        {
-            Clients.All.newMessageReceived(message);
-        }
- 
-        public void JoinAGroup(string group)
-        {
-            Groups.Add(Context.ConnectionId, group);
-        }
- 
-        public void RemoveFromAGroup(string group)
-        {
-            Groups.Remove(Context.ConnectionId, group);
-        }
- 
-        public void BroadcastToGroup(string message, string group)
-        {
-            Clients.Group(group).newMessageReceived(message);
-        }
-    }
-~~~
-
-
-~~~
-[assembly: OwinStartup(typeof(MyChatApplicationServer.Startup))]
- 
-namespace MyChatApplicationServer
-{
-    public class Startup
-    {
-        public void Configuration(IAppBuilder app)
-        {
-            app.MapSignalR();
-        }
-    }
-}
-~~~
-
-
-
-~~~
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <script src="Scripts/jquery-1.6.4.min.js"></script>
-    <script src="Scripts/jquery.signalR-2.0.1.min.js"></script>
-    <script src="http://localhost:32555/signalr/hubs/" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(function () {
-            var myChatHub = $.connection.myChatHub;
-            myChatHub.client.newMessageReceived = function (message) {
-                $('#ulChatMessages').append('<li>' + message + '</li>');
-            }
-            $.connection.hub.url = "http://localhost:32555/signalr";
-            $.connection.hub.start().done(function () {
-                $('#btnSubmit').click(function (e) {
-                    myChatHub.server.broadcastMessageToAll($('#txtEnterMessage').val(), 'Web user');
-                });
-            }).fail(function (error) {
-                console.error(error);
-            });;
-           
-        });
-    </script>
-</head>
-<body>
-    <div>
-        <label id="lblEnterMessage">Enter Message: </label>
-        <input type="text" id="txtEnterMessage" />
-        <input type="submit" id="btnSubmit" value="Send Message" />
-        <ul id="ulChatMessages"></ul>
-    </div>
-</body>
-</html>
-~~~
-
-Pushing Data to a Windows Application Client
-
-~~~
-namespace WinFormClient
-{
-    public partial class Form1 : Form
-    {
-        HubConnection hubConnection;
-        IHubProxy hubProxy;
-        public Form1()
-        {
-            InitializeComponent();
-            hubConnection = new HubConnection("http://localhost:32555/signalr/hubs");
-            hubProxy = hubConnection.CreateHubProxy("MyChatHub");
-            hubProxy.On<string>("newMessageReceived", (message) => lstMessages.Items.Add(message));
-            hubConnection.Start().Wait();
-        }
- 
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            hubProxy.Invoke("BroadcastMessageToAll", textBox1.Text, "Window App User").Wait();
-        }
-    }
-}
-~~~
-
-
-
-
----
 
 	
-## Introduction To ASP.Net SignalR Self Hosting
+### Introduction To ASP.Net SignalR Self Hosting
 
 https://www.c-sharpcorner.com/UploadFile/4b0136/introduction-of-Asp-Net-signalr-self-hosting/
 
@@ -547,7 +905,7 @@ namespace SignalRHostApp
 ~~~
 
 ---
-## Tutorial: SignalR Self-Host
+### Tutorial: SignalR Self-Host
 
 https://github.com/dotnet/AspNetDocs/blob/main/aspnet/signalr/overview/deployment/tutorial-signalr-self-host.md
 
@@ -676,7 +1034,7 @@ $.connection.hub.url = "http://localhost:8080/signalr";
 
 ---
 
-## Self Hosting With SignalR and Web API Part 1 (Self Host Server, C#)
+### Self Hosting With SignalR and Web API Part 1 (Self Host Server, C#)
 
 https://www.youtube.com/watch?v=2prTfk0n9x0
 
@@ -819,7 +1177,7 @@ namespace SelfHost.Server.Controllers
 
 ---
 
-## Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 2
+### Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 2
 
 
 https://www.youtube.com/watch?v=VXty3TbWZpQ
@@ -922,7 +1280,7 @@ namespace SelfHost.Server
 ~~~
 
 ---
-## Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 3
+### Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 3
 
 
 https://www.youtube.com/watch?v=f-COVqUL8NI
@@ -1029,96 +1387,13 @@ namespace SelfHost.Server.Hubs
 
 ---
 
-## Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 4
+### Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 4
 
 https://www.youtube.com/watch?v=x_kjIvhVZh0
 
 ---
 
-
-## C# - How to Create a Windows Service - Part 1/3
-
-https://www.youtube.com/watch?v=uM9o8GsO_u4
-
-Por el minuto 5 empieza a hablar de como poner en modo debug el servicio y que hacer
-para poder levantarlo en el modo debug, hay que escribir un codigo como este para que cuando
-entre en modo debug podamos levantar el servicio y depurarlo
-
-
-En el fichero Program.cs
-~~~
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
-
-namespace WindowsService1
-{
-    static void Main()
-    {
-        
- #if debug
-       Service1 myService = new Service1();
-       myService.OnDebug();
-       System.Threading.Sleep(System.Threading.Timeout.Infinite);
- #else       
-        
-        ServiceBase[] ServicesToRun;
-        ServicesToRun new ServiceBase[];
-        {
-            new Service1();
-        };
-        ServiceBase.Run(ServicesToRun);
- #endif       
-        
-    }
-
-
-
-}
-
-~~~
-
-En el fichero Service1.cs
-~~~
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.ServiceProcess;ç
-using System.Text;
-
-namespace WindowsService1
-{
-    public Service1()
-    {
-       InitializeComponent();  
-    }
-    
-    public void OnDebug()
-    {
-        OnStart(null);
-    }
-    
-    protected override void OnStart(string[] args)
-    {
-        
-    }
-
-    protected override void OnStop()
-    {
-         
-    }
-}
-
-~~~
-
----
-
-## Hosting SignalR under SSL/https
+### Hosting SignalR under SSL/https
 
 https://weblog.west-wind.com/posts/2013/Sep/23/Hosting-SignalR-under-SSLhttps
 
@@ -1128,245 +1403,21 @@ https://weblog.west-wind.com/posts/2013/Sep/23/Hosting-SignalR-under-SSLhttps
 
 ---
 
-## Painless .NET Windows Service Creation with Topshelf
+### Painless .NET Windows Service Creation with Topshelf
 
 http://dontcodetired.com/blog/post/Painless-NET-Windows-Service-Creation-with-Topshelf
 
 ---
 
-## Migrating SignalR from ASP.NET Web API 2 to Self Hosted Server (Part 3)
+### Migrating SignalR from ASP.NET Web API 2 to Self Hosted Server (Part 3)
 
 https://dotjord.wordpress.com/2018/05/29/migrating-signalr-from-asp-net-web-api-2-to-self-hosted-server-part-3/
 
 ---
-SignalR Console app example
-
-https://stackoverflow.com/questions/11140164/signalr-console-app-example
-
-Hay que agregar los siguientes paquetes nugets para los proyectos de consola
-~~~
-Install-Package SignalR.Hosting.Self -Version 0.5.2 (version antigua)
-
-Install-Package Microsoft.AspNet.SignalR.SelfHost -Version 2.2.1
-
-Install-Package Microsoft.AspNet.SignalR.Client (version antigua)
-
-Install-Package Microsoft.AspNet.SignalR.Client -Version 2.2.1
-
-
-~~~
-
-El paquete Microsoft.AspNet.SignalR.Client contiene soporte para WinRT,Silverlight,WPF,Console applicacion,para net 4.0 y net 4.5
-
-El paquete llamado Microsoft.AspNet.SignalR es distinto, no contiene este soporte
-
-
-Tenemo el detalle de esto en el siguinte articulo:
-ASP.NET SignalR Hubs API Guide - .NET Client (C#)
-
-https://learn.microsoft.com/en-us/aspnet/signalr/overview/guide-to-the-api/hubs-api-guide-net-client
-
-
-Aqui tenemos el codigo de ejemplo del articulo de levantar un servidor y un cliente en modo consola
-
-
-Server console app
-
-~~~
-using System;
-using SignalR.Hubs;
-
-namespace SignalR.Hosting.Self.Samples {
-    class Program {
-        static void Main(string[] args) {
-            string url = "http://127.0.0.1:8088/";
-            var server = new Server(url);
-
-            // Map the default hub url (/signalr)
-            server.MapHubs();
-
-            // Start the server
-            server.Start();
-
-            Console.WriteLine("Server running on {0}", url);
-
-            // Keep going until somebody hits 'x'
-            while (true) {
-                ConsoleKeyInfo ki = Console.ReadKey(true);
-                if (ki.Key == ConsoleKey.X) {
-                    break;
-                }
-            }
-        }
-
-        [HubName("CustomHub")]
-        public class MyHub : Hub {
-            public string Send(string message) {
-                return message;
-            }
-
-            public void DoSomething(string param) {
-                Clients.addMessage(param);
-            }
-        }
-    }
-}
-~~~
-
-Client console app
-
-~~~
-using System;
-using SignalR.Client.Hubs;
-
-namespace SignalRConsoleApp {
-    internal class Program {
-        private static void Main(string[] args) {
-            //Set connection
-            var connection = new HubConnection("http://127.0.0.1:8088/");
-            //Make proxy to hub based on hub name on server
-            var myHub = connection.CreateHubProxy("CustomHub");
-            //Start connection
-
-            connection.Start().ContinueWith(task => {
-                if (task.IsFaulted) {
-                    Console.WriteLine("There was an error opening the connection:{0}",
-                                      task.Exception.GetBaseException());
-                } else {
-                    Console.WriteLine("Connected");
-                }
-
-            }).Wait();
-
-            myHub.Invoke<string>("Send", "HELLO World ").ContinueWith(task => {
-                if (task.IsFaulted) {
-                    Console.WriteLine("There was an error calling send: {0}",
-                                      task.Exception.GetBaseException());
-                } else {
-                    Console.WriteLine(task.Result);
-                }
-            });
-
-            myHub.On<string>("addMessage", param => {
-                Console.WriteLine(param);
-            });
-
-            myHub.Invoke<string>("DoSomething", "I'm doing something!!!").Wait();
-
-
-            Console.Read();
-            connection.Stop();
-        }
-    }
-}
-~~~
 
 
 
-
-
----
-	
-## Running a Windows Service in Debug Mode
-
-https://www.c-sharpcorner.com/UploadFile/akkiraju/running-a-windows-service-in-debug-mode/
-
-Service.cs
-~~~
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.ServiceProcess;ç
-using System.Text;
-
-namespace WindowsService1
-{
-    public partial service1: ServiceBase
-    {
-        private static System.Timers.Timer _aTimer;
-
-        public Service1()
-        {
-            _aTimer = new System.Timers.Timer(30000);
-           _aTimer.Enabled = true;
-           _aTimer.Elapsed += new System.Timers.ElapsedEventHandler(_aTimer_Elapsed);
-           
-            InitializeComponent();  
-        }
-        
-        public void Start()
-        {
-            _aTimer.Start();
-        }
-        public void Stop()
-        {
-            _aTimer.Stop();
-        }
-        
-        protected override void OnStart(string[] args)
-        {
-            this.Start();
-        }
-
-        protected override void OnStop()
-        {
-            this.Stop();
-        }
-    }
-}
-~~~
-Hacemos una serie de cambios en el program.cs
-
-~~~
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceProcess;
-using System.Text;
-using System.Threading;namespace TestService
-{
-    static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        static void Main()
-        {
-
-
-#if DEBUG
-            //If the mode is in debugging
-            //create a new service instance
-            Service1 myService = new Service1();
-            //call the start method - this will start the Timer.
-            myService.Start();
-            //Set the Thread to sleep
-            Thread.Sleep(60000);
-            //Call the Stop method-this will stop the Timer.
-            myService.Stop();
-#else
-            //The following is the default code - You may fine tune
-            //the code to create one instance of the service on the top
-            //and use the instance variable in both debug and release mode
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[] 
-                          { 
-                                   new Service1() 
-                          };
-            ServiceBase.Run(ServicesToRun);
-#endif
-        }
-    }
-}
-
-~~~
-
----
-
-## Self Hosted signalR in windows service; Minimum permissions for base url = http://*:1111
+### Self Hosted signalR in windows service; Minimum permissions for base url = http://*:1111
 
 https://stackoverflow.com/questions/23428886/self-hosted-signalr-in-windows-service-minimum-permissions-for-base-url-http
 
@@ -1403,7 +1454,9 @@ netsh http delete urlacl url=http://192.168.151.87:18275/
 
 ---
 
-## Dependency Inject with SignalR & Castle Windsor
+## Injeccion de dependencias (IoC)
+
+### Dependency Inject with SignalR & Castle Windsor
 
 https://themarabeseblog.wordpress.com/2016/02/07/dependency-inject-with-signalr-castle-windsor/
 
@@ -1475,7 +1528,7 @@ Luego en el startup tenemos que poner lo siguiente:
 
 
 ---
-## Using Unity for Dependency Injection with SignalR
+### Using Unity for Dependency Injection with SignalR
 
 https://consultwithgriff.com/using-unity-for-dependency-injection-with-signalr/
 
@@ -1566,7 +1619,7 @@ private static IUnityContainer BuildUnityContainer()
 ~~~
 
 ---
-## SignalR with an IoC container
+### SignalR with an IoC container
 
 https://cockneycoder.wordpress.com/2013/10/19/signalr-with-an-ioc-container/
 
@@ -1611,7 +1664,7 @@ Aplican un enfoque con IHubActivator
 ~~~
 
 ---
-## Using SignalR with Unity
+### Using SignalR with Unity
 
 https://damienbod.com/2013/11/05/using-signalr-with-unity/
 
@@ -1778,7 +1831,7 @@ namespace SignalRHostWithUnity
 
 
 ---
-## Dependency Injection in SignalR
+### Dependency Injection in SignalR
 
 https://learn.microsoft.com/en-us/aspnet/signalr/overview/advanced/dependency-injection
 
