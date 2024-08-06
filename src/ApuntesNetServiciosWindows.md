@@ -11,9 +11,7 @@
     - [C# - How to Create a Windows Service - Part 1/3](#c---how-to-create-a-windows-service---part-13)
     - [Running a Windows Service in Debug Mode](#running-a-windows-service-in-debug-mode)
   - [SelfHosted](#selfhosted)
-    - [SignalR with Self-hosted Windows Service](#signalr-with-self-hosted-windows-service)
-    - [Self-Hosting SignalR in a Windows Service \*](#self-hosting-signalr-in-a-windows-service-)
-    - [How to easily create self hosted signalr windows service using TopShelf framework](#how-to-easily-create-self-hosted-signalr-windows-service-using-topshelf-framework)
+    - [Self-Hosting SignalR in a Windows Service (importante)](#self-hosting-signalr-in-a-windows-service-importante)
     - [libro de jose Manuel Aguilar en ingles , pagina 123 habla de los servicios de windows y signalR](#libro-de-jose-manuel-aguilar-en-ingles--pagina-123-habla-de-los-servicios-de-windows-y-signalr)
     - [Simple SignalR Server and Client Applications Demonstrating Common Usage Scenarios](#simple-signalr-server-and-client-applications-demonstrating-common-usage-scenarios)
     - [Introduction To ASP.Net SignalR Self Hosting](#introduction-to-aspnet-signalr-self-hosting)
@@ -23,10 +21,12 @@
     - [Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 3](#self-hosting-signalr-and-web-api-self-host-server-c--visual-studio-2019--part-3)
     - [Self Hosting SignalR and Web API (Self Host Server, C#) | Visual Studio 2019 | Part 4](#self-hosting-signalr-and-web-api-self-host-server-c--visual-studio-2019--part-4)
     - [Hosting SignalR under SSL/https](#hosting-signalr-under-sslhttps)
-    - [Painless .NET Windows Service Creation with Topshelf](#painless-net-windows-service-creation-with-topshelf)
     - [Migrating SignalR from ASP.NET Web API 2 to Self Hosted Server (Part 3)](#migrating-signalr-from-aspnet-web-api-2-to-self-hosted-server-part-3)
     - [Self Hosted signalR in windows service; Minimum permissions for base url = http://\*:1111](#self-hosted-signalr-in-windows-service-minimum-permissions-for-base-url--http1111)
-    - [How to easily create self hosted signalr windows service using TopShelf framework](#how-to-easily-create-self-hosted-signalr-windows-service-using-topshelf-framework-1)
+  - [Libreria TopShelf para crear servicios windows](#libreria-topshelf-para-crear-servicios-windows)
+    - [SignalR with Self-hosted Windows Service (TopShelf)](#signalr-with-self-hosted-windows-service-topshelf)
+    - [Painless .NET Windows Service Creation with Topshelf](#painless-net-windows-service-creation-with-topshelf)
+    - [How to easily create self hosted signalr windows service using TopShelf framework](#how-to-easily-create-self-hosted-signalr-windows-service-using-topshelf-framework)
   - [Injeccion de dependencias (IoC)](#injeccion-de-dependencias-ioc)
     - [Dependency Inject with SignalR \& Castle Windsor](#dependency-inject-with-signalr--castle-windsor)
     - [Using Unity for Dependency Injection with SignalR](#using-unity-for-dependency-injection-with-signalr)
@@ -511,231 +511,12 @@ using System.Threading;namespace TestService
 
 ## SelfHosted
 
-### SignalR with Self-hosted Windows Service
-
-https://www.codeproject.com/Articles/881511/SignalR-with-Self-hosted-Windows-Service
-
-Crear proyecto de consola
-
-~~~
- Install-Package Microsoft.AspNet.SignalR.SelfHost 
- Install-Package TopShelf 
- Install-Package TopShelf.NLog
- Install-Package Microsoft.Owin.Cors 
-~~~
-
-En program.cs
-~~~
-using System;
-using System.Collections.Generic;
-using System.Data;
-using Topshelf;
-
-namespace SelfHostedServiceSignalRSample
-{
-    static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        static void Main()
-        {
-            HostFactory.Run(serviceConfig =>
-            {
-                serviceConfig.Service<SignalRServiceChat>(serviceInstance =>
-                {
-                    serviceConfig.UseNLog();
-
-                    serviceInstance.ConstructUsing(
-                        () => new SignalRServiceChat());
-
-                    serviceInstance.WhenStarted(
-                        execute => execute.OnStart(null));
-
-                    serviceInstance.WhenStopped(
-                        execute => execute.OnStop());
-                });
-
-                TimeSpan delay = new TimeSpan(0, 0, 0, 60);
-                serviceConfig.EnableServiceRecovery(recoveryOption =>
-                {
-                    recoveryOption.RestartService(delay);
-                    recoveryOption.RestartService(delay);
-                    recoveryOption.RestartComputer(delay, 
-                       System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + 
-                       " computer reboot"); // All subsequent failures
-                });
-
-                serviceConfig.SetServiceName
-                  (System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
-                serviceConfig.SetDisplayName
-                  (System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
-                serviceConfig.SetDescription
-                  (System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + 
-                   " is a simple web chat application.");
-
-                serviceConfig.StartAutomatically();
-            });
-        }
-    }
-}
-~~~
-StartUp.cs
-~~~
-using Microsoft.Owin.Cors;
-using Owin;
-
-namespace SelfHostedServiceSignalRSample
-{
-    class Startup
-    {
-        public void Configuration(IAppBuilder app)
-        {
-            app.UseCors(CorsOptions.AllowAll);
-            app.MapSignalR();
-        }
-    }
-}
-    
-using Microsoft.AspNet.SignalR;
-
-namespace SelfHostedServiceSignalRSample
-{
-    public class MyHub : Hub
-    {
-        public void Send(string name, string message)
-        {
-            Clients.All.addMessage(name, message);
-        }
-    }  
-}
-~~~
-
-Crear clase SignalRServiceChat
-~~~
-using System;
-using Microsoft.Owin;
-using Microsoft.Owin.Hosting;
-using Topshelf.Logging;
-
-[assembly: OwinStartup(typeof(SelfHostedServiceSignalRSample.Startup))]
-namespace SelfHostedServiceSignalRSample
-{
-    public partial class SignalRServiceChat : IDisposable
-    {
-        public static readonly LogWriter Log = HostLogger.Get<SignalRServiceChat>();
-
-        public SignalRServiceChat()
-        {
-        }
-
-        public void OnStart(string[] args)
-        {
-            Log.InfoFormat("SignalRServiceChat: In OnStart");
-
-            // This will *ONLY* bind to localhost, if you want to bind to all addresses
-            // use http://*:8080 to bind to all addresses. 
-            // See http://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx 
-            // for more information.
-            string url = "http://localhost:8090";
-            WebApp.Start(url);
-        }
-
-        public void OnStop()
-        {
-            Log.InfoFormat("SignalRServiceChat: In OnStop");
-        }
-
-        public void Dispose()
-        {
-        }
-    }
-}
-~~~
-Crear un proyecto asp.net mvc e instalar el paquete nuget siguiente:
-
-~~~
-PM> Install-Package Microsoft.AspNet.SignalR.JS
-~~~
-
-
-~~~
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SignalR Simple Chat</title>
-    <style type="text/css">
-        .container {
-            background-color: #99CCFF;
-            border: thick solid #808080;
-            padding: 20px;
-            margin: 20px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <input type="text" id="message" />
-        <input type="button" id="sendmessage" value="Send" />
-        <input type="hidden" id="displayname" />
-        <ul id="discussion"></ul>
-    </div>
-    <!--Script references. -->
-    <!--Reference the jQuery library. -->
-    <script src="Scripts/jquery-1.6.4.min.js"></script>
-    <!--Reference the SignalR library. -->
-    <script src="Scripts/jquery.signalR-2.1.0.min.js"></script>
-    <!--Reference the autogenerated SignalR hub script. -->
-    <script src="http://localhost:8080/signalr/hubs"></script>
-    <!--Add script to update the page and send messages.-->
-    <script type="text/javascript">
-        $(function () {
-        //Set the hubs URL for the connection
-            $.connection.hub.url = "http://localhost:8080/signalr";
-            
-            // Declare a proxy to reference the hub.
-            var chat = $.connection.myHub;
-            
-            // Create a function that the hub can call to broadcast messages.
-            chat.client.addMessage = function (name, message) {
-                // Html encode display name and message.
-                var encodedName = $('<div />').text(name).html();
-                var encodedMsg = $('<div />').text(message).html();
-                // Add the message to the page.
-                $('#discussion').append('<li><strong>' + encodedName
-                    + '</strong>:  ' + encodedMsg + '</li>');
-            };
-            // Get the user name and store it to prepend to messages.
-            $('#displayname').val(prompt('Enter your name:', ''));
-            // Set initial focus to message input box.
-            $('#message').focus();
-            // Start the connection.
-            $.connection.hub.start().done(function () {
-                $('#sendmessage').click(function () {
-                    // Call the Send method on the hub.
-                    chat.server.send($('#displayname').val(), $('#message').val());
-                    // Clear text box and reset focus for next comment.
-                    $('#message').val('').focus();
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-~~~
-
 ---
 
-### Self-Hosting SignalR in a Windows Service *
+### Self-Hosting SignalR in a Windows Service (importante)
 
 
 https://weblog.west-wind.com/posts/2013/Sep/04/SelfHosting-SignalR-in-a-Windows-Service
-
----
-
-### How to easily create self hosted signalr windows service using TopShelf framework
-
-https://krishnrajrana.wordpress.com/2017/05/03/how-to-easily-create-self-hosted-signalr-windows-service-using-topshelf-framework/
 
 ---
 
@@ -1403,11 +1184,6 @@ https://weblog.west-wind.com/posts/2013/Sep/23/Hosting-SignalR-under-SSLhttps
 
 ---
 
-### Painless .NET Windows Service Creation with Topshelf
-
-http://dontcodetired.com/blog/post/Painless-NET-Windows-Service-Creation-with-Topshelf
-
----
 
 ### Migrating SignalR from ASP.NET Web API 2 to Self Hosted Server (Part 3)
 
@@ -1427,6 +1203,230 @@ netsh http add urlacl url=http://*:1111/ user=DOMAIN\user
 
 
 ---
+
+## Libreria TopShelf para crear servicios windows
+
+
+### SignalR with Self-hosted Windows Service (TopShelf)
+
+https://www.codeproject.com/Articles/881511/SignalR-with-Self-hosted-Windows-Service
+
+Crear proyecto de consola
+
+~~~
+ Install-Package Microsoft.AspNet.SignalR.SelfHost 
+ Install-Package TopShelf 
+ Install-Package TopShelf.NLog
+ Install-Package Microsoft.Owin.Cors 
+~~~
+
+En program.cs
+~~~
+using System;
+using System.Collections.Generic;
+using System.Data;
+using Topshelf;
+
+namespace SelfHostedServiceSignalRSample
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        static void Main()
+        {
+            HostFactory.Run(serviceConfig =>
+            {
+                serviceConfig.Service<SignalRServiceChat>(serviceInstance =>
+                {
+                    serviceConfig.UseNLog();
+
+                    serviceInstance.ConstructUsing(
+                        () => new SignalRServiceChat());
+
+                    serviceInstance.WhenStarted(
+                        execute => execute.OnStart(null));
+
+                    serviceInstance.WhenStopped(
+                        execute => execute.OnStop());
+                });
+
+                TimeSpan delay = new TimeSpan(0, 0, 0, 60);
+                serviceConfig.EnableServiceRecovery(recoveryOption =>
+                {
+                    recoveryOption.RestartService(delay);
+                    recoveryOption.RestartService(delay);
+                    recoveryOption.RestartComputer(delay, 
+                       System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + 
+                       " computer reboot"); // All subsequent failures
+                });
+
+                serviceConfig.SetServiceName
+                  (System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
+                serviceConfig.SetDisplayName
+                  (System.Reflection.Assembly.GetExecutingAssembly().GetName().Name);
+                serviceConfig.SetDescription
+                  (System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + 
+                   " is a simple web chat application.");
+
+                serviceConfig.StartAutomatically();
+            });
+        }
+    }
+}
+~~~
+StartUp.cs
+~~~
+using Microsoft.Owin.Cors;
+using Owin;
+
+namespace SelfHostedServiceSignalRSample
+{
+    class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            app.UseCors(CorsOptions.AllowAll);
+            app.MapSignalR();
+        }
+    }
+}
+    
+using Microsoft.AspNet.SignalR;
+
+namespace SelfHostedServiceSignalRSample
+{
+    public class MyHub : Hub
+    {
+        public void Send(string name, string message)
+        {
+            Clients.All.addMessage(name, message);
+        }
+    }  
+}
+~~~
+
+Crear clase SignalRServiceChat
+~~~
+using System;
+using Microsoft.Owin;
+using Microsoft.Owin.Hosting;
+using Topshelf.Logging;
+
+[assembly: OwinStartup(typeof(SelfHostedServiceSignalRSample.Startup))]
+namespace SelfHostedServiceSignalRSample
+{
+    public partial class SignalRServiceChat : IDisposable
+    {
+        public static readonly LogWriter Log = HostLogger.Get<SignalRServiceChat>();
+
+        public SignalRServiceChat()
+        {
+        }
+
+        public void OnStart(string[] args)
+        {
+            Log.InfoFormat("SignalRServiceChat: In OnStart");
+
+            // This will *ONLY* bind to localhost, if you want to bind to all addresses
+            // use http://*:8080 to bind to all addresses. 
+            // See http://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx 
+            // for more information.
+            string url = "http://localhost:8090";
+            WebApp.Start(url);
+        }
+
+        public void OnStop()
+        {
+            Log.InfoFormat("SignalRServiceChat: In OnStop");
+        }
+
+        public void Dispose()
+        {
+        }
+    }
+}
+~~~
+Crear un proyecto asp.net mvc e instalar el paquete nuget siguiente:
+
+~~~
+PM> Install-Package Microsoft.AspNet.SignalR.JS
+~~~
+
+
+~~~
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR Simple Chat</title>
+    <style type="text/css">
+        .container {
+            background-color: #99CCFF;
+            border: thick solid #808080;
+            padding: 20px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="message" />
+        <input type="button" id="sendmessage" value="Send" />
+        <input type="hidden" id="displayname" />
+        <ul id="discussion"></ul>
+    </div>
+    <!--Script references. -->
+    <!--Reference the jQuery library. -->
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <!--Reference the SignalR library. -->
+    <script src="Scripts/jquery.signalR-2.1.0.min.js"></script>
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="http://localhost:8080/signalr/hubs"></script>
+    <!--Add script to update the page and send messages.-->
+    <script type="text/javascript">
+        $(function () {
+        //Set the hubs URL for the connection
+            $.connection.hub.url = "http://localhost:8080/signalr";
+            
+            // Declare a proxy to reference the hub.
+            var chat = $.connection.myHub;
+            
+            // Create a function that the hub can call to broadcast messages.
+            chat.client.addMessage = function (name, message) {
+                // Html encode display name and message.
+                var encodedName = $('<div />').text(name).html();
+                var encodedMsg = $('<div />').text(message).html();
+                // Add the message to the page.
+                $('#discussion').append('<li><strong>' + encodedName
+                    + '</strong>:  ' + encodedMsg + '</li>');
+            };
+            // Get the user name and store it to prepend to messages.
+            $('#displayname').val(prompt('Enter your name:', ''));
+            // Set initial focus to message input box.
+            $('#message').focus();
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    // Call the Send method on the hub.
+                    chat.server.send($('#displayname').val(), $('#message').val());
+                    // Clear text box and reset focus for next comment.
+                    $('#message').val('').focus();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+~~~
+---
+
+### Painless .NET Windows Service Creation with Topshelf
+
+http://dontcodetired.com/blog/post/Painless-NET-Windows-Service-Creation-with-Topshelf
+
+---
+
 Krishnraj Rana
 
 My notes and tips about the programming concepts
@@ -1453,6 +1453,8 @@ netsh http delete urlacl url=http://192.168.151.87:18275/
 
 
 ---
+
+
 
 ## Injeccion de dependencias (IoC)
 
@@ -1528,6 +1530,10 @@ Luego en el startup tenemos que poner lo siguiente:
 
 
 ---
+
+
+
+
 ### Using Unity for Dependency Injection with SignalR
 
 https://consultwithgriff.com/using-unity-for-dependency-injection-with-signalr/
