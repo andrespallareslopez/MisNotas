@@ -1139,7 +1139,133 @@ http://dontcodetired.com/blog/post/Painless-NET-Windows-Service-Creation-with-To
 https://dotjord.wordpress.com/2018/05/29/migrating-signalr-from-asp-net-web-api-2-to-self-hosted-server-part-3/
 
 ---
+SignalR Console app example
 
+https://stackoverflow.com/questions/11140164/signalr-console-app-example
+
+Hay que agregar los siguientes paquetes nugets para los proyectos de consola
+~~~
+Install-Package SignalR.Hosting.Self -Version 0.5.2 (version antigua)
+
+Install-Package Microsoft.AspNet.SignalR.SelfHost -Version 2.2.1
+
+Install-Package Microsoft.AspNet.SignalR.Client (version antigua)
+
+Install-Package Microsoft.AspNet.SignalR.Client -Version 2.2.1
+
+
+~~~
+
+El paquete Microsoft.AspNet.SignalR.Client contiene soporte para WinRT,Silverlight,WPF,Console applicacion,para net 4.0 y net 4.5
+
+El paquete llamado Microsoft.AspNet.SignalR es distinto, no contiene este soporte
+
+
+Tenemo el detalle de esto en el siguinte articulo:
+ASP.NET SignalR Hubs API Guide - .NET Client (C#)
+
+https://learn.microsoft.com/en-us/aspnet/signalr/overview/guide-to-the-api/hubs-api-guide-net-client
+
+
+Aqui tenemos el codigo de ejemplo del articulo de levantar un servidor y un cliente en modo consola
+
+
+Server console app
+
+~~~
+using System;
+using SignalR.Hubs;
+
+namespace SignalR.Hosting.Self.Samples {
+    class Program {
+        static void Main(string[] args) {
+            string url = "http://127.0.0.1:8088/";
+            var server = new Server(url);
+
+            // Map the default hub url (/signalr)
+            server.MapHubs();
+
+            // Start the server
+            server.Start();
+
+            Console.WriteLine("Server running on {0}", url);
+
+            // Keep going until somebody hits 'x'
+            while (true) {
+                ConsoleKeyInfo ki = Console.ReadKey(true);
+                if (ki.Key == ConsoleKey.X) {
+                    break;
+                }
+            }
+        }
+
+        [HubName("CustomHub")]
+        public class MyHub : Hub {
+            public string Send(string message) {
+                return message;
+            }
+
+            public void DoSomething(string param) {
+                Clients.addMessage(param);
+            }
+        }
+    }
+}
+~~~
+
+Client console app
+
+~~~
+using System;
+using SignalR.Client.Hubs;
+
+namespace SignalRConsoleApp {
+    internal class Program {
+        private static void Main(string[] args) {
+            //Set connection
+            var connection = new HubConnection("http://127.0.0.1:8088/");
+            //Make proxy to hub based on hub name on server
+            var myHub = connection.CreateHubProxy("CustomHub");
+            //Start connection
+
+            connection.Start().ContinueWith(task => {
+                if (task.IsFaulted) {
+                    Console.WriteLine("There was an error opening the connection:{0}",
+                                      task.Exception.GetBaseException());
+                } else {
+                    Console.WriteLine("Connected");
+                }
+
+            }).Wait();
+
+            myHub.Invoke<string>("Send", "HELLO World ").ContinueWith(task => {
+                if (task.IsFaulted) {
+                    Console.WriteLine("There was an error calling send: {0}",
+                                      task.Exception.GetBaseException());
+                } else {
+                    Console.WriteLine(task.Result);
+                }
+            });
+
+            myHub.On<string>("addMessage", param => {
+                Console.WriteLine(param);
+            });
+
+            myHub.Invoke<string>("DoSomething", "I'm doing something!!!").Wait();
+
+
+            Console.Read();
+            connection.Stop();
+        }
+    }
+}
+~~~
+
+
+
+
+
+---
 	
 ## Running a Windows Service in Debug Mode
 
@@ -1349,7 +1475,7 @@ Luego en el startup tenemos que poner lo siguiente:
 
 
 ---
-Using Unity for Dependency Injection with SignalR
+## Using Unity for Dependency Injection with SignalR
 
 https://consultwithgriff.com/using-unity-for-dependency-injection-with-signalr/
 
@@ -1439,9 +1565,220 @@ private static IUnityContainer BuildUnityContainer()
         }
 ~~~
 
+---
+## SignalR with an IoC container
+
+https://cockneycoder.wordpress.com/2013/10/19/signalr-with-an-ioc-container/
+
+Dicen en el articulo que este enfoque es mas sencillo, habra que probarlo
+Aplican un enfoque con IHubActivator
+
+
+~~~
+  /// <summary>
+    /// Uses Unity to create Hubs - and ONLY Hubs.
+    /// </summary>
+
+    // Register with GlobalHost.DependencyResolver.Register(typeof(IHubActivator), () => unityHubActivator);
+    public class UnityHubActivator : IHubActivator
+    {
+        private readonly IUnityContainer container;
+
+        public UnityHubActivator(IUnityContainer container)
+        {
+            this.container = container;
+        }
+
+        public IHub Create(HubDescriptor descriptor)
+        {
+            return (IHub)container.Resolve(descriptor.HubType);
+        }
+    }
+
+    public class ExampleHub : Hub
+    {
+        private readonly IMyService myService;
+        private readonly ILogger logger; 
+
+        public ExampleHub(IMyService myService, ILogger logger)
+        {
+               this.myService = myService;
+               this.logger = logger;
+        }
+
+        // Blah blah....
+    }
+~~~
 
 ---
-Dependency Injection in SignalR
+## Using SignalR with Unity
+
+https://damienbod.com/2013/11/05/using-signalr-with-unity/
+
+codigo en Gihub : [Codigo:](https://github.com/damienbod/SignalRHostWithUnity)
+
+Hay que instalar los siguientes paquetes nugets:
+
+~~~
+paquete nuget llamado <strong>Unity</strong> 'The Unity Application Block...'
+
+paquete nuget llamado Microsoft ASP.NET SignalR Self Host
+~~~
+
+~~~
+using System;
+using Microsoft.AspNet.SignalR.Hubs;
+using Microsoft.Practices.Unity;
+ 
+namespace SignalRHostWithUnity.Unity
+{
+    public class UnityHubActivator : IHubActivator
+    {
+        private readonly IUnityContainer _container;
+ 
+        public UnityHubActivator(IUnityContainer container)
+        {
+            _container = container;
+        }
+ 
+        public IHub Create(HubDescriptor descriptor)
+        {
+            if (descriptor == null)
+            {
+                throw new ArgumentNullException("descriptor");
+            }
+ 
+            if (descriptor.HubType == null)
+            {
+                return null;
+            }
+ 
+            object hub = _container.Resolve(descriptor.HubType) ?? Activator.CreateInstance(descriptor.HubType);
+            return hub as IHub;
+        }
+    }
+}
+
+
+~~~
+
+~~~
+using System;
+using Microsoft.AspNet.SignalR.Hubs;
+using Microsoft.Practices.Unity;
+using SignalRHostWithUnity.DataAccess;
+ 
+namespace SignalRHostWithUnity.Unity
+{
+    public class UnityConfiguration
+    {
+        #region Unity Container
+        private static Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
+        {
+            var container = new UnityContainer();
+            RegisterTypes(container);
+            return container;
+        });
+ 
+        public static IUnityContainer GetConfiguredContainer()
+        {
+            return container.Value;
+        }
+        #endregion
+ 
+        public static void RegisterTypes(IUnityContainer container)
+        {
+            container.RegisterType<MyHub, MyHub>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IHubActivator, UnityHubActivator>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IRepositoryUnityTestClass, RepositoryUnityTestClass>();
+             
+        }
+    }
+}
+~~~
+
+~~~
+public class MyHub : Hub
+    {
+        private readonly IRepositoryUnityTestClass _repositoryUnityTestClass;
+ 
+        public MyHub(IRepositoryUnityTestClass repositoryUnityTestClass)
+        {
+            _repositoryUnityTestClass = repositoryUnityTestClass;
+        }
+ 
+        public void AddMessage(string name, string message)
+        {
+            Console.WriteLine("Hub AddMessage {0} {1}\n", name, _repositoryUnityTestClass.SayHello() + message);
+            Clients.All.addMessage(name, _repositoryUnityTestClass.SayHello() + message);
+        }
+~~~
+
+
+~~~
+using System;
+using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
+using Microsoft.Owin;
+using Microsoft.Owin.Hosting;
+using SignalRHostWithUnity.Dto;
+using SignalRHostWithUnity.Unity;
+ 
+namespace SignalRHostWithUnity
+{
+    class Program
+    {
+        private static  IHubContext _hubContext;
+ 
+        static void Main(string[] args)
+        {
+            GlobalHost.DependencyResolver.Register(typeof(IHubActivator), () => new UnityHubActivator(UnityConfiguration.GetConfiguredContainer()));
+ 
+            string url = "http://localhost:8089";
+                     
+            using (WebApp.Start(url))
+            {
+                _hubContext = GlobalHost.ConnectionManager.GetHubContext<MyHub>();
+ 
+                Console.WriteLine("Server running on {0}", url);
+                 
+                while (true)
+                {
+                    string key = Console.ReadLine();
+                    if (key.ToUpper() == "W")
+                    {
+                        _hubContext.Clients.All.addMessage("server", "ServerMessage");
+                        Console.WriteLine("Server Sending addMessage\n");
+                    }
+                    if (key.ToUpper() == "E")
+                    {
+                        _hubContext.Clients.All.heartbeat();
+                        Console.WriteLine("Server Sending heartbeat\n");
+                    }
+                    if (key.ToUpper() == "R")
+                    {
+                        var helloModel = new HelloModel {Age = 37, Molly = "pushed direct from Server "};
+                        _hubContext.Clients.All.sendHelloObject(helloModel);
+                        Console.WriteLine("Server Sending sendHelloObject\n");
+                    }
+                    if (key.ToUpper() == "C")
+                    {
+                        break;
+                    }
+                }
+ 
+                Console.ReadLine();
+            }
+        }
+    }
+}
+~~~
+
+
+
+
+---
+## Dependency Injection in SignalR
 
 https://learn.microsoft.com/en-us/aspnet/signalr/overview/advanced/dependency-injection
 
