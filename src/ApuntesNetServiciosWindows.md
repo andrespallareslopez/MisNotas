@@ -1277,7 +1277,177 @@ netsh http delete urlacl url=http://192.168.151.87:18275/
 
 ---
 
+## Dependency Inject with SignalR & Castle Windsor
 
+https://themarabeseblog.wordpress.com/2016/02/07/dependency-inject-with-signalr-castle-windsor/
+
+Tenemos que añadir aparte de los paquetes nugets para signalR otro paquete mas:
+
+~~~
+signalR.Castle.Windsor 
+~~~
+
+tenemos que tener en el archivo cs donde difinimos el hub
+~~~
+[HubName("randomNumberHub")]  
+   public class RandomNumberHub : Hub  
+   {  
+     private readonly ILogger _log;  
+     public IRandomNumberGenerator Generator { get; set; }  
+     public RandomNumberHub(ILogger logger)   
+     {  
+       _writer = writer;  
+     }  
+     public void GetRandomNumber()  
+     {  
+       _logger.Log("Get Random Number Called");
+       Clients.All.updateRandomNumber(Generator.Random());  
+     }  
+   }  
+~~~
+
+un fichero .cs para poner esto
+~~~
+  public class SignalRDependencyResolver : DefaultDependencyResolver  
+   {  
+     private readonly IWindsorContainer _container;  
+     public SignalRDependencyResolver(IWindsorContainer container)  
+     {  
+       if (container == null)  
+       {  
+         throw new ArgumentNullException(nameof(container));  
+       }  
+       _container = container;  
+     }  
+     public override object GetService(Type serviceType)  
+     {  
+       return _container.Kernel.HasComponent(serviceType) ? _container.Resolve(serviceType) : base.GetService(serviceType);  
+     }  
+     public override IEnumerable<object> GetServices(Type serviceType)  
+     {  
+       return _container.Kernel.HasComponent(serviceType) ? _container.ResolveAll(serviceType).Cast<object>() : base.GetServices(serviceType);  
+     }  
+   }  
+~~~
+Luego o bien desde el mismo startup o bien en un fichero aparte .cs, debemos poner esto:
+
+~~~
+ private static HubConfiguration CreateHubConfiguration()  
+     {  
+       var signalrDependency = new SignalRDependencyResolver(_container);  
+       var configuration = new HubConfiguration { Resolver = signalrDependency };  
+       return configuration;  
+     }  
+
+~~~
+
+Luego en el startup tenemos que poner lo siguiente:
+
+~~~
+ app.MapSignalR(CreateHubConfiguration());  
+~~~
+
+
+---
+Using Unity for Dependency Injection with SignalR
+
+https://consultwithgriff.com/using-unity-for-dependency-injection-with-signalr/
+
+
+~~~
+public class MyHub : Hub
+{
+   public MyHub(ISomeInterface interface)
+   {
+      // handle constructor injection here
+   }
+}
+~~~
+
+
+~~~
+ public static void Initialise() // this isn't my misspelling, it's in the Unity.MVC NuGet package.
+        {
+            var container = BuildUnityContainer();
+
+            var unityDependencyResolver = new UnityDependencyResolver(container);
+
+            // used for MVC
+            DependencyResolver.SetResolver(unityDependencyResolver);
+            // used for WebAPI
+            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
+            // used for SignalR
+            GlobalHost.DependencyResolver = new SignalRUnityDependencyResolver(container);
+        }
+
+        private static IUnityContainer BuildUnityContainer()
+        {
+            var container = new UnityContainer();
+
+            // register all your dependencies here.
+            container.RegisterType<ISomeInterface, SomeInterface>();
+
+            return container;
+        }
+~~~
+
+~~~
+public class SignalRUnityDependencyResolver : DefaultDependencyResolver
+    {
+        private IUnityContainer _container;
+
+        public SignalRUnityDependencyResolver(IUnityContainer container)
+        {
+            _container = container;
+        }
+
+        public override object GetService(Type serviceType)
+        {
+            if (_container.IsRegistered(serviceType)) return _container.Resolve(serviceType);
+            else return base.GetService(serviceType);
+        }
+
+        public override IEnumerable<object> GetServices(Type serviceType)
+        {
+            if (_container.IsRegistered(serviceType)) return _container.ResolveAll(serviceType);
+            else return base.GetServices(serviceType);
+        }
+
+    }
+~~~
+
+
+Esto viene del trozo de codigo mas arriba, en el metodo Initialise() y BuildUnitiContainer() que le hemos añadido en este metodo ultimo, unas lineas mas de codigo para añadir el registro del hub de signalR:
+
+~~~
+private static IUnityContainer BuildUnityContainer()
+        {
+            var container = new UnityContainer();
+
+            container.RegisterType<ISomeInterface, SomeInterface>();
+            //esto es lo nuevo que se ha añadido
+            container.RegisterType<MyHub>(new InjectionFactory(CreateMyHub));
+
+            return container;
+        }
+
+        private static object CreateMyHub(IUnityContainer p)
+        {
+            var myHub= new MyHub(p.Resolve<ISomeInterface>());
+
+            return myHub;
+        }
+~~~
+
+
+---
+Dependency Injection in SignalR
+
+https://learn.microsoft.com/en-us/aspnet/signalr/overview/advanced/dependency-injection
+
+
+
+---
 
 
 
