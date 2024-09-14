@@ -36,8 +36,49 @@ https://www.youtube.com/watch?v=FpDsDn-fBKA
 
 ---
 
+1.- Redes Neuronales: Fácil y desde cero
+
+https://www.youtube.com/watch?v=jaEIv_E29sk&list=PLAnA8FVrBl8AWkZmbswwWiF8a_52dQ3JQ
 
 
+- Percectron multicapa
+
+
+
+---
+
+2.- Redes Neuronales: Fácil y desde cero
+
+https://www.youtube.com/watch?v=rmz1pzfDZUo&list=PLAnA8FVrBl8AWkZmbswwWiF8a_52dQ3JQ&index=2
+
+Descenso del gradiente
+
+
+
+
+---
+
+3.- Redes Neuronales: Fácil y desde cero
+
+https://www.youtube.com/watch?v=7igBj20dmlw&list=PLAnA8FVrBl8AWkZmbswwWiF8a_52dQ3JQ&index=3
+
+-capa de entrada
+-capa de salida
+
+-capas oculta
+
+
+
+
+---
+
+4a.- Redes Neuronales: Fácil y desde cero
+
+
+Back Propagation
+
+
+---
 
 
 
