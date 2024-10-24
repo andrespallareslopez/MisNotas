@@ -305,9 +305,9 @@ https://www.youtube.com/watch?v=2fb39TnkxoI
 
 ---
 
+## ¿Cómo se genera una REGRESIÓN LOGÍSTICA en R? 
 
-
-
+https://www.youtube.com/watch?v=CfdtrmjSPxU
 
 
 
@@ -315,9 +315,17 @@ https://www.youtube.com/watch?v=2fb39TnkxoI
 
 ---
 
+## Regresión Logística con RStudio
 
+https://www.youtube.com/watch?v=0_c24N7SAYE
 
+---
 
+## Máquinas de soporte Vectorial
+
+https://www.youtube.com/watch?v=vemcbJnRqJU&t=29s
+
+---
 
 
 

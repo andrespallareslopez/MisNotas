@@ -80,9 +80,19 @@ Back Propagation
 
 ---
 
+Máquinas de soporte Vectorial
 
 
+https://www.youtube.com/watch?v=vemcbJnRqJU&t=29s
 
+
+---
+
+Database Normalization for Beginners | How to Normalize Data w/ Power Query (full tutorial!)
+
+https://www.youtube.com/watch?v=rcrsqyFtJ_4
+
+---
 
 
 
