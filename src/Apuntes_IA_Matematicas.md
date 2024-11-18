@@ -4,7 +4,7 @@
 
 ## Estadisticos de posicion
 
-Estadisticos de tendencia central:
+Estadisticos de tendencia central: medidas de centralizacion
 - medias : aritmetica, geometrica, armonica
 - mediana
 - moda

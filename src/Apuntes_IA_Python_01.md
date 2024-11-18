@@ -114,3 +114,40 @@ df.isnull()
 
 
 ---
+### 3│Filtrar dataframe en pandas Python, selección de filas y columnas python - método .loc y .iloc.
+
+https://www.youtube.com/watch?v=0MEoGE1Cd04
+
+
+~~~
+
+
+
+~~~
+
+
+---
+Automatizar Excel con Python | Leer y procesar archivos con Pandas
+
+https://www.youtube.com/watch?v=JL9RMCS4Sho
+
+
+
+---
+## 7. Cómo Agrupar Datos en Python con GroupBy: Tutorial Completo con Pandas
+
+https://www.youtube.com/watch?v=aUv2UygYKmI
+
+
+
+
+---
+## OPENPYXL | Cómo trabajar en EXCEL desde PYTHON (muy FÁCIL)
+
+https://www.youtube.com/watch?v=WMPZMeAQX3Q
+
+
+
+
+
+---
