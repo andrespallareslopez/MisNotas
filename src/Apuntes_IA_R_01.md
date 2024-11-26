@@ -182,13 +182,67 @@ https://www.youtube.com/watch?v=O8p4pMb-ezc
 
 
 
+---
+
+
+
+---
+## Resumen curso machine learning R
+
+Carga de datos desde diferentes fuentes:
+
+podemos cargar para csv:
+
+
+podemos cargar arff:
+
+podemos cargar excel:
+
+
+podemos cargar en el clipboard:
+
+podemos cargar desde una url:
+
+
+podemos cargar datos de webscraping:
+ 
+ instalar paquete rvest
+
+
+
 
 
 ---
 
-## Tips, ideas, notas para graficas sacadas de los apuntes del cursos machine learing
+## Factores en R
 
-los conteos de un conjunto de datos en phyton con value_counts()
+https://www.youtube.com/watch?v=ZLCFD3b6kTg
+
+---
+
+## Introducción a R. Ejemplo exploración de datos
+
+https://www.youtube.com/watch?v=P1FQCEPcWwo&list=PL6kQim6ljTJthrG_GLZxrPeuR7qQfEKgv&index=35
+
+
+
+---
+## Data.frame en R
+
+https://www.youtube.com/watch?v=uQKkydX4tP4&list=PL6kQim6ljTJthrG_GLZxrPeuR7qQfEKgv&index=23
+
+Filtros, ejemplos:
+~~~
+
+d2[d2$ciudad=="Valencia",c("nombre","edad")]
+
+#saca todas las columas con edad >35
+d2[d2$edad>35,]
+~~~
+
+
+---
+
 
 
 ---

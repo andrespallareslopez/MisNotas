@@ -127,7 +127,7 @@ https://www.youtube.com/watch?v=0MEoGE1Cd04
 
 
 ---
-Automatizar Excel con Python | Leer y procesar archivos con Pandas
+## Automatizar Excel con Python | Leer y procesar archivos con Pandas
 
 https://www.youtube.com/watch?v=JL9RMCS4Sho
 
@@ -148,6 +148,21 @@ https://www.youtube.com/watch?v=WMPZMeAQX3Q
 
 
 
+
+
+---
+## CURSO de PYTHON con PANDAS Para Ciencia de Datos - ESTRUCTURA DE DATOS
+
+https://www.youtube.com/watch?v=loqDUi749j0&list=PLg9145ptuAig5cwvUCn9FNSUJyXBiFcVg&index=4
+
+
+
+
+---
+
+## Tips, ideas, notas para graficas sacadas de los apuntes del cursos machine learing
+
+los conteos de un conjunto de datos en phyton con value_counts()
 
 
 ---
