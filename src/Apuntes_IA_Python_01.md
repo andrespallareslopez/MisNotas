@@ -166,3 +166,184 @@ los conteos de un conjunto de datos en phyton con value_counts()
 
 
 ---
+
+Tutorial: ANÁLISIS EXPLORATORIO DE DATOS con Python
+
+
+https://www.youtube.com/watch?v=wBu0hQQVdcE
+
+
+
+---
+Tutorial: MANEJO DE DATOS CATEGÓRICOS FALTANTES con Python, Pandas y Scikit-Learn
+
+https://www.youtube.com/watch?v=G3tNCSQUoXw
+
+
+
+
+---
+Tutorial: ¡PANDAS DESDE CERO!
+
+https://www.youtube.com/watch?v=qaetvFaYOWM
+
+Codificando Bits
+
+
+
+---
+
+Tutorial: LIMPIEZA DE DATOS con Python y Pandas
+
+https://www.youtube.com/watch?v=bGnD1Ki7j-g
+
+
+Codificando Bits
+
+---
+Máquinas de Soporte Vectorial | Cómo funcionan las SVM | Código en python
+
+https://www.youtube.com/watch?v=XyH8bdv_DSw
+
+
+
+
+---
+
+
+¿Cómo funciona SVM?
+
+https://www.youtube.com/watch?v=kl6tyEi5eso
+
+
+---
+MÁQUINAS DE SOPORTE VECTORIAL: ¡explicación COMPLETA!
+
+https://www.youtube.com/watch?v=Xbd8T-JoGPQ
+
+
+---
+5. Dominando el Arte de la Limpieza de Datos en Big Data
+
+https://www.youtube.com/watch?v=fpF-GJn4kXk
+
+---
+
+Curso COMPLETO de IA desde Cero (con PYTHON)!! : Limpieza de datos - Modulo 1
+
+
+https://www.youtube.com/watch?v=QLKPEOl5oLA
+
+
+---
+Curso COMPLETO de IA desde Cero (con PYTHON)!! : Limpieza de datos (PARTE 2) - Modulo 1
+
+https://www.youtube.com/watch?v=QTn-H3b9lg0
+
+
+---
+Tutorial: ¡SCIKIT-LEARN DESDE CERO!
+
+https://www.youtube.com/watch?v=qUjIybMkXBs
+
+Codificando Bits
+
+---
+Tutorial: ¿cómo ALMACENAR Y LEER un modelo en Scikit-Learn?
+
+https://www.youtube.com/watch?v=jrECkCRpU4s
+
+Codificando Bits
+
+---
+Tutorial: AFINACIÓN DE HIPER-PARÁMETROS en Scikit-Learn
+
+https://www.youtube.com/watch?v=hcbVLNZ2gAQ
+
+Codificando Bits
+
+---
+¿Cómo manejar un dataset DESBALANCEADO en Machine Learning?
+
+https://www.youtube.com/watch?v=8CE4I8o4ZM0
+
+Codificando Bits
+---
+
+¿Cómo manejar los VALORES EXTREMOS en nuestros datos?
+
+https://www.youtube.com/watch?v=GiX51cG-tO4
+
+Codificando Bits
+
+---
+¿Cómo manejar los DATOS FALTANTES?: guía completa
+
+
+https://www.youtube.com/watch?v=ARwHkq4t2q0
+
+Codificando Bits
+
+---
+
+Tutorial: MANEJO DE DATOS CATEGÓRICOS FALTANTES con Python, Pandas y Scikit-Learn
+
+https://www.youtube.com/watch?v=G3tNCSQUoXw
+
+Codificando Bits
+
+---
+
+Los sets de entrenamiento, validación y prueba
+
+https://www.youtube.com/watch?v=79K93XBOsIg
+
+Codificando Bits
+
+---
+Clasificación con Árboles de Decisión ¡EN 15 MINUTOS!
+
+https://www.youtube.com/watch?v=kqaLlte6P6o
+
+
+Codificando Bits
+
+---
+Regresión con Árboles de Decisión: el algoritmo CART
+
+https://www.youtube.com/watch?v=2Miw4bjzSF0
+
+
+Codificando Bits
+
+---
+
+La Matriz de Confusión
+
+https://www.youtube.com/watch?v=haEWWO0b42Y
+
+
+datos balanceados y desbalanceados
+
+
+
+Codificando Bits
+
+---
+
+PRECISION, RECALL Y F-SCORE: ¿qué son y cuándo usarlos?
+
+https://www.youtube.com/watch?v=H8FSfqxRWmA
+
+relacionado con la exactitud de un modelos y la matriz de Confusion, mas metricas porque la matriz de confusion no es suficiente para medir la precision(accuracy) o exactitud de los modelos
+
+tambien relacionado con set de datos desbalanceados
+
+Codificando Bits
+
+---
+
+
+
+
+---

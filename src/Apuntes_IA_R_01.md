@@ -37,7 +37,7 @@ install.packages("mldr")
 
 ----
 
-Leer datos desde el portapapeles
+## Leer datos desde el portapapeles
 
 ~~~
 read.delim("clipboard")
@@ -189,24 +189,118 @@ https://www.youtube.com/watch?v=O8p4pMb-ezc
 ---
 ## Resumen curso machine learning R
 
-Carga de datos desde diferentes fuentes:
+Crear un dataframe desde cero, con varios vectores o listas¿?:
+
+
+
+### Carga de datos desde diferentes fuentes:
 
 podemos cargar para csv:
-
-
+~~~
+read.csv()
+read.csv2()
+read.delim()
+read.table()
+~~~
 podemos cargar arff:
 
+~~~
+library(foreign)
+read.arff(file="...")
+
+~~~
+
 podemos cargar excel:
-
-
+~~~
+library("xlsx")
+read.xlsx(file='...')
+~~~
 podemos cargar en el clipboard:
+
+~~~
+read.delim("clipboard")
+
+~~~
 
 podemos cargar desde una url:
 
+~~~
+spambase.url <-"https://....."
+
+spambase <- read.csv(spambase.url)
+
+
+~~~
 
 podemos cargar datos de webscraping:
  
  instalar paquete rvest
+
+Exportacion de datos
+
+Exportacion a formatos de texto
+
+csv, arff
+
+exportacion csv
+
+~~~
+write.csv(datos,"nombrearchivo")
+write.csv2(datos,"nombrearchivo")
+
+~~~
+
+exportacion arff
+
+~~~
+library(foreign)
+
+write.arff(datos,"nombrearchivo.arff")
+
+~~~
+
+### Exportacion a formatos binarios propios de r
+
+~~~
+saveRDS(datos,file="nombrefichero.Rds")
+save(datos,file = "datos.Rda")
+
+datos <- readRDS("Datos.rds")
+
+datos <- load("datos.Rda")
+
+~~~
+
+### Trabajar con archivos HDF5 desde R
+
+~~~
+ install.packages("BiocManager")
+ BiocManager::install("rhdf5")
+
+
+> library(rhdf5)
+>
+> archivoH5 <- "Modulo2.h5"
+>
+> h5createFile(archivoH5)
+>
+> h5createGroup(archivoH5, "DatosMedicos")
+> h5write(read.csv("Limpieza.csv"), archivoH5, "DatosMedicos/Originales")
+> h5write(datos.limpios, archivoH5, "DatosMedicos/Limpios")
+
+~~~
+
+### Analisis exploratorio de datos
+
+~~~
+> datos <- read.csv("Limpieza.csv", stringsAsFactors = TRUE)
+
+~~~
+
+
+### Limpieza de Datos
+
+
 
 
 
@@ -242,6 +336,109 @@ d2[d2$edad>35,]
 
 
 ---
+## Otros Objetos en R: Vectores y Matrices
+
+https://www.youtube.com/watch?v=-176Z8LyOe8
+
+
+---
+
+## Variables categóricas en R: Uso función factor
+
+https://www.youtube.com/watch?v=8tsMqkyBfp0
+
+
+
+
+
+---
+## Lenguaje R. Introducción a los gráficos con ggplot() | 31/41 | UPV
+
+https://www.youtube.com/watch?v=S3WH0NytcLo&list=PL6kQim6ljTJthrG_GLZxrPeuR7qQfEKgv&index=31
+
+Datos + Estetica + Capas + Facetas()
+
+~~~
+library(ggplot2)
+
+p<- ggplot(iris)
+p
+p <- p + aes(x=Petal.Length,y=Petal.Width, colour=Species)
+p
+p<- p + geom_point()
+p
+p<-p + geom_smooth()
+p<-p + facet_grid(~ Species)
+p
+
+
+
+
+
+~~~
+
+
+---
+##  La función melt y datos en formato largo
+
+https://luisxsuper.github.io/bibroxd/la-funcion-melt-y-datos-en-formato-largo.html
+
+
+
+
+---
+## MODELOS estadísticos en R 💻 Ejemplo de REGRESION Lineal Simple
+
+https://aulas.campusmvp.com/SELF/lesson.self?LessonId=113787
+
+
+
+
+---
+
+## Arboles de decision | Creación, Precisión y Predicción con Valores Nuevos
+
+https://www.youtube.com/watch?v=FyAOTkCXtzM
+
+
+
+
+---
+## Clasificación con Árboles de Decisión ¡EN 15 MINUTOS!
+
+https://www.youtube.com/watch?v=kqaLlte6P6o
+
+---
+
+## Regresión con Árboles de Decisión: el algoritmo CART
+
+https://www.youtube.com/watch?v=2Miw4bjzSF0
+
+
+
+
+---
+
+## 1 | Árboles de Decisión en R: Árbol de Clasificación |
+
+
+https://www.youtube.com/watch?v=tDeIo43pHGg&t=1262s
+
+
+
+---
+
+¿Cómo funciona SVM?
+
+https://www.youtube.com/watch?v=kl6tyEi5eso
+---
+
+MÁQUINAS DE SOPORTE VECTORIAL: ¡explicación COMPLETA!
+
+https://www.youtube.com/watch?v=Xbd8T-JoGPQ
+
+---
+
 
 
 
