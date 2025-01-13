@@ -101,6 +101,73 @@ utilizar  n8n basico
 
 ---
 
+## Curso n8n: from Zero to Hero - Integraciones Avanzadas Google Workspace, Hugging Face y Apify
+
+https://www.youtube.com/watch?v=lH1ZPQJYkAM
+
+
+---
+## ADVANCED Python AI Multi-Agent Tutorial (RAG, Streamlit, Langflow & More!)
+
+https://www.youtube.com/watch?v=msLovKSj8Q0
+
+
+
+Tech With Tim
+
+---
+
+
+## ADVANCED Python AI Agent Tutorial - Using RAG, Langflow & Multi-Agents
+
+https://www.youtube.com/watch?v=QmUsG_3wHPg
+
+
+
+Tech With Tim
+
+---
+
+
+
+
+
+---
+
+## Python Advanced AI Agent Tutorial - LlamaIndex, Ollama and Multi-LLM!
+
+https://www.youtube.com/watch?v=JLmI0GJuGlY&t=942s
+
+Tech With Tim
+
+
+
+
+
+---
+
+## LlamaIndex 01: Pip Install LlamaIndex | Python | LlamaIndex
+
+https://www.youtube.com/watch?v=aTFKEqOZm_0&list=PLBSCvBlTOLa-vUt7mCECzaJjJEjos6K-l&index=1
+
+
+---
+
+## LlamaIndex 02: Prompt Template in LlamaIndex | Python | LlamaIndex
+
+https://www.youtube.com/watch?v=IQWmlkHT4SM&list=PLBSCvBlTOLa-vUt7mCECzaJjJEjos6K-l&index=2
+
+
+
+
+
+
+---
+
+
+
+
+
 
 
 ---
