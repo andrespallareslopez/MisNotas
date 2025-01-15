@@ -235,6 +235,16 @@ https://www.youtube.com/watch?v=fpF-GJn4kXk
 https://www.youtube.com/watch?v=QLKPEOl5oLA
 
 
+
+~~~
+
+
+
+~~~
+
+
+
+
 ---
 ## Curso COMPLETO de IA desde Cero (con PYTHON)!! : Limpieza de datos (PARTE 2) - Modulo 1
 
@@ -277,7 +287,7 @@ https://www.youtube.com/watch?v=GiX51cG-tO4
 Codificando Bits
 
 ---
-¿Cómo manejar los DATOS FALTANTES?: guía completa
+## ¿Cómo manejar los DATOS FALTANTES?: guía completa
 
 
 https://www.youtube.com/watch?v=ARwHkq4t2q0
@@ -286,7 +296,7 @@ Codificando Bits
 
 ---
 
-Tutorial: MANEJO DE DATOS CATEGÓRICOS FALTANTES con Python, Pandas y Scikit-Learn
+## Tutorial: MANEJO DE DATOS CATEGÓRICOS FALTANTES con Python, Pandas y Scikit-Learn
 
 https://www.youtube.com/watch?v=G3tNCSQUoXw
 
@@ -294,14 +304,14 @@ Codificando Bits
 
 ---
 
-Los sets de entrenamiento, validación y prueba
+## Los sets de entrenamiento, validación y prueba
 
 https://www.youtube.com/watch?v=79K93XBOsIg
 
 Codificando Bits
 
 ---
-Clasificación con Árboles de Decisión ¡EN 15 MINUTOS!
+## Clasificación con Árboles de Decisión ¡EN 15 MINUTOS!
 
 https://www.youtube.com/watch?v=kqaLlte6P6o
 
@@ -309,7 +319,7 @@ https://www.youtube.com/watch?v=kqaLlte6P6o
 Codificando Bits
 
 ---
-Regresión con Árboles de Decisión: el algoritmo CART
+## Regresión con Árboles de Decisión: el algoritmo CART
 
 https://www.youtube.com/watch?v=2Miw4bjzSF0
 
@@ -318,7 +328,7 @@ Codificando Bits
 
 ---
 
-La Matriz de Confusión
+## La Matriz de Confusión
 
 https://www.youtube.com/watch?v=haEWWO0b42Y
 
@@ -331,7 +341,7 @@ Codificando Bits
 
 ---
 
-PRECISION, RECALL Y F-SCORE: ¿qué son y cuándo usarlos?
+## PRECISION, RECALL Y F-SCORE: ¿qué son y cuándo usarlos?
 
 https://www.youtube.com/watch?v=H8FSfqxRWmA
 
@@ -343,7 +353,28 @@ Codificando Bits
 
 ---
 
+## 5 pasos para APRENDER MACHINE LEARNING desde cero
+
+https://www.youtube.com/watch?v=wYyAgqx2eSQ&list=PL9E7H1rzXKFKiOmHB9rLrOoHDQaSMlzKI
+
+
+Codificando Bits
+
+---
 
 
 
 ---
+
+
+
+---
+
+## Los diferentes ALGORITMOS DEL MACHINE LEARNING
+
+https://www.youtube.com/watch?v=XNWKJsDNScw
+
+Codificando Bits
+
+---
+

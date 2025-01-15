@@ -92,14 +92,68 @@ conda remove -n web
 
 ---
 
+## como INSTALAR JUPYTER NOTEBOOK en VISUAL STUDIO CODE
+
+https://www.youtube.com/watch?v=jy_Leme1RLY
+
+
+~~~
+
+~~~
+
+
+
+
+---
+
+## CONFIGURANDO JUPYTER NOTEBOOK EN VSCODE - PYTHON
+
+https://www.youtube.com/watch?v=CsWMzCETVYQ&t=711s
+
+
+
+~~~
+
+~~~
+
+
+
+
+---
+## Creación de un Entorno Virtual (Virtual Environment) usando el módulo Venv en Python.
+
+https://www.youtube.com/watch?v=APpm0o5YoCo
+
+~~~
+python --version
+
 
 
 
 ~~~
 
 
-~~~
 
+
+---
+Entornos Virtuales en Python: Concepto, Uso de venv, virtualenv 🐍 Paso a Paso
+
+https://www.youtube.com/watch?v=vBUI-4rYITM
+
+~~~
+#crear entorno
+python -m venv nombre_del_entorno
+
+#activar
+
+nombre_del_entorno\Scripts\activate
+
+#desactivar
+
+nombre_del_entorno\Scripts|deactivate
+
+
+~~~
 
 
 
