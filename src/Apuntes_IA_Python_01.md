@@ -16,7 +16,7 @@ https://www.sqlshack.com/learn-jupyter-notebooks-for-sql-server/
 
 ---
 
-Python Tutorial - For Loop with List Comprehensions
+## Python Tutorial - For Loop with List Comprehensions
 
 https://platzi.com/tutoriales/4227-python-fundamentos/31662-python-tutorial-for-loop-with-list-comprehensions/
 

@@ -428,12 +428,12 @@ https://www.youtube.com/watch?v=tDeIo43pHGg&t=1262s
 
 ---
 
-¿Cómo funciona SVM?
+## ¿Cómo funciona SVM?
 
 https://www.youtube.com/watch?v=kl6tyEi5eso
 ---
 
-MÁQUINAS DE SOPORTE VECTORIAL: ¡explicación COMPLETA!
+## MÁQUINAS DE SOPORTE VECTORIAL: ¡explicación COMPLETA!
 
 https://www.youtube.com/watch?v=Xbd8T-JoGPQ
 

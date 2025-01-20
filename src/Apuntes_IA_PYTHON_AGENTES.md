@@ -164,6 +164,18 @@ https://www.youtube.com/watch?v=IQWmlkHT4SM&list=PLBSCvBlTOLa-vUt7mCECzaJjJEjos6
 
 ---
 
+## Tutorial AutoGen En Español - Crea Agentes AI Que Trabajen Para Ti.
+
+https://www.youtube.com/watch?v=Vcrz6zdmQDM
+
+
+
+---
+
+## Crea GPTs personalizados en Microsoft Copilot Studio | Copilotos
+
+
+https://www.youtube.com/watch?v=mWFNAwkn1dU
 
 
 
