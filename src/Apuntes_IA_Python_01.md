@@ -920,7 +920,7 @@ CodigoMaquina_Manejo_Datos_Faltantes.ipynb
 
 ---
 
-Series de Pandas: El Componente Principal de los DataFrames para Analizar Datos con Python
+## Series de Pandas: El Componente Principal de los DataFrames para Analizar Datos con Python
 https://www.youtube.com/watch?v=E7Tt458sTUE&t=912s
 
 Codigo Maquina
@@ -928,4 +928,26 @@ Codigo Maquina
 CodigoMaquina_SeriesPandas.ipynb
 
 ---
+## Análisis de Componentes Principales (PCA) para Reducir la Dimensionalidad de Datos usando Python
 
+https://www.youtube.com/watch?v=x-7BHjMA15M
+
+Codigo Maquina
+
+
+CodigoMaquina_Analisis_Componentes_Principales_PCA.ipynb
+
+---
+
+## Reshape -1, 1 and Reshape 1, -1 in Python NumPy | Module NumPy Tutorial - Part 07
+
+https://www.youtube.com/watch?v=yDXNPyxDb0M
+
+
+
+---
+
+
+
+
+---

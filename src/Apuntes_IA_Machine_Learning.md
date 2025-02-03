@@ -708,7 +708,7 @@ print('F1:',f1_score(y_test,y_pred))
 
 ---
 
-Aprende PANDAS y MATPLOTLIB desde cero
+## Aprende PANDAS y MATPLOTLIB desde cero
 
 https://www.youtube.com/watch?v=-owci852QSE&list=PL7L9BEVTY9bODO9czTp3VhahlO_nAkajh
 
@@ -923,5 +923,17 @@ plt.show()
 
 
 ---
+## Reshape -1, 1 and Reshape 1, -1 in Python NumPy | Module NumPy Tutorial - Part 07
+
+https://www.youtube.com/watch?v=yDXNPyxDb0M
 
 
+
+
+
+---
+
+
+
+
+---
