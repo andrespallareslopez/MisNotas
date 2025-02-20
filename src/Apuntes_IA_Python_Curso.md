@@ -112,5 +112,57 @@ kernel trick
 
 ## Entrenamiento de redes neuronales
 
+# BLOQUE 3 - Analisis descriptivo
+
+- Agrupamiento de datos
+- Sistemas de recomendacion
+
+## Agrupamiento de datos
+
+Enfoque no aprendizaje no supervisado
+
+El agrupamiento de datos tambien se le donomina *clustering*.
+
+Tecnicas de agrupamiento:
+- Partitivo
+- Jerarquico
+- Densidad
+
+## Como medir la distancia entre dos muestras
+
+- Distancia euclidea
+- Distancia Manhattan
+- Distancia del maximo
+
+Generalizacion: distancias de Minkowski, incorpora las otras tres tipos de distancia.
+
+Para p=1 distancia de Manhattan.
+Para p=2 distancia euclidea
+Para valores p grandes, tiende a infinito, se parecera a la distancia del maximo.
+
+## Agrupamiento por particionamiento - k -medias
+
+kmeans(...) devuelve una estructura como la siguiente:
+
+-cluster: un vector que indica el grupo al que se ha asignado cada una de las muestras del conjunto de datos
+-centers:una matriz con k filas, una por grupo, y tantas columnas como dimensiones (variables) haya en el conjunto de datos, indicando el centro de cada grupo en el espacio.
+-size:número de muestras asignadas a cada uno de los k grupos.
+-tot.withinss: suma total de error cuadradico de los k grupos.
+
+
+## Problemas del algoritmo k-medias
+
+Inconvenientes:
+
+- La necesidad de conocer de antemano el valor de k
+- Su comportamiento aleatorio
+- El hecho de que los grupos hayan de tener todos una misma forma y aproximadamente el mismo tamaño
+- Su sensibilidad a los valores extremos u outliers
+
+## Agrupamiento por densidad en R
+
+-Algoritmo DBSCAN
+
+
 
 

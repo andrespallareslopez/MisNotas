@@ -354,7 +354,7 @@ https://www.youtube.com/watch?v=8tsMqkyBfp0
 ---
 ## Lenguaje R. Introducción a los gráficos con ggplot() | 31/41 | UPV
 
-https://www.youtube.com/watch?v=S3WH0NytcLo&list=PL6kQim6ljTJthrG_GLZxrPeuR7qQfEKgv&index=31
+https://www.youtube.com/watch?v=S3WH0NytcLo&list=PL6kQim6ljTJthrG_GLZxrPeuR7qQfEKgv&index=30
 
 Datos + Estetica + Capas + Facetas()
 
@@ -438,6 +438,10 @@ https://www.youtube.com/watch?v=kl6tyEi5eso
 https://www.youtube.com/watch?v=Xbd8T-JoGPQ
 
 ---
+
+## Introducción a R. Funciones apply() | 35/41 | UPV
+
+https://www.youtube.com/watch?v=iZzP112Wh3k&list=PL6kQim6ljTJthrG_GLZxrPeuR7qQfEKgv&index=34
 
 
 

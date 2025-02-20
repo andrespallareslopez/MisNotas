@@ -354,6 +354,43 @@ datos balanceados y desbalanceados
 Codificando Bits
 
 
+Matriz de confusion para clasificacion binaria
+
+positivo    ---   negativo
+
+Categoria real | Categoria Predicha |      esto es un...        |
+ positivo      |   positivo         |     Verdadero Positivo VP |
+ positivo      |   negativo         |     Falso Negativo     FN |  DESACIERTO
+ negativo      |   negativo         |     Verdadero Negativo VN |
+ negativo      |   positivo         |        Falso Positivo  FP |  DESACIERTO
+
+
+c p                 Categorias reales
+a r          |  normal    |  anormal   | 
+t e   Normal |            |            |    
+e d   Anormal|            |            |
+g i
+o c
+r h
+i a
+a s
+s
+
+
+Matriz de confusion para clasificacion multiples clases
+
+
+
+
+
+
+Limitaciones de la matriz de confusion
+
+
+
+Habria que ir a las metricas Precision, Recall y F-Score
+
+
 ~~~
 
 
@@ -372,6 +409,20 @@ relacionado con la exactitud de un modelos y la matriz de Confusion, mas metrica
 tambien relacionado con set de datos desbalanceados
 
 Codificando Bits
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ~~~
@@ -919,7 +970,13 @@ CodigoMaquina_Manejo_Datos_Faltantes.ipynb
 
 
 ---
+## Maneja y Analiza Datos con DataFrames de Pandas y Python
 
+https://www.youtube.com/watch?v=DjQyHmy9AqQ&t=312s
+
+Codigo Maquina
+
+---
 ## Series de Pandas: El Componente Principal de los DataFrames para Analizar Datos con Python
 https://www.youtube.com/watch?v=E7Tt458sTUE&t=912s
 
@@ -942,6 +999,70 @@ CodigoMaquina_Analisis_Componentes_Principales_PCA.ipynb
 ## Reshape -1, 1 and Reshape 1, -1 in Python NumPy | Module NumPy Tutorial - Part 07
 
 https://www.youtube.com/watch?v=yDXNPyxDb0M
+
+
+
+---
+
+## reconocimiento de imágenes con IA - 01 - Convoluciones y filtros
+
+https://www.youtube.com/watch?v=AwTH_0yW9_I
+
+
+
+---
+## Descifrando el Misterio: Redes Neuronales Convolucionales (CNNs) con Python y Tensorflow
+
+https://www.youtube.com/watch?v=zBqnWfTwCgc
+
+Codigo Maquina
+
+
+
+---
+
+
+## ¿Cómo visualizar imágenes con matplotlib?
+
+https://www.youtube.com/watch?v=VGpRB3juwsQ&list=PLbk60veMSVKtrFAhp-R_uMH4wlFp5RW6E
+
+
+DiMathData
+
+habla sobre el dataset nmist
+
+---
+
+## ¿Cómo hacer una matriz de imagenes tomadas de un dataset?
+
+https://www.youtube.com/watch?v=RRPDcysd5mQ
+
+
+DiMathData
+
+habla sobre el dataset nmist y como graficar las imagenes con mas detalle que el video anterior
+
+
+---
+
+
+¿Cómo entrenar un clasificador multiclase con SGDClassifier de Sklearn?
+
+https://www.youtube.com/watch?v=__0tQhvRR20
+
+
+DiMathData
+
+aplica este modelo SGDClassifier  al conjunto de datos mnist
+
+
+~~~
+fig,ax = plt.subplots(1,5)
+for indice,instancia in enumerate(X_test[:5]):
+    ax[indice].imshow(instancia.reshape([28,28],cmap='binary'))
+
+
+~~~
 
 
 
