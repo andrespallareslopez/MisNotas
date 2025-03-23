@@ -1046,7 +1046,7 @@ habla sobre el dataset nmist y como graficar las imagenes con mas detalle que el
 ---
 
 
-¿Cómo entrenar un clasificador multiclase con SGDClassifier de Sklearn?
+## ¿Cómo entrenar un clasificador multiclase con SGDClassifier de Sklearn?
 
 https://www.youtube.com/watch?v=__0tQhvRR20
 
