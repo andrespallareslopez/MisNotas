@@ -42,9 +42,9 @@ TUTORIAL Primer modelo Deep Learning con TensorFlow en español | Clasificación
 
 https://www.youtube.com/watch?v=NERPPvoj3Go
 
+full scan
 
-
-
+<img src="./img/Parametros_redes_neuronales_01.PNG" />
 
 
 ---
