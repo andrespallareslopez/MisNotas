@@ -846,7 +846,330 @@ Una preocupacion es que a medida que aumenta le numero de estados anteriores que
 Este crecimiento podria llevar a problemas de eficiencia computacional y requerir recursos significativos para su implementacion y calculos.
 
 
+### Crear un generador de texto con python
 
+Vamos a utilizar Neruda.txt para crear texto:
+
+~~~
+import numpy as np
+import string
+
+#guardar las primeras la palabra de cada oracion, y como valor el numero de veces que aparece en la oracion
+#Ejemplos:
+# la cada del perro
+# El vino esta frio
+# la viuda del general
+
+# pa_inicial={"la":2,"el":1}
+# primer_orden={"la":["casa","viuda"],
+                "casa":["del"],"del":["perro","general"],
+                "perro":["END"]}
+
+# segundo_orden = {("la","casa"):["del"]}
+
+pa_inicial={}
+primer_orden={}
+
+segundo_orden={}
+
+def remove_puntuation(s):
+      return s.translate(str.maketrans('','',string.punctuation))
+
+def add2dict(d,k,v):
+    if k not in d:
+         d[k]=[]
+    d[k].append(v)
+
+with open("Neruda.txt",'r',encoding='utf-8') as archivo:
+    for line in archivo:
+         print(line)
+         tokens=remove_punctuation(line.rstrip().lower()).split()
+         print(tokens)
+         T=len(tokens)
+         print(f"Tamaño de la fila:{T}")
+         for i in range(T):
+             token=tokens[i]
+             if i==0:
+                pa_inicial[token]=pa_inicial.get(token,0.)+1
+                print(f"Palabra inicial: {token}")
+             else:
+                t_1=tokens[i-1]
+                if i==T-1:
+                   add2dict(segundo_orden,(t_1,token),'END')
+                if i==1:
+                   add2dict(primer_orden,t_1,token)
+                else:
+                   t_2=tokens[i-2]
+                   add2dict(segundo_orden,(t_2,t_1),token)
+
+# Normalizar
+inicial_total = sum(pa_inicial.values())
+print(inicial_total)
+for t,c in pa_inicial.items():
+    pa_inicial[t] = c/inicial_total
+
+
+pa_inicial
+
+
+# 'para': ['sobrevivirme','que','tus','que','tus','que','mi','tu']
+# vamos a asigar probabilidades a cada uno de los elementos de la lista de 'para'
+
+def list2pdict(ts):
+      d={} # crear un diccionario vacio
+      n=len(ts)  # obtener la logitud de la lista de elementos
+
+      # Ciclo para contar la ocurrencia de cada elemento en la lista
+      for t in ts:
+          dt[t]=d.get(t,0.) + 1
+          
+          # Ciclo para convertir los conteos en probabilidades relativas
+          for t,c in d.items():
+             d[t]= c/n
+
+          return d  # devolder el diccionario de probabilidades
+
+for t_1,ts in primer_orden.items():
+     # replace list with dicctionary of probabilities
+     primer_orden[t_1] = list2pdict(ts)
+
+for k,ts in segundo_orden.items():
+    segundo_orden[k] = list2pdict(ts)
+
+def palabra_ejemplo(d,imprimir):
+    # Genera un numero aleatorio en el rango(0,1)
+    p0 = np.random.random()
+    if (imprimir==1):
+        print(f"p0: {p0}")
+
+    # inicializa una variable para realizar la suma acumulativa de probabilidades
+
+    cumulative=0
+    if (imprimir==1):
+        print(f"prob acumulada{cumulative}")
+
+    # Ciclo que recorre cada clave (t) y su probabilidad (p) en el diccionario (d)
+    for t,p in d.items():
+        # Agrega la probabilidad actual el valor acumulativo
+        cumulative +=p
+        if (imprimir ==1):
+           print(f"item: {t}, Prob:{p}")
+           print(f"prob acumulada: {cumulative}")
+
+    # Comprueba si el numero aleatorio es menor que la acumulacion de probabilidades
+
+    if p0< cumulative:
+         # si se cumple la condicion, devuelve la clave (t) seleccionada
+         return t
+    
+
+def generador(tamaño):
+    for i in range(tamaño)
+    oracion=[]
+    #Palabra inicial
+    pal0 = palabra_ejemplo(pa_inicial,0)
+    oracion.append(pa10)
+    #segunda palabra
+    pal1=palabra_ejemplo(primer_orden[pal0],0)
+    oracion.append(pal1)
+
+    # Segundo orden hasta el fin
+    while True:
+        pal2= palabra_ejemplo(segundo_orden[(pal0,pal1)],0)
+        if pal2=='END':
+            break
+        oracion.append(pal2)
+        pal0=pal1
+        pal1=pal2
+    print(' '.join(oracion))
+
+generador(5)
+
+~~~
+
+## Como hacer el Spinning: Generar contenido unico
+
+### Introduccion
+
+¿Que es TExt o Article Spinning?
+
+Es la tecnica de tomar un articulo ya escrito y modificarlo (reemplazando palabras, frases,reorganizando estructuras) para que parezca un nuevo contenido, pero manteniendo el mensaje original.
+
+### Formas de hacer Spinning de contenido
+
+Estrategias del pasado para el "Spinning" de contenido:
+   Se hacia manualmente
+
+Automatizacion del proceso con modelos del lenguaje
+
+### Evolucion de las tecnicas de generacion de contenido
+
+Uso de software de sugerencias de palabras
+Limitaciones de las tecnicas previas a Machine Learning
+Los Modelos de Markov como tecnica basica
+
+### Avances tecnicos en NLP
+
+Mejoras por sobre los modelos de Markov.
+Tecnicas avanzadas como RNNs y Transformes.
+
+## Como hacer el Spinning de contenido N-GRAM
+
+### Introduccion
+
+Udo de modelos "Grand"
+Detalles sobre modelos de Markov en spinning
+Comparacion
+
+### Revision de Modelos de Markov
+
+Definicion y ejemplos
+Construccion de un modelo Markov de primer orden para el lenguaje
+Modelo Markov de Segundo Orden
+
+<img src="./img/Markov_rev_modelo.PNG" />
+
+### Diferencia entre Generacion de contenido y Spinning de articulos
+
+Generacion de contenido
+Spinning de articulos
+
+### Propuesta de Modelo para Spinning
+
+Creacion de una distribucion para una palabra dada basada en la palabra anterior y la siguiente
+
+P(w(t)/w(t-1),w(t+1))
+
+El -> ? <- Brilla
+
+### Propuesta de Modelo para Spinning
+
+p(wt|wt-1,wt+1)= count(wt-1->wt->wt+1)/count(wt-1->ANY->Wt+1)
+
+P(sol(t)/El(t-1,brilla(t+1))=3/4
+
+<img src="./img/Ejemplo_gram_01.PNG" />
+
+## Hacer un Spinning de Texto con Python
+
+
+base.csv
+
+Noticias sacadas de internet
+
+
+~~~
+pip install tqdm
+
+
+import numpy as np
+import pandas as pd
+import nltk import word_tokenize
+from nltk.tokenize.treebank import TreeBankWordDetokenizer
+from tqdm import tqdm
+
+# Primero,debes descargar el conjunto de datos del tokenizador para el español:
+import nltk
+nltk.download('punkt')
+
+df= pd.read_csv('base.csv')
+
+df.head()
+
+textos =df['cuerpo']
+
+textos.head()
+
+probs={} # key:(w(t-1,w(t+1)), value:{w(t): count(w(t))}
+
+for doc in tqdm(textos):
+     lineas=doc.split(".")
+     for linea in lineas:
+         tokens = word_tokenize(linea, languaje='spanish')
+         print(tokens)
+         if len(tokens) >=2:
+             for i in range(len(tokens)-2):
+             t_0 = tokens[i]
+             t_1 = tokens[i+1]
+             t_2 = tokens[i+2]
+             key=(t_0,t_2)
+             if key not in probs:
+                 probs[key]={}
+             if t_1 not in probs[key]:
+                 probs[key][t_1]=1
+             else:
+                 probs[key][t_1] +=1
+
+
+probs 
+
+# normalizar probabilidades
+
+for key,d in probs.items():
+    total = sum(d.values())
+    for k,v in d.items():
+       d[k] = v / total
+
+detokenizar = TreebankWordDetokenizer()
+
+ejemplo = "Hola a Todos"
+token_ejemplo = word_tokenize(ejemplo,languaje='spanish')
+
+print(detokenizar.detokenize(token_ejemplo))
+
+def spin_document(doc):
+   lineas = doc.split(".")
+   output=[]
+   for linea in lineas:
+      if linea:
+          new_line=spin_line(linea)
+      else:
+          new_line=linea
+      output.append(new_linea)
+    return "\n".join(output)
+
+def sample_word(d):
+    p0=np.random.random()
+    cumulative=0
+    for t,p in d.items():
+        cumulative +=p
+        if p0< cumulative:
+            return t
+
+
+def spin_line(linea):
+    tokens=word_tokenize(linea,languaje='spanish')
+    i=0
+    salida=[tokens[0]]
+    if len(tokens) >=2:
+        while i<(len(tokens)-2):
+           t_0=tokens[i]
+           t_1=tokens[i+1]
+           t_2=tokens[i+2]
+           key=(t_0,t_2)
+           p_dist=probs[key]
+           if len(p_dist) >1 and np.random.random() <0.3
+              middle = sample_word(p_dist)
+              salida.append(t_1)
+              salida.append("<" + middle + ">")
+              salida.append(t_2)
+              i +=2
+            else:
+              salida.append(t_1)
+              i +=1
+        if i==len(tokens)-2:
+            salida.append(tokens[-1])
+        return detokenizar.detokenize(salida)
+
+
+
+
+
+
+
+
+
+~~~
 
 
 
