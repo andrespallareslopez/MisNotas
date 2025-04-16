@@ -1162,6 +1162,141 @@ def spin_line(linea):
         return detokenizar.detokenize(salida)
 
 
+i = np.random.choice(textos.shape[0])
+doc = textos.iloc[i]
+new_doc = spin_document(doc)
+
+new_doc
+
+~~~
+
+## Aprendizaje automatico y NLP
+
+### Introduccion
+
+Hasta ahora:
+   Modelos basados en vectores
+   Modelos basados en probabilidad
+
+Aprendizaje automatico
+
+### Nuevos Modelos
+
+Basados en lo aprendido anteriormente
+
+    - Modelos basados en vectores
+    - Modelos basados en probabilidad
+    - Modelos que combinan ambos
+  
+### Ejemplo de Modelos de Aprendizaje Automatico
+
+  - Deteccion de spam: naive Bayes.
+  - Analisis de sentimiento: regresion logistica
+  - Indexacion semantica latente(SEO): PCA y SVT
+  - Modelato de temas: asignacion latente directa
+  
+## Deteccion de SPAM
+
+### Introduccion
+
+Objetico del capitulo:
+
+- Describir y entender el problema de la deteccion de Span sin abordar ninguna solucion concreta.
+- Proximos capitulos se abordara una solucion en Python.
+
+### ¿Que es la deteccion de Span?
+
+- Proceso mediante el cual se identifica y se filtran correos electronicos o mensajes no deseados.
+- Ejemplos de mensajes no deseados y sus intenciones:
+    Vender algo
+    Instalar malware
+    Robo de credenciales
+    Otras estafas
+
+
+### Importancia de la deteccion de Spam
+
+Experiencia del usuario
+Seguridad
+Eficiencia
+
+### Automatizacion mediante machine learning para filtrar spam
+
+Adaptabilidad
+Precision
+Automatizacion
+
+### Descripcion del Proyecto
+
+- Funcion objetivo: detectar_spam
+- Entrada(Input): La entrada para esta funcion es el texto del correo electronico, que podria ser cualquier mensaje, ya sea un correo electronico, un SMS o cualquier otro tipo de mensaje.
+- Salida(output): Una vez que el documento pasa por la funcion, este devolvera un valor binario, es decir, uno de dos posibles resultados:
+     Retorna 1 si el correo es Spam
+     Retorna 0 si el correo no es Spam
+
+## Regla de Naive Bayes
+
+### Fundamentos de la Regla de Bayes
+
+Definicion e importancia de la regla de Bayes:
+- La regla de Bayes es una formula que describe como actualizar las probabilidades de hipotesis cuando se dispone de nueva evidencia.
+
+P(A|B) = P(B|A)xP(A)/P(B)
+
+P(A|B) es la probabilidad posterior de A dado B.
+P(B|A) es la probabilidad de B dado A.
+P(A) es la probabilidad previda de A.
+P(B) es la probabilidad total de B.
+
+### Aplicacion de la regla de bayes en Aprendizaje automatico
+
+- Rol de bayes en clasificacion
+- Variables de entrada(x) y objetivo(y)
+- Ejemplo del mundo real: Clasificacion de correos electronicos(spam o no)
+
+P(Y=span|X) seria la probabilidad de que un correo electronico sea Span dado su contenido
+P(X|y=spam) seria la probabilidad de observar cierto contenido en un correo electroncico sabiendo que es spam
+P(Y=spam) seria la probabilidad general de que cualquier correo electronico sea spoam
+P(X) seria la probabilidad de observar cierto contenido en cualquier correo electronico
+
+Diferencia entre la regla de Bayes y Naive Bayes:
+
+Naive Bayes es un algoritmo de clasificacion basado en la regla de Bayes con una suposicion adicional: todas las caracteristicas(o variables) que describen las instancias son condicionalmente independientes data la clase de la
+1. Reglas de Bayes
+Usando la regla de bayes, querriamos calcular:
+- P(Spam|ganar,gratis)
+- Para hacer esto, necesitariamos conocer:
+- La probabilidad de que un correo electronico sea spam a priori, P(spam). La probabilidad de que un correo electronico contenga las palabras "ganar" y "gratis" datos que es Spam, P(ganar,gratis|Spam). La probabilidad total de que un correo electronico contenga las palabras "ganar" y "gratis", P(ganar,gratis). La relacion entre las palabras "ganar" y "gratis" es considerada, y si hay alguna iteraccion entre estas palabras en correos spam, eso afectariaa P(ganar,gratis|spam).
+2. Naive Bayes usando la regla de Bayes, querriamos calcular:
+
+- Con Naive Bayes, hacemos una suposicion adicional: las palabras en el correo electronico son independientes entre si dado que sabemos si es spam o no. Por lo tanto, la probabilidad de que un correo electronico contenga las palabras "ganar" y "gratis" dado que es spam se descompone en:
+  P(ganar,gratis|spam) = P(ganar|spam)xP(gratis|Spam)
+
+### Elegir el modelo adecuado segun la distribuion de datos
+
+- Gaussiano para datos en forma de campana:
+   Si tus datos tienen una distribuion normal(o gaussiana), el Naive Bayes Gaussiano es el mejor opcion. Por ejemplo, medidas de altura , peso,etc.
+
+- para datos de conteo(p.ejem. PLN)
+   Si estas trabajando con datos que representan conteos, como la frecuencia de palabras en documentos, el Naive Bayes Multinomial es la mejor opcion.
+
+- Bernoulli para datos binarios:
+   Si tus datos son binarios o representan la presencia/ausencia de caracteristicas, el Naive Bayes Bernoulli es el mas adecuado.
+
+## Clasificador de correos spam con Python
+
+vamos a utilizar spam.csv
+
+~~~
+import numpy as np
+import pandas as pd
+import seaborn as sn
+import matplotlib.pyplot as plt
+from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score,f1_score,confusion_matrix
+from sklearn.naive_bayes import MultinomialNB
+from wordcloud import WordCloud
 
 
 
@@ -1170,7 +1305,6 @@ def spin_line(linea):
 
 
 ~~~
-
 
 
 
