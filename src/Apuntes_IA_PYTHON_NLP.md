@@ -1287,6 +1287,8 @@ Usando la regla de bayes, querriamos calcular:
 
 vamos a utilizar spam.csv
 
+pip install wordcloud -q
+
 ~~~
 import numpy as np
 import pandas as pd
@@ -1298,6 +1300,221 @@ from sklearn.metrics import roc_auc_score,f1_score,confusion_matrix
 from sklearn.naive_bayes import MultinomialNB
 from wordcloud import WordCloud
 
+df = pd.read_csv('spam.csv',encoding='ISO-8859-1')
+
+df["enail"][0]
+
+# en la etiqueta label es 'ham' que es no spam y si pone spam 
+
+# vamos a agrupar por label
+
+grouped = df.groupby("label").count()
+
+grouped
+
+df['label'].hist()
+
+df['b_labels']=df['label'].map({'ham':0,'spam':1})
+
+Y=df['b_labels'].to_numpy()
+
+# dividir la data en grupo de entrenamiento y de prueba
+df_train,df_test,Ytrain,Ytest = train_test_split(df['email'],Y,test_size=0.33)
+
+vectores = CountVectorizer(decode_error='ignore')
+Xtrain = vectores.fit_transform(df_train)
+Xtest = vectores.transform(df_test)
+
+model = MultinomialNB()
+model.fit(Xtrain,Ytrain)
+print("train acc:",model.score(Xtrain,Ytrain))
+print("test acc:", model.score(Xtest,Ytest))
+
+Ptrain = model.predict(Xtrain)
+Ptest = model.predict(Xtest)
+
+print("train F1:",f1_score(Ytrain,Ptrain))
+print("test F1",f1_score(Ytest,Ptest))
+
+#Matriz de cofusion
+cm = confusion_matrix(Ytrain,Ptrain)
+
+cm
+
+cm1 = confusion_matrix(Ytest,Ptest)
+
+cm1
+
+def plot_cm(cm):
+     classes=['ham','spam']
+     df_cm = pd.DataFrame(cm,index=classes,colums=classes)
+     ax = sn.heatmap(df_cm,annot=True,fmt='g')
+     ax.set_xlabel("Predicted")
+     ax.set_ylabel("Target")
+
+plot_cm(cm)
+
+
+# visualize the data
+def visualize(label):
+    words=''
+    # tal vez 'data' es cambiarlo por 'email'
+    for msg in df[df['label']==label]['email']:
+        msf = msf.lower()
+        words += msg + ' '
+    wordcloud =WordCloud(width=600,height=400).generate(words)
+    plt.inshow(wordcloud)
+    plt.axis('off')
+    plt.show()
+
+X = vectores.transform(df['email'])
+df['predictions']= model.predict(X)
+df
+
+falso_spam =df[(df['predictions']==0) & (df['b_labels']==1)]['email']
+for msg in falso_spam:
+    print(msg)
+
+falso_real = df[(df['predictions']==1) & (df['b_labels']==0)]['email']
+for msg in falso_real:
+    print(msg)
+
+
+~~~
+
+
+## Analisis de Sentimientos
+
+### Introduccion al Analisis de Sentimiento
+
+- Presentacion del tema en el contexto del curso
+- Se explorara el analisis de sentimiento desde un enfoque practivo y teorico
+- Como se pueden interpretar, analizar y categorizar las opiniones y emociones humanas expresadas en forma de texto
+- Se examinaran las tecnicas, algoritmos y herramientas utilizadas communmente para el analisis del sentimiento
+
+### Comprendiendo el Analisis de Sentimiento
+
+- Ejemplo de dos frases con diferentes sentimiento:
+     1. Wow, esa fue una pelicula realemente genial
+     2. No puedo creer que haya desperdiciado dos horas de mi vida en esa pelicula
+- Concepto general de sentimiento
+- Categorizacion tipica: Positivo, Negativo, Neutral
+  
+### Clasificacion vs. Regresion en el Analisis de Sentimiento
+
+- Analisis de Sentimiento como tarea de clasificacion
+- Consideraciones sobre la regresion:
+    Relacion con sistemas de recomendacion
+    Diferencias en el tratamiento de sentimientos y categorias
+
+### Descripcion de la Tarea del Analisis de Sentimiento
+
+- Definicion de la tarea
+- Contextualizacion con otros metodos de aprendizaje supervisado
+- Comparacion con la deteccion de spam
+
+
+### Aplicabilidad y Beneficios del Analisis de Sentimiento
+
+- Beneficios en terminos financieros
+- Gestion de reputacion
+- Monitoreo de redes sociales
+- Analisis programatico de comentarios
+- Analisis competitivo
+- Analisis en soporte al cliente
+- Influencia de articulos y noticias en las acciones
+
+## Regresion Logistica
+
+Hasta ahora hemos visto:
+
+1. Modelos basados en Vectores (Regresion Logistica)
+2. Modelos basados en probabilidades
+
+### Perspectiva vectorial sobre la tarea de clasificacion
+
+- Trazar los vectores en dimensiones (Simplificacion 2D)
+- Encontrar una linea o una curva que pueda separar puntos de diferentes colores
+- Los colores representan diferentes clases
+
+
+### Representacion Lineal
+
+- La regresion logistica es un modelo lineal:
+- X1 = mX2 + i
+- w1X1 + w2X2 +b=0
+-   W=pesos
+-   b=sesgo
+  
+### Activacion (termino usado en redes neuronales)
+
+Si a(x)>0 pertenece a los naranjas
+Si a(x)<0 pertenece a los celestes
+si a(x)=0 esta en la linea
+
+### Funcion Sigmoide
+
+- Funcion Limitadora o umbral, que modifica el valor resultado o impone un limite que se debe sobrepasar para poder dicidir si pertenece a una clase u otra.
+- 0 a 1
+- cuando x=0 => 0.5
+
+### Regresion Logistica Multiclase
+
+- Continuacion de la regresion logistica
+- Uso en problemas multiclase
+- Conjunto de datos con multiples clases
+
+### Funcionamiento de la regresion logistica multiclase
+
+- Clases y vectores Quade(W1,W2,.....Wk)
+- Terminos de sesgo(B1,B2,....Bk)
+- Calculo de activaciones(A1,A2,....Wk)
+
+### Funcion Softmax (es una generalizacion de la funcion sigmoide para multiples clases)
+
+- Diferencia con la funcion sigmoide
+- Formula e interpretacion
+- Conversion de activaciones a probabilidad
+
+### Salidas de la regresion logistica multiclase
+
+- Salidas esperadas
+- Predicciones de clase vs. probabilidades
+- Uso del AMAX (seleccionar el elemento con mayor valor)
+
+### Ejemplo
+
+- Imagina que tienes un modelo de regresion logistica multiclase que clasifica las opiniones de los usuarios en tres catetorias: "Positivo","Neutro" y "Negativo".
+
+Un usuario escribe: "Me encanta este producto". La salida del modelo podria ser una matriz de probabilidades como esta:
+
+- Positivo: 0.85
+- Neutro: 0.10
+- Negativo: 0.05
+
+- Esto indica que el modelo tiene una alta confianza (85%) en que el comentario es positivo.
+
+## Analisis de sentimientos en Python
+
+
+
+
+~~~
+import numpy as np
+import pandas as pd
+import seaborn as sn
+import matplotlib.pyplot as plt
+from sklearn.feature_extraction.text import CountVectorizer,TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_auc_score,f1_score,confusion_matrix
+from sklearn.model_selection import train_test_split
+
+df = pd_read_excel('BBDD.xlsx')
+
+df.head()
+
+df=df[['sentimiento','review_Es']]
+
 
 
 
@@ -1305,6 +1522,12 @@ from wordcloud import WordCloud
 
 
 ~~~
+
+
+
+
+
+
 
 
 
