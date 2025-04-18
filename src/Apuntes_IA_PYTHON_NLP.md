@@ -1515,14 +1515,155 @@ df.head()
 
 df=df[['sentimiento','review_Es']]
 
+df['sentimiento'].hist()
 
+target_map = {'positivo':1,'negativo':0}
 
+df['target'] =df['sentimiento'].map(target_map)
 
+df.head()
 
+df_train,df_test=train_test_split(df)
+
+vectorizer = TfidfVectorizer(max_features=2000)
+
+X_train=vectorizer..fit_transform(df_train['review_es'])
+
+X_test = vectorizeer.transform(df_test['review_es'])
+X_test
+
+Y_train = df_train['target']
+Y_test = df_test['target']
+
+model = LogisticRegression(max_iter=500)
+
+model.fit(X_train,Y_train)
+
+print("Train acc:",model.score(X_train,Y_train))
+print("Test acc:", model.score(X_test,Y_test))
+
+P_train = model.predict(X_train)
+P_test = model.predict(X_test)
+
+cm=confusion_matrix(Y_train,P_train,normalize='true')
+
+def plot_cm(cm):
+      clases=['negativo','positivo']
+      df_cm=pd.DataFrame(cm,index=classes,columns=classes)
+      ax=sn.heatmap(df_cm,annot=True,fmt='g')
+      ax.set_xlabel('Prediccion')
+      ax.set_ylabel('Objetivo')
+
+plot_cm(cm)
+
+cm1=confusion_matrix(Y_test,P_test,normalize='true')
+
+plot_cm(cm)
+
+word_index_map = vectorizer.vocabulary_
+word_index_map
+
+corte=4
+
+print("Paralbras mas positivas:")
+
+for word,index in word_index_map.items():
+     weight=model.coef_[0][index]
+     if weight>corte:
+          print(word,weight)
+
+plt.hist(model.coef_[0], bins=30)
+
+print("Palabras mas negativas:")
+for word,index in word_index_map.items():
+    weight=model.coef_[0][index]
+    if weight < -corte:
+        print(word,weight)
+
+plt.hist(model.coef_[0],bins=30)
+
+prueba=["estuvo muy entretenida la pelicula","estuvo terrible la pelicula, me aburri mucho","no la recomiendo"]
+
+# Transformar la entrada con el vectorizados
+
+x= vectorizer.transform(prueba)
+
+# Predecir con el modelo
+P=model.predict(x)
+
+# obtener las clases del modelo
+clases = model.classes_
+
+# Mostrar la clase predicha
+
+for i in range(len(pruba)):
+     if clases[P_train[i]] == 0:
+          print(f"el comentario: '{prueba[i]}' es: Negativo")
+     else:
+          print(f"el comentario: '{prueba[i]}' es: Positivo")
 
 
 ~~~
 
+### clasificacion  Multiclases Sentimiento
+
+~~~
+
+df = pd.read_csv('Twiter_data.csv')
+
+df.head()
+
+df['category'].hist()
+
+target_map = {'positivo':1,'Negativo':0,'Neutro':2}
+
+df['target'] = df['category'].map(target_map)
+
+df_train,df_test = train_test_split(df)
+
+df_train.head()
+
+vectorizer = TfidfVectorizer(max_features=2000)
+
+X_train = vectorizer.fit_transform(df_train['clean_text'])
+
+X_train
+
+X_test = vectorizer.transform(df_test['clean_text'])
+
+X_test
+
+Y_train = df_train['target']
+
+y_test = df_test['target']
+
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train,Y_train)
+
+print("Train acc:",model.score(X_train,Y_train))
+print("Test acc:", model.score(X_text,Y_test))
+
+P_train = model.predict(X_train)
+P_test = model.predict(X_test)
+
+cm = confusion_matrix(Y_train,P_train, normalize='true')
+
+cm
+
+def plot_cm(cm):
+     classes=['negativo','positivo','neutro']
+     df_cm=pd.DataFrame(cm,index=classes,columns=classes)
+     ax = sn.heatmap(df_cm,annot=True,fmt='g')
+     ax.set_xlabel("Predicted")
+     ax.set_ylabel("Target")
+
+
+cm_test = confusion_matrix(Y_test,P_test,normailize='true')
+plot_cm(cm_test)
+
+
+
+~~~
 
 
 
