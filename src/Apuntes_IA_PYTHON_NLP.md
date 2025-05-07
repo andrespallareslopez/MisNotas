@@ -1666,9 +1666,385 @@ plot_cm(cm_test)
 ~~~
 
 
+## Resumen de Texto
+
+### Creacion de resumenes a partir de de texto
+
+Tomar un documento largo y mostrar su contenido en un formato mas corto
+
+Permiete a los lectores entender rapidamente el proposito y los puntos principales de un texto sin tener que leerlo en su totalidad
+
+### Importancia de la Sumarizacion de texto
+
+- Aplicaciones en el mundo real:
+      Articulos cientificos y resumenes
+      Documentos profesionales y resumenes ejecutivos
+      Comomidad personal: Lectura eficiente
+
+### Sumarizacion e inteligencia artifical
+
+-Necesidad de una profunda comprension para la sumarizacion
+-Realizacion de que sumarizar requiere verdadera inteligencia
+
+### Aplicacion en motores de busqueda
+
+- Rol de los motores de busqueda como ventana a internet
+- Anatomia de los resutlados de busqueda: Titulo, enlaces y resumenes:
+       Titulo
+       Enlace
+       Resumen
+
+- Personalizacion de los resumenes de busqueda para las consultas.
+
+### Enfoque del Curso para la Sumarizacion
+
+- Metodos basados en Vectores
+- Text Rank:
+       Probabilidad 
+       Alquebra Lineal
+       Cadenas de Markov
+
+## Resumen de Texto con Vectores.
+
+### Descripcion general de la tecnica TF-IDF
+
+- Frecuencia de Termino - Frecuencia Inversa de Documento.
+- TF (Frecuenia de Termino)
+- IDF (Frecuencia Inversa de Documento: el proposito de IDF es dar menos peso a palabras que apartecen comumnmente en todos los documentos, como "y","el","la",entre otros.)
+- El valor final de TF-IDF es el producto de TF e IDF. Un valor mas alto de TF-IDF indica que una palabra es importante para ese documento especifico en relacion con el corpus completo.
+
+### Ventajas de su simplicidad
+
+-Facilidad de implementacion
+-Relevancia de palabras clave
+-Adaptabilidad
+-Reducir el ruido
+
+### Pasos Basicos en la tecnica TF-IDF
+
+-Dividir el documento en raciones
+-Tokenizacion con TF-IDF
+-Creacion de la matriz TF-IDF
+-Puntuacion de Oraciones:
+    Uso del TF-IDF para determinar la relevancia
+
+### Seleccion de Sentencias para el Resumen
+
+- Top N oraciones
+- Top N palabras o caracteres
+- Porcentajes
+- Umbral de puntuacion
+- Modificacion del umbral con factores multiplicativos
+
+### Consideraciones y posibles problemas con cada metodo:
+
+- Top N sentencias: Pueede excluir sentencias importantes si N es demasiado bajo, o incluir sentencias si N es demasiado alto.
+- Top N palabras o caracteres: Podria cortar sentencias a la mitad, llevando a resumenes que no son coherentes.
+- Porcentajes: La calidad del resumen puede variar segun la longitud del documento original.
+- Umbral de puntuacion: Si se establece un umbral demasiado alto, muchas sentencias podrian ser excluidas. Si es demasiado bajo, el resumen prodira ser demasiado largo.
+- Modificacion del umbral con factores multiplicativos: Elegir un factor adecuado puede ser subjetivo y podria requerir ajustes segun el documento.
+
+## Crear un resument de texto con python.
+
+~~~
+import pandas as pd
+import numpy as np
+import textwrap
+import nltk
+from nltk.corpus import stopwords
+from nltk import word_tokenize
+from sklearn.feature_extraction.text import TfidVectorizer
+
+nltk.download('punkt')
+nltk.download('stopwords')
+
+df= pd.read_csv('df_total.csv')
+
+df.head()
+
+df["news"][2]
+
+doc=df["news"].sample()  # nos coge una noticia al azar
+
+doc.iloc[0]
+
+doc2 = textwrap.fill(doc.iloc[0],replace_whitespace=False,fix_sentence_endings=True)
+
+print(doc2)
+
+lineas = doc2.split(',') # si no aparece nada es espacio en blanco, podemos poner un caracter separador, podemos poner signo punto o saltos de linea "\n"
+
+
+print(lineas)
+
+tokenizar = TfidfVectorizer(stop_words.words('spanish')),norm='l1')
+
+X = tokenizar.fit_transform(lineas)
+
+filas,columnas = X.shape
+
+for i in range(filas):
+    for j in range(columnas):
+         print(X[i,j]), end=' ') # imprime el elemento y un espacio en blanco
+    print()
+
+def obtener_score(tfidf_row):
+     x = tfidf_row[tfidf_row !=0]
+     return x.mean()
+
+scores = np.zeros(len(lineas))
+for i in range(len(lineas)):
+     score=obtener_score(X[i,:])
+     scores[i]= score
+
+sort_idx = np.argsort(-scores) # - scores ordena de mayor a menor
+
+print("Resumen:")
+oraciones=[]
+for i in range(0,8):
+    oraciones.append([sort_idx[i],scores[sort_idx[i]],lineas[sort_idx[i]]])
+    print(f"{scores[sort_idx[i]]}:{lineas[sort_idx[i]]}")
+
+# Ordenar la lista por el primer elemento de cada sublista
+oraciones_ord=sorted(oraciones,key=lambda x: x[0])
+
+# imprimir la lista ordenada
+for item in oraciones_ord:
+     print(item[2])
 
 
 
+
+
+
+~~~
+
+
+## Crear resumen de textos con Test Rank
+
+### Introduccion
+
+TextRank es un avanzado metodo de resumen automatico que se inspira en el algoritmo PageRank de Google. Aunque existen bibliotecas que facilitan el uso de TextRank, comprender como funciona detras de escena es crucial para su aplicacion efectiva.
+
+
+### Comparacion con TF-IDF
+
+- Antes de entrar en TextRank, es util recordar como funciona el metodo TF-IDF:
+  1. Se divide el documento en oraciones.
+  2. Se computa una matriz TF-IDF para esas oraciones.
+  3. Cada oracion se convierte en un vector de valores TF-IDF para cada palabra.
+  4. Se puntua cada oracion tomando el promedio de los componentes TF-IDF.
+  5. El resumen consiste en las oraciones con la puntuacion mas alta.
+   
+¿Que es TextRank?
+
+A diferencia de simplemente tomar el promedio de los valores TF-IDF. TextRank se inspira en como las oraciones estan relacionadas entre si en terminos de contenido.
+
+### Intuicion detras del TextRank
+
+La idea central de TextRank proviene del algorimo PageRank de Google. PageRank funciona de la siguiente manera:
+
+- Cada pagina web se considera un nodo en una red.
+- Se asigna una puntuacion a cada pagina web basada en la cantidad y calidad de los enlaces entrantes.
+- El internet se visualiza como una red de paginas web interconectadas.
+
+La idea detras de PageRank es que una pagina es importante si otras paginas importantes la enlazan.
+
+### Aplicacion de TextRank
+
+Para adaptar el concepto de PageRank al texto:
+1. Se tratan las oraciones como "paginas web".
+2. Los "enlaces" entre oraciones se determinan mediante la similitud del contenido(cosine similiraty de sus vectores TF-IDF)
+3. Las oraciones que son similares a muchas otras operaciones "importante" obtienen una puntuacion mas alta.
+
+### Entendiendo TextRank
+
+1. Representacion basada en Grafos
+2. Metrica de similitud
+3. Mecanismo de clasificacion
+4. Suavizado y regularizacion
+5. Interpretacion del resultado
+
+
+### Resumenes con TextRank
+
+1. Preprocesar el documento: Tokenizar el documento en oraciones
+2. Vectorizar: Convertir oraciones o palabras en vectores. Esto podria hacerse usando TF-IDF, bolsa de palabras,etc.
+3. Calcular similitud: Crear una matriz de militud donde cada elemento representa la similitud entre dos oraciones o palabras.
+4. Normalizar: asegurarse de que cada fila sume uno.
+5. Construir grafo: Usando la matriz de similitud, crear un grafo donde los nodos representen oraciones o palabras y los bordes representen puntuaciones de similitud.
+6. Puntuar nodos:Implementar el mecanismo de clasificacion de TextRank para puntuar cada nodo.
+7. Extraer resultados: Para asumir, seleccionar las oraciones con la mejor clasificacion. Para la extraccion clave, elegir las palabras mejor clasificadas.
+
+### Clonclusion
+
+-En resumen, TextRank es una tecnica que puntua oraciones en funcion de su relacion con otras oraciones en el documento, en lugar de simplemente su contenido individual.
+
+-Esta tecnica puede resultar mas efectiva para resumir texto que simplemente utilizar TF-IDF ya que considera el contexto y las relaciones entre oraciones.
+
+-Aunque el algoritmo puede parecer complejo al principio, con una compresion adecuada, se vuelve una herramienta poderosa para el resumen automatico de textos.
+
+
+### Resumen de texto en python con Text Rank
+
+
+
+
+~~~
+import pandas as pd
+import numpy as np
+import textwrap
+import nltk
+from nltk.corpus import stopwords
+from nltk import word_tokenize
+from nltk.stem import WordNetLemmatizer,PorterStemmer
+from sklearn.feature_extraction.text import TfidVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+
+nltk.download('punkt')
+nltk.download('stopwords')
+
+df=pd.read_csv('df_total.csv')
+
+doc = df['news'].sample()
+
+print(doc.iloc[0])
+
+# me corriga los finales de las oraciones, para que me lo separe las oraciones correctamente
+def wrap(x):
+   return textwarp.fill(x,replace_whitespace=False,fix_sentence_endings=True)
+
+print(wrap(doc.iloc[0]))
+
+doc2 = wrap(doc.iloc[0])
+
+print(doc2)
+
+lineas = doc2.split('.')
+
+print(lineas)
+
+# Eliminar oraciones vacias
+
+lineas = [item for item in lineas if item.strip()]
+
+len(lineas)
+
+featurizer = TfidfVectorizer(stop_words=stopwords.words('spanish'),norm='l1',)   # es l1 normalizar
+
+X = featurizer.fit_transform(lineas)
+
+# Matriz de similitud
+S = cosine_similiraty(X)
+
+S.shape
+
+print(S)
+
+# normalizar y suavizado
+
+S = S/S.sum(axis=1,keepdims=True)
+
+U = np.ones_like(S) / len(S)
+
+print(U)
+
+factor=0.15
+S=(1-factor)*S + factor*U
+
+eigenvals,eigenvecs = np.linalg.eig(S.T)  # S.T es la matriz traspuesta
+
+eigenvecs[:,0]
+
+scores= eigenvecs[:,0]
+
+
+sort_idx = np.argsort(-scores)
+
+print("Crear Resumen:")
+for i in sort_idx[:5]:
+    print(wrap("%.2f: %s" % (scores[i],lineas[i])))
+
+~~~
+
+
+## Modelado de Temas con LDA
+
+### ¿Que es el LDA?
+
+-El LDA("Lane directly Allocation") es un metodo de modelado de temas que identifica temas latentes en un conjunto de documentos.
+
+-Utiliza la distribucion de dirichlet para determinar la probabilidad de que ciertas palabras aparezcan juntas en documentos y, por lo tanto, pueden ser consideradas como parte del mismo "tema".
+
+-A grandes rasgos; el LDA trata de terminar que palabras son mas probables que aparezcan en los mismos documentos y, basandose en eso, decide que documentos tratan sobre que temas.
+
+### Aplicaciones
+
+- Descubrimiento de Temas.
+- Reduccion de dimensionalidad
+- Recomendaciones
+
+### Aprendizaje No Supervisado
+
+-Se contrasta con el aprendizaje supervisado
+-A diferencia del aprendizaje supervisado que usa datos etiquetados, el aprendizaje no superfisado no utiliza etiquetas
+
+-Un Ejemplo de aprendizaje no superfisado es el clustering, donde los datos se agrupan basados en similitudes.
+-Un desafio es que el numero de clusters no se conoce de antemano y debe ser seleccionado por el usuario.
+
+### Entradas y salidas
+
+-Entradas: Se utilizan vectores de cuenta(bag of words) que no consideran el orden de las palabras:
+
+-Salidas:
+     -Matriz de temas por palabras: representa la probaiblidad de que una palabra pertenezca a un tema.
+     -Matriz de documentos por temas: representa la probabilibad de que un documento pertenezca a un tema.
+
+
+
+### Clasificar articulos en Temas con LDA en Pyton
+
+ted_talks_es.csv
+
+~~~
+
+
+
+
+~~~
+
+## Aprendizaje profundo (Deep Learning) en NLP
+
+### Bienvenido a la seccion del aprendizaje profundo:
+
+-Introduccion al aprendizaje profundo y las redes neuronales profundas
+
+### Objetivos:
+
+- Aprender sobre redes neuronales profundas.
+- Superacion de suposiciones simplificadores anteriores.
+
+### Introduccion a TensorFlow
+
+
+### Del Modelo lineal a la Neurona
+
+-Modelos de redes reuronales artificales
+
+### Redes Neuronales Convolucionales (CNNs)
+
+-Una red neuronal convolucional(CNN) es un tipo de red reuronal que se especializa en el procesamiento de datos estructurados, especialmente en tareas de vision por computadora. Utiliza capas de convolucion para extraer caracteristicas clave de las entradas y es ampliamente utilizada en reconocimiento de imagenes y deteccion de objetos.
+
+### Redes Neuronales Recurrentes (RNNs)
+
+-Las Redes Neuronales Recurrentes (RNNs) son un tipo de arquitectura de red neuronal diseñada para trabajar con datos secuenciales, como series temporales, texto o audio.
+
+-Utilizan conexiones recurrentes entre neuronas, lo que les permite mantener y procesar informacion a lo largo del tiempo, lo que las hace especialmente adecuadas para problemas de prediccion y modelado de secuencias.
+
+-Las RNNs son capaces de aprender dependencias temporales y contextuales en los datos de entrada, lo que las hace utiles en una amplia gama de aplicaciones, como traduccion automatica, reconocimiento de voz y generacion de texto.
+
+## Modelo Regresion Lineal con TensorFlow
 
 
 
