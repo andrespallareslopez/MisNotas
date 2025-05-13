@@ -438,6 +438,247 @@ es necesario que conozcamos las métricas básicas que se emplean para evaluar l
 
 
 
+# BLOQUE4: Tecnicas avanzadas  y de ultima generacion
+
+# Problemas avanzados en aprendizaje automatico
+
+## Uso de multiples modelos para mejorar los resultados
+
+### Tipos de Ensembles
+
+
+
+
+---
+
+Qué son y cómo crear Meta-Clasificadores o Meta-Regresores: Bagging en Machine Learning con Python
+
+https://www.youtube.com/watch?v=NOiKfIhQG6A
+
+Codigo Maquina
+
+---
+
+
+
+
+### Ensembles en R
+
+### DEMO: uso de un ensemble frente a modelos simples
+
+
+## Eliminacion de ruido en imagenes (autoencoders)
+
+
+
+
+## Prediccion de series temporales
+
+
+
+## articulos complementarios relacionados a series temporales
+
+---
+Introducción al modelo ARIMA
+
+https://www.youtube.com/watch?v=HJ8yYAOcymg
+
+---
+Series de Tiempo Preprocesamiento de Datos en Python: Guía Completa Paso a Paso🧑‍💻
+
+https://www.youtube.com/watch?v=143QAYwyAwY
+
+---
+
+Análisis de SERIES DE TIEMPO: guía completa
+
+https://www.youtube.com/watch?v=6VvYgPXnB40
+
+Codificando Bits
+
+---
+
+Análisis Exploratorio de Series de Tiempo con Gráficas de Autocorrelación y Retardo usando Python
+
+https://www.youtube.com/watch?v=U-vdLHdyDLI
+
+
+Codigo Maquina
+
+---
+
+Tutorial: ¿Cómo DESCOMPONER una serie de tiempo?
+
+https://www.youtube.com/watch?v=g76KO0ctsus
+
+
+Codificando Bits
+
+---
+
+Predice el Futuro y Conoce qué es el Pronóstico de Series de Tiempo: Una Introducción con Python
+
+https://www.youtube.com/watch?v=vikPJJ3FsEs&list=PLat2DtY8K7YU4vmmVt1CX6lF4KBUAFbMG
+
+Codigo Maquina
+
+
+---
+
+
+Análisis Exploratorio de Series de Tiempo con Gráficas de Autocorrelación y Retardo usando Python
+
+https://www.youtube.com/watch?v=U-vdLHdyDLI&t=6s
+
+Codigo Maquina
+
+Analisis Visual de Series de tiempo
+
+
+Graficas de Retardo
+
+
+
+
+Graficas de autocorrelacion
+
+
+
+
+
+---
+
+Las 5 formas más Simples de Predecir el FUTURO en Series de Tiempo con Python: Media Móvil y ✚
+
+https://www.youtube.com/watch?v=70U0WYL5KHg
+
+
+Codigo Maquina
+
+---
+
+
+Pronóstico de Series de Tiempo con Suavización Exponencial Simple en Python: Prediciendo el Futuro
+
+https://www.youtube.com/watch?v=BiRDgr-1eII&list=PLat2DtY8K7YU4vmmVt1CX6lF4KBUAFbMG&index=4
+
+
+Codigo Maquina
+
+---
+
+El Modelo ARIMA
+
+https://www.youtube.com/watch?v=U8gOgzSW5Ss
+
+
+Aprendiendo Estadística
+
+---
+
+Análisis de Series de Tiempo y Pronósticos - Clase 01
+
+
+
+
+https://www.youtube.com/watch?v=aUwXWGa8jK0
+
+
+Carlos Monardes
+
+Generar pronosticos:
+
+1.Enfoque intuitivo.
+2.Promedios moviles.
+3.Suavización exponencial.
+4.Analisis de tendencias
+5.Analisis de Regresion.
+
+Pronosticos de datos igualmente espaciados (semanales, mensuales,etc.)
+-Obtenida a traves de observacion de la variable de respuesta en periodos de tiempo regulares
+
+Pronostico basado solo en valores pasados (informacion historica)
+-Se asume que los factores que han influido en el pasado e influyen en el presente seguiran influenciando en el futuro.
+
+
+Descomposicion de las Series de Tiempo:
+
+-Tendencia
+-Estacional
+-Ciclica
+-Aleatoria
+
+#### Componententes de las series de tiempo.
+
+<img src="./img/Componentes_Series_01.png" />
+
+#### Componenentes de una demanda:
+
+<img src="./img/Componenentes_SeriesDemanda_01.png" />
+
+
+Componente Tendencia:
+
+- Patron que represeta el incremento o decremento horizontal de una serie de tiempo durante cierto tiempo periodo.
+
+- La tendencia puede ser parte de un ciclo economico, o bien trascender el ciclo.
+
+- Se ve afectada por el ingreso, la poblacion, la tecnologia, la edad, la cultura,etc...
+
+- Por lo general dura varios años
+
+Componente Estacional:
+
+- Patron de datos que se repite despues de un periodo de dias, semanas, meses o trimestres.
+- Patron debido al clima, costumbres sociales y fiestas.
+- Ocurre dentro de un año
+
+Componente Ciclico:
+
+- Patron que representa los altibajos de la actividad economica, y que se repita cada cierta cantidad de años.
+- Es el mas dificil de indentificar y predecir.
+- Afectados por ciclos de negocios, la politica y factores economicos.
+- A menudo, las relaciones son asociativas (o causales).
+
+Componente Aleatorio:
+
+- Variaciones inexplicadas de los datos.
+- Se puede deber a la casualidad o situaciones inusuales(huelgas,guerras,etc.)
+- No representan ningun patron, y por ello no se pueden predecir.
+- Tienen corta duracion y no son repetitivas.
+
+#### Enfoque de la atenuacion(suavizacion) para las series de tiempo
+
+<img src="./img/Enfoque_Atenuacion_Suavizacion.png" />
+
+#### Enfoque Intuitivo
+
+- Asume que la demanda para el siguiente periodo sera igual a la que produjo en el periodo mas reciente.
+
+Ejemplo si las ventas en Mayo fueron 48, entonces las ventas en Junio seran 48.
+
+- Para algunas lineas de productos este enfoque resulta el mas efectivo en costos y mas eficiente con respecto al objetivo.
+
+#### Promedios Moviles Simples (SMA)
+
+- MA es una serie de medias aritmeticas.
+- Usada si hay poca o nula tendencia.
+- Usada frecuentemente para suavizar.
+   Proporciona un panorama de los datos a traves del tiempo.
+
+- Matematicamente, 
+
+#### Promedios Moviles Ponderados (WMA)
+
+- Usados cuando hay tendencia presente 
+    Datos mas antiguos suelen ser menos importantes
+- Ajusta el promedio de lso datos para reflejar mejor las fluctuaciones (estacionalidad)
+- Las ponderaciones estan basados en experiencia e intuicion
+
+---
+
+
+
 
 
 
