@@ -472,7 +472,103 @@ Codigo Maquina
 
 
 
-## Prediccion de series temporales
+# Prediccion de series temporales
+
+### Tipos de series temporales
+
+- Univariadas
+- Multivariadas
+
+## Componentes de una serie temporal
+
+Una serie temporal, entendida como la sucesión de valores que toma una cierta variable a lo largo del tiempo, generalmente puede ser descompuesta en múltiples partes. No todas las series temporales cuentan con todas las partes, pero muchas de ellas sí que lo hacen.
+
+Hay una tendendencia y una periodicidad.
+
+### Descomposicion de la serie
+
+- La serie temporal original.
+- La tendencia detectada en la serie.
+- La Temporalidad de la serie.
+- La componente aleatoria de la serie.
+
+#### Tendencia de la serie
+La tendencia(trend) de una serie tiene una influencia general sobre todos los valores de esta, marcando si a lo largo del tiempo hay una subida/bajada que se ajusta a una cierta funcion: linear,geormetrica y exponencial,etc.
+
+#### Estacionalidad de la serie
+
+La segunda componente que podemos encontrar en una serie es la temporalidad o estacionalidad. Esta se define como la parte que muestra un comportamiento repetitivo, con periodos fijos, a lo largo de toda la serie.
+
+Nuestra serie de ejemplo tiene claramente una estacionalidad anual. Si observamos los picos y valles(valores maximos y minimos) en cada año, veremos que su forma es practicamente identica a la del año anterior o posterior. Es un comportamiento habitual, por ejemplo, en el consumo electrico. Dependiendo de la zona en que vivimos, el consumo aumentara en invierno, por efecto de la calefaccion, o bien en verano, si hay mucho aire acondicionado.
+
+#### Componente aleatoria
+
+La ultima parte de toda la serie temporal, *y esta existe siempre*, es la componente aleatoria. Su denominacion ya nos da una idea de su naturaleza: es la variacion de los valores que no queda explicada ni por la tendencia ni por la estacionalidad.
+
+*una serie temporal que carece de tendencia y estacionalidad, constando unicamente de la parte aleatoria, se deonomina serie temporal estacionaria.*
+
+#### <u>(Esta difinicion no esta en el curso sacado de un articulo de internet, no pertenece al curso, es una definicion complementaria ) https://estrategiastrading.com/series-estacionarias/ </u>
+
+¿Que es una serie estacionaria?
+
+Se dice que una serie de tiempo es estacionaria cuando su distribucion y sus parametros no varian con el tiempo.
+
+En terminos mas concretos, la media y la varianza de una serie estacionaria no cambian con el tiempo ni tampoco siguen una tendencia.
+
+<img src="./img/Serie_Estacionaria_No_Estacionaria.png" />
+
+La serie de la izquierda tiene una media constante, en cambio, la figura de la derecha muestra una tendencia, y su media se incrementa con el paso de tiempo.
+
+
+
+#### ¿Que componentes tiene mi serie temporal?
+
+El primer problema que suele afrontarse a la hora de trabajar con una serie temporal es determinar que componentes la forman. Con este objetivo suele recurrirse a dos herramientas: la visualizacion y los test estadisticos.
+
+## Prediccion de series temporales con ARIMA
+
+Examinando la literatura expecializada para localizar algoritmos de preccion de series temporales , observaremos que las posibilidades son muchas. Estas van desde los algoritmos estadisticos mas basicos, como son el suavizado expoencial y la media movil hasta las redes neuronales de ultima generacion como las LSTM. No obstante, es probable que haya un nombre con muchas menciones en libros y articulos: ARIMA.
+
+Los metodos mas basicos de prediccion de series temporales cuentan con algunos condicionantes. Por ejemplo, es bastante habitual que dichos metodos precisen que la serie sea estacionaria. La conversion de una serie que no es estacionaria a otra que lo es, implica diferencia la serie original, quedandose con las diferencias entre cada punto en el tiempo y el anterior en lugar de con los valores absolutos originales.
+
+Este proceso de diferenciacion puede tener que aplicarse varias veces hasta que se consigue que la media y la variacion son relativamente invariantes a lo largo de la serie.
+
+Existen test estadisticos que permiten determinar si una serie temporal es estacionaria o no, tiene componente estacional o no. Generalmente, antes de aplicar un algoritmo de prediccion es preciso guiarse por estos test para aplicar  a la serie los preprocesamientos adecuados y elegir el modelo predictivo mas apropiado.
+
+### ¿Que es ARIMA?
+
+Frente a otras opciones puramente estadisticas, ARIMA es un modelo mas complejo con capacidad de afrontar la prediccion procesando series temporales que, no siendo estacionarias, no se hayan diferenciado ni de las que tampocose haya excluido la componente estacional. En relalidad, ARIMA es un *modelo compuesto de dos fases*: 
+
+- una encarcada de hacer predicciones sobre una serie estacionaria 
+- y otra a cargo de la parte estacionaria. 
+
+El resultado de estas dos fases se agrega para obtener la prediccion final.
+
+Para poder afrontar esta tarea, eximiento a quien realiza el estudio de tener que realizar manualmente el proceso de diferenciacion y separacion de la componente estacional, ARIMA no solo tiene en cuenta las dos fases de prediccion indicadas, sino que, ademas, se ocupa de llevar a cabo internamente tareas como la diferenciacion de la serie para convertirla en estacionaria.
+
+
+### Parametros de entrda a ARIMA
+
+La ejecucion de ARIMA precisara uno o dos conjuntos de parametros, dependiendo de que la serie temporal sobre la que se quiere aplicar tenga o no componente estacional. La notacion general de un modelo ARIMA concreto es ARIMA(p,d,q)(P,D,Q)m.El primer conjunto de parametros (p,d,q) determina como se tratara en general la serie; mientras que el segundo:(P,D,Q)m esta vinculado a la parte estacional.
+
+- Con el parametro p se establece el orden de la parte autorregresiva de la serie.
+
+
+# Deteccion de objetos en imagenes
+
+## Conceptos fundamentales
+
+Esencialmente, si tenemos una imagen diriamos que una deteccion consiste en dos cosas:
+
+- Una region rectangular delimitada por 4 valores, dos de ellos indicarian la zona horizontal en la que se encuentran y los otros dos la zona vertical:
+
+- Una identificacion de la tipologia de elemento que se encuentra dentro de dicha region, es decir, una clase. Lo habitual es que la clase vaya asociada a un nivel de confianza, de forma que podamos interpretar la seguridad que se tiene acerca de la calse predicha.
+
+Un modelo de deteccion de objetos, en consecuencia, debe dar como salida una serie de tuplas(region,clase,confianza) de este tipo,identificando los diferentes objetos que sepueden reconocer en la imagen.
+
+## Transfer Learning
+
+
 
 
 
@@ -588,25 +684,25 @@ Carlos Monardes
 
 Generar pronosticos:
 
-1.Enfoque intuitivo.
-2.Promedios moviles.
-3.Suavización exponencial.
-4.Analisis de tendencias
-5.Analisis de Regresion.
+1. Enfoque intuitivo.
+2. Promedios moviles.
+3. Suavización exponencial.
+4. Analisis de tendencias
+5. Analisis de Regresion.
 
 Pronosticos de datos igualmente espaciados (semanales, mensuales,etc.)
--Obtenida a traves de observacion de la variable de respuesta en periodos de tiempo regulares
+- Obtenida a traves de observacion de la variable de respuesta en periodos de tiempo regulares
 
 Pronostico basado solo en valores pasados (informacion historica)
--Se asume que los factores que han influido en el pasado e influyen en el presente seguiran influenciando en el futuro.
+- Se asume que los factores que han influido en el pasado e influyen en el presente seguiran influenciando en el futuro.
 
 
 Descomposicion de las Series de Tiempo:
 
--Tendencia
--Estacional
--Ciclica
--Aleatoria
+- Tendencia
+- Estacional
+- Ciclica
+- Aleatoria
 
 #### Componententes de las series de tiempo.
 
