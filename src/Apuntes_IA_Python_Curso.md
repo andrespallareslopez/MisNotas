@@ -570,6 +570,61 @@ Un modelo de deteccion de objetos, en consecuencia, debe dar como salida una ser
 
 
 
+# Busqueda de soluciones a problemas de optimizacion dificiles
+
+## Problemas clasicos de optimizacion
+
+### Problema del viajante de comercio (TSP)
+
+### Problema de la mochila
+
+### Problemas de optimizacion continua
+
+### Metodos de optimizacion
+
+- Metodos iterativos
+- Algoritmos de optimizacion especificos
+- Heuristicas
+
+## Tecnicas de optimizacion evolutivas (heuristica y en este caso llamado soft computing)
+
+### Funcionamiento general de las tecnicas evolutivas
+
+### Algoritmos de optimizacion basados en principios evolutivos/biologicos
+
+- ACO - Colonias de hormigas
+- SI - Inteligencia de colmena/enjambre
+- PSO - Sistemas de particulas
+- SA - Temple simulado
+- ES - Estrategia evolutiva
+- GA - Algoritmos geneticos
+
+### Equilibrio entre explotacion y exploracion
+
+## Algoritmos geneticos (GA)
+
+La familia de metodos evolutivos la componen diferentes algoritmos, entre los cuales los conocidos como algoritmos geneticos(GA) son probablemente los mas famosos por su relativa sencillez y sus buenos resultados en terminos generales.
+
+
+
+# Modelado generativo de datos
+
+## Redes neuronales generativas
+
+
+
+articulo complemento
+
+GANs 101 - Una introducción práctica al mundo de las redes generativas
+
+https://www.youtube.com/watch?v=XaVDgNtx5lA
+
+
+IA Para Todos
+
+# Los modelos funcionales del lenguaje
+
+
 
 
 ## articulos complementarios relacionados a series temporales
@@ -672,7 +727,7 @@ Aprendiendo Estadística
 
 ---
 
-Análisis de Series de Tiempo y Pronósticos - Clase 01
+# Análisis de Series de Tiempo y Pronósticos - Clase 01
 
 
 
@@ -775,6 +830,46 @@ Ejemplo si las ventas en Mayo fueron 48, entonces las ventas en Junio seran 48.
 
 
 
+
+---
+
+# Redes Neuronales Convolucionales - Transfer Learning
+
+https://www.youtube.com/watch?v=4NgPVGt67Es
+
+
+SensIO
+
+puthorch
+
+<img src="./img/Transfer_learaning_01.png" />
+
+
+
+
+---
+
+Procesamiento de Lenguaje Natural - Transfer Learning
+
+https://www.youtube.com/watch?v=ZRtGW_ddkik
+
+
+SensIO
+
+
+---
+
+# Deep Learning - 04 20 Ejemplo de transfer learning
+
+
+https://www.youtube.com/watch?v=uWBg1Nr71nI
+
+
+Math in the Tropics
+
+
+
+---
 
 
 
