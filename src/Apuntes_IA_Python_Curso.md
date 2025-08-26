@@ -444,7 +444,85 @@ es necesario que conozcamos las métricas básicas que se emplean para evaluar l
 
 ## Uso de multiples modelos para mejorar los resultados
 
+Sabemos que los modelos predictivos, como son los arboles, las maquinas de vectores soporte o las redes neuronales, se generan mediante algoritmos de aprendizaje supervisado, tomando como entrada un conjunto de ejemplos, ya etiquetados con un valor numerico continuo(regresion) o discreto(clase) que son procesados para ajustar las caracteristicas del modelo en si mismo: estructura y variables de decision en los arboles, vectores soporte que determinan la frontera de separacion en las SVM, pesos en las conexiones entre nodos en las redes neuronales,etc.
+
+En lugar de entrenar un unico modelo generamos varios, no identicos sino con sesgos e intereses diferentes, y a la hora de hacer una prediccion preguntamos a todos ellos y decidimos.
+
+En ingles se llama a este uso conjunto de multiples modelos ensemble learning, denominando simplemente ensemble al conjunto de varios predictores. En adelante usaremos este termino preferentemente, ya que la denominacion comunmente aceptada en nuestro idioma, multiclasificador, en realidad puede tener varias interpretaciones diferentes.
+
+
 ### Tipos de Ensembles
+
+En esta leccion se describiran los tres enfoques mas habituales a la hora de crear ensembles, concretamente ensembles de clasificadores que el tipo mas comun. En estos, cada modelo es un clasificador que genera como salida una etiqueta de clase. El ensemble puede estar compuesto por decenas o, mas habiutalmente, cientos de clasificadores individuales.
+
+#### Aspectos generales
+
+##### Diversidad en los modelos
+
+Combinar multiples predictores con el objetivo de mejorar el resultado no tiene sentido si todos ellos son exactamente iguales, dado que en ese caso habria unanimidad en la salida siempre. Lo valioso de tener un conjunto de expertos, denominacion que tambien se usa al hablar de ensembles, es cuando cada uno de ellos aporta su conocimiento personal, desde una perspectiva ligeramente distinta al resto, de forma que la puesta en comun de todas las opiniones sea habitualmente mas acertada que la de un unico individuo.
+
+Existen diferentes maneras de conseguir esa diversidad en los modelos, desde la generacion totalmente aleatoria de cada uno de ellos, la introduccion de alteraciones en la estructura o mediante ajustes de los parametros del modelo empleando subconjuntos de datos
+
+Nota: los tres tipos de ensemble definidos mas adelante, bagging, boosting y random forest, son esencialmente tres enfoques para conseguir la diversidad en los modelos.
+
+##### Estrategia de combinacion de salidas
+
+Por otra parte, es preciso una estrategia para combinar las salidas de los modelos de forma que pueda obtenerse una prediccion unica por cada patron a evaluar. De esta forma, un ensemble de clasificadores se comportaria como un unico clasificador, tomando como entrada los valores de una muestra de datos y generando como salida la clase predicha.
+
+La estrategia mas simple y usada es la del voto mayoritario, es decir, se selecciona como salida el valor que mas modelos sugieren. Asumiendo que tuviesemos n modelos en el ensemble, tal y como muestra en el siguiente diagrama, obtendriamos como resultado otras tantas predicciones. Un simple proceso de conteo de votos nos permitiria elegir el mas frecuente como prediccion final.
+
+##### Ensembles homogeneos vs heterogeneos
+
+Se dice que un ensemble es homogeneo cuando todos sus modelos son de la misma categoria: arboles, SVM, redes neuronales,etc. Es el tipo general de ensemble mas comun y los tres enfoques especificos que se detallan a continuacion son homogeneos.
+
+No obstante, es posible diseñar ensembles usando modelos de diferentes categorias, por ejemplo una combinacion de arboles, SVM y redes neuronales. Esto aportaria mayor diversidad, uno de los requisitos detallados antes, pero a cambio eleva la complejidad del ensemble al tener que ajustar modelos que son de muy diversa naturaleza.
+
+Nota: el modelo subyacente mas empleado para crear ensembles es el DT o arbol de decision. Este tiene la ventaja de ser facilmente interpretable y, en general, no se necesita un proceso de entrenamiento muy caro computacionalmente para crear decenas o cientos de arboles, en contraposicion a otros modelos como las redes neuronales.
+
+##### Bagging
+
+El nombre bagging procede de las partes inicial y final de la denominacion completa de esta tecnica: Bootstrap Aggregating. Asumiendo que se tiene un conjunto de datos D y que el tamaño del ensemble va a ser de m modelos, la tecnica de bagging consigue la diversidad en los modelos de la siguiente forma:
+
+1. Se generan m versiones diferentes de D, a las que llamamos D´i, siendo i un valor ente 1 y m, empleando para ello la seleccion aleatoria uniforme con reemplazo. Si esos conjuntos de datos tienen el mismo tamaño que el original, este tipo de seleccion, conocida como bootstrap, implica que en cada uno de ellos tendremos 1-1/e(aproximadamente un 63%) de instancias unicas de D, mientras que el resto  seran instancias repetidas. Seran, por tanto, variantes ligeramente diferentes del conjunto de datos original.
+2. Con cada conjunto de datos D´i se entrena un modelo Mi. Aunque bagging puede usar otro tipo de predictores, lo habitual es que los modelos sean arboles de decision. Al final tendriamos m arboles ajustados con conjuntos de datos ligeramente diferentes.
+3. Se procesan las instancias de test entregando cada muesra a los m modelos y agregando los votos, estableciendo como clase de salida mas votada.
+   
+Nota: un aspecto interesante de bagging es que el proceso de entrenamiento de los m modelos es totalmente independiente, por lo que resulta facil de paralelizar consiguiendo la construccion del ensemble en un menor tiempo.
+
+Gracias a la union de multiples modelos que no han visto datos, bagging permite reducir el sobreajuste y el sesgo que muestra un modelo individual, por lo que, tiene mejor rendimiento.
+
+##### Bosting
+
+La tecnica boosting para creacion de ensembles es mas sotisficada que la de bagging. La idea fundamental, usando la misma notacion previa para el dataset D y los modelos Mi i pertenece [1,m] se basa en los casos descritos a continuacion:
+
+1. Se entrena el modelo Mi empleando las muestras en D.
+2. Se evaluan los fallos que comete Mi identificando las muestras no correctamente clasificados.
+3. Tras ajustar los pesos internos asociados tanto a las muestras como a los propios modelos del ensemble, se vuelve el paso 1 hasta completar los m modelos.
+   
+El paso 3 es fundamental, ya que mediante el ajuste de los pesos se consigue que el modelo Mi+1, otorgue mayor importancia a la correcta clasificacion de las muestras en las que Mi ha fallado. Por ello se dice que boosting es una tecnica iterativa, secuencial, en la que los modelos van construyendose en funcion de los resultados previos.
+
+Nota: el proceso de construccion de un ensemble con la tecnica de boosting es inherentemente secuencial. A diferencia de bagging, no es facil de paralelizar ya que cada modelo se construye tomando en cuenta el resultado del anterior.
+
+##### Random Forest
+
+La propia denominacion de este tipo de ensemble, bosque aleatorio, transmite de foma indirecta cuales son los fundamentos en que se apoya: arboles de decision, la union de cientos de ellos forma un bosque, generados de forma aleatoria.
+
+El punto de partida de random forest(RF en adelante) es el mismo que para la tecnica de bagging. Se generan m conjuntos de datos D´i a partir del D original, entrenando a continuacion m modelos ligeramente diferentes. La novedad respecto a bagging y que otorga una ventaja muy importante a RF, es que no solamente se toman de forma aleatoria instancias, si no que cada arbol se ajusta con un subconjunto distinto de atributos, tomados tambien aleatoriamente.
+
+
+---
+Clasificación usando Datos Desbalanceados
+
+https://www.youtube.com/watch?v=3pxi3rsmM5o
+
+Ciencia de Datos y AI
+
+---
+
+
+
+
+
 
 
 
@@ -469,8 +547,29 @@ Codigo Maquina
 
 ## Eliminacion de ruido en imagenes (autoencoders)
 
+Existen diferentes tipos de ruido que pueden afectar de distinta manera a la calidad de una imagen. El ruido gaussiano aditivo, por ejemplo, es uno de los mas comunes, donde cada pixel se desvia del color real siguiendo una distribucion normal
 
+El tratamiento de ruido se puede abordar mediante una serie de filtros convencionales, que operan con los pixeles de una forma preestablecida para tratar de eliminar tipos de ruido conocidos. En la biblioteca Scikit-image de Python podras encontrar varios de estos filtros.
 
+Sin embargo, en el caso de que queramos limpiar un tipo concreto de imagenes o estemos tratando con un tipo de ruido menos habitual, una solucion alternativa sera abordar la limpieza mediante metodos de aprendizaje automatico.
+
+### Que es un autoencoder
+
+En este caso, el problema que abordamos guarda una importante diferencia, y es que el modelo que construyamos no debe calcular como salida un simple valor numerico o de clase, sino un dato del mismo tamaño y estructura que el de entrada.
+
+En los escenarios en que la salida de un modelo de aprendizaje debe generar datos complejos o con cierta estructura, es muy comun aprovechar el comportamiento de abstraccion de las redes neuronales para comprender una estructura de codificador-decodificador. En el componente codificador, se extrae la informacion relevante del dato de entrada y se computauna representacion mas util para la tarea que se esta optimizando.En el decodificador, se transforma la nueva representacion en una salida valida para el problema. Por ejemplo,este tipo de modelos son de los mas utilizados en traduccion de frase de un idioma a otro.
+
+Una situacion especial para los modelos codificador-decodificador surge cuando el dato que debe salir de la red es igual o similar al de entrada. En muchas ocasione, lo que nos interesa puede ser la representacion intermedia que se alcanza en el codificador, puesto que nos puede informar acerca de las relaciones entre las instancias y descubrir estructura interta en el conjunto de datos. A veces tambien puede ser util la transformacion de entrada que se obtiene a la salida del modelo.
+
+En cualquiera de estos casos, se puede trabajar con un tipo de estructuras codificador-decodificador denominados autoencoders.
+
+### Representaciones y codigos
+
+En un ambito comunicativo se suele llamar codigo al lenguaje que comparten el emisor y el receptor para poder entender los mensajes que se envian. Un mismo mensaje, por tanto puede tener varios representantes seguen el codigo que utilicemos.
+
+### Arquitectura de un autoencoder
+
+Un autoencoder, en esencia, es una red neuronal que aprende un codigo mas util de los datos de entrada mediante una estrategia de reconstruccion: la representacion debe servir para recuperar el dato original con la maxima fidelidad posible. De esa forma, nos aseguramos de que obtenemos representantes para nuestros datos que deben preservar suficiente informacion util como para, al menos, recuperar cada dato original
 
 # Prediccion de series temporales
 
@@ -568,6 +667,25 @@ Un modelo de deteccion de objetos, en consecuencia, debe dar como salida una ser
 
 ## Transfer Learning
 
+### Redes neuronales para la deteccion de objetos
+
+### Modelos multietapa
+
+El principal exponente de los modelos que detectan objetos mediante al menos una etapa de obtencion de regiones de interes y otra de clasificacion de las regiones se llama R-CNN(Region-based Convolutional Neural Network, red neuronal convolucional basada en regiones).
+
+Esta clase de modelos se basan en una arquitectura convolucional a la que se acopla un metodo de busqueda de regiones de interes. Para entrenar modelos, se pasan todas las regiones de interes de cada imagen a la red convolucional y esta se optimiza para clasificarlas correctamente como objetos de una determinada clase o bien fondo.
+
+A continuacion, para cada clase, se entrena un modelo de maquina de vectores de soporte, que toma como entrada el mapa de caracteristicas de la ultima capa convolucional de la red. Para esta fase, se considera que una region contiene un objeto si se solapa en al menos un 30% con la caja definida en los datos de entrenamiento.
+
+### Modelos de una etapa
+
+#### YOLO
+
+#### SSD
+
+#### CenterNEt
+
+
 
 
 # Busqueda de soluciones a problemas de optimizacion dificiles
@@ -589,6 +707,17 @@ Un modelo de deteccion de objetos, en consecuencia, debe dar como salida una ser
 ## Tecnicas de optimizacion evolutivas (heuristica y en este caso llamado soft computing)
 
 ### Funcionamiento general de las tecnicas evolutivas
+
+1.Poblacion inicial
+2.Evaluar individuos
+3.Seleccionar y/o actualizar individuos
+4.Nueva Poblacion
+
+
+
+
+
+
 
 ### Algoritmos de optimizacion basados en principios evolutivos/biologicos
 
@@ -612,7 +741,7 @@ La familia de metodos evolutivos la componen diferentes algoritmos, entre los cu
 ## Redes neuronales generativas
 
 
-
+---
 articulo complemento
 
 GANs 101 - Una introducción práctica al mundo de las redes generativas
@@ -621,6 +750,8 @@ https://www.youtube.com/watch?v=XaVDgNtx5lA
 
 
 IA Para Todos
+
+---
 
 # Los modelos funcionales del lenguaje
 
