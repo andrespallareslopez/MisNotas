@@ -3,6 +3,22 @@ Titulo: "Apuntes Git"
 ---
 
 # Apuntes Git
+
+---
+
+Descripcion: Como forzar una rama a que aplique gitignore, si no lo aplicado.
+
+Puede pasar que tengamos que añadir un fichero .gitignore en un repositorio ya creado que no tiene este archivo, tenemos que forzar a que solo tome los archivos de codigo y configuracion necesario, y deseche las demas carpetas que no deberian de estar en el repositorio, pero que sin embargo, se han añadido, y tenemos que forzar a que el repositorio tenga y aplique el fichero .gitignore
+
+
+
+~~~
+git rm -r --cached .
+
+
+git add .
+~~~
+
 ---
 Descripcion: Estrategias para Organizar Repositorios: Mono Repo, Multi Repo, Meta Repo
 
