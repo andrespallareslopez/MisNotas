@@ -73,7 +73,7 @@ AGENT_ALLOW_RUNASROOT=1 ./config.sh
 y descargamos dicho tar para posteriormente descomprimirlo y configurar el agente lanzado el script ./config.sh
 ~~~
 
-
+comandos a utilizar para instalar y lanzar el agente azure devops
 
 ~~~
 
@@ -89,6 +89,10 @@ apt-get install git
 cd agente01
 tar zxvf vsts-agent-linux-x64-4.261.0.tar.gz
 
+# ejecutar
+./bin/installdependencies.sh
+
+
 export AGENT_ALLOW_RUNASROOT=1
 
 AGENT_ALLOW_RUNASROOT=1 ./config.sh
@@ -98,8 +102,6 @@ AGENT_ALLOW_RUNASROOT=1 ./run.sh
 
 
 
-# ejecutar
-./bin/installdependencies.sh
 
 ~~~
 
@@ -191,6 +193,9 @@ parametros del publicador y creacion del artefacto de la build de la aplicacion
 
 
 ~~~
+npm install -g @sonar/scan
+
+
 sonar -Dsonar.host.url=http://localhost:9099 -Dsonar.token=sqp_08bde0f5489893d647aacbcbecbd5c0cd98e0f2c -Dsonar.projectKey=agencia-modernizacion
 
 sonar -Dsonar.host.url=http://localhost:9099 -Dsonar.token=sqp_ad69f5965ba4cbb965493625e9130703a31f18a1 -Dsonar.projectKey=MABA_MABA_3f52e002-c2eb-44ad-b9fc-b68adf706406
