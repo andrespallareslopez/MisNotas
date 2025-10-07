@@ -6,7 +6,7 @@ Titulo: "Apuntes Git"
 
 ---
 
-Descripcion: Como forzar una rama a que aplique gitignore, si no lo aplicado.
+Descripcion: Como forzar una rama a que aplique gitignore, si no lo aplicado. tambien esta en ingles como git ignone not working, mas abajo al final del documento.
 
 Puede pasar que tengamos que añadir un fichero .gitignore en un repositorio ya creado que no tiene este archivo, tenemos que forzar a que solo tome los archivos de codigo y configuracion necesario, y deseche las demas carpetas que no deberian de estar en el repositorio, pero que sin embargo, se han añadido, y tenemos que forzar a que el repositorio tenga y aplique el fichero .gitignore
 
