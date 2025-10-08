@@ -68,6 +68,8 @@ ir a un apartado de azure y descargarse un agente en la carpeta linux que creare
 
 # url para descargarse el agente
 
+https://download.agent.dev.azure.com/agent/4.261.0/vsts-agent-win-x64-4.261.0.zip
+
 https://download.agent.dev.azure.com/agent/4.261.0/vsts-agent-linux-x64-4.261.0.tar.gz
 
 
@@ -83,7 +85,7 @@ tar zxvf vsts-agent-linux-x64-4.261.0.tar.gz
 
 export AGENT_ALLOW_RUNASROOT=1
 
-AGENT_ALLOW_RUNASROOT=1 ./config.sh
+AGENT_ALLOW_RUNASROOT=1 ./config.sh --sslskipcertvalidation
 
 
 
@@ -765,6 +767,11 @@ docker push maba4b.azurecr.io/samples/hello-world
 
 
 ~~~
+
+
+
+
+
 
 
 
