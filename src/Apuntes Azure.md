@@ -218,6 +218,11 @@ ___
 
 
 
+### Choosing right identity for Azure Services | Managed Identity vs Service Principal
+
+https://www.youtube.com/watch?v=YurTaeQ2fak
+
+
 
 
 
