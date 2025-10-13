@@ -10,10 +10,12 @@ podman search ubuntu
 # bajamos una imagen de ubuntu
 podman pull docker.io/library/ubuntu
 
+#Creamos una instancia de ubuntu en podman o docker
 podman run -dit --name=MAGA ubuntu
 
 podman run -dit --name=MAGA4b ubuntu
 
+#Entramos por consola bash para hacer configuraciones, o ciertas operaciones que nos convengan
 podman exec -it MAGA /bin/bash
 
 podman exec -it MAGA4b /bin/bash
@@ -32,6 +34,7 @@ apt-get install wget
 apt-get install curl
 apt-get install sudo
 apt-get install git
+apt-get install zip
 
 git config --global http.sslVerify false
 
@@ -55,7 +58,7 @@ tar zxvf vsts-agent-linux-x64-4.261.0.tar.gz
 
 export AGENT_ALLOW_RUNASROOT=1
 
-AGENT_ALLOW_RUNASROOT=1 ./config.sh
+AGENT_ALLOW_RUNASROOT=1 ./config.sh --sslskipcertvalidation
 
 
 ~~~
@@ -74,3 +77,10 @@ AGENT_ALLOW_RUNASROOT=1 ./config.sh remove
 ~~~
 
 El agente para levantarlo en modo servicio en linux, hay que ver, investigar, que tenga un arranque automativo, como servicio.
+
+
+
+
+
+
+

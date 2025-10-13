@@ -769,10 +769,46 @@ docker push maba4b.azurecr.io/samples/hello-world
 ~~~
 
 
+### Desplegar archivos en Azure App Service
+
+https://learn.microsoft.com/es-es/azure/app-service/deploy-zip?tabs=api
+
+
+implementar sin la interfaz de usuario de implementación de ZIP en Kudu
+~~~
+# Microsoft Entra authentication
+TOKEN=$(az account get-access-token --query accessToken | tr -d '"')
+
+curl -X POST \
+     -H "Authorization: Bearer $TOKEN" \
+     -T @"<zip-package-path>" \
+     "https://<URL>/api/publish?type=zip"
+
+# Basic authentication
+curl -X POST \
+     -u '<username>:<password>' \
+     -T "<zip-package-path>" \
+     "https://<URL>/api/publish?type=zip"
+
+
+~~~
+
+az account set --subscription "<subscription ID or name>"
 
 
 
+### What are my options authenticating the az devops CLI?
 
+https://blogs.blackmarble.co.uk/rfennell/what-are-my-options-authenticating-az-devops-api/
+
+
+~~~
+az ad sp create-for-rbac --name myServicePrincipalName1 --role reader --scopes /subscriptions/00000000-0000-0000-0000-000000000000
+~~~
+
+~~~
+az login --service-principal -u <appID> -p <password> --tenant <tenantid>
+~~~
 
 
 
