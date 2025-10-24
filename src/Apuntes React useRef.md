@@ -20,3 +20,6 @@ https://davidwalsh.name/react-useprevious-hook
 
 ___
 
+### como usar react refs entre componentes? React.forwardRef & props.innerRef
+
+https://www.youtube.com/watch?v=ccSMPMf9AkA

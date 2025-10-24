@@ -796,8 +796,8 @@ curl -X POST \
 az account set --subscription "<subscription ID or name>"
 
 
-
 ### What are my options authenticating the az devops CLI?
+
 
 https://blogs.blackmarble.co.uk/rfennell/what-are-my-options-authenticating-az-devops-api/
 
@@ -808,7 +808,106 @@ az ad sp create-for-rbac --name myServicePrincipalName1 --role reader --scopes /
 
 ~~~
 az login --service-principal -u <appID> -p <password> --tenant <tenantid>
+
+
+
+
+~~~
+
+### Web App (Windows) restart operations
+
+https://azure.github.io/AppService/2021/09/16/App-Service-Restarts.html
+
+User-Initiated restart operations
+From a user perspective, a restart can be initiated by using any of the following methods:
+
+App Service restart in portal/PowerShell/Azure CLI
+
+in portal es desde la parte visual de azure.
+
+Deployment slots restarts
+
+Swap operations
+
+
+### Using Kudu, Azure App Service, and Local Git Deployment to Hasten Application Deployment
+
+https://medium.com/@ynskrn54/using-kudu-azure-app-service-and-local-git-deployment-to-hasten-application-deployment-ad3de4552472
+
+
+### Open an SSH session to a container in Azure App Service
+
+https://learn.microsoft.com/en-us/azure/app-service/configure-linux-open-ssh-session?pivots=container-linux
+
+open SSH session in browser
+
+az webapp ssh
+
+https://learn.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-ssh
+
+Open SSH session with Azure CLI
+
+~~~
+
+az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
+
+
+~~~
+
+### Reboot App Service Instance
+
+https://blog.brooksjc.com/2024/01/22/reboot-app-service-instance/
+
+### App Service Plans - Reboot Worker
+
+https://learn.microsoft.com/en-us/rest/api/appservice/app-service-plans/reboot-worker?view=rest-appservice-2024-11-01
+
+
+### Microsoft identity platform and OAuth 2.0 authorization code flow
+
+https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow
+
+
+
+
+
+### How does `az account get-access-token --resource api://<appid>` work behind the scenes to retrieve an access token?
+
+https://stackoverflow.com/questions/77904736/how-does-az-account-get-access-token-resource-api-appid-work-behind-the
+
+
+~~~
+Consider the following command that attempts to retrieve an access token:
+
+az account get-access-token --resource api://<appid>
+
+# This works, if the Azure CLI is a preauthorized client application: 04b07795-8ddb-461a-bbee-02f9e1bf7b46
+
+
+# mas ejemplos extraidos del articulo
+az account get-access-token --scope "api://my_app_id_guid/TestScope"
+
+az login --scope api://<guid>/TestScope
+az account get-access-token --resource "api://<guid>" --scope "api://<guid>/TestScope" --query accessToken
+
+
+
+
 ~~~
 
 
+### Sign into Azure with a managed identity using Azure CLI
 
+https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli-managed-identity?view=azure-cli-latest
+
+
+~~~
+az login --identity
+
+az login --identity --client-id <client_id>
+
+az login --identity --object-id <object_id>
+
+az login --identity --resource-id <resource_id>
+
+~~~
