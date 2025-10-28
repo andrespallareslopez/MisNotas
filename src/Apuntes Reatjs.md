@@ -27,11 +27,11 @@ Titulo: "Apuntes React js"
 - [MiduDev:Crea una app con React usando create-react-app](#midudevcrea-una-app-con-react-usando-create-react-app)
   - [MiduDev:CSS Grid, Infinite Scroll y Tests en nuestra app de React](#midudevcss-grid-infinite-scroll-y-tests-en-nuestra-app-de-react)
 - [MiduDev:Creando Custom Hooks y usando Context para conseguir un estado global en ReactJS](#midudevcreando-custom-hooks-y-usando-context-para-conseguir-un-estado-global-en-reactjs)
-  - [React & Typescript, Ejemplo Práctico sencillo](#react--typescript-ejemplo-práctico-sencillo)
+  - [React \& Typescript, Ejemplo Práctico sencillo](#react--typescript-ejemplo-práctico-sencillo)
   - [Webpack - TypeScript - React boilerplate from Scratch!](#webpack---typescript---react-boilerplate-from-scratch)
   - [Lazy Load, Suspense y paginación con React](#lazy-load-suspense-y-paginación-con-react)
   - [CRUD FullStack React JS, ASP.NET Core y SQL Server || Tutorial en Español || Parte 1](#crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-español--parte-1)
-  - [React Lazy Loading & Code splitting](#react-lazy-loading--code-splitting)
+  - [React Lazy Loading \& Code splitting](#react-lazy-loading--code-splitting)
   - [React Formularios – Formik Parte 1](#react-formularios--formik-parte-1-1)
   - [Build a website with React, React-Bootstrap, React-Router and Styled-Components](#build-a-website-with-react-react-bootstrap-react-router-and-styled-components)
   - [5 top React Hooks libraries compared](#5-top-react-hooks-libraries-compared)
@@ -43,6 +43,13 @@ Titulo: "Apuntes React js"
   - [react-loader-spinner](#react-loader-spinner)
   - [midudev:Cómo usar React.memo, mejorar el rendimiento y hacer deploy con Vercel de nuestra app de React](#midudevcómo-usar-reactmemo-mejorar-el-rendimiento-y-hacer-deploy-con-vercel-de-nuestra-app-de-react)
   - [midudev:useReducer y tests de hooks con react-hooks-testing-library](#midudevusereducer-y-tests-de-hooks-con-react-hooks-testing-library)
+  - [CRUD FullStack React JS, ASP.NET Core y SQL Server || Tutorial en Español || Parte 1](#crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-español--parte-1-1)
+  - [midudev:Fetching y Mutación de Datos en React con el hook useEffect](#midudevfetching-y-mutación-de-datos-en-react-con-el-hook-useeffect)
+  - [Cómo utilizar USE REDUCER en React HOOKS!](#cómo-utilizar-use-reducer-en-react-hooks)
+  - [Curso React: 45. Validación Formularios: Definición de componentes y lógica ( 1 / 4 ) - jonmircha](#curso-react-45-validación-formularios-definición-de-componentes-y-lógica--1--4----jonmircha)
+  - [Curso React: 46. Validación Formularios: Programación de eventos ( 2 / 4 ) - jonmircha](#curso-react-46-validación-formularios-programación-de-eventos--2--4----jonmircha)
+  - [CRUD FullStack React JS, ASP.NET Core y SQL Server || Tutorial en Español || Parte 1](#crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-español--parte-1-2)
+    - [React Dnd Kit - Drag and Drop en React](#react-dnd-kit---drag-and-drop-en-react)
 
 
 
@@ -3006,6 +3013,18 @@ export default App;
 
 ___
 
+### React Dnd Kit - Drag and Drop en React
+
+https://www.youtube.com/watch?v=swFjfjLXe3I
+
+Fazt Code
+
+~~~
+npm create vite
+
+
+
+~~~
 
 
 ___
