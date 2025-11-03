@@ -290,6 +290,11 @@ https://itblogsogeti.com/2015/07/23/la-nueva-era-de-la-autentificacion-claims-am
 ___
 
 
+### How to Protect Endpoints with Role-Based Access Control in .NET
+
+https://www.youtube.com/watch?v=12GSnW1JMO8
+
+Milan Jovanović
 
 
 

@@ -224,6 +224,15 @@ import {render} from 'testing-librry/react'
 describe('Accordion',()=>{
     expect(1+1).toBe(2)
     
+    test("should add two numbers",()=>{
+       render(
+          <Accordion title="hello" >
+             <h3>My Content</h3>
+             <p>some content</p>
+          </Accordion>
+       )
+    })
+    expect(screen.getByText("hello")).toBeDefined()   
     
     
 })
@@ -545,7 +554,21 @@ it("increments counter",()=>{
 
 ~~~
 
+Si tenemos contexto de usuario tenemos que envolver por contextprovider o algo parecido
+~~~
+it("should not render app with providers",() =>{
+    render(
+       <ContextProvider value={{name:"Shubham Kulkarni"}}>
+          <App />
+       </ContextProvider>
+       
+       
+    )
+})
 
+
+
+~~~
 
 
 
