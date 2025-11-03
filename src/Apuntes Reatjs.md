@@ -50,6 +50,8 @@ Titulo: "Apuntes React js"
   - [Curso React: 46. Validación Formularios: Programación de eventos ( 2 / 4 ) - jonmircha](#curso-react-46-validación-formularios-programación-de-eventos--2--4----jonmircha)
   - [CRUD FullStack React JS, ASP.NET Core y SQL Server || Tutorial en Español || Parte 1](#crud-fullstack-react-js-aspnet-core-y-sql-server--tutorial-en-español--parte-1-2)
     - [React Dnd Kit - Drag and Drop en React](#react-dnd-kit---drag-and-drop-en-react)
+    - [Consulta de Tanstack](#consulta-de-tanstack)
+    - [APRENDE React Query DESDE CERO: Paginación, Infinite Scroll, DevTools](#aprende-react-query-desde-cero-paginación-infinite-scroll-devtools)
 
 
 
@@ -3029,9 +3031,23 @@ npm create vite
 
 ___
 
+### Consulta de Tanstack
+
+https://www.youtube.com/watch?v=e74rB-14-m8
 
 
 
+
+~~~
+npm install @tanstack/react-query
+
+
+~~~
+
+
+### APRENDE React Query DESDE CERO: Paginación, Infinite Scroll, DevTools
+
+https://www.youtube.com/watch?v=WKfVjQUa6nE
 
 
 
