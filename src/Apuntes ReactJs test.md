@@ -1,5 +1,17 @@
 # Apuntes React Js Test
 
+vitest fastTestFolder1/ fastTestFolder2/
+
+en vite.config.ts
+
+test:{
+  include:['./vitest/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
+}
+
+tsconfig.app.json
+
+"exclude": ["vitest/**/*"],
+
 ### Cómo hacer tests en React con Vitest y Testing Library
 
 https://www.youtube.com/watch?v=Ysv_3OQYOMg
@@ -163,11 +175,6 @@ import '@testing-library/jest-dom'
 
 
 
-
-
-
-
-
 ### React Vitest Tutorial, Unit Testing con React Testing Library y Typescript
 
 https://www.youtube.com/watch?v=Yocj2BB3AQU
@@ -240,12 +247,6 @@ describe('Accordion',()=>{
 ~~~
 
 
-
-
-
-
-
-
 ### React Testing Vite V2: nueva introducción
 
 https://www.youtube.com/watch?v=CxSL0knFxAs&t=6s
@@ -265,14 +266,22 @@ npm install --save-dev vitest @testing-library/react @testing-library/user-event
 
 
 
-
-
-
-
 ### Como hacer Testing Unitario con Vitest en Reactjs
 
 https://www.youtube.com/watch?v=sshsoHlNdyY
 
+Garaje de ideas
+
+utiliza useForm
+
+~~~
+npm install vitest --save-dev
+npm install jsdom --save-dev
+npm install @testing-library/react @testing-library/jest-dom --save-dev
+npm install --save-dev @testing-library/user-event
+
+
+~~~
 
 
 vite-env.d.ts
@@ -281,11 +290,113 @@ vite-env.d.ts
 /// <reference types="vite/client" />
 /// <reference types="vitest">
 
+~~~
+
+podemos crear una carpeta test, y dentro un fichero setup.ts
+
+~~~
+/// <reference types="vite/client" />
+/// <reference types="vitest">
+
+import {afterEach} from "vitest"
+import {cleanup} from '@testing-library/react'
+import '@testing-library/jest-dom/vitest'
+
+afterEach(()=>{
+    #limpiar el dom despues de cada prueba
+    cleanup()
+
+})
+
+~~~
+
+
+en el fichero vite.config.ts
+~~~
+import {defineConfig} from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+  test:{
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.ts'
+  }
+})
+
+
+~~~
+
+Creamos el fichero RegisterForm.test.tsx
+
+~~~
+import {render} from '@testing-library/react'
+import {beforeEach,describe,expect,it,vi} from 'vitest'
+import RegisterForm from '../components/RegisterForm'
+
+describe('RegisterForm',()=>{
+
+  let mockFn = vi.fn()
+  beforeEach(()=>{
+     render(<RegisterForm createUser={mockFn} />)
+  })
+   
+  it("se muestra el titulo del formulario",()=>{
+    const h1 = screen.getByRole('heading',{level:1})
+    expect(h1).toBeInDocument()
+    expect(h1.textContent).toBe("Formulario de registro")
+  }) 
+  
+  it("se envia el formulario correctamente", async ()=>{
+     const userTest: User = {username:'mariog',email:'mario@gmail.com',password:'12345'}
+
+     const inputUsername = screen.getByLabelText('Nombre de usuario')
+     const inputEmail = screen.getByLabelText('Email')
+     const inputPassword = screen.getByLabelText("password")
+     const btnSubmit = screen.getByRole('button',{name:'Enviar'})
+
+     await userEvent.type(inputUsername,userTest.username)
+     await userEvent.type(inputEmail,userTest.email)
+     await userEvent.type(inputPassword, userTest.password)
+     
+     await userEvent.click(btnSubmit)    
+     
+     expect(mockFn).toHaveBeenCalled()
+     expect(mockFn).toHaveBeenCalledWith(userTest)
+
+  })  
+
+  it("se muestra el texto de informacion", async ()=>{
+     let paragraph = screen.queryByText(/para poder registrarse/i)
+     expect(paragraph).not.toBeInTheDocument()
+     
+     const paragraphInfo = screen.getByText(/mas informacion/i)
+     
+     await userEvent.hover(paragraphInfo)
+     
+     paragraph = screen.queryByText(/para poder registrarse/i)
+     expect(paragraph).toBeInTheDocument()
+     
+     await userEvent.unhover(paragraphInfo)
+
+     paragrahp = sceeen.queryByText(/para poder registrarse/i)
+     expect(paragraph).not.toBeInTheDocument()
+
+      
+  })
+  
+})
+
 
 
 
 
 ~~~
+
+
+
+
+
 
 ### How to Mock Fetch API in Vitest
 
@@ -559,7 +670,7 @@ Si tenemos contexto de usuario tenemos que envolver por contextprovider o algo p
 it("should not render app with providers",() =>{
     render(
        <ContextProvider value={{name:"Shubham Kulkarni"}}>
-          <App />
+          <App /mdboo>
        </ContextProvider>
        
        
@@ -570,7 +681,260 @@ it("should not render app with providers",() =>{
 
 ~~~
 
+### React Testing Tutorial - 18 - getByRole
 
+https://www.youtube.com/watch?v=Veaql3noyyo&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=18
+
+
+~~~
+import {render,screen} from "@testing-library/react"
+import { Application} from "./application"
+
+describe("Application",() =>{
+  render(<Application />)
+  const nameElement = screen.getByRole("textbox")
+  expect(nameElement).toBeInTheDocument()
+
+  const jobLocationElement = screen.getByRole("combobox")
+  expect(jobLocationElement).toBeInTheDocument()
+
+  const termsElement = screen.getByRole("checkbox")
+  expect(termsElement).toBeInTheDocument()
+
+  const submitButtonElement = screen.getByRole("button")
+  expect(submitButtonElement).toBeInTheDocument()
+
+  
+
+  
+})
+
+
+
+~~~
+
+### React Testing Tutorial - 19 - getByRole Options
+
+https://www.youtube.com/watch?v=jq7Q_MwotDA&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=19
+
+getByRole Options
+
+name:
+
+The accesible name is for simple cases equal to
+
+1. the label of a form element
+2. the text content of a button or
+3. the value of the aria-label attribute
+   
+
+
+~~~
+import {render,screen} from "@testing-library/react"
+import { Application} from "./application"
+
+describe("Application",() =>{
+  render(<Application />)
+
+   
+  const pageHeading= screen.toBeInDocument()
+  expect(pageHeading).toBeInTheDocument()
+  
+  const sectionHeading = screen.getByRole('heading',{name:'Section 1'})
+
+  expect(sectionHeading).toBeInTheDocument()
+
+
+
+
+
+  const nameElement = screen.getByRole("textbox",{
+    name: "Name",
+  })
+  expect(nameElement).toBeInTheDocument()
+  
+  const bioElement = screen.getByRole('textbox',{name: 'Bio'})
+  expect(bioElement).toBeInTheDocument()
+
+  
+  const jobLocationElement = screen.getByRole("combobox")
+  expect(jobLocationElement).toBeInTheDocument()
+
+  const termsElement = screen.getByRole("checkbox")
+  expect(termsElement).toBeInTheDocument()
+
+  const submitButtonElement = screen.getByRole("button")
+  expect(submitButtonElement).toBeInTheDocument()
+
+  
+})
+
+
+
+~~~
+
+
+### React Testing Tutorial - 28 - Query Multiple Elements
+
+https://www.youtube.com/watch?v=YgYx8Y6Vbck&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=28
+
+RTL(React Test Library) getBy Queries
+
+getByRole
+getByLabelText
+getByPlaceholderText
+getByText
+getByDisplayValue
+getByAltText
+getByTitle
+getByTestId
+
+query single element on the DOM
+
+RTL getAllBy Queries
+
+Find multiple elements in the DOM
+
+getAllBy returns an arry of all matching nodes for a query, and throws an error if no elements match
+
+getAllByRole
+getAllByLabelText
+getAllByPlaceholderText
+getAllByText
+getAllByDisplayValue
+getAllByAltText
+getAllByTitle
+getAllByTestId
+
+
+~~~
+import {render,screen} from "@testing-library/react"
+import {Skills} from "./skills"
+
+describe("Skills", ()=>{
+   const skills = ["HTML","CSS","Javascript"]
+
+   test("renders correctly",()=>{
+     render(<Skills skills={skills}>)
+     const listElement = screen.getByRole("list")
+     expect(listElement).toBeInTheDocument()
+   })
+   
+   test("renders a list of skills",()=>{
+     render(<Skills skills={skills} />)
+     const listItemElements = screen.getAllByRole("listitem")
+     expect(listItemElements).toHaveLength(Skills.Length)
+   })
+
+})
+
+
+
+~~~
+
+### React Testing Tutorial - 41 - Act Utility
+
+https://www.youtube.com/watch?v=W7CbUiO3_28&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=41
+
+
+~~~
+import {renderHook,act} from "@testing-library/react"
+import {useCounter} from "./useCounter"
+
+describe("useCounter",()=>{
+   test("should render the initial count",()=>{
+    const {result} = renderHook(useCounter);
+    expect(result.current.count).toBe(0)
+   })
+
+   test("should accept and render the same iniitial count",()=>{
+      const {result} = renderHook(useCounter,{
+        initialProps:{
+          initialCount:10
+          }
+        })
+      expect(result.current.count).toBe(10)
+   })
+   
+   test("should increment the count",()=>{
+      const {result} = renderHook(useCounter)
+      act(()=> result.current.increment())
+      expect(result.current.decrement())
+      expect(result.current.count).toBe(-1)
+   })
+   
+   
+   
+})
+
+
+~~~
+
+### React Testing Tutorial - 42 - Mocking Functions
+
+https://www.youtube.com/watch?v=TuxmnyhPdhA&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=42
+
+
+~~~
+import {render,screen} from "@testing-library/react"
+import {CounterTwo} from "./counter-two"
+import user from "@testing-library/user-event"
+
+describe("CounterTwo",()=>{
+  test("render correctly",()=>{
+    render(<CounterTwo count={0}>)
+    const textElement = screen.getByText("Counter Two")
+    expect(textElement).toBeInTheDocument()
+  })
+
+  test("handlers are called", async ()=>{
+    user.setup()
+    const incrementHandler = jest.fn()
+    const decrementHandler = jest.fn()
+    
+    render(<CounterTwo count={0} handleIncrement={incrementHandler} handleDecrement={decrementHandler} />)
+
+    const incrementButton = screen.getByRole("button", {name:"Increment"})
+    const decrementButton = screen.getByRole("button", {name:"Decrement"})
+
+    await user.click(incrementButton)
+    await user.click(decrementButton)
+    
+    expect(incrementHandler).toHaveBeenCalledTimes(1)
+    expect(decrementHandler).toHaveBeenCalledTimes(1)
+    
+    
+    
+  })
+
+
+})
+
+
+~~~
+
+### React Testing Tutorial - 32 - Manual Queries
+
+https://www.youtube.com/watch?v=TyI8qAKswzo&list=PLC3y8-rFHvwirqe1KHFCHJ0RqNuN61SJd&index=32
+
+
+Manual Queries
+
+RTL Queries
+
+- getBy & getAllBy
+- queryBy & queryAllBy
+- findBy & findAllBy
+
+Manual queries - you can use the regular querySelector DOM Api to find elements
+
+
+~~~
+const {container} = render(<MyComponent />)
+
+const foo = container.querySelector('data-foo="bar"')
+
+~~~
 
 
 
