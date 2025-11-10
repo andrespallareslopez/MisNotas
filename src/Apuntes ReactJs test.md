@@ -198,7 +198,7 @@ creamos el fichero vite.config.ts
 
 ~~~
 /// <reference types="vitest" />
-/// <reference types="vitest/client" />
+/// <reference types="vite/client" />
 import {defineConfig} from 'vite'
 import react from '@vitejs'
 
@@ -456,7 +456,7 @@ describe('Todo Service', () => {
 
 
 ~~~
-mport { describe, test, expect, vi } from 'vitest'
+import { describe, test, expect, vi } from 'vitest'
 import { createTodo, fetchTodoList } from './todo.service'
 
 global.fetch = vi.fn()
@@ -934,6 +934,16 @@ const {container} = render(<MyComponent />)
 
 const foo = container.querySelector('data-foo="bar"')
 
+~~~
+
+### Constructing a Request for a relative URL fails
+
+https://github.com/vitest-dev/vitest/issues/4434
+
+
+~~~
+
+new Request(new URL('/api/foo', import.meta.url))
 ~~~
 
 
