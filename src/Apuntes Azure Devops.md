@@ -185,10 +185,132 @@ https://medium.com/swlh/azure-function-build-and-release-pipeline-in-azure-devop
 
 ___
 
+### Learn Live - Build your first Bicep template
+
+https://www.youtube.com/watch?v=jncLNpZzDz0&list=PLlrxD0HtieHjzqIRjPoERUGj49rve3rCM&index=2
+
+plantillas biceps
+
+-Parametros
+-Expresiones
+
+~~~
+resource appServicePlan 'Microsoft.Web/serverFarms@2021-03-01' = {
+   name: 'toy-product-launch-plan'
+   location: 'westus3'
+   sku: {
+     name: 'F1'
+   }
+}
+
+resource appServicePlan 'Microsoft.Web/serverFarms@2021-03-01' = {
+   name: 'toy-product-launch-plan'
+   location: 'westus3'
+   sku: {
+     serverFarmId: appServicePlan.id
+     httpsOnly: true
+   }
+}
 
 
+#abrimos una terminal
+az group create -g Demo1 -l westus3
+
+az deployment group create -g Demo1 -f main.bicep
+
+#establecer parametros
+param location string = resourceGroup().location
+
+param storageAccountName string = uniqueString(resourceGroup().id)
+
+param storageAccountName string = 'toylaunch${uniqueString(resourceGroup().id)}'
+
+@allowed(['nonprod' 'prod'])
+param environmentType string
+
+param environmentType string
+
+var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
+var appServicePlanSkuName = (environmentType == 'prod') ? 'P2v3' : 'F1'
 
 
+#definir modulos reutilizables
+module myModule 'modules/mymodule.bicep' = {
+  name: 'MyModule'
+  params: {
+    location: location
+  }
+}
 
+
+~~~
 
 ___
+
+
+### Learn Live - Build reusable Bicep templates by using parameters
+
+https://www.youtube.com/watch?v=Z27yyo18ckQ&list=PLlrxD0HtieHjzqIRjPoERUGj49rve3rCM&index=3
+
+Tipos de parametros:
+
+string
+int 
+bool
+object
+array
+
+
+~~~
+
+param appServicePlanSku object = {
+    name: 'F1'
+    tier: 'Free'
+    capacity: 1  
+} 
+
+param cosmosDBAAccountLocations array = [
+  {
+    locationName: 'australiaeast'
+  }
+  {
+    locationName: 'southcentralus'
+  }
+  {
+    locationName: 'westeurope'
+  }
+
+]
+
+@allowed([
+  'P1v3'
+  'P2v3'
+  'P3v3'
+])
+param appServicePlanSkuName string
+
+
+minLength(5)
+maxLength(24)
+param storageAccountName string
+
+@description('')
+param cosmosDBAcoountLocations array
+
+
+
+az configure --defaults group=learn-ae081dc6-78c5-4d20-a122-8bf0b420528
+
+az deployment group create --template-file main.bicep
+
+az deployment group create --template-file main.bicep --parameter parameter.json
+
+
+
+~~~
+
+
+
+
+
+
