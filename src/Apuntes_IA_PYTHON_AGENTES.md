@@ -183,3 +183,11 @@ https://www.youtube.com/watch?v=mWFNAwkn1dU
 
 
 ---
+
+## Microsoft Agent Framework WorkFlows Explained
+
+https://www.youtube.com/watch?v=KQ09sMHeFQY&list=PLlrxD0HtieHg8On6t1l5_kj--7PMmyfGi&index=2
+
+
+
+---
