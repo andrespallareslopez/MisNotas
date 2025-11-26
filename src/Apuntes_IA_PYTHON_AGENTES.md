@@ -191,3 +191,100 @@ https://www.youtube.com/watch?v=KQ09sMHeFQY&list=PLlrxD0HtieHg8On6t1l5_kj--7PMmy
 
 
 ---
+
+## Microsoft Agent Framework Introduction - AI in C#
+
+https://www.youtube.com/watch?v=9RNF9GsB8PU&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx
+
+
+---
+
+## Zero to First Agent (Azure OpenAI) - AI in C# (Microsoft Agent Framework)
+
+
+https://www.youtube.com/watch?v=aQD4vhzQRvI&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=2
+
+
+
+
+---
+
+## Zero to First Agent (Azure AI Foundry) - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=DoyeSZqim08&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=5
+
+
+---
+
+## Using Gemini/Claude/Grok/Offfline - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=GbyEQWwBMFk&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=5
+
+
+---
+## How to get Token Usage - AI in C# (Microsoft Agent Framework)
+
+
+https://www.youtube.com/watch?v=ghND74Hj6Fs&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=6
+
+---
+
+## AI Cost Overview - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=7OoNWbyHdGw&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=7
+
+
+---
+
+## Dependency Injection - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=q-mHdd6iJJo&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=8
+
+
+---
+
+## Persistent Conversations - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=p5AvoMbgPtI&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=9
+
+---
+## Basic Tool Calling - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=gJTodKpv8Ik&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=10
+
+
+---
+
+## Advanced Tool Calling - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=dCtojrK8bKk&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=11
+
+
+---
+## MCP Tool Calling - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=Y5IKdt9vdJM&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=12
+
+---
+## MCP Tool Calling - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=Y5IKdt9vdJM&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=12
+
+---
+## Structured Output - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=BNB7zO3Uqwc&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=13
+
+---
+## Controlling Reasoning Effort - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=c-NdQCYp09I&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=14
+
+## How to work with inputs other than text - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=AJZhHHnsFXY&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=15
+
+
+
+
+---

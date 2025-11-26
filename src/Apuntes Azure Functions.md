@@ -98,3 +98,28 @@ https://learn.microsoft.com/en-us/samples/azure-samples/azure-spring-boot-sample
 
 ___
 
+## Learn Azure Functions Python V2 (Local Setup and Examples)
+
+https://www.youtube.com/watch?v=I-kodc4bs4I
+
+
+---
+
+## Setup Your First Azure Functions App (Python) using Visual Studio Code | Step-by-Step Guide 2023
+
+https://www.youtube.com/watch?v=YQtVJ7qVXDs
+
+
+
+---
+
+## Learn Azure Functions Python V2 (Part 2: Deploy, Configure, and Use in Azure)
+
+https://www.youtube.com/watch?v=_349bwtFkE8
+
+
+---
+
+
+
+---
