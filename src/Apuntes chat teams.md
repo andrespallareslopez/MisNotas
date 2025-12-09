@@ -16,6 +16,29 @@ https://github.com/OfficeDev/microsoft-teams-ui-component-library
 https://www.youtube.com/watch?v=19R2qAoLhdg
 
 
+## Fluent UI React Trainings: Core concepts, state management & Triggers API
+
+https://www.youtube.com/watch?v=19R2qAoLhdg
+
+
+Los componentes aqui explicados son para react
+
+~~~
+
+
+
+
+
+~~~
+
+
+## Tailwind CSS - ⭐ Fundamentos desde Cero ⭐ [Tutorial en Español]
+
+https://www.youtube.com/watch?v=3xlUAMXui2c&list=PLPl81lqbj-4JdoHDiERR2ptkw9zRggXAL
+
+
+
+
 
 
 

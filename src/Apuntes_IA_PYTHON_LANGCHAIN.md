@@ -8,9 +8,15 @@ https://www.youtube.com/watch?v=yF9kGESAi3M
 
 
 ---
+## LANGCHAIN 🤯 Chateando con un PDF
+
+https://www.youtube.com/watch?v=OW6hAuAsor0
+
+
 
 
 ---
+
 
 
 ---

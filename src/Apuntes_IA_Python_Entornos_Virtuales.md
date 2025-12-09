@@ -2,6 +2,14 @@
 
 Como establecer ambientes en Python
 
+
+~~~
+pip install -r .\requirements.txt
+
+~~~
+
+
+
 ## Cómo crear un ENTORNO VIRTUAL en Visual Code con Python 2024 
 
 https://www.youtube.com/watch?v=Fo-jkW8rPs8&t=434s
@@ -161,3 +169,13 @@ nombre_del_entorno\Scripts|deactivate
 
 
 ---
+
+~~~
+pip install -r .\requirements.txt
+
+~~~
+
+
+
+
+
