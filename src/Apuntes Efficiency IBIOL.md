@@ -80,16 +80,65 @@ muy interesante y parece completo
 
 https://www.youtube.com/watch?v=uJqg36XNUXM&list=PL7HAy5R0ehQWCPPv0GslmkiWCfb9oeBeZ
 
+
 ## Curso Completo de LangChain 🚀 IA Conversacional desde Cero
 
 https://www.youtube.com/watch?v=wnpjqPOK5JU&list=PL7HAy5R0ehQWCPPv0GslmkiWCfb9oeBeZ&index=2
 
 
+## How to make a Drag-and-Drop file uploader
+
+
+https://uploadcare.com/blog/how-to-make-a-drag-and-drop-file-uploader/
+
+
+
+## Finally a Local RAG That WORKS!! (+ FULL RAG Pipeline)
+
+https://www.youtube.com/watch?v=c5jHhMXmXyo
+
+## markdown-it libreria para parsear markdown
+
+https://github.com/markdown-it/markdown-it
+
+## Build a Markdown Previewer
+
+https://www.geeksforgeeks.org/html/build-a-markdown-previewer/
+
+## Cómo Crear una RAG App Eficiente - (Descubre el Factor CLAVE que Nadie te cuenta)
+
+https://www.youtube.com/watch?v=Mg3xOWWaF0c
+
+## Crea AGENTES de IA con LangGraph y Python
+
+https://www.youtube.com/watch?v=LS4pALyrm00
+
+## LangGraph: Intro
+
+https://www.youtube.com/watch?v=5h-JBkySK34&list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg
+
+
+
+~~~
 
 
 
 
 
+~~~
 
+## Introducción a LangGraph: Crea Sistemas Multi-agentes en Python
+
+https://www.youtube.com/watch?v=fDCcDkKWabY
+
+
+~~~
+
+
+~~~
+
+## Knockout.js Succinctly
+
+https://www.syncfusion.com/succinctly-free-ebooks/knockoutjs/observables
 
 
