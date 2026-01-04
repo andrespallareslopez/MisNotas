@@ -142,3 +142,56 @@ https://www.youtube.com/watch?v=fDCcDkKWabY
 https://www.syncfusion.com/succinctly-free-ebooks/knockoutjs/observables
 
 
+## 01. ¿Qué es FastAPI? | #Curso de Introducción a #FastAPI 2024 - #Backend con #Python
+
+https://www.youtube.com/watch?v=gIdLS_ShdnM&list=PLHftsZss8mw7pSRpCyd-TM4Mu43XdyB3R&index=3
+
+## 02. Instalación de herramientas de trabajo | Curso de Introducción a FastAPI 2024
+
+https://www.youtube.com/watch?v=dk0BG_PDH7s&list=PLHftsZss8mw7pSRpCyd-TM4Mu43XdyB3R&index=3
+
+## 03. Creación de primera aplicación | Curso de Introducción a FastAPI 2024
+
+https://www.youtube.com/watch?v=O23LpHEQHhw&list=PLHftsZss8mw7pSRpCyd-TM4Mu43XdyB3R&index=4
+
+## 04. Documentación automática | Curso de Introducción a FastAPI 2024
+
+https://www.youtube.com/watch?v=5gwCOje67Js&list=PLHftsZss8mw7pSRpCyd-TM4Mu43XdyB3R&index=5
+
+
+## RabbitMQ - Tutorial 1 - Why RabbitMQ?
+
+https://www.youtube.com/watch?v=iQ4kENLfaNI&list=PLalrWAGybpB-UHbRDhFsBgXJM1g6T4IvO
+
+
+## RabbitMQ- Tutorial 3 - Core Concepts
+
+https://www.youtube.com/watch?v=iIjCjUKwzZw&list=PLalrWAGybpB-UHbRDhFsBgXJM1g6T4IvO&index=3
+
+
+
+## RabbitMQ- Tutorial 4a - First Program Python Implementation
+
+https://www.youtube.com/watch?v=kwQDpHcM4HM&list=PLalrWAGybpB-UHbRDhFsBgXJM1g6T4IvO&index=4
+
+## Introducción a Azure AI Foundry Local
+
+https://www.youtube.com/watch?v=it4-7Z025YI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
