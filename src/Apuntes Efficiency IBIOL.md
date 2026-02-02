@@ -178,6 +178,9 @@ https://www.youtube.com/watch?v=kwQDpHcM4HM&list=PLalrWAGybpB-UHbRDhFsBgXJM1g6T4
 
 https://www.youtube.com/watch?v=it4-7Z025YI
 
+## ¿Cómo instalar Pyenv en Windows?
+
+https://4geeks.com/es/how-to/instalar-pyenv-windows
 
 
 
