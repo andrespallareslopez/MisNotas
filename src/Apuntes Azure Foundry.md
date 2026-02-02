@@ -75,5 +75,16 @@ Ricardo Josue
 
 
 
+## Zero to First Agent (Azure OpenAI) - AI in C# (Microsoft Agent Framework)
+
+https://www.youtube.com/watch?v=aQD4vhzQRvI&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=2
+
+
+~~~
+
+
+~~~
+
+
 
 

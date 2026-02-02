@@ -182,11 +182,13 @@ https://www.youtube.com/watch?v=it4-7Z025YI
 
 https://4geeks.com/es/how-to/instalar-pyenv-windows
 
+## How To Create Access Token From Microsoft Graph API In Python
 
+https://www.youtube.com/watch?v=7ywUs54eGBo&list=PL3JVwFmb_BnT9Ti0MMRj5nPF7XoN-4MQx
 
+## How To Save Microsoft Graph API Token In A Token File
 
-
-
+https://www.youtube.com/watch?v=AjOfAQCZsJU&list=PL3JVwFmb_BnT9Ti0MMRj5nPF7XoN-4MQx&index=2
 
 
 
