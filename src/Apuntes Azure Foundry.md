@@ -80,6 +80,42 @@ Ricardo Josue
 https://www.youtube.com/watch?v=aQD4vhzQRvI&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW34Cx&index=2
 
 
+
+
+
+~~~
+
+
+~~~
+
+Authenticate your Azure OpenAI Based App Using Microsoft Entra ID & Managed Identity
+
+## Authenticate Your Azure OpenAI - Python App Using Microsoft Entra ID
+
+https://www.youtube.com/watch?v=ad9IIz40z3g
+
+utiliza AzureOpenAI
+
+mirar la documentacion oficial de microsoft sobre DefaultAzureCredential Class
+
+utiliza un comando powershell
+Connect-AzAccount
+
+para lance una ventana para pedir la cuenta de microsoft
+
+
+
+~~~
+
+
+~~~
+
+## Authenticate Your Azure OpenAI - Python App Using Managed Identity
+
+https://www.youtube.com/watch?v=6d1ykllZNGw
+
+
+
 ~~~
 
 
@@ -87,4 +123,31 @@ https://www.youtube.com/watch?v=aQD4vhzQRvI&list=PLhGl0l5La4sYXjYOBv7h9l7x6qNuW3
 
 
 
+---
 
+
+Autorización de OAuth 2.0 mediante el proveedor de identidades
+
+https://learn.microsoft.com/es-es/azure/api-management/api-management-authenticate-authorize-ai-apis
+
+
+Azure API Management instance
+
+## Quickstart: Create a new Azure API Management instance by using the Azure portal
+
+https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
+
+ver que tipo de autorizacion hay en oauth2
+
+
+## Protección de la autenticación y autorización de Azure OpenAI
+
+curso para azure openai
+
+https://learn.microsoft.com/es-es/training/modules/secure-azure-openai-authentication-authorization/?source=recommendations
+
+## Unlocking the Power of Azure OpenAI: How to Seamlessly Integrate ChatGPT with Client Credentials
+
+https://medium.com/@singhvis929/unlocking-the-power-of-azure-openai-how-to-seamlessly-integrate-chatgpt-with-client-credentials-37c318606fb2
+
+Azure role-based access control(Azure RBAC)
