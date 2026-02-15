@@ -151,3 +151,51 @@ https://learn.microsoft.com/es-es/training/modules/secure-azure-openai-authentic
 https://medium.com/@singhvis929/unlocking-the-power-of-azure-openai-how-to-seamlessly-integrate-chatgpt-with-client-credentials-37c318606fb2
 
 Azure role-based access control(Azure RBAC)
+
+
+## AzureOpenAI: Missing credentials of `api_key`, `azure_ad_token`, `azure_ad_token_provider`
+
+https://stackoverflow.com/questions/78764560/azureopenai-missing-credentials-of-api-key-azure-ad-token-azure-ad-token
+
+
+
+~~~
+# Source - https://stackoverflow.com/a/78778517
+# Posted by Badia Alfathi
+# Retrieved 2026-02-06, License - CC BY-SA 4.0
+
+import openai
+# Set up the Azure OpenAI configuration
+openai.api_type = "azure"
+openai.api_base = "https://XXXX.openai.azure.com/"
+openai.api_key = "XXXX"
+openai.api_version = "XXXX"
+
+def generate_comment():
+prompt_ = ""
+    messages = [
+        {"role": "system", "content": "You will generate comments based on the given data."},
+        {"role": "user", "content": prompt_}
+    ]
+    # Send a completion call to Azure OpenAI to generate a comment
+    response = openai.ChatCompletion.create(
+        engine="XXXX", # engine = "deployment_name"
+        messages=[
+            {"role": "system", "content": "You will generate comments based on the given data."},
+            {"role": "user", "content": prompt_}
+        ],
+        max_tokens=50,
+        temperature=0.35
+    )
+    return response['choices'][0]['message']['content']
+
+~~~
+
+## Microsoft Ai: Azure Ai Foundry Agent Service. Python SDK Ai Foundry
+
+https://www.youtube.com/watch?v=zE2KvVFm2VM
+
+
+
+
+

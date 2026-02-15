@@ -190,7 +190,9 @@ https://www.youtube.com/watch?v=7ywUs54eGBo&list=PL3JVwFmb_BnT9Ti0MMRj5nPF7XoN-4
 
 https://www.youtube.com/watch?v=AjOfAQCZsJU&list=PL3JVwFmb_BnT9Ti0MMRj5nPF7XoN-4MQx&index=2
 
+## Use Microsoft Graph to query SharePoint items
 
+https://mmsharepoint.wordpress.com/2021/01/11/use-microsoft-graph-to-query-sharepoint-items/
 
 
 

@@ -38,8 +38,20 @@ https://www.youtube.com/watch?v=xvRwwAF_-X4
 
 El laboratorio de Rafa
 
+~~~
+
+
+
+~~~
+
 
 ---
+Installing pgvector in Preparation for Retrieval Augmented Generation
+
+https://www.mindfiretechnology.com/blog/archive/installing-pgvector-in-preparation-for-retrieval-augmented-generation/
+
+
+
 
 
 
