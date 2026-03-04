@@ -197,8 +197,16 @@ https://mmsharepoint.wordpress.com/2021/01/11/use-microsoft-graph-to-query-share
 
 
 
+## Interactive Authentication to Microsoft Graph using MSAL with Python and Delegated Permissions
 
 
+https://blog.darrenjrobinson.com/interactive-authentication-to-microsoft-graph-using-msal-with-python-and-delegated-permissions/
 
 
+## How to integrate with the SharePoint API via Python
 
+https://www.merge.dev/blog/sharepoint-api-python
+
+## Getting data from a SharePoint-hosted Excel file in Python
+
+https://poznyakovskiy.medium.com/getting-data-from-a-sharepoint-hosted-excel-file-in-python-dd4e8bb723d5
