@@ -210,3 +210,13 @@ https://www.merge.dev/blog/sharepoint-api-python
 ## Getting data from a SharePoint-hosted Excel file in Python
 
 https://poznyakovskiy.medium.com/getting-data-from-a-sharepoint-hosted-excel-file-in-python-dd4e8bb723d5
+
+## Agent Skills with Anthropic
+
+https://www.deeplearning.ai/short-courses/agent-skills-with-anthropic/
+
+
+
+
+
+
