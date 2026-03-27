@@ -1,7 +1,6 @@
 [book]
 authors = ["LAPTOP-CGJ3RLTN\\andre"]
 language = "en"
-multilingual = false
 src = "src"
 title = "Mis notas"
 
